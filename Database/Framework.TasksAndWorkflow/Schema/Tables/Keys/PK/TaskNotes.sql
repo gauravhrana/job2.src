@@ -1,0 +1,6 @@
+﻿ALTER TABLE dbo.TaskNotes
+	ADD CONSTRAINT PK_TaskNotes PRIMARY KEY CLUSTERED 
+	(
+		TaskNotesId
+	)  
+GO

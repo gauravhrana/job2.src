@@ -1,0 +1,6 @@
+﻿ALTER TABLE dbo.UseCase
+	ADD CONSTRAINT PK_UseCase PRIMARY KEY CLUSTERED 
+	(
+		UseCaseId
+	)  
+GO

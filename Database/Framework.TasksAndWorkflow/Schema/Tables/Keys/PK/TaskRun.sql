@@ -1,0 +1,6 @@
+﻿ALTER TABLE dbo.TaskRun
+	ADD CONSTRAINT PK_TaskRun PRIMARY KEY CLUSTERED 
+	(
+		TaskRunId
+	)  
+GO

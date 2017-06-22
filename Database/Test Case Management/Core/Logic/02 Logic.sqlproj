@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+    <PostConversionRemoveFromScc>
+    </PostConversionRemoveFromScc>
+    <PostConversionAddToScc>
+    </PostConversionAddToScc>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <TargetDatabase>02 Logic</TargetDatabase>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>02 Logic</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <GenerateDac>true</GenerateDac>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DacApplicationName>$(MSBuildProjectName)</DacApplicationName>
+    <DacVersion>1.0.0.0</DacVersion>
+    <DacDescription>
+    </DacDescription>
+    <RootNamespace>Logic</RootNamespace>
+    <DefaultSchema>dbo</DefaultSchema>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <SccAuxPath />
+    <SccLocalPath>..\..</SccLocalPath>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7053aeba-aa67-41d1-9450-496df4675aec}</ProjectGuid>
+    <GenerateDatabaseFile>False</GenerateDatabaseFile>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <DefaultCollation>SQL_Latin1_General_CP1_CS_AS</DefaultCollation>
+    <AnsiNullDefault>True</AnsiNullDefault>
+    <AnsiNulls>True</AnsiNulls>
+    <AnsiPadding>True</AnsiPadding>
+    <AnsiWarnings>True</AnsiWarnings>
+    <ArithAbort>True</ArithAbort>
+    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
+    <QuotedIdentifier>True</QuotedIdentifier>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <DatabaseState>ONLINE</DatabaseState>
+    <UpdateOptions>READ_WRITE</UpdateOptions>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DefaultCursor>LOCAL</DefaultCursor>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <TornPageDetection>False</TornPageDetection>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <Recovery>FULL</Recovery>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <Trustworthy>False</Trustworthy>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <PageVerify>NONE</PageVerify>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <Parameterization>SIMPLE</Parameterization>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+    <DefaultFileStreamFilegroup />
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>master</TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+    <DacDatabaseCollation>SQL_Latin1_General_CP1_CI_AS</DacDatabaseCollation>
+    <ValidatePolicy>True</ValidatePolicy>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>master</TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+    <DacDatabaseCollation>SQL_Latin1_General_CP1_CI_AS</DacDatabaseCollation>
+    <ValidatePolicy>True</ValidatePolicy>
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <Folder Include="Deploy Scripts" />
+    <Folder Include="Stored Procedures" />
+    <Folder Include="Views" />
+    <Folder Include="Rules" />
+    <Folder Include="Functions" />
+    <Folder Include="Stored Procedures\TestSuite" />
+    <Folder Include="Stored Procedures\TestCase" />
+    <Folder Include="Stored Procedures\TestRun" />
+    <Folder Include="Stored Procedures\TestSuiteXTestCase" />
+    <Folder Include="Stored Procedures\TestCaseOwner" />
+    <Folder Include="Stored Procedures\TestCasePriority" />
+    <Folder Include="Stored Procedures\TestCaseStatus" />
+    <Folder Include="Stored Procedures\TestSuiteXTestCaseArchive" />
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Deploy Scripts\deployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Deploy Scripts\ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuite\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuite\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuite\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuite\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuite\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuite\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuite\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCase\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCase\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCase\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCase\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCase\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCase\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCase\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuite\Renumber.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCase\Renumber.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestRun\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestRun\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestRun\ReNumber.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestRun\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestRun\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestRun\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestRun\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestRun\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuiteXTestCase\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuiteXTestCase\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuiteXTestCase\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuiteXTestCase\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuiteXTestCase\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuiteXTestCase\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuiteXTestCase\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCaseOwner\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCaseOwner\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCaseOwner\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCaseOwner\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCaseOwner\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCasePriority\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCasePriority\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCasePriority\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCasePriority\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCasePriority\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCasePriority\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCasePriority\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCaseStatus\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCaseStatus\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCaseStatus\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCaseOwner\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCaseStatus\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCaseStatus\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCaseStatus\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCaseStatus\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuiteXTestCaseArchive\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuiteXTestCaseArchive\SearchForHistory.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuiteXTestCaseArchive\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuiteXTestCaseArchive\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuiteXTestCaseArchive\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuiteXTestCaseArchive\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuiteXTestCaseArchive\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestSuiteXTestCaseArchive\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\TestCaseOwner\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Functions\Split.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{64B45B30-B6F4-4532-9A04-DB3213F21909}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "02 Logic", "Core\Logic\02 Logic.sqlproj", "{7053AEBA-AA67-41D1-9450-496DF4675AEC}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Reference Data", "Core\Reference Data\Reference Data.sqlproj", "{8405FB1D-7581-49A5-9F6F-D94222D57845}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "01 Schema", "Core\Schema\01 Schema.sqlproj", "{B46BD070-5107-48AE-82E5-8C751721747B}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Unit Test", "Core\Unit Test\Unit Test.sqlproj", "{C5156FC1-07E6-4267-AAAA-2AD03623D2BB}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 5
+		SccProjectName0 = SurroundSCMScci
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Surround\u0020SCM
+		SccProjectUniqueName1 = Core\\Reference\u0020Data\\Reference\u0020Data.sqlproj
+		SccProjectTopLevelParentUniqueName1 = DB\u0020TCM.sln
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = Core\\Reference\u0020Data\\
+		SccProjectUniqueName2 = Core\\Unit\u0020Test\\Unit\u0020Test.sqlproj
+		SccProjectTopLevelParentUniqueName2 = DB\u0020TCM.sln
+		SccLocalPath2 = .
+		SccProjectFilePathRelativizedFromConnection2 = Core\\Unit\u0020Test\\
+		SccProjectUniqueName3 = Core\\Logic\\02\u0020Logic.sqlproj
+		SccProjectTopLevelParentUniqueName3 = DB\u0020TCM.sln
+		SccLocalPath3 = .
+		SccProjectFilePathRelativizedFromConnection3 = Core\\Logic\\
+		SccProjectUniqueName4 = Core\\Schema\\01\u0020Schema.sqlproj
+		SccProjectTopLevelParentUniqueName4 = DB\u0020TCM.sln
+		SccLocalPath4 = .
+		SccProjectFilePathRelativizedFromConnection4 = Core\\Schema\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7053AEBA-AA67-41D1-9450-496DF4675AEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7053AEBA-AA67-41D1-9450-496DF4675AEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7053AEBA-AA67-41D1-9450-496DF4675AEC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7053AEBA-AA67-41D1-9450-496DF4675AEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7053AEBA-AA67-41D1-9450-496DF4675AEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7053AEBA-AA67-41D1-9450-496DF4675AEC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8405FB1D-7581-49A5-9F6F-D94222D57845}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8405FB1D-7581-49A5-9F6F-D94222D57845}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8405FB1D-7581-49A5-9F6F-D94222D57845}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8405FB1D-7581-49A5-9F6F-D94222D57845}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8405FB1D-7581-49A5-9F6F-D94222D57845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8405FB1D-7581-49A5-9F6F-D94222D57845}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B46BD070-5107-48AE-82E5-8C751721747B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B46BD070-5107-48AE-82E5-8C751721747B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B46BD070-5107-48AE-82E5-8C751721747B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B46BD070-5107-48AE-82E5-8C751721747B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B46BD070-5107-48AE-82E5-8C751721747B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B46BD070-5107-48AE-82E5-8C751721747B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C5156FC1-07E6-4267-AAAA-2AD03623D2BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5156FC1-07E6-4267-AAAA-2AD03623D2BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5156FC1-07E6-4267-AAAA-2AD03623D2BB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C5156FC1-07E6-4267-AAAA-2AD03623D2BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5156FC1-07E6-4267-AAAA-2AD03623D2BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5156FC1-07E6-4267-AAAA-2AD03623D2BB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7053AEBA-AA67-41D1-9450-496DF4675AEC} = {64B45B30-B6F4-4532-9A04-DB3213F21909}
+		{8405FB1D-7581-49A5-9F6F-D94222D57845} = {64B45B30-B6F4-4532-9A04-DB3213F21909}
+		{B46BD070-5107-48AE-82E5-8C751721747B} = {64B45B30-B6F4-4532-9A04-DB3213F21909}
+		{C5156FC1-07E6-4267-AAAA-2AD03623D2BB} = {64B45B30-B6F4-4532-9A04-DB3213F21909}
+	EndGlobalSection
+EndGlobal

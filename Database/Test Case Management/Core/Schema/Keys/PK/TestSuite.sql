@@ -1,0 +1,6 @@
+﻿ALTER TABLE dbo.TestSuite
+	ADD CONSTRAINT PK_TestSuite PRIMARY KEY CLUSTERED 
+	(
+		TestSuiteId
+	)  
+GO

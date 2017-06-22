@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "Logic", "Logic\Logic.dbproj", "{40AF87B6-AB37-428B-8D1B-3079E5E58372}"
+EndProject
+Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "Reference Data", "Reference Data\Reference Data.dbproj", "{77176C99-5CB9-4F77-8672-5C7D6997A37F}"
+EndProject
+Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "Schema", "Schema\Schema.dbproj", "{4E3ADC42-8F04-4512-9BDB-2A7E74EC78FB}"
+EndProject
+Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "Unit Test", "Unit Test\Unit Test.dbproj", "{3BEF0A4A-8835-44FA-8B20-53EB3F667859}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 5
+		SccProjectName0 = SurroundSCMScci
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Surround\u0020SCM
+		SccProjectUniqueName1 = Logic\\Logic.dbproj
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = Logic\\
+		SccProjectUniqueName2 = Reference\u0020Data\\Reference\u0020Data.dbproj
+		SccLocalPath2 = .
+		SccProjectFilePathRelativizedFromConnection2 = Reference\u0020Data\\
+		SccProjectUniqueName3 = Schema\\Schema.dbproj
+		SccLocalPath3 = .
+		SccProjectFilePathRelativizedFromConnection3 = Schema\\
+		SccProjectUniqueName4 = Unit\u0020Test\\Unit\u0020Test.dbproj
+		SccLocalPath4 = .
+		SccProjectFilePathRelativizedFromConnection4 = Unit\u0020Test\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40AF87B6-AB37-428B-8D1B-3079E5E58372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40AF87B6-AB37-428B-8D1B-3079E5E58372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40AF87B6-AB37-428B-8D1B-3079E5E58372}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{40AF87B6-AB37-428B-8D1B-3079E5E58372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40AF87B6-AB37-428B-8D1B-3079E5E58372}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40AF87B6-AB37-428B-8D1B-3079E5E58372}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{77176C99-5CB9-4F77-8672-5C7D6997A37F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77176C99-5CB9-4F77-8672-5C7D6997A37F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77176C99-5CB9-4F77-8672-5C7D6997A37F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{77176C99-5CB9-4F77-8672-5C7D6997A37F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77176C99-5CB9-4F77-8672-5C7D6997A37F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77176C99-5CB9-4F77-8672-5C7D6997A37F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4E3ADC42-8F04-4512-9BDB-2A7E74EC78FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E3ADC42-8F04-4512-9BDB-2A7E74EC78FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E3ADC42-8F04-4512-9BDB-2A7E74EC78FB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4E3ADC42-8F04-4512-9BDB-2A7E74EC78FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E3ADC42-8F04-4512-9BDB-2A7E74EC78FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E3ADC42-8F04-4512-9BDB-2A7E74EC78FB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3BEF0A4A-8835-44FA-8B20-53EB3F667859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BEF0A4A-8835-44FA-8B20-53EB3F667859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BEF0A4A-8835-44FA-8B20-53EB3F667859}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3BEF0A4A-8835-44FA-8B20-53EB3F667859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BEF0A4A-8835-44FA-8B20-53EB3F667859}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BEF0A4A-8835-44FA-8B20-53EB3F667859}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+    <PostConversionRemoveFromScc>
+    </PostConversionRemoveFromScc>
+    <PostConversionAddToScc>
+    </PostConversionAddToScc>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>02 Logic</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+    <RootNamespace>Logic</RootNamespace>
+    <DefaultSchema>dbo</DefaultSchema>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <SccAuxPath />
+    <SccLocalPath>..</SccLocalPath>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{bf5ce598-7aa1-419a-b8ad-b175456873cb}</ProjectGuid>
+    <GenerateDatabaseFile>False</GenerateDatabaseFile>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <AnsiNullDefault>True</AnsiNullDefault>
+    <AnsiNulls>True</AnsiNulls>
+    <AnsiPadding>True</AnsiPadding>
+    <AnsiWarnings>True</AnsiWarnings>
+    <ArithAbort>True</ArithAbort>
+    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
+    <QuotedIdentifier>True</QuotedIdentifier>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <DatabaseState>ONLINE</DatabaseState>
+    <UpdateOptions>READ_WRITE</UpdateOptions>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DefaultCursor>LOCAL</DefaultCursor>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <TornPageDetection>False</TornPageDetection>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <Recovery>FULL</Recovery>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <Trustworthy>False</Trustworthy>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <PageVerify>NONE</PageVerify>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <Parameterization>SIMPLE</Parameterization>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <DefaultFileStreamFilegroup />
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <Folder Include="Stored Procedures" />
+    <Folder Include="Functions" />
+    <Folder Include="Rules" />
+    <Folder Include="Deploy Scripts" />
+    <Folder Include="Views" />
+    <Folder Include="Stored Procedures\StoredProcedureLog" />
+    <Folder Include="Stored Procedures\StoredProcedureLogDetail" />
+    <Folder Include="Stored Procedures\StoredProcedureLogRaw" />
+    <Folder Include="Stored Procedures\RenumberRun" />
+    <Folder Include="Stored Procedures\RenumberRunDetail" />
+    <Folder Include="Stored Procedures\RenumberRunIDTrack" />
+    <Folder Include="Stored Procedures\ShellProcedures" />
+    <Folder Include="Stored Procedures\Log4Net" />
+    <Folder Include="Stored Procedures\UserLoginStatus" />
+    <Folder Include="Stored Procedures\UserLogin" />
+    <Folder Include="Stored Procedures\UserLoginHistory" />
+    <Folder Include="Stored Procedures\DatabaseChangeLog" />
+    <Folder Include="Stored Procedures\RenumberMigration" />
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Deploy Scripts\deployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Deploy Scripts\ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLog\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLog\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLog\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLog\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLog\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLog\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogDetail\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogDetail\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogDetail\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogDetail\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogDetail\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogDetail\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLog\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLog\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogDetail\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogDetail\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogRaw\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogRaw\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogRaw\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogRaw\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogRaw\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogRaw\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogRaw\_deployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogRaw\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberRun\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberRun\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberRun\DeleteAll.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberRun\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberRunDetail\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberRunDetail\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberRunDetail\DeleteAll.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberRunDetail\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberRunIDTrack\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberRunIDTrack\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberRunIDTrack\DeleteAll.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberRunIDTrack\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberRun\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberRun\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberRunDetail\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberRunDetail\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogDetail\_DeployDb2.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\StoredProcedureLogDetail\_DeployDb3.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ShellProcedures\StoredProcedureLogInsert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ShellProcedures\AuditHistoryLogInsert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ShellProcedures\AuditHistoryLastValues.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ShellProcedures\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ShellProcedures\_DeployConfig.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ShellProcedures\_DeployServices.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ShellProcedures\_DeployAADb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ShellProcedures\SystemEntityTypeGetNextSequence.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ShellProcedures\_ProcsFunctions1.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ShellProcedures\_DeployTTTDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ShellProcedures\SystemEntityTypeGetId.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\DeleteTaskTimeTrackerSPs.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\DeleteLoggingSPs.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\DeleteCommonServicesSPs.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Log4Net\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Log4Net\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Log4Net\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Log4Net\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Log4Net\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Log4Net\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Log4Net\ListLast.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Log4Net\GetSequential.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLoginStatus\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLoginStatus\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLoginStatus\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLoginStatus\ChildrenGet.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLoginStatus\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLoginStatus\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLoginStatus\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLoginStatus\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLoginStatus\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLoginStatus\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLogin\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLogin\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLogin\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLogin\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLogin\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLogin\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLogin\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLogin\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLogin\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Log4Net\Search1.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLogin\Report.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Log4Net\Cleanup.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLoginHistory\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\UserLoginHistory\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\DatabaseChangeLog\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\DatabaseChangeLog\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\DatabaseChangeLog\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberMigration\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberMigration\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\RenumberMigration\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Log4Net\GetElapsedTime.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Debug_2.publish.xml" />
+    <None Include="Release_2.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Permissions_2.sql" />
+  </ItemGroup>
+</Project>

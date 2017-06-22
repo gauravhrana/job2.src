@@ -1,0 +1,6 @@
+﻿ALTER TABLE dbo.UserLogin
+	ADD CONSTRAINT PK_UserLogin PRIMARY KEY CLUSTERED 
+	(
+		UserLoginId
+	)  
+GO
