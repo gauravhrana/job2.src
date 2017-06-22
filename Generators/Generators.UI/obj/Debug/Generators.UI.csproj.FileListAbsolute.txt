@@ -1,0 +1,5 @@
+R:\717\Projects\Generators\Generators.UI\bin\Debug\Generators.UI.dll
+R:\717\Projects\Generators\Generators.UI\bin\Debug\Generators.UI.pdb
+R:\717\Projects\Generators\Generators.UI\obj\Debug\Generators.UI.dll
+R:\717\Projects\Generators\Generators.UI\obj\Debug\Generators.UI.pdb
+R:\717\Projects\Generators\Generators.UI\obj\Debug\Generators.UI.csprojResolveAssemblyReference.cache

@@ -1,0 +1,141 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#@ assembly name="System.Core" #>
+<#@ include file="MultipleOutputFileHelper.tt" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+
+<#+
+	void RenderUsingTags()
+	{
+		WriteLine("using System;");
+		WriteLine("using System.Collections.Generic;");
+		WriteLine("using System.Linq;");
+		WriteLine("using System.Text;");
+		WriteLine("using System.Threading.Tasks; ");
+		WriteLine("using Framework.Components.DataAccess;");
+
+		WriteLine(string.Empty);
+	}
+
+	void RenderDataModelClass(string nameSpace, string entityName)
+	{
+		var className = entityName + "DataModel";
+
+		//WriteLine("Class Name: " + className);
+
+		foreach (Assembly currentassembly in AppDomain.CurrentDomain.GetAssemblies()) 
+		{
+			var modelType = currentassembly.GetType(nameSpace + "." + className);
+
+			//WriteLine("Name Space: " + nameSpace + "." + className);
+			//WriteLine("Assembly Full Name: " + currentassembly.FullName);
+			if(modelType != null)
+			{
+				var properties = modelType.GetProperties();
+
+				PushIndent("\t");   
+				WriteLine(string.Empty);
+					
+				//if(modelType.IsSubclassOf(typeof(Framework.Components.DataAccess.StandardModel)))
+				//{
+					//WriteLine("public partial class " + entityName + "DataModel"); 
+				//}
+				//else if(modelType.IsSubclassOf(typeof(Framework.Components.DataAccess.BaseModel)))
+				//{
+				                           
+				//}
+
+				WriteLine("[Serializable]");
+				WriteLine("public partial class " + entityName + "DataModel");
+
+				WriteLine("{"); 
+		                             
+					WriteLine(string.Empty);            
+					PushIndent("\t");
+
+					if(modelType.IsSubclassOf(typeof(Framework.Components.DataAccess.StandardModel)))
+					{
+						WriteLine("public partial class DataColumns : StandardColumns");                           
+					}						
+					else if(modelType.IsSubclassOf(typeof(Framework.Components.DataAccess.BaseModel)))
+					{
+						WriteLine("public partial class DataColumns : BaseColumns");                           
+					} 						
+
+					WriteLine("{"); 
+		                                         
+						PushIndent("\t");		
+
+						foreach (var propInfo in properties)
+						{
+							if(propInfo.Name != "ApplicationId" && propInfo.Name != "EntityKey")
+							{
+								if(modelType.IsSubclassOf(typeof(Framework.Components.DataAccess.StandardModel)))
+								{
+									if(propInfo.Name != "Name" && propInfo.Name != "Description" && propInfo.Name != "SortOrder")
+									{
+										WriteLine("public const string " + propInfo.Name + " = \"" + propInfo.Name + "\";"); 
+									}
+								}
+								else if(modelType.IsSubclassOf(typeof(Framework.Components.DataAccess.BaseModel)))
+								{
+									WriteLine("public const string " + propInfo.Name + " = \"" + propInfo.Name + "\";"); 
+								}
+							}
+						}
+
+						PopIndent(); 
+				
+					WriteLine("}"); 
+
+					WriteLine(string.Empty);
+
+					WriteLine("public static readonly " + entityName + "DataModel Empty = new " + entityName + "DataModel();");  
+
+					WriteLine(string.Empty);
+					PopIndent();
+				
+				WriteLine("}"); 
+				PopIndent(); 
+
+				break;
+			}
+		}
+	}
+
+	void GenerateDataModelFiles(string nameSpaceDataModel, string[] entities)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+
+			foreach(var entityName in entities)
+			{	
+				manager.StartNewFile(entityName + "DataModel.generated.cs");
+				GenerateDataModelClass(nameSpaceDataModel, entityName);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+	void GenerateDataModelClass(string nameSpace, string entityName)
+    {
+		RenderUsingTags();
+
+		WriteLine("namespace " + nameSpace);
+		WriteLine("{");  
+
+		RenderDataModelClass(nameSpace, entityName);
+
+		WriteLine("}");
+		PopIndent();
+	}
+
+#>

@@ -1,0 +1,295 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ include file="../../../MultipleOutputFileHelper.tt" #>
+<#@ include file="../../../UtilityHelper.tt" #>
+<#+
+
+	void RenderUsingStatements(string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		WriteLine("using Newtonsoft.Json.Linq;");
+		WriteLine("using Shared.WebCommon.UI.Web;");
+		WriteLine("using System;");
+		WriteLine("using System.Collections.Generic;");
+		WriteLine("using System.Linq;");
+		WriteLine("using System.Net;");
+		WriteLine("using System.Net.Http;");
+		WriteLine("using System.Web.Http;");
+		WriteLine("using System.Web.Script.Serialization;");
+		WriteLine("using " + dataModelNameSpace + ";");
+		WriteLine("using " + dataManagerNameSpace + ";");
+	}
+
+	void RenderGetSourceEntityListMethod(string sourceEntity, string targetEntity)
+	{
+		WriteLine(string.Empty);
+		WriteLine("public IEnumerable<JObject> GetSourceEntityList(string value)");
+        WriteLine("{");
+			
+			PushIndent("\t");
+            WriteLine("var sourceEntity = new JavaScriptSerializer().Deserialize<string>(value);");
+            WriteLine("var listResult = new List<JObject>();");
+
+			WriteLine(string.Empty);
+            WriteLine("if (sourceEntity == \"" + sourceEntity + "\")");
+            WriteLine("{");
+				
+				PushIndent("\t");
+                WriteLine("var dataQuery = new " + sourceEntity + "DataModel();");
+                WriteLine("var entityItems = " + sourceEntity + "DataManager.GetEntityDetails(dataQuery, SessionVariables.RequestProfile);");
+
+				WriteLine(string.Empty);
+                WriteLine("foreach (var obj in entityItems)");
+                WriteLine("{");
+					
+					PushIndent("\t");
+                    WriteLine("var jObject = new JObject();");
+
+					WriteLine(string.Empty);
+                    WriteLine("jObject[\"Text\"] = obj.Name;");
+                    WriteLine("jObject[\"EntityKey\"] = obj." + sourceEntity + "Id;");
+
+					WriteLine(string.Empty);
+                    WriteLine("listResult.Add(jObject);");
+					PopIndent();
+
+                WriteLine("}");
+				PopIndent();
+
+            WriteLine("}");
+            WriteLine("else if(sourceEntity == \"" + targetEntity + "\")");
+            WriteLine("{");
+				
+				PushIndent("\t");
+                WriteLine("var dataQuery = new " + targetEntity + "DataModel();");
+                WriteLine("var entityItems = " + targetEntity + "DataManager.GetEntityDetails(dataQuery, SessionVariables.RequestProfile);");
+
+				WriteLine(string.Empty);
+                WriteLine("foreach (var obj in entityItems)");
+                WriteLine("{");
+					
+					PushIndent("\t");
+                    WriteLine("var jObject = new JObject();");
+
+					WriteLine(string.Empty);
+                    WriteLine("jObject[\"Text\"] = obj.Name;");
+                    WriteLine("jObject[\"EntityKey\"] = obj." + targetEntity + "Id;");
+
+					WriteLine(string.Empty);
+                    WriteLine("listResult.Add(jObject);");
+					PopIndent();
+
+                WriteLine("}");
+				PopIndent();
+
+            WriteLine("}");
+
+			WriteLine(string.Empty);
+            WriteLine("return listResult;");
+			PopIndent();
+
+        WriteLine("}");
+	}
+
+	void RenderGetEntityRecordsMethod(string entityName, string sourceEntity, string targetEntity)
+	{
+		WriteLine(string.Empty);
+		WriteLine("public IEnumerable<" + entityName + "DataModel> GetEntityRecords(string value, string value1)");
+		WriteLine("{");
+
+			PushIndent("\t");
+			WriteLine("var sourceEntity = new JavaScriptSerializer().Deserialize<string>(value);");
+			WriteLine("var dataQuery = new " + entityName + "DataModel();");
+
+			WriteLine(string.Empty);
+			WriteLine("if (sourceEntity == \"" + sourceEntity + "\")");
+			WriteLine("{");
+
+				PushIndent("\t");
+				WriteLine("var " + sourceEntity + "Id = new JavaScriptSerializer().Deserialize<string>(value1);");
+				WriteLine("dataQuery." + sourceEntity + "Id = int.Parse(" + sourceEntity + "Id);");
+				PopIndent();
+
+			WriteLine("}");
+			WriteLine("else if(sourceEntity == \"" + targetEntity + "\")");
+			WriteLine("{");
+
+				PushIndent("\t");
+				WriteLine("var " + targetEntity + "Id = new JavaScriptSerializer().Deserialize<string>(value1);");
+				WriteLine("dataQuery." + targetEntity + "Id = int.Parse(" + targetEntity + "Id);");
+				PopIndent();
+
+			WriteLine("}");
+
+			WriteLine(string.Empty);
+			WriteLine("return " + entityName + "DataManager.GetEntityDetails(dataQuery, SessionVariables.RequestProfile, 0);");
+			PopIndent();
+
+		WriteLine("}");
+	}
+
+	void RenderAddEntityRecordsMethod(string entityName, string sourceEntity, string targetEntity)
+	{
+		WriteLine(string.Empty);
+		WriteLine("[System.Web.Http.AcceptVerbs(\"DELETE\", \"GET\", \"POST\")]");
+        WriteLine("public JObject AddEntityRecords(string value1, string value2, string value3)");
+        WriteLine("{");
+			
+			PushIndent("\t");
+            WriteLine("var sourceEntity = new JavaScriptSerializer().Deserialize<string>(value1);");
+            WriteLine("var sourceEntityId = new JavaScriptSerializer().Deserialize<string>(value2);");
+            WriteLine("var targetEntityList = new JavaScriptSerializer().Deserialize<List<string>>(value3);");
+
+			WriteLine(string.Empty);
+            WriteLine("foreach (var tmpValue in targetEntityList)");
+            WriteLine("{");
+				
+				PushIndent("\t");
+                WriteLine("var data = new " + entityName + "DataModel();");
+
+				WriteLine(string.Empty);
+                WriteLine("if (sourceEntity == \"" + sourceEntity + "\")");
+                WriteLine("{");
+					
+					PushIndent("\t");
+                    WriteLine("data." + sourceEntity + "Id = int.Parse(sourceEntityId);");
+                    WriteLine("data." + targetEntity + "Id = int.Parse(tmpValue);");
+					PopIndent();
+
+                WriteLine("}");
+                WriteLine("else if(sourceEntity == \"" + targetEntity + "\")");
+                WriteLine("{");
+					
+					PushIndent("\t");
+                    WriteLine("data." + targetEntity + "Id = int.Parse(sourceEntityId);");
+                    WriteLine("data." + sourceEntity + "Id = int.Parse(tmpValue);");
+					PopIndent();
+
+                WriteLine("}");
+
+				WriteLine(string.Empty);
+                WriteLine(entityName + "DataManager.Create(data, SessionVariables.RequestProfile);");
+				PopIndent();
+
+            WriteLine("}");
+
+			WriteLine(string.Empty);
+            WriteLine("var jObject = new JObject();");
+            WriteLine("jObject[\"Result\"] = true;");
+            WriteLine("return jObject;");
+			PopIndent();
+
+        WriteLine("}");
+	}
+
+	void RenderRemoveEntityRecordsMethod(string entityName, string sourceEntity, string targetEntity)
+	{
+		WriteLine(string.Empty);
+		WriteLine("[System.Web.Http.AcceptVerbs(\"DELETE\", \"GET\", \"POST\")]");
+        WriteLine("public JObject RemoveEntityRecords(string value, string value1)");
+        WriteLine("{");
+			
+			PushIndent("\t");
+            WriteLine("var sourceEntity = new JavaScriptSerializer().Deserialize<string>(value);");
+            WriteLine("var dataQuery = new " + entityName + "DataModel();");
+
+			WriteLine(string.Empty);
+            WriteLine("if (sourceEntity == \"" + sourceEntity + "\")");
+            WriteLine("{");
+				
+				PushIndent("\t");
+                WriteLine("var " + sourceEntity + "Id = new JavaScriptSerializer().Deserialize<string>(value1);");
+                WriteLine("dataQuery." + sourceEntity + "Id = int.Parse(" + sourceEntity + "Id);");
+				PopIndent();
+
+            WriteLine("}");
+            WriteLine("else if (sourceEntity == \"" + targetEntity + "\")");
+            WriteLine("{");
+				
+				PushIndent("\t");
+                WriteLine("var " + targetEntity + "Id = new JavaScriptSerializer().Deserialize<string>(value1);");
+                WriteLine("dataQuery." + targetEntity + "Id = int.Parse(" + targetEntity + "Id);");
+				PopIndent();
+
+            WriteLine("}");
+            WriteLine("else");
+            WriteLine("{");
+				
+				PushIndent("\t");
+                WriteLine("dataQuery." + sourceEntity + "Id = -1;");
+                WriteLine("dataQuery." + targetEntity + "Id = -1;");
+				PopIndent();
+
+            WriteLine("}");
+
+			WriteLine(string.Empty);
+            WriteLine(entityName + "DataManager.Delete(dataQuery, SessionVariables.RequestProfile);");
+
+			WriteLine(string.Empty);
+            WriteLine("var jObject = new JObject();");
+            WriteLine("jObject[\"Result\"] = true;");
+            WriteLine("return jObject;");
+			PopIndent();
+
+        WriteLine("}");
+	}
+
+	void RenderAPIController(string entityName, string controllerNameSpace, string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		var sourceEntity = string.Empty;
+		var targetEntity = string.Empty;
+
+		var listEntityNames = GetCrossReferenceEntityNames(entityName);
+		if(listEntityNames.Count > 0)
+		{
+			sourceEntity = listEntityNames[0];
+		}
+
+		if(listEntityNames.Count > 1)
+		{
+			targetEntity = listEntityNames[1];
+		}
+
+		RenderUsingStatements(dataModelNameSpace, dataManagerNameSpace);
+
+		WriteLine(string.Empty);
+
+		WriteLine("namespace " + controllerNameSpace);
+		WriteLine("{");
+			
+			PushIndent("\t");
+			WriteLine("//[Authorize]");
+			WriteLine("public class " + entityName + "Controller : ApiController");
+			WriteLine("{");
+		
+				PushIndent("\t");
+				RenderGetSourceEntityListMethod(sourceEntity, targetEntity);
+				RenderGetEntityRecordsMethod(entityName, sourceEntity, targetEntity);
+				RenderAddEntityRecordsMethod(entityName, sourceEntity, targetEntity);
+				RenderRemoveEntityRecordsMethod(entityName, sourceEntity, targetEntity);
+				PopIndent();
+				
+			WriteLine("}");
+			PopIndent();
+
+		WriteLine("}");
+	}
+
+	void RenderAPIControllers(string[] entities, string controllerNameSpace, string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+			foreach(string entityName in entities)
+			{	
+				manager.StartNewFile(entityName + "Controller.cs");
+				this.RenderAPIController(entityName, controllerNameSpace, dataModelNameSpace, dataManagerNameSpace);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+#>

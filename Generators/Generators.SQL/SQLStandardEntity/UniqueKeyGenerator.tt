@@ -1,0 +1,50 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Framework.Components.DataAccess" #>
+<#@ output extension=".sql" #>
+
+<#+
+	void RenderUniqueKeyStatement(string tableName, Type modelType)
+	{		
+		WriteLine("IF EXISTS ");		
+		WriteLine("(");
+		PushIndent("\t");
+		WriteLine("");
+		WriteLine("SELECT	*	FROM	dbo.sysindexes");
+		WriteLine("WHERE	id		= OBJECT_ID(N'[dbo]."+ tableName + "')");
+		WriteLine("AND		name	= N'UQ_" + tableName + "_ApplicationId_Name'");
+		PopIndent();
+		WriteLine(")");
+		WriteLine("BEGIN");
+		PushIndent("\t");
+		WriteLine("PRINT	'Dropping UQ_"+ tableName + "_ApplicationId_Name'");
+		WriteLine("ALTER	TABLE dbo." + tableName );
+		WriteLine("DROP	CONSTRAINT	UQ_"+ tableName + "_ApplicationId_Name");
+		PopIndent();
+		WriteLine("END");
+		WriteLine("GO");
+		WriteLine("");
+		WriteLine("ALTER TABLE dbo."+ tableName);
+		WriteLine("ADD CONSTRAINT UQ_"+ tableName + "_ApplicationId_Name" + " UNIQUE NONCLUSTERED");
+		WriteLine("(");
+		PushIndent("\t");
+		WriteLine("ApplicationId");
+		WriteLine("	,	Name	");
+		WriteLine(")");
+		PopIndent();
+		WriteLine("GO");
+	}
+#>
+
+<#+
+	void RenderUniqueKeyScript(string tableName, Type modelType)
+	{
+		RenderUniqueKeyStatement(tableName, modelType);
+	}	
+    
+#>

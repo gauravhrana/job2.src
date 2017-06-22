@@ -1,0 +1,70 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ include file="CreateTable.tt" #>
+<#@ include file="PrimaryKeyGenerator.tt" #>
+<#@ include file="MultipleOutputFileHelper.tt" #>
+<#@ include file="InsertProcedureGenerator.tt" #>
+<#@ include file="UpdateProcedureGenerator.tt" #>
+<#@ include file="DeleteProcedureGenerator.tt" #>
+<#@ include file="SearchProcedureGenerator.tt" #>
+<#@ include file="UniqueKeyGenerator.tt" #>
+<#@ include file="ProcsFunctionsCmdGenerator.tt" #>
+<#@ include file="ProcsFunctionCmdDeployDb.tt" #>
+
+<#+
+
+	void GenerateSqlFiles(string nameSpace, string tableName, string className, string databaseName, string databaseUserName, string databasePwd)
+	{
+
+		foreach (Assembly currentassembly in AppDomain.CurrentDomain.GetAssemblies()) 
+		{
+			var modelType = currentassembly.GetType(nameSpace + "." + className);
+			if(modelType != null)
+			{	
+
+				var manager = Manager.Create(Host, GenerationEnvironment);
+			
+				// create table script
+				manager.StartNewFile("CreateTable.sql");
+				this.RenderCreateScript(tableName, modelType);
+
+				// primary key script
+				manager.StartNewFile("UniqueKey.sql");
+				this.RenderUniqueKeyScript(tableName, modelType);
+
+				//unique key script
+				manager.StartNewFile("PrimaryKey.sql");
+				this.RenderPrimaryKeyScript(tableName, modelType);
+
+				// insert procedure script
+				manager.StartNewFile("InsertProcedure.sql");
+				this.RenderInsertScript(tableName, modelType);
+
+				// Update procedure script
+				manager.StartNewFile("UpdateProcedure.sql");
+				this.RenderUpdateScript(tableName, modelType);
+
+				// Delete procedure script
+				manager.StartNewFile("DeleteProcedure.sql");
+				this.RenderDeleteScript(tableName, modelType);				
+
+				// Search procedure script
+				manager.StartNewFile("SearchProcedure.sql");
+				this.RenderSearchScript(tableName, modelType);
+				
+				manager.StartNewFile("_ProcsFunctions.cmd");
+				this.RenderProcsFunctionsCmd();
+
+				manager.StartNewFile("_DeployDb.cmd");
+				this.RenderProcsFunctionsCmdDeployDb(databaseName, databaseUserName,  databasePwd);
+
+				manager.Process(true);
+				
+				break;
+			}	
+		}
+		
+		
+		
+	}
+
+#>

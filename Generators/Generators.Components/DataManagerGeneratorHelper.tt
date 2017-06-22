@@ -1,0 +1,595 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ include file="MultipleOutputFileHelper.tt" #>
+<#+
+
+	void RenderUsingTags(string dataModelNameSpace)
+	{
+		WriteLine("using System;");
+		WriteLine("using System.Collections.Generic;");
+		WriteLine("using System.Linq;");
+		WriteLine("using System.Text;");
+		WriteLine("using System.Data;");
+		WriteLine("using Dapper;");
+		WriteLine("using Framework.Components.DataAccess;");
+		WriteLine("using DataModel.Framework.DataAccess;");
+		WriteLine("using " + dataModelNameSpace + ";");
+		WriteLine(string.Empty);
+	}
+
+	void RenderToSQLParameterMethod(string tableName)
+	{
+
+		WriteLine("#region ToSQLParameter"); 
+		
+		WriteLine(string.Empty);
+		WriteLine("public static string ToSQLParameter(" + tableName + "DataModel data, string dataColumnName)"); 
+        WriteLine("{"); 
+
+			PushIndent("\t");
+            WriteLine("var returnValue = \"NULL\";"); 
+
+			WriteLine(string.Empty);
+            WriteLine("switch (dataColumnName)"); 
+            WriteLine("{"); 
+				
+				PushIndent("\t");
+                WriteLine("case " + tableName + "DataModel.DataColumns." + tableName + "Id:"); 
+					
+					PushIndent("\t");
+                    WriteLine("if (data." + tableName + "Id != null)"); 
+                    WriteLine("{"); 
+
+						PushIndent("\t");
+                        WriteLine("returnValue = string.Format(SQL_TEMPLATE_PARAMETER_NUMBER, " + tableName + "DataModel.DataColumns." + tableName + "Id, data." + tableName + "Id);"); 
+						PopIndent(); 
+
+                    WriteLine("}"); 
+                    WriteLine("else"); 
+                    WriteLine("{"); 
+                        
+						PushIndent("\t");
+						WriteLine("returnValue = string.Format(SQL_TEMPLATE_PARAMETER_NULL, " + tableName + "DataModel.DataColumns." + tableName + "Id);"); 
+						PopIndent(); 
+
+                    WriteLine("}"); 
+                    WriteLine("break;"); 
+
+					PopIndent(); 
+
+				WriteLine(string.Empty);
+                WriteLine("default:"); 
+
+					PushIndent("\t");
+                    WriteLine("returnValue = StandardDataManager.ToSQLParameter(data, dataColumnName);"); 
+                    WriteLine("break;"); 
+					PopIndent(); 
+				PopIndent(); 
+
+            WriteLine("}"); 
+
+			WriteLine(string.Empty);
+            WriteLine("return returnValue;"); 
+
+			PopIndent(); 
+		WriteLine(string.Empty);
+        WriteLine("}"); 
+
+		WriteLine(string.Empty);
+		WriteLine("#endregion"); 
+
+	}
+
+	void RenderGetEntityDetailsMethod(string tableName)
+	{
+		WriteLine("#region Get Entity Details"); 
+
+		WriteLine(string.Empty);
+		WriteLine("public static List<" + tableName + "DataModel> GetEntityDetails(" + tableName + "DataModel dataQuery, RequestProfile requestProfile, int returnAuditInfo = BaseDataManager.ReturnAuditInfoOnDetails)");
+        WriteLine("{");
+
+			PushIndent("\t");
+			WriteLine("const string sql = @\"dbo." + tableName + "Search \";");
+
+			WriteLine(string.Empty);
+			WriteLine("var parameters =");
+			WriteLine("new");
+			WriteLine("{");
+
+				PushIndent("\t");
+				WriteLine("	AuditId                 = requestProfile.AuditId");
+				WriteLine(" ,	ApplicationId           = requestProfile.ApplicationId");
+				WriteLine(" ,	ApplicationMode         = requestProfile.ApplicationModeId");
+				WriteLine(" ,	ReturnAuditInfo         = returnAuditInfo");
+				WriteLine(" ,	" + tableName + "Id                  = dataQuery." + tableName + "Id");
+				WriteLine(" ,	Name                    = dataQuery.Name");
+				PopIndent();
+
+			WriteLine("};");
+
+			WriteLine(string.Empty);
+			WriteLine("List<" + tableName + "DataModel> result;");
+
+			WriteLine("using (var dataAccess = new DataAccessBase(DataStoreKey))");
+			WriteLine("{");
+
+				PushIndent("\t");
+				WriteLine("result = dataAccess.Connection.Query<" + tableName + "DataModel>(sql, parameters, commandType: CommandType.StoredProcedure).ToList();");
+				PopIndent();
+
+			WriteLine("}");
+
+			WriteLine(string.Empty);
+			WriteLine("return result;");
+
+			PopIndent();
+			
+		WriteLine(string.Empty);
+		WriteLine("}");
+
+		WriteLine(string.Empty);
+		WriteLine("#endregion");
+	}
+
+	void RenderGetListMethod(string tableName)
+	{
+		WriteLine("#region Get List"); 
+
+		WriteLine(string.Empty);
+		WriteLine("public static List<" + tableName + "DataModel> GetList(RequestProfile requestProfile)");
+        WriteLine("{");
+
+			PushIndent("\t");
+
+			WriteLine("return GetEntityDetails(" + tableName + "DataModel.Empty, requestProfile, 0);");			
+
+			PopIndent();
+
+		WriteLine("}");
+
+		WriteLine(string.Empty);
+		WriteLine("#endregion");
+	}
+
+	void RenderDetailsMethod(string tableName)
+	{
+		WriteLine("#region Get Details"); 
+
+		WriteLine(string.Empty);
+		WriteLine("public static " + tableName + "DataModel GetDetails(" + tableName + "DataModel data, RequestProfile requestProfile)");
+        WriteLine("{");
+
+			PushIndent("\t");
+
+			WriteLine("var list = GetEntityDetails(data, requestProfile, 1);");			
+            WriteLine("return list.FirstOrDefault();");
+
+			PopIndent();
+
+		WriteLine("}");
+
+		WriteLine(string.Empty);
+		WriteLine("#endregion");
+	}
+
+	void RenderSearchMethod(string tableName)
+	{
+		WriteLine("#region Search"); 
+
+		WriteLine(string.Empty);
+		WriteLine("public static DataTable Search(" + tableName + "DataModel data, RequestProfile requestProfile)");
+        WriteLine("{");
+
+			PushIndent("\t");
+
+			WriteLine("var list = GetEntityDetails(data, requestProfile, 0);");			
+            WriteLine("return list.ToDataTable();");
+
+			PopIndent();
+
+		WriteLine("}");
+
+		WriteLine(string.Empty);
+		WriteLine("#endregion");
+	}
+
+	void RenderSaveMethod(string tableName)
+	{
+		WriteLine("#region Save"); 
+
+		WriteLine(string.Empty);
+		WriteLine("public static string Save(" + tableName + "DataModel data, string action, RequestProfile requestProfile)");
+        WriteLine("{");
+
+			PushIndent("\t");
+
+			WriteLine(string.Empty);
+			WriteLine("var sql = \"EXEC \";");
+			
+			WriteLine(string.Empty);
+            WriteLine("switch (action)");
+            WriteLine("{");
+
+				PushIndent("\t");
+                WriteLine("case \"Create\":");
+					
+					PushIndent("\t");
+                    WriteLine("sql += \"dbo." + tableName + "Insert  \" +");
+						
+						PushIndent("\t");
+                        WriteLine("\" \" + ToSQLParameter(BaseDataModel.BaseDataColumns.AuditId, requestProfile.AuditId) +");
+                        WriteLine("\", \" + ToSQLParameter(BaseDataModel.BaseDataColumns.ApplicationId, requestProfile.ApplicationId);");
+						PopIndent();
+
+                    WriteLine("break;");
+					PopIndent();
+
+				WriteLine(string.Empty);
+                WriteLine("case \"Update\":");
+					
+					PushIndent("\t");
+                    WriteLine("sql += \"dbo." + tableName + "Update  \" +");
+						
+						PushIndent("\t");
+                        WriteLine("\" \" + ToSQLParameter(BaseDataModel.BaseDataColumns.AuditId, requestProfile.AuditId);");
+						PopIndent();
+
+                    WriteLine("break;");
+					PopIndent();
+
+				WriteLine(string.Empty);
+                WriteLine("default:");
+					
+					PushIndent("\t");
+                    WriteLine("break;");
+					PopIndent();
+				PopIndent();
+
+            WriteLine("}");
+
+			WriteLine("sql = sql + \", \" + ToSQLParameter(data, " + tableName + "DataModel.DataColumns." + tableName + "Id) +");
+				
+				PushIndent("\t");
+                    WriteLine("\", \" + ToSQLParameter(data, StandardDataModel.StandardDataColumns.Name) +");
+                    WriteLine("\", \" + ToSQLParameter(data, StandardDataModel.StandardDataColumns.Description) +");
+                    WriteLine("\", \" + ToSQLParameter(data, StandardDataModel.StandardDataColumns.SortOrder);");
+				PopIndent();
+
+			WriteLine(string.Empty);
+            WriteLine("return sql;");
+
+			PopIndent();
+		
+		WriteLine("}");
+
+		WriteLine(string.Empty);
+		WriteLine("#endregion");
+	}
+
+	void RenderCreateMethod(string tableName)
+	{
+		WriteLine("#region Create"); 
+
+		WriteLine(string.Empty);
+		WriteLine("public static int Create(" + tableName + "DataModel data, RequestProfile requestProfile)");
+        WriteLine("{");
+
+			PushIndent("\t");
+
+			WriteLine("var sql = Save(data, \"Create\", requestProfile);");
+            WriteLine("var newId = DBDML.RunScalarSQL(\"" + tableName + ".Insert\", sql, DataStoreKey);");
+            WriteLine("return Convert.ToInt32(newId);");
+
+			PopIndent();
+
+		WriteLine("}");
+
+		WriteLine(string.Empty);
+		WriteLine("#endregion");
+	}
+
+	void RenderUpdateMethod(string tableName)
+	{
+		WriteLine("#region Update"); 
+
+		WriteLine(string.Empty);
+		WriteLine("public static void Update(" + tableName + "DataModel data, RequestProfile requestProfile)");
+        WriteLine("{");
+
+			PushIndent("\t");
+
+			WriteLine("var sql = Save(data, \"Update\", requestProfile);");
+            WriteLine("DBDML.RunSQL(\"" + tableName + ".Update\", sql, DataStoreKey);");
+
+			PopIndent();
+
+		WriteLine("}");
+
+		WriteLine(string.Empty);
+		WriteLine("#endregion");
+	}	
+
+	void RenderDeleteMethod(string tableName)
+	{
+		WriteLine("#region Delete"); 
+
+		WriteLine(string.Empty);
+		WriteLine("public static void Delete(" + tableName + "DataModel data, RequestProfile requestProfile)");
+        WriteLine("{");
+			
+			PushIndent("\t");
+			WriteLine(string.Empty);
+			WriteLine("const string sql = @\"dbo." + tableName + "Delete \";"); 
+
+			WriteLine(string.Empty);
+            WriteLine("var parameters ="); 
+            WriteLine("new"); 
+            WriteLine("{"); 
+				
+				PushIndent("\t");
+                WriteLine("	AuditId = requestProfile.AuditId"); 
+                WriteLine(",   " + tableName + "Id  = data." + tableName + "Id");
+				PopIndent();
+				 
+            WriteLine("};"); 
+
+			WriteLine(string.Empty);
+            WriteLine("using (var dataAccess = new DataAccessBase(DataStoreKey))"); 
+            WriteLine("{"); 
+				
+				PushIndent("\t");
+                WriteLine("dataAccess.Connection.Execute(sql, parameters, commandType: CommandType.StoredProcedure);"); 
+				PopIndent();
+
+            WriteLine("}"); 
+
+			PopIndent();
+
+		WriteLine("}");
+
+		WriteLine(string.Empty);
+		WriteLine("#endregion");
+	}		
+
+	void RenderDoesExistMethod(string tableName)
+	{
+		WriteLine("#region Does Exist"); 
+
+		WriteLine(string.Empty);
+		WriteLine("public static bool DoesExist(" + tableName + "DataModel data, RequestProfile requestProfile)");
+        WriteLine("{");
+			
+			PushIndent("\t");
+
+			WriteLine("var doesExistRequest = new " + tableName + "DataModel();");
+
+			WriteLine(string.Empty);
+			WriteLine("doesExistRequest.ApplicationId = data.ApplicationId;");
+            WriteLine("doesExistRequest.Name = data.Name;");
+			
+			WriteLine(string.Empty);
+            WriteLine("var list = GetEntityDetails(doesExistRequest, requestProfile, 0);");
+			
+			WriteLine(string.Empty);
+            WriteLine("return list.Count > 0;");
+
+			PopIndent();
+
+		WriteLine("}");
+
+		WriteLine(string.Empty);
+		WriteLine("#endregion");
+	}
+
+	void RenderRenumberMethod(string tableName)
+	{
+		WriteLine("#region Renumber"); 
+
+		WriteLine(string.Empty);
+		WriteLine("public static void Renumber(int seed, int increment, RequestProfile requestProfile)");
+        WriteLine("{");
+			
+			PushIndent("\t");
+
+			WriteLine("var sql = \"EXEC dbo." + tableName + "Renumber\" +");
+			PushIndent("\t");
+				WriteLine("\" \" + ToSQLParameter(BaseDataModel.BaseDataColumns.AuditId, requestProfile.AuditId) +");
+				WriteLine("\", @Seed = \" + seed +");
+				WriteLine("\", @Increment = \" + increment;");
+			PopIndent(); 
+
+			WriteLine("Framework.Components.DataAccess.DBDML.RunSQL(\"" + tableName + ".Renumber\", sql, DataStoreKey);");
+            
+			PopIndent();
+
+		WriteLine("}");
+
+		WriteLine(string.Empty);
+		WriteLine("#endregion");
+	}
+
+	void RenderGetChildrenMethod(string tableName)
+	{
+		WriteLine("#region Get Children"); 
+
+		WriteLine(string.Empty);
+		WriteLine("public static DataSet GetChildren(" + tableName + "DataModel data, RequestProfile requestProfile)");
+        WriteLine("{");
+			
+			PushIndent("\t");
+
+			WriteLine("var sql = \"EXEC dbo." + tableName + "ChildrenGet\" +");
+			PushIndent("\t");
+				WriteLine("\" \" + ToSQLParameter(BaseDataModel.BaseDataColumns.AuditId, requestProfile.AuditId) +");
+				WriteLine("\", \" + ToSQLParameter(data, " + tableName + "DataModel.DataColumns." + tableName + "Id);");
+			PopIndent(); 
+
+			WriteLine("var oDT = new Framework.Components.DataAccess.DBDataSet(\"Get Children\", sql, DataStoreKey);");
+            WriteLine("return oDT.DBDataset;");
+
+			PopIndent();
+
+		WriteLine("}");
+
+		WriteLine(string.Empty);
+		WriteLine("#endregion");
+	}
+
+	void RenderIsDeletableMethod(string tableName)
+	{
+		WriteLine("#region IsDeletable"); 
+
+		WriteLine(string.Empty);
+		WriteLine("public static bool IsDeletable(" + tableName + "DataModel data, RequestProfile requestProfile)");
+        WriteLine("{");
+			
+			PushIndent("\t");
+
+				WriteLine("var isDeletable = true;");
+				WriteLine("var ds = GetChildren(data, requestProfile);");
+				WriteLine("if (ds != null && ds.Tables.Count > 0)");
+				WriteLine("{");
+			
+				PushIndent("\t");
+
+				WriteLine("foreach (DataTable dt in ds.Tables)");
+				WriteLine("{");
+			
+					PushIndent("\t");
+
+						WriteLine("if (dt.Rows.Count > 0)");
+						WriteLine("{");
+			
+							PushIndent("\t");
+
+								WriteLine("isDeletable = false;");
+								WriteLine("break;");
+
+							PopIndent();
+
+						WriteLine("}");
+
+					PopIndent();
+
+				WriteLine("}");
+
+				PopIndent();			
+
+			WriteLine("}");
+
+			WriteLine("return isDeletable;");
+
+				PopIndent();
+
+			WriteLine("}");
+
+			WriteLine(string.Empty);
+			WriteLine("#endregion");
+	}
+
+	void RenderStandardClass(string tableName)
+	{
+		PushIndent("\t");
+		WriteLine("public partial class " + tableName + "DataManager : StandardDataManager");                           
+		WriteLine("{"); 
+
+			PushIndent("\t");   
+			WriteLine(string.Empty);
+
+			WriteLine("private static readonly string DataStoreKey = string.Empty;");
+
+			WriteLine(string.Empty);
+
+			WriteLine("static " + tableName + "DataManager()"); 
+			WriteLine("{"); 
+				
+				PushIndent("\t");
+				WriteLine("DataStoreKey = SetupConfiguration.GetDataStoreKey(\"" + tableName + "\");"); 
+				PopIndent(); 
+
+			WriteLine("}"); 
+
+			WriteLine(string.Empty);
+			RenderToSQLParameterMethod(tableName);
+
+			WriteLine(string.Empty);
+			RenderGetEntityDetailsMethod(tableName);
+
+			WriteLine(string.Empty);
+			RenderGetListMethod(tableName);
+
+			WriteLine(string.Empty);
+			RenderSearchMethod(tableName);
+
+			WriteLine(string.Empty);
+			RenderDetailsMethod(tableName);
+
+			WriteLine(string.Empty);
+			RenderSaveMethod(tableName);
+
+			WriteLine(string.Empty);
+			RenderCreateMethod(tableName);
+
+			WriteLine(string.Empty);
+			RenderUpdateMethod(tableName);
+
+			WriteLine(string.Empty);
+			RenderDeleteMethod(tableName);
+
+			WriteLine(string.Empty);
+			RenderDoesExistMethod(tableName);
+
+			WriteLine(string.Empty);
+			RenderRenumberMethod(tableName);
+
+			WriteLine(string.Empty);
+			RenderGetChildrenMethod(tableName);
+
+			WriteLine(string.Empty);
+			RenderIsDeletableMethod(tableName);
+			
+			WriteLine(string.Empty);
+			PopIndent(); 
+
+		WriteLine("}"); 
+		PopIndent(); 
+
+	}
+
+#>
+
+<#+
+
+	public void GenerateDataManagerFiles(string nameSpaceDataManager, string nameSpaceDataModel, string[] entities)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+			foreach(string entityName in entities)
+			{	
+				manager.StartNewFile(entityName + "DataManager.generated.cs");
+				this.GenerateStandardDataManagerClass(nameSpaceDataManager, nameSpaceDataModel, entityName);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+	void GenerateStandardDataManagerClass(string nameSpace, string dataModelNameSpace, string tableName)
+    {
+		RenderUsingTags(dataModelNameSpace);
+
+		WriteLine("namespace " + nameSpace);
+		WriteLine("{");  
+
+		RenderStandardClass(tableName);
+
+		WriteLine("}");
+		PopIndent();
+	}
+
+#>

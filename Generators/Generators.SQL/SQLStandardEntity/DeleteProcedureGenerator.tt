@@ -1,0 +1,83 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".sql" #>
+
+<#+
+
+	void RenderDropDeletePrcodure(string tableName)
+	{
+		WriteLine("IF  EXISTS (SELECT * FROM sysobjects WHERE type = 'P' AND name ='" + tableName + "Delete') ");
+		PushIndent("\t");
+		WriteLine("BEGIN");
+		WriteLine("DROP Procedure " + tableName+"Delete");
+		PopIndent(); 
+		WriteLine("END");
+		WriteLine("GO");
+
+		WriteLine("");
+	}
+
+	void RenderDeleteDefinition(string tableName, Type modelType)
+	{
+		WriteLine("CREATE Procedure " +"dbo." +tableName + "Delete");
+		WriteLine("(");
+
+			PushIndent("\t");
+			var preText = "	";
+			WriteLine(preText + "@"+tableName + "Id" + "		INT");
+			preText = ",	";					
+			WriteLine(preText + "@"+"AuditId" + "				INT");
+			WriteLine(preText + "@"+"AuditDate" + "				DATETIME = NULL");
+			WriteLine(preText + "@"+"SystemEntityType" + "		VARCHAR(50)='" + tableName + "'");
+			PopIndent();
+			WriteLine(")");
+			WriteLine("AS");	
+	}
+
+	void RenderDeleteStatement(string tableName, Type modelType)
+	{		
+		var preText = "	";
+		WriteLine("BEGIN");
+		PushIndent("\t");
+		PushIndent("\t");
+		WriteLine("DELETE dbo."+tableName);	
+		PopIndent();
+		WriteLine( "	WHERE"+ preText + tableName + "Id" + " = "+"@"+ tableName + "Id");
+		WriteLine("");		
+		RenderDeleteAuditScript(tableName, modelType);
+		WriteLine("");			
+		WriteLine("END");
+		PopIndent();
+		WriteLine("GO");
+	}
+
+	void RenderDeleteAuditScript(string tableName, Type modelType)
+	{
+			var preText = "	";
+			PushIndent("\t");
+			WriteLine("EXEC dbo.AuditHistoryInsert ");
+			WriteLine("	@SystemEntityType	= @SystemEntityType");
+			WriteLine(",	@EntityKey			= @"+ tableName+"Id");
+			WriteLine(",	@AuditAction		= 'Delete'");
+			WriteLine(",	@CreatedDate		= @AuditDate");
+			WriteLine(",	@CreatedByPersonId	= @AuditId");
+			PopIndent();
+	}
+#>
+
+
+<#+
+	
+	void RenderDeleteScript(string tableName, Type modelType)
+	{	
+		RenderDropDeletePrcodure(tableName);
+		RenderDeleteDefinition(tableName, modelType);
+		RenderDeleteStatement(tableName, modelType);		
+	}	
+    
+#>

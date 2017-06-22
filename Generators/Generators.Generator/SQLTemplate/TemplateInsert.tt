@@ -1,0 +1,94 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Generators.SQL" #>
+
+
+IF EXISTS (SELECT * FROM sysobjects WHERE type = 'P' AND name = '<#=Name#>Insert')
+BEGIN
+	PRINT 'Dropping Procedure <#=Name#>Insert'
+	DROP  PROCEDURE dbo.<#=Name#>Insert
+END
+GO
+
+PRINT 'Creating Procedure <#=Name#>Insert'
+GO
+
+/*********************************************************************************************
+**		File: 
+**		Name:<#=Name#>Insert
+**		Desc: 
+**
+**		This template can be customized:
+**              
+**		Return values:
+** 
+**		Called by:   
+**              
+**		Parameters:
+**		Input							Output
+**     ----------							-----------
+**
+**		Auth: 
+**		Date: 
+*********************************************************************************************
+**		Change History
+*********************************************************************************************
+**		Date:		Author:				Description:
+**		--------	--------			------------------------------------------------------
+**********************************************************************************************/
+
+CREATE PROCEDURE dbo.<#=Name#>Insert
+(
+		@<#=Name#>Id				INT				= NULL 	OUTPUT	
+	,   @ApplicationId				INT				= NULL	
+	,	@Name						VARCHAR(50)						
+	,	@Description				VARCHAR(50)						
+	,	@SortOrder					INT								
+	,	@AuditId					INT									
+	,	@AuditDate					DATETIME		= NULL				
+	,	@SystemEntityType			VARCHAR(50)		= '<#=Name#>'
+)
+AS
+BEGIN
+
+    EXEC dbo.SystemEntityTypeGetNextSequence NULL, @SystemEntityType, @<#=Name#>Id OUTPUT, @AuditId
+	
+	INSERT INTO dbo.<#=Name#> 
+	( 			
+			<#=GetColumnList()#>
+	)
+	VALUES 
+	(  
+			<#=GetColumnList("Parameters")#>
+	)
+
+	-- Create Audit Record
+	EXEC dbo.AuditHistoryInsert
+			@SystemEntityType		= @SystemEntityType
+		,	@EntityKey				= @<#=Name#>Id
+		,	@AuditAction			= 'Insert'
+		,	@CreatedDate			= @AuditDate
+		,	@CreatedByPersonId		= @AuditId	
+END	
+GO
+
+
+<#+
+	public System.Type MyType {get;set;}
+
+	private string Name
+	{
+		get
+		{
+			return Helper.GetName(MyType);
+		}		
+	}
+
+	private string GetColumnList(string options = "", string layout = "Horizontal")
+	{
+		return Helper.GetColumnList(MyType, options, layout);
+	}
+#>

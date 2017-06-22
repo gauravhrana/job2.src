@@ -1,0 +1,239 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ import namespace="Framework.Components.DataAccess.DataModel" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="Framework.Components.DataAccess" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".sql" #>
+
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".sql" #>
+
+<#+
+
+	void RenderDropInsertPrcodure(string tableName)
+	{
+		WriteLine("IF  EXISTS (SELECT * FROM sysobjects WHERE type = 'P' AND name ='" + tableName + "Insert') ");
+		WriteLine("BEGIN");
+
+			PushIndent("\t");
+			WriteLine("DROP Procedure " + tableName+"Insert");
+			PopIndent(); 
+
+		WriteLine("END");
+		WriteLine("GO");
+
+		WriteLine(string.Empty); 
+	}
+
+	void RenderInsertDefinition(string tableName, Type modelType)
+	{
+		WriteLine("CREATE Procedure " +"dbo." +tableName + "Insert");
+		WriteLine("(");
+
+			PushIndent("\t");
+
+			var preText = "	";
+			var properties = modelType.GetProperties();
+			
+			foreach (var propInfo in properties)
+			{	
+				var hasBaseAuditProperties = typeof (BaseAuditDataModel).IsAssignableFrom(modelType);
+
+				var excludedColumns = new string[]{};
+
+				if (hasBaseAuditProperties)
+				{
+					excludedColumns = new []{"CreatedDate", "CreatedByAuditId", "UpdatedDate", "ModifiedByAuditId"};
+				}
+				
+				if (!excludedColumns.Contains(propInfo.Name))
+				{
+					if (propInfo.Name != "EntityKey")
+					{
+						var attributes = propInfo.GetCustomAttributes(false);
+						var columnMapping =
+							attributes.FirstOrDefault(a => a.GetType() == typeof (Framework.Components.DataAccess.OnlyProperty));
+
+						if (columnMapping == null)
+						{
+							switch (propInfo.PropertyType.ToString())
+							{
+								case "System.Int32":
+								case "System.Nullable`1[System.Int32]":
+									if (propInfo.Name == tableName + "Id")
+									{
+										WriteLine(preText + "@" + propInfo.Name + "				INT		= NULL 	OUTPUT ");
+									}
+									else
+									{
+										WriteLine(preText + "@" + propInfo.Name + "				INT");
+									}
+									break;
+								case "System.String":
+									WriteLine(preText + "@" + propInfo.Name + "				VARCHAR(500)");
+									break;
+								case "System.DateTime":
+									WriteLine(preText + "@" + propInfo.Name + "				DATETIME");
+									break;
+								case "System.Nullable`1[System.DateTime]":
+									WriteLine(preText + "@" + propInfo.Name + "				DATETIME");
+									break;
+								case "System.Decimal":
+								case "System.Nullable`1[System.Decimal]":
+									WriteLine(preText + "@" + propInfo.Name + "				DECIMAL(18, 5)");
+									break;
+							}
+
+						}
+
+					}
+					preText = ",	";
+				}
+			}			
+
+			WriteLine(preText + "@"+"AuditId" + "					INT");
+			WriteLine(preText + "@"+"AuditDate" + "					DATETIME		= NULL");
+			WriteLine(preText + "@"+"SystemEntityType" + "			VARCHAR(50)		= '" + tableName + "'");
+			PopIndent();
+
+		WriteLine(")");
+		WriteLine("AS");	
+	}
+
+	void RenderInsertStatement(string tableName, Type modelType)
+	{
+		var hasBaseAuditProperties = typeof (BaseAuditDataModel).IsAssignableFrom(modelType);
+		var properties = modelType.GetProperties();
+		var preText = "	";
+
+		WriteLine("BEGIN");
+		
+			PushIndent("\t");
+			WriteLine(string.Empty); 	
+			WriteLine("EXEC dbo.SystemEntityTypeGetNextSequence NULL, " +"@SystemEntityType" +", @" +tableName+"Id Output, @AuditId");
+		
+			WriteLine(string.Empty); 	
+				
+			WriteLine("DECLARE		@CreatedDate		AS		DATETIME");
+			WriteLine("DECLARE		@UpdatedDate		AS		DATETIME");
+			WriteLine("DECLARE		@CreatedByAuditId	AS		INT");
+			WriteLine("DECLARE		@ModifiedByAuditId	AS		INT");	
+			WriteLine(string.Empty);
+
+			if (hasBaseAuditProperties)
+			{
+
+				WriteLine("SET @CreatedDate			= GETDATE()");
+				WriteLine("SET @UpdatedDate			= @CreatedDate");
+				WriteLine("SET @CreatedByAuditId	= @AuditId");
+				WriteLine("SET @ModifiedByAuditId	= @AuditId");
+			}			
+
+			WriteLine(string.Empty); 	
+			
+			WriteLine("INSERT INTO dbo." + tableName);
+			WriteLine("(");	
+			
+				PushIndent("\t");	
+
+				foreach (var propInfo in properties)
+				{				
+					var excludedColumns = new []{"EntityKey", "CreatedDate", "CreatedByAuditId", "UpdatedDate", "ModifiedByAuditId"};
+				
+					if(!excludedColumns.Contains(propInfo.Name))
+					{								
+						var attributes = propInfo.GetCustomAttributes(false);
+						var columnMapping = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.OnlyProperty));
+						
+						if(columnMapping == null)
+						{							
+							WriteLine(preText + propInfo.Name);
+							preText = ",	";
+						}
+						
+					}
+				}
+
+				if (hasBaseAuditProperties)
+				{
+					WriteLine(preText + "CreatedDate");
+					WriteLine(preText + "UpdatedDate");
+					WriteLine(preText + "CreatedByAuditId");
+					WriteLine(preText + "ModifiedByAuditId");
+				}
+				PopIndent();
+			 
+			WriteLine(")");
+			WriteLine("VALUES");
+			WriteLine("(");
+
+				PushIndent("\t");	
+				preText = "	";
+
+				foreach (var propInfo in properties)
+				{
+					var excludedColumns = new []{"EntityKey", "CreatedDate", "CreatedByAuditId", "UpdatedDate", "ModifiedByAuditId"};
+				
+					if(!excludedColumns.Contains(propInfo.Name))
+					{					
+						var attributes = propInfo.GetCustomAttributes(false);
+						var columnMapping = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.OnlyProperty));
+						
+						if(columnMapping == null)
+						{							
+							WriteLine(preText + "@" + propInfo.Name);
+							preText = ",	";
+						}
+					}
+				}
+
+				if (hasBaseAuditProperties)
+				{
+					WriteLine(preText + "@" + "CreatedDate");
+					WriteLine(preText + "@" + "UpdatedDate");
+					WriteLine(preText + "@" + "CreatedByAuditId");
+					WriteLine(preText + "@" + "ModifiedByAuditId");
+				}
+				PopIndent();
+
+			WriteLine(")");
+
+			WriteLine(string.Empty);			
+			WriteLine("SELECT @" + tableName + "Id"); 	
+
+			WriteLine(string.Empty); 
+			RenderInsertAuditScript(tableName, modelType);
+			WriteLine(string.Empty); 
+			PopIndent();
+						
+		WriteLine("END");
+		WriteLine("GO");
+		
+	}
+
+	void RenderInsertAuditScript(string tableName, Type modelType)
+	{
+			
+		WriteLine("EXEC dbo.AuditHistoryInsert ");
+		WriteLine("		@SystemEntityType	= @SystemEntityType");
+		WriteLine("	,	@EntityKey			= @"+ tableName+"Id");
+		WriteLine("	,	@AuditAction		= 'Insert'");
+		WriteLine("	,	@CreatedDate		= @AuditDate");
+		WriteLine("	,	@CreatedByPersonId	= @AuditId");
+	}
+#>
+
+<#+
+	
+	void RenderInsertScript(string tableName, Type modelType)
+	{	
+		RenderDropInsertPrcodure(tableName);
+		RenderInsertDefinition(tableName, modelType);
+		RenderInsertStatement(tableName, modelType);		
+	}	
+    
+#>

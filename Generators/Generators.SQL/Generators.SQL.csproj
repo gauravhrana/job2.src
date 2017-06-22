@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B0BEDD22-F96B-41D9-8A3B-68C44FAB906A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Generators.SQL</RootNamespace>
+    <AssemblyName>Generators.SQL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise />
+  </Choose>
+  <ItemGroup>
+    <Compile Include="Democs.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLNonStandardEntity\MultipleOutputFileHelper.cs">
+      <DependentUpon>MultipleOutputFileHelper.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SQLStandardEntity\MultipleOutputFileHelper.cs">
+      <DependentUpon>MultipleOutputFileHelper.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="SQLNonStandardEntity\Deploy-ProcsFunctionCmdDeployDb.cmd">
+      <DependentUpon>Deploy-ProcsFunctionCmdDeployDb.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </None>
+    <None Include="SQLNonStandardEntity\Deploy-ProcsFunctionCmdDeployDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Deploy-ProcsFunctionCmdDeployDb.cmd</LastGenOutput>
+    </None>
+    <None Include="SQLNonStandardEntity\Deploy-ProcsFunctionsCmdGenerator.cmd">
+      <DependentUpon>Deploy-ProcsFunctionsCmdGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </None>
+    <None Include="SQLNonStandardEntity\Deploy-ProcsFunctionsCmdGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Deploy-ProcsFunctionsCmdGenerator.cmd</LastGenOutput>
+    </None>
+    <None Include="SQLNonStandardEntity\Table-Create.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Table-Create.sql</LastGenOutput>
+    </None>
+    <None Include="SQLNonStandardEntity\Procedure-DeleteGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Procedure-DeleteGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQLNonStandardEntity\Table-Key-Foreign.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Table-Key-Foreign.sql</LastGenOutput>
+    </None>
+    <None Include="SQLNonStandardEntity\Procedure-InsertGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Procedure-InsertGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQLNonStandardEntity\Table-Key-Primary.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Table-Key-Primary.sql</LastGenOutput>
+    </None>
+    <None Include="SQLNonStandardEntity\Procedure-SearchGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Procedure-SearchGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQLNonStandardEntity\Table-Key-Unique.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Table-Key-Unique.sql</LastGenOutput>
+    </None>
+    <None Include="SQLNonStandardEntity\Procedure-UpdateGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Procedure-UpdateGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQLNonStandardEntity\EntitySqlGeneratorHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntitySqlGeneratorHelper.sql</LastGenOutput>
+    </None>
+    <None Include="SQLNonStandardEntity\MultipleOutputFileHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MultipleOutputFileHelper.cs</LastGenOutput>
+    </None>
+    <None Include="SQLStandardEntity\CreateTable.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CreateTable.sql</LastGenOutput>
+    </None>
+    <None Include="SQLStandardEntity\DeleteProcedureGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DeleteProcedureGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQLStandardEntity\EntitySqlGeneratorHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntitySqlGeneratorHelper.sql</LastGenOutput>
+    </None>
+    <None Include="SQLStandardEntity\InsertProcedureGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>InsertProcedureGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQLStandardEntity\MultipleOutputFileHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MultipleOutputFileHelper.cs</LastGenOutput>
+    </None>
+    <None Include="SQLStandardEntity\PrimaryKeyGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PrimaryKeyGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQLStandardEntity\ProcsFunctionCmdDeployDb.cmd">
+      <DependentUpon>ProcsFunctionCmdDeployDb.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </None>
+    <None Include="SQLStandardEntity\ProcsFunctionCmdDeployDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ProcsFunctionCmdDeployDb.cmd</LastGenOutput>
+    </None>
+    <None Include="SQLStandardEntity\ProcsFunctionsCmdGenerator.cmd">
+      <DependentUpon>ProcsFunctionsCmdGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </None>
+    <None Include="SQLStandardEntity\ProcsFunctionsCmdGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ProcsFunctionsCmdGenerator.cmd</LastGenOutput>
+    </None>
+    <None Include="SQLStandardEntity\SearchProcedureGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SearchProcedureGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQLStandardEntity\UniqueKeyGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UniqueKeyGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQLStandardEntity\UpdateProcedureGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UpdateProcedureGenerator.sql</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQLNonStandardEntity\Table-Create.sql">
+      <DependentUpon>Table-Create.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQLNonStandardEntity\Procedure-DeleteGenerator.sql">
+      <DependentUpon>Procedure-DeleteGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQLNonStandardEntity\Table-Key-Foreign.sql">
+      <DependentUpon>Table-Key-Foreign.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQLNonStandardEntity\Procedure-InsertGenerator.sql">
+      <DependentUpon>Procedure-InsertGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQLNonStandardEntity\Table-Key-Primary.sql">
+      <DependentUpon>Table-Key-Primary.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQLNonStandardEntity\Procedure-SearchGenerator.sql">
+      <DependentUpon>Procedure-SearchGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQLNonStandardEntity\Table-Key-Unique.sql">
+      <DependentUpon>Table-Key-Unique.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQLNonStandardEntity\Procedure-UpdateGenerator.sql">
+      <DependentUpon>Procedure-UpdateGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQLNonStandardEntity\EntitySqlGeneratorHelper.sql">
+      <DependentUpon>EntitySqlGeneratorHelper.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQLStandardEntity\CreateTable.sql">
+      <DependentUpon>CreateTable.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQLStandardEntity\DeleteProcedureGenerator.sql">
+      <DependentUpon>DeleteProcedureGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQLStandardEntity\EntitySqlGeneratorHelper.sql">
+      <DependentUpon>EntitySqlGeneratorHelper.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQLStandardEntity\InsertProcedureGenerator.sql">
+      <DependentUpon>InsertProcedureGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQLStandardEntity\PrimaryKeyGenerator.sql">
+      <DependentUpon>PrimaryKeyGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQLStandardEntity\SearchProcedureGenerator.sql">
+      <DependentUpon>SearchProcedureGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQLStandardEntity\UniqueKeyGenerator.sql">
+      <DependentUpon>UniqueKeyGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQLStandardEntity\UpdateProcedureGenerator.sql">
+      <DependentUpon>UpdateProcedureGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Components\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj">
+      <Project>{3c1bf755-3c2a-4016-aba7-62f6dea056f0}</Project>
+      <Name>Framework.Components.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

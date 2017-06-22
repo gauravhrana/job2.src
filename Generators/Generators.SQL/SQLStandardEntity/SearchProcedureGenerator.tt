@@ -1,0 +1,308 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".sql" #>
+
+<#+
+
+	void RenderDropSearchProcedure(string tableName)
+	{
+		WriteLine("IF  EXISTS (SELECT * FROM sysobjects WHERE type = 'P' AND name ='" + tableName + "Search') ");
+		PushIndent("\t");
+		WriteLine("BEGIN");
+		WriteLine("DROP Procedure " + tableName+"Search");
+		PopIndent(); 
+		WriteLine("END");
+		WriteLine("GO");
+
+		WriteLine("");
+	}
+	
+	void RenderSearchDefinition(string tableName, Type modelType)
+	{
+		WriteLine("CREATE Procedure " +"dbo."+tableName + "Search");
+		WriteLine("(");
+
+			PushIndent("\t");
+			var preText = "	";
+			var properties = modelType.GetProperties();
+			
+			foreach (var propInfo in properties)
+			{		
+				if(propInfo.Name != "EntityKey")
+					{			
+								if(propInfo.PropertyType.ToString() == "System.Nullable`1[System.Int32]")
+								{
+									if(propInfo.Name != "SortOrder")
+									{
+										if(propInfo.Name == tableName + "Id")
+										{
+											WriteLine(preText +"@"+ propInfo.Name + "				INT							= NULL");
+										}
+										else
+											WriteLine(preText +"@"+propInfo.Name + "					INT							= NULL");
+									}
+								}				
+								else if(propInfo.PropertyType.ToString() == "System.String")
+								{
+									if(propInfo.Name=="Name")
+										WriteLine(preText +"@"+ propInfo.Name + "							VARCHAR(50)					= NULL");
+									if(propInfo.Name=="Description")
+										WriteLine(preText +"@"+ propInfo.Name + "					VARCHAR(500)				= NULL");
+								}
+					}	
+				preText = ",	";					
+			}			
+
+			WriteLine(preText + "@"+"AuditId" + "						INT");
+			WriteLine(preText + "@"+"AuditDate" + "						DATETIME 					= NULL");
+			WriteLine(preText + "@"+"SystemEntityType" + "				VARCHAR(50)					= '" + tableName + "'");
+			WriteLine(preText +	"@"+"ApplicationMode"+"				INT							= NULL");
+		    WriteLine(preText +	"@"+"AddAuditInfo"+"					INT							= 1");
+			WriteLine(preText +	"@"+"AddTraceInfo"+"					INT							= 0");
+			WriteLine(preText +	"@"+"ReturnAuditInfo"+"				INT							= 0");
+			PopIndent();
+			WriteLine(")");
+			WriteLine("WITH RECOMPILE");
+			WriteLine("AS");	
+	}
+
+	void RenderSearchStatement(string tableName, Type modelType)
+	{
+		var properties = modelType.GetProperties();		
+		WriteLine("BEGIN");
+		PushIndent("\t");
+		WriteLine("");
+		RenderSearchTraceScript(tableName)	;
+		WriteLine("");
+		RenderSystemtypeId(tableName);
+		WriteLine("");			
+		RenderNoInput();
+		WriteLine("");	
+		PopIndent();
+		RenderSearchQuery(tableName,modelType);
+		WriteLine("");
+		RenderApplicationMode(tableName);
+		WriteLine("");
+		RenderAuditInfo(tableName);
+		PopIndent();
+		RenderSearchAuditScript(tableName, modelType);
+		WriteLine("");			
+		
+		WriteLine("END");
+		PopIndent();
+		WriteLine("GO");
+	}
+
+	void RenderSearchTraceScript(string tableName)
+	{		
+		PushIndent("\t");
+		WriteLine("SET  NOCOUNT ON");
+		WriteLine("");
+		WriteLine("IF @AddTraceInfo = 1 ");
+		WriteLine("BEGIN");
+		PushIndent("\t");
+		WriteLine("-- TRACE --");
+		WriteLine("DECLARE @InputParametersLocal	VARCHAR(500)  ");
+		WriteLine("DECLARE @InputValuesLocal		VARCHAR(5000)  ");
+		
+		WriteLine("SET @InputParametersLocal		=  '" + tableName + "Id' " + " + " +  "', '" +  " + " + "'Name'" + " + " +"', '" + " + " + "'Description'"  );
+		
+		WriteLine("SET @InputValuesLocal			= " + " CAST(@" + tableName + "Id AS VARCHAR(50))" + " + " + "','" + " + " + "ISNULL(@Name, 'NULL')" + " + " + "','" + " + " + "ISNULL(@Description, 'NULL')" );
+		WriteLine("");
+		WriteLine("EXEC dbo.StoredProcedureLogInsert");
+		WriteLine("		@Name					= 'dbo." + tableName + "Search'");
+		WriteLine("	,	@InputParameters		= @InputParametersLocal");
+		WriteLine("	,	@InputValues			= @InputValuesLocal	");
+		WriteLine("	-- TRACE --		");
+		PopIndent();
+		WriteLine("END	");
+	 }
+
+	void RenderSystemtypeId(string tableName)
+	 {
+		 WriteLine("DECLARE @SystemEntityTypeId AS INT");
+		 WriteLine("SELECT @SystemEntityTypeId = dbo.GetSystemEntityTypeId(@SystemEntityType)");
+	 }
+
+	void RenderNoInput()
+	{
+		WriteLine("--if blank, then assume search on all possiblities ('%')");
+		WriteLine("IF  @Name IS NULL OR LEN(RTRIM(LTRIM(@Name))) = 0");
+		WriteLine("BEGIN");
+		PushIndent("\t");
+		WriteLine("SET	@NAME = '%'");
+		PopIndent();
+		WriteLine("END");
+		WriteLine("--if blank, then assume search on all possiblities ('%')");
+		WriteLine("IF  @Description IS NULL OR LEN(RTRIM(LTRIM(@Description))) = 0");
+		WriteLine("BEGIN");
+		PushIndent("\t");
+		WriteLine("SET	@Description = '%'");
+		PopIndent();
+		WriteLine("END");
+		PushIndent("\t");
+	}
+
+	void RenderSearchQuery(string tableName, Type modelType)
+	{
+		var properties = modelType.GetProperties();
+		var preText = "	";
+		
+		WriteLine("");
+		WriteLine("SELECT ");			
+		PushIndent("\t");
+		foreach (var propInfo in properties)
+		{		
+			if(propInfo.Name != "EntityKey")							
+				WriteLine(preText + propInfo.Name);
+				preText = ",	";
+		}
+		PopIndent();
+
+		WriteLine("INTO		#TempMain");
+		WriteLine("FROM		dbo."+	tableName + " a");	
+		WriteLine("WHERE  a.Name LIKE @Name " +" + " +"'%'");
+		WriteLine("AND  a.[Description]	LIKE @Description " +" + " +"'%'");
+		WriteLine("AND	a."+tableName+"Id"+ " = ISNULL(@" + tableName+"Id"	+ ", a." + tableName+"Id" +")" );
+		WriteLine("AND	a.ApplicationId = ISNULL(@ApplicationId	, a.ApplicationId)	");
+		WriteLine("ORDER BY	a.SortOrder		 ASC");
+		WriteLine(",			a.Name			 ASC");
+		WriteLine(",			a."+tableName+"Id"	+	" ASC");
+	}
+
+	void RenderApplicationMode(string tableName)
+	{
+		WriteLine("IF	@ApplicationMode = 1 ");
+		WriteLine("BEGIN");	
+		PushIndent("\t");
+		WriteLine("DELETE FROM #TempMain");
+		WriteLine("WHERE "+ tableName +"Id < 0");
+		PopIndent();
+		WriteLine("END");
+	}
+
+	void RenderAuditInfo(string tableName)
+	{
+		WriteLine("IF @ReturnAuditInfo = 1");
+		WriteLine("BEGIN");
+		PushIndent("\t");
+		 WriteLine("-- get Audit latest record matching on key, systementitytype");
+		 WriteLine("SELECT		c.EntityKey");			
+		 PushIndent("\t");
+		 WriteLine("	   ,MAX(c.AuditHistoryId)	AS 'MaxAuditHistoryId'");
+		 PopIndent();
+		 WriteLine("INTO		#HistortyInfo");
+		 WriteLine("FROM 		#TempMain a	");
+		 WriteLine("INNER JOIN	CommonServices.dbo.AuditHistory c");
+		 PushIndent("\t");
+		 WriteLine("ON	c.EntityKey			= a."+ tableName +"Id");
+		 WriteLine("AND c.SystemEntityId	= @SystemEntityTypeId");
+		 WriteLine("AND c.AuditActionId		IN (1,2)");
+		 PopIndent();
+		 WriteLine("GROUP BY	c.EntityKey	");
+		 WriteLine("");
+		 WriteLine("-- Get Audit Date and CreatedByPersonId for given records");
+		 WriteLine("SELECT");
+		 PushIndent("\t");
+		 WriteLine("		a."+ tableName +"Id");
+		 WriteLine("	,	c.AuditActionId ");
+		 WriteLine("	,	c.CreatedDate");
+		 WriteLine("	,	c.CreatedByPersonId");
+		 WriteLine("	, 	c.CreatedDate					AS	'UpdatedDate'");
+		 WriteLine("	,	e.FirstName + ' ' + e.LastName	AS	'UpdatedBy'");
+		 WriteLine("	,	d.Name							AS	'LastAction'");
+		PopIndent();
+		WriteLine("INTO		#HistortyInfoDetails");
+		WriteLine("FROM		#TempMain a");
+		WriteLine("INNER JOIN	#HistortyInfo							b");
+		PushIndent("\t");
+		WriteLine("ON	b.EntityKey			= a."+ tableName +"Id");
+		PopIndent();
+		WriteLine("INNER JOIN	CommonServices.dbo.AuditHistory			c");
+		PushIndent("\t");
+		WriteLine("ON	c.AuditHistoryId	= b.MaxAuditHistoryId");
+		PopIndent();
+		WriteLine("INNER JOIN	CommonServices.dbo.AuditAction			d	");
+		PushIndent("\t");
+		WriteLine("ON	c.AuditActionId 	= d.AuditActionId");
+		PopIndent();
+		WriteLine("INNER JOIN	AuthenticationAndAuthorization.dbo.ApplicationUser	e");
+		PushIndent("\t");
+		WriteLine("ON	c.CreatedByPersonId	= e.ApplicationUserId");
+		PopIndent();
+		 WriteLine("");
+		 WriteLine("-- Show full details");
+		 WriteLine("SELECT	a.*");
+		 PushIndent("\t");
+		WriteLine(",	b.UpdatedDate");
+		WriteLine(",	b.UpdatedBy");
+		WriteLine(",	b.LastAction");
+		PopIndent();
+		WriteLine("FROM	#TempMain		a");
+		WriteLine("LEFT JOIN	#HistortyInfoDetails	b");
+		PushIndent("\t");
+		WriteLine("ON	a."+ tableName +"Id" +	"="+ "b."+tableName +"Id");
+		PopIndent();
+		WriteLine("ORDER BY	a.SortOrder				ASC");
+		PushIndent("\t");
+		WriteLine(",		a."+tableName +"Id");
+		WriteLine("");
+		PopIndent();
+		PopIndent();		
+		WriteLine("END");
+		WriteLine("ELSE");		
+		WriteLine("BEGIN");
+		PushIndent("\t");
+		WriteLine("DECLARE @StaticUpdatedDate AS DATETIME");
+		WriteLine("SET @StaticUpdatedDate = Convert(datetime, '1/1/1900', 103)");
+		WriteLine("SELECT 	a.*");
+		WriteLine(",	UpdatedDate = @StaticUpdatedDate");
+		WriteLine(",	UpdatedBy	= 'Unknown'");
+		WriteLine(",	LastAction	= 'Unknown'");
+		WriteLine("FROM	#TempMain a	");
+		WriteLine("ORDER BY	a.SortOrder		ASC");
+		WriteLine("		,	a."+tableName +"Id");
+		PopIndent();		
+		WriteLine("END");
+		WriteLine("");
+	}
+	
+
+	void RenderSearchAuditScript(string tableName, Type modelType)
+	{	
+			PushIndent("\t");
+			WriteLine("IF @AddAuditInfo = 1 ");
+			WriteLine("BEGIN");
+			PushIndent("\t");
+			WriteLine("-- Create Audit Record");					
+			WriteLine("EXEC dbo.AuditHistoryInsert ");
+			PushIndent("\t");
+			WriteLine("	@SystemEntityType	= @SystemEntityType");
+			WriteLine(",	@EntityKey			= @"+ tableName+"Id");
+			WriteLine(",	@AuditAction		= 'Search'");
+			WriteLine(",	@CreatedDate		= @AuditDate");
+			WriteLine(",	@CreatedByPersonId	= @AuditId");
+			PopIndent();
+			PopIndent();
+			WriteLine("END");
+			PopIndent();
+			PopIndent();
+	}
+#>
+
+
+<#+
+	
+	void RenderSearchScript(string tableName, Type modelType)
+	{	
+		RenderDropSearchProcedure(tableName);
+		RenderSearchDefinition(tableName, modelType);
+		RenderSearchStatement(tableName, modelType);		
+	}	
+    
+#>

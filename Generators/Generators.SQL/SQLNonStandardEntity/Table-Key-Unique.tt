@@ -1,0 +1,87 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Framework.Components.DataAccess" #>
+<#@ output extension=".sql" #>
+
+<#+
+	void RenderUniqueKeyStatement(string tableName, Type modelType)
+	{		
+		bool uqExists = false;
+		var uqColumns = string.Empty;
+		var uqColumnsName = string.Empty;
+
+		var properties = modelType.GetProperties();
+		var preText = "";
+		var preText2 = "";
+
+		foreach (var propInfo in properties)
+		{					
+			// get custom attributes
+			var attributes = propInfo.GetCustomAttributes(false);
+
+			try{
+
+				// check if any attribute is of type "PrimaryKey"
+				var columnMapping = attributes.FirstOrDefault(a => a.GetType() == typeof(IncludeInUnique));
+				if(columnMapping != null)
+				{
+					uqColumns += preText + propInfo.Name;
+					uqColumnsName += preText2 + propInfo.Name;
+					preText = ", ";
+					preText2 = "_";
+
+					uqExists = true;
+				}	
+			}catch{}			
+		}
+		
+		if(uqExists)
+		{
+			WriteLine("IF EXISTS ");		
+			WriteLine("(");
+			
+				PushIndent("\t");
+				WriteLine("SELECT	*	FROM	dbo.sysindexes");
+				WriteLine("WHERE	id		= OBJECT_ID(N'[dbo]."+ tableName + "')");
+				WriteLine("AND		name	= N'UQ_" + tableName + "_ApplicationId_" + uqColumnsName + "'");
+				PopIndent();
+			
+			WriteLine(")");
+			WriteLine("BEGIN");
+			
+				PushIndent("\t");
+				WriteLine("PRINT	'Dropping UQ_"+ tableName + "_ApplicationId_" + uqColumnsName + "'");
+				WriteLine("ALTER	TABLE dbo." + tableName );
+				WriteLine("DROP	CONSTRAINT	UQ_"+ tableName + "_ApplicationId_" + uqColumnsName + "");
+				PopIndent();
+			
+			WriteLine("END");
+			WriteLine("GO");
+			WriteLine("");
+			
+			WriteLine("ALTER TABLE dbo."+ tableName);
+			WriteLine("ADD CONSTRAINT UQ_"+ tableName + "_ApplicationId_" + uqColumnsName + "" + " UNIQUE NONCLUSTERED");
+			WriteLine("(");
+				
+				PushIndent("\t");
+				WriteLine("ApplicationId, " + uqColumns);
+				PopIndent();
+
+			WriteLine(")");
+			WriteLine("GO");
+		}
+	}
+#>
+
+<#+
+	void RenderUniqueKeyScript(string tableName, Type modelType)
+	{
+		RenderUniqueKeyStatement(tableName, modelType);
+	}	
+    
+#>

@@ -1,0 +1,74 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ include file="Table-Create.tt" #>
+<#@ include file="Table-Key-Primary.tt" #>
+<#@ include file="Table-Key-Foreign.tt" #>
+<#@ include file="Table-Key-Unique.tt" #>
+<#@ include file="Procedure-InsertGenerator.tt" #>
+<#@ include file="Procedure-UpdateGenerator.tt" #>
+<#@ include file="Procedure-DeleteGenerator.tt" #>
+<#@ include file="Procedure-SearchGenerator.tt" #>
+<#@ include file="MultipleOutputFileHelper.tt" #>
+<#@ include file="Deploy-ProcsFunctionsCmdGenerator.tt" #>
+<#@ include file="Deploy-ProcsFunctionCmdDeployDb.tt" #>
+
+<#+
+
+	void GenerateSqlFiles(string nameSpace, string tableName, string className,string databaseName, string databaseUserName, string databasePwd, bool isCrossReference = false)
+	{
+
+		foreach (Assembly currentassembly in AppDomain.CurrentDomain.GetAssemblies())
+		{
+			var modelType = currentassembly.GetType(nameSpace + "." + className);
+
+			if(modelType != null)
+			{	
+				var manager = Manager.Create(Host, GenerationEnvironment);
+			
+				// create table script
+				manager.StartNewFile("Table-Create.sql");
+				RenderCreateScript(tableName, modelType);
+
+				// primary key script
+				manager.StartNewFile("Table-Key-Primary.sql");
+				RenderPrimaryKeyScript(tableName, modelType);
+
+				// unique key script
+				manager.StartNewFile("Table-Key-Unique.sql");
+				RenderUniqueKeyScript(tableName, modelType);
+
+				// foreign key script
+				manager.StartNewFile("Table-Key-Foreign.sql");
+				RenderForeignKeyScript(tableName, modelType);
+
+				// insert procedure script
+				manager.StartNewFile("Procedure-Insert.sql");
+				RenderInsertScript(tableName, modelType);
+
+				// Update procedure script
+				manager.StartNewFile("Procedure-Update.sql");
+				RenderUpdateScript(tableName, modelType);
+
+				// Delete procedure script
+				manager.StartNewFile("Procedure-Delete.sql");
+				RenderDeleteScript(tableName, modelType, isCrossReference);
+				
+				// Delete procedure script
+				manager.StartNewFile("Procedure-Search.sql");
+				RenderSearchScript(tableName, modelType);	
+				
+				manager.StartNewFile("_ProcsFunctions.cmd");
+				RenderProcsFunctionsCmd();
+
+				manager.StartNewFile("_DeployDb.cmd");
+				RenderProcsFunctionsCmdDeployDb(databaseName, databaseUserName,  databasePwd);
+
+				manager.Process(true);
+				
+				break;
+			}	
+		}
+
+		
+	}
+
+#>

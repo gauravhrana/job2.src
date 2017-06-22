@@ -1,0 +1,85 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ include file="MultipleOutputFileHelper.tt" #>
+<#+
+
+	void RenderUsingTags()
+	{
+		WriteLine("using System;");
+		WriteLine("using System.Collections.Generic;");
+		WriteLine("using System.Linq;");
+		WriteLine("using System.Text;");
+		WriteLine("using DataModel.Framework.DataAccess;");
+		WriteLine(string.Empty);
+	}
+
+	void RenderStandardClass(string tableName)
+	{
+		PushIndent("\t");   
+		WriteLine(string.Empty);
+		WriteLine("public partial class " + tableName + "DataModel : StandardDataModel");                           
+		WriteLine("{"); 
+		                                         
+			PushIndent("\t");
+			WriteLine(string.Empty);
+
+			WriteLine("public class DataColumns : StandardDataColumns");                           
+			WriteLine("{"); 
+		                                         
+				PushIndent("\t");
+
+				WriteLine("public const string " + tableName + "Id = \"" + tableName + "Id\";"); 
+
+				PopIndent(); 
+				
+			WriteLine("}"); 
+
+			WriteLine(string.Empty);
+
+			WriteLine("public static readonly " + tableName + "DataModel Empty = new " + tableName + "DataModel();");  
+
+			WriteLine(string.Empty);
+
+			PopIndent();
+				
+		WriteLine("}"); 
+		PopIndent(); 
+	}
+
+#>
+
+<#+
+
+	void GenerateDataModelFiles(string nameSpaceDataModel, string[] entities)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+			foreach(string entityName in entities)
+			{	
+				manager.StartNewFile(entityName + "DataModel.generated.cs");
+				this.GenerateStandardDataModelClass(nameSpaceDataModel, entityName);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+	void GenerateStandardDataModelClass(string nameSpace, string tableName)
+    {
+		RenderUsingTags();
+
+		WriteLine("namespace " + nameSpace);
+		WriteLine("{");  
+
+		RenderStandardClass(tableName);
+
+		WriteLine("}");
+		PopIndent();
+	}
+
+#>

@@ -1,0 +1,166 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ import namespace="Framework.Components.DataAccess.DataModel" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".sql" #>
+
+<#+
+
+	void RenderDropUpdatePrcodure(string tableName)
+	{
+		WriteLine("IF  EXISTS (SELECT * FROM sysobjects WHERE type = 'P' AND name ='" + tableName + "Update') ");
+		WriteLine("BEGIN");
+
+			PushIndent("\t");
+			WriteLine("DROP Procedure " + tableName+"Update");
+			PopIndent(); 
+		
+		WriteLine("END");
+		WriteLine("GO");
+
+		WriteLine(string.Empty); 
+	}
+
+	void RenderUpdateDefinition(string tableName, Type modelType)
+	{
+		WriteLine("CREATE Procedure " +"dbo." +tableName + "Update");
+		WriteLine("(");
+
+			PushIndent("\t");
+			var preText = "	";
+			var properties = modelType.GetProperties();
+			
+			foreach (var propInfo in properties)
+			{	
+				var excludedColumns = new []{"EntityKey", "ApplicationId", "CreatedDate", "CreatedByAuditId", "UpdatedDate", "ModifiedByAuditId"};
+				
+				if(!excludedColumns.Contains(propInfo.Name))
+				{		
+					var attributes = propInfo.GetCustomAttributes(false);
+					var columnMapping = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.OnlyProperty));
+					
+					if(columnMapping == null)
+					{
+						if(propInfo.PropertyType.ToString() == "System.Nullable`1[System.Int32]" || propInfo.PropertyType.ToString() == "System.Int32")
+						{
+							WriteLine(preText +"@"+ propInfo.Name+  "				INT"); 
+						}
+						else if(propInfo.PropertyType.ToString() == "System.String")
+						{
+							WriteLine(preText +"@"+ propInfo.Name + "				VARCHAR(500)");	
+						}						
+						else if(propInfo.PropertyType.ToString() == "System.DateTime")
+						{
+							WriteLine(preText +"@"+ propInfo.Name + "				DATETIME");	
+						}
+						else if(propInfo.PropertyType.ToString() == "System.Nullable`1[System.DateTime]")
+						{
+							WriteLine(preText +"@"+ propInfo.Name + "				DATETIME");	
+						}						
+						else if(propInfo.PropertyType.ToString() == "System.Nullable`1[System.Decimal]" ||	propInfo.PropertyType.ToString() == "System.Decimal")
+						{
+							WriteLine(preText +"@"+ propInfo.Name + "				DECIMAL(18, 5)");
+						}
+					}
+					
+				}									
+				preText = ",	";						
+			}			
+
+			WriteLine(preText + "@"+"AuditId" + "					INT");
+			WriteLine(preText + "@"+"AuditDate" + "					DATETIME		= NULL");
+			WriteLine(preText + "@"+"SystemEntityType" + "			VARCHAR(50)		= '" + tableName + "'");
+			PopIndent();
+
+		WriteLine(")");
+		WriteLine("AS");	
+	}
+
+	void RenderUpdateStatement(string tableName, Type modelType)
+	{
+		var properties = modelType.GetProperties();
+		var preText = "		";
+		WriteLine("BEGIN");
+			
+			PushIndent("\t");
+
+			var hasBaseAuditProperties = typeof (BaseAuditDataModel).IsAssignableFrom(modelType);
+
+			if (hasBaseAuditProperties)
+			{
+				WriteLine(string.Empty); 
+				WriteLine("DECLARE		@UpdatedDate		AS	 DATETIME");
+				WriteLine("DECLARE		@ModifiedByAuditId	AS	 INT");
+
+				WriteLine(string.Empty);
+				WriteLine("SET			@UpdatedDate		= GETDATE()");
+				WriteLine("SET			@ModifiedByAuditId	= @AuditId");		
+				
+			}
+			
+				WriteLine(string.Empty); 
+				WriteLine("UPDATE	dbo." + tableName );		
+				WriteLine("SET");			
+			
+			foreach (var propInfo in properties)
+			{	
+				var excludedColumns = new []{"EntityKey", "ApplicationId", "CreatedDate", "CreatedByAuditId", "UpdatedDate", "ModifiedByAuditId", tableName + "Id"};
+
+				if(!excludedColumns.Contains(propInfo.Name))						
+				{			
+					var attributes = propInfo.GetCustomAttributes(false);
+					var columnMapping = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.OnlyProperty));
+
+					if(columnMapping == null)
+					{
+						WriteLine(preText + propInfo.Name + "				=	" + "@" + propInfo.Name);
+						preText = "	,	";
+					}
+				}
+			}
+
+			if (hasBaseAuditProperties)
+			{
+				WriteLine(preText + "UpdatedDate			=	@UpdatedDate");
+				WriteLine(preText + "ModifiedByAuditId		=   @ModifiedByAuditId");
+			}
+
+			preText = "	";
+			// wrong it should be based PK
+			WriteLine("WHERE" + preText + tableName + "Id" + "			=   " + "@" + tableName + "Id");			
+			
+			WriteLine(string.Empty); 	
+			RenderUpdateAuditScript(tableName, modelType);
+			WriteLine(string.Empty); 
+			PopIndent();
+						
+		WriteLine("END");
+		PopIndent();
+		WriteLine("GO");
+	}
+
+	void RenderUpdateAuditScript(string tableName, Type modelType)
+	{
+		WriteLine("EXEC dbo.AuditHistoryInsert ");
+		WriteLine("		@SystemEntityType		= @SystemEntityType");
+		WriteLine("	,	@EntityKey				= @"+ tableName+"Id");
+		WriteLine("	,	@AuditAction			= 'Update'");
+		WriteLine("	,	@CreatedDate			= @AuditDate");
+		WriteLine("	,	@CreatedByPersonId		= @AuditId");
+	}
+#>
+
+<#+
+	
+	void RenderUpdateScript(string tableName, Type modelType)
+	{	
+		RenderDropUpdatePrcodure(tableName);
+		RenderUpdateDefinition(tableName, modelType);
+		RenderUpdateStatement(tableName, modelType);		
+	}	
+    
+#>

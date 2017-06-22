@@ -1,0 +1,125 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Framework.Components.DataAccess.DataModel" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".sql" #>
+<#+
+
+	void RenderDropStatements(string tableName)
+	{
+		WriteLine("IF OBJECT_ID ('dbo." + tableName + "') IS NOT NULL");
+
+		PushIndent("\t");
+		WriteLine("DROP TABLE dbo." + tableName);
+		PopIndent(); 
+
+		WriteLine("GO");
+
+		WriteLine("");
+	}
+
+	void RenderCreateStatement(string tableName, Type modelType)
+	{
+		WriteLine("CREATE TABLE dbo." + tableName);
+		WriteLine("(");
+
+			PushIndent("\t");
+			var preText = "	";
+			var properties = modelType.GetProperties();
+			
+			var list = new List<KeyValuePair<string, string>>();
+
+			foreach (var propInfo in properties)
+			{
+				if (propInfo.Name == "EntityKey") continue;
+				
+				var attributes = propInfo.GetCustomAttributes(false);
+				var columnMapping = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.OnlyProperty));
+				
+				if(columnMapping == null)
+				{			
+					list.Add(new KeyValuePair<string, string>(propInfo.Name, propInfo.PropertyType.ToString()));	
+				}
+			}
+
+			// move ApplicationId to second position
+			var position =	IndexOf(list,	 "ApplicationId");			
+			KeyValuePair<string, string> p1 = list.ElementAt(position);	
+			list.RemoveAt(position);
+			list.Insert(1, p1);
+
+			var hasBaseAuditProperties = typeof (BaseAuditDataModel).IsAssignableFrom(modelType);			
+
+			// system primary keys first 
+			// application id column
+			// foreign key
+			// entity columns 
+
+			foreach (var propInfo in list)
+			{
+				switch (propInfo.Value)
+				{
+					case "System.Int32":
+					case "System.Nullable`1[System.Int32]":
+						WriteLine(preText + propInfo.Key + "				INT		NOT NULL");
+						break;
+					case "System.Nullable`1[System.Single]":
+						WriteLine(preText + propInfo.Key + "				INT		NOT NULL");
+						break;
+					case "System.String":
+						WriteLine(preText + propInfo.Key + "				VARCHAR(100)		NOT NULL");
+						break;
+					case "System.Nullable`1[System.DateTime]":
+						WriteLine(preText + propInfo.Key + "				DATETIME		NULL");
+						break;
+					case "System.DateTime":
+						WriteLine(preText + propInfo.Key + "				DATETIME		NOT NULL");
+						break;
+					case "System.Decimal":
+					case "System.Nullable`1[System.Decimal]":
+						WriteLine(preText + propInfo.Key + "				DECIMAL(18, 5)		NOT NULL");
+						break;
+					default:
+						WriteLine(preText + propInfo.Key + " " + propInfo.Value);
+						break;
+				}
+
+				preText = ",	";
+			}
+
+		PopIndent(); 
+
+		WriteLine(")");
+
+		WriteLine("GO");
+
+	}
+
+	public static int IndexOf(List<KeyValuePair<string, string>> list, string value)
+    {        
+		var position = 0;
+		
+		foreach (var propInfo in list)
+		{
+			if(propInfo.Key == value)
+				break;
+				position++;
+		}	
+
+        return position;
+    }
+#>
+
+<#+
+	
+	void RenderCreateScript(string tableName, Type modelType)
+	{
+		RenderDropStatements(tableName);
+		RenderCreateStatement(tableName, modelType);
+	}	
+    
+#>

@@ -1,0 +1,77 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Linq" #>
+<#@ include file="../../../MultipleOutputFileHelper.tt" #>
+<#@ include file="../../../UtilityHelper.tt" #>
+
+<#+
+
+	void RenderAngularServiceJs(string entityName)
+	{
+	
+		WriteLine("'use strict';");
+
+		WriteLine(string.Empty);
+		WriteLine("angular.module('rootAppShell')");
+			
+			PushIndent("\t");
+			WriteLine(".factory('" + entityName + "Service', [");
+				
+				PushIndent("\t");
+				WriteLine("'$resource',");
+				WriteLine("function ($resource) {");
+					
+					PushIndent("\t");
+					WriteLine("return $resource('./api/" + entityName + "/:detailId'");
+						
+						PushIndent("\t");
+						WriteLine(", null");
+						WriteLine(", {");
+							
+							PushIndent("\t");
+
+							WriteLine("   'getSourceEntityList': { method: 'GET', url: '../../apiV2/" + entityName + "/GetSourceEntityList/:value', isArray: true }");
+							WriteLine(",   'getEntityRecords': { method: 'GET', url: '../../apiV2/" + entityName + "/GetEntityRecords/:value/:value1', isArray: true }");
+							WriteLine(",   'addEntityRecords': { method: 'GET', url: '../../apiV2/" + entityName + "/AddEntityRecords/:value1/:value2/:value3' }");
+							WriteLine(",   'removeEntityRecords': { method: 'GET', url: '../../apiV2/" + entityName + "/RemoveEntityRecords/:value/:value1' }");
+
+							PopIndent();
+
+						WriteLine("}");
+						WriteLine(");");
+						PopIndent();
+
+				WriteLine("}");
+				PopIndent();
+
+			WriteLine("]);");
+
+	}
+
+#>
+
+<#+
+
+	void RenderServices(string[] entities)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+			foreach(string entityName in entities)
+			{	
+				
+				var compatibleEntityName = GetFileCompatibleEntityName(entityName);
+
+				manager.StartNewFile(compatibleEntityName + "Service.js");
+				this.RenderAngularServiceJs(compatibleEntityName);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+#>

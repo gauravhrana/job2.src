@@ -1,0 +1,81 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cmd" #>
+
+<#+
+	void RenderCommands()
+	{
+		WriteLine("@Echo Off");
+		WriteLine(@"if ""%1""=="""" GOTO Usage");
+		WriteLine(@"if ""%2""=="""" GOTO Usage");
+		
+		WriteLine("");
+		WriteLine("ECHO -------------------------------------------------");
+		WriteLine("ECHO Installing Create Table Script");
+		WriteLine("ECHO -------------------------------------------------");
+		WriteLine(@"sqlcmd -S %1 -d %2 -i ""Table-Create.sql"" -b -U %3 -P %4");
+		WriteLine("");
+
+		WriteLine("ECHO -------------------------------------------------");
+		WriteLine("ECHO Installing PK Script");
+		WriteLine("ECHO -------------------------------------------------");
+		WriteLine(@"sqlcmd -S %1 -d %2 -i ""Table-Key-Primary.sql"" -b -U %3 -P %4");
+		WriteLine("");
+
+		WriteLine("ECHO -------------------------------------------------");
+		WriteLine("ECHO Installing Unique Script");
+		WriteLine("ECHO -------------------------------------------------");
+		WriteLine(@"sqlcmd -S %1 -d %2 -i ""Table-Key-Unique.sql"" -b -U %3 -P %4");
+		WriteLine("");
+
+		WriteLine("ECHO -------------------------------------------------");
+		WriteLine("ECHO Installing Search Script");
+		WriteLine("ECHO -------------------------------------------------");
+		WriteLine(@"sqlcmd -S %1 -d %2 -i ""Procedure-Search.sql"" -b -U %3 -P %4");
+		WriteLine("");		
+
+		WriteLine("ECHO -------------------------------------------------");
+		WriteLine("ECHO Installing Insert Script");
+		WriteLine("ECHO -------------------------------------------------");
+		WriteLine(@"sqlcmd -S %1 -d %2 -i ""Procedure-Insert.sql"" -b -U %3 -P %4");
+		WriteLine("");
+
+		WriteLine("ECHO -------------------------------------------------");
+		WriteLine("ECHO Installing Update Script");
+		WriteLine("ECHO -------------------------------------------------");
+		WriteLine(@"sqlcmd -S %1 -d %2 -i ""Procedure-Update.sql"" -b -U %3 -P %4");
+		WriteLine("");
+
+		WriteLine("ECHO -------------------------------------------------");
+		WriteLine("ECHO Installing Delete Script");
+		WriteLine("ECHO -------------------------------------------------");
+		WriteLine(@"sqlcmd -S %1 -d %2 -i ""Procedure-Delete.sql"" -b -U %3 -P %4");
+		WriteLine("");
+
+		WriteLine("if errorlevel 1 pause");
+		WriteLine("GOTO exit");
+		WriteLine("");
+		WriteLine(":Usage");
+		WriteLine("ECHO .");
+		WriteLine("ECHO usage: Procedures SERVER_NAME DB_NAME");
+		WriteLine("ECHO .");
+		WriteLine("");
+		WriteLine(":exit");
+		WriteLine("pause");
+	}
+
+#>
+
+<#+
+	
+	void RenderProcsFunctionsCmd()
+	{	
+		RenderCommands();		
+	}	
+    
+#>
+

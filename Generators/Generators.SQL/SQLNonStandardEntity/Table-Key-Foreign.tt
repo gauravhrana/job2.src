@@ -1,0 +1,61 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Framework.Components.DataAccess" #>
+<#@ output extension=".sql" #>
+
+<#+
+	void RenderForeignKeyStatement(string tableName, Type modelType)
+	{
+		var properties = modelType.GetProperties();
+
+		foreach (var propInfo in properties)
+		{					
+			// get custom attributes
+			var attributes = propInfo.GetCustomAttributes(false);
+
+			try{
+
+				// check if any attribute is of type "ForeignKey"
+				var columnMapping = attributes.FirstOrDefault(a => a.GetType() == typeof(ForeignKey));
+				if(columnMapping != null)
+				{
+					var srcTable = ((Framework.Components.DataAccess.ForeignKey)columnMapping).SourceTable;
+					var srcDatabase = ((Framework.Components.DataAccess.ForeignKey)columnMapping).SourceDatabase;
+
+					//WriteLine("Source Table: " + srcTable);
+					//WriteLine("Source Database: " + srcDatabase);
+
+					// if source database is mentioned, it means it is cross db and we can't create FK for it
+					if(string.IsNullOrEmpty(srcDatabase))
+					{
+						WriteLine("ALTER TABLE dbo." + tableName);
+						WriteLine("	ADD CONSTRAINT FK_" + tableName + "_" + srcTable + " FOREIGN KEY");
+						WriteLine("	(");
+						WriteLine("		" + propInfo.Name);
+						WriteLine("	)");
+						WriteLine("	REFERENCES dbo." + srcTable);
+						WriteLine("	(");
+						WriteLine("		" + propInfo.Name);
+						WriteLine("	)");
+						WriteLine("GO");
+					}
+				}	
+			}catch{}			
+			WriteLine(string.Empty);
+		}
+	}
+
+#>
+
+<#+
+	void RenderForeignKeyScript(string tableName, Type modelType)
+	{
+		RenderForeignKeyStatement(tableName, modelType);
+	}	
+    
+#>

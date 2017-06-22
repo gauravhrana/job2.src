@@ -1,0 +1,12 @@
+R:\717\Projects\Generators\Generators.SQL\bin\Debug\Generators.SQL.dll.config
+R:\717\Projects\Generators\Generators.SQL\bin\Debug\Generators.SQL.dll
+R:\717\Projects\Generators\Generators.SQL\bin\Debug\Generators.SQL.pdb
+R:\717\Projects\Generators\Generators.SQL\bin\Debug\Framework.Components.DataAccess.dll
+R:\717\Projects\Generators\Generators.SQL\bin\Debug\Newtonsoft.Json.dll
+R:\717\Projects\Generators\Generators.SQL\bin\Debug\log4net.dll
+R:\717\Projects\Generators\Generators.SQL\bin\Debug\Framework.Components.DataAccess.pdb
+R:\717\Projects\Generators\Generators.SQL\bin\Debug\Newtonsoft.Json.xml
+R:\717\Projects\Generators\Generators.SQL\bin\Debug\log4net.xml
+R:\717\Projects\Generators\Generators.SQL\obj\Debug\Generators.SQL.csprojResolveAssemblyReference.cache
+R:\717\Projects\Generators\Generators.SQL\obj\Debug\Generators.SQL.dll
+R:\717\Projects\Generators\Generators.SQL\obj\Debug\Generators.SQL.pdb

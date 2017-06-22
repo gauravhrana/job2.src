@@ -1,0 +1,148 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Framework.Components.DataAccess" #>
+<#@ output extension=".sql" #>
+
+<#+
+	void RenderDropDeletePrcodure(string tableName)
+	{
+		WriteLine("IF  EXISTS (SELECT * FROM sysobjects WHERE type = 'P' AND name ='" + tableName + "Delete') ");
+		WriteLine("BEGIN");
+
+			PushIndent("\t");
+			WriteLine("DROP Procedure " + tableName+"Delete");
+			PopIndent(); 
+
+		WriteLine("END");
+		WriteLine("GO");
+
+		WriteLine(string.Empty); 
+	}
+
+	void RenderDeleteDefinition(string tableName, Type modelType, bool isCrossReference)
+	{
+		WriteLine("CREATE Procedure " + "dbo." + tableName + "Delete");
+		WriteLine("(");
+
+			PushIndent("\t");
+			var preText = "	";
+
+			if(!isCrossReference)
+			{
+				WriteLine(preText + "@" + tableName + "Id" + "		INT");
+			}
+			else
+			{
+				var properties = modelType.GetProperties();
+
+				foreach (var propInfo in properties)
+				{		
+					if(propInfo.Name == tableName + "Id")
+					{
+						WriteLine(preText +"@"+propInfo.Name + "				INT		= NULL");	
+						preText = ",	";	
+					}
+					else if(propInfo.Name != "EntityKey")
+					{
+						var attributes = propInfo.GetCustomAttributes(false);
+						var columnMapping = attributes.FirstOrDefault(a => a.GetType() == typeof(IncludeInSearch));
+						
+						if (columnMapping == null) continue;
+
+						//WriteLine(preText +"@"+propInfo.Name + " " + propInfo.PropertyType.ToString() + "				INT		= NULL");
+						if(propInfo.PropertyType.ToString() == "System.Nullable`1[System.Int32]" || propInfo.PropertyType.ToString() == "System.Int32")
+						{	
+							WriteLine(preText +"@" + propInfo.Name + "				INT		= NULL");						
+						}	
+					
+						preText = ",	";
+					}	
+				}
+			}
+			preText = ",	";					
+			WriteLine(preText + "@"+"AuditId" + "				INT");
+			WriteLine(preText + "@"+"AuditDate" + "				DATETIME = NULL");
+			WriteLine(preText + "@"+"SystemEntityType" + "		VARCHAR(50) = '" + tableName + "'");
+			PopIndent();
+
+		WriteLine(")");
+		WriteLine("AS");	
+	}
+
+	void RenderDeleteStatement(string tableName, Type modelType, bool isCrossReference)
+	{		
+		var preText = "	";
+
+		WriteLine("BEGIN");
+			
+			PushIndent("\t");
+
+			WriteLine(string.Empty);
+			WriteLine("DELETE dbo." + tableName);	
+
+			if(!isCrossReference)
+			{
+				WriteLine( "WHERE" + preText + tableName + "Id" + " = " + "@" + tableName + "Id");
+			}
+			else
+			{
+				preText = "WHERE	";	
+				var properties = modelType.GetProperties();
+
+				foreach (var propInfo in properties)
+				{
+					if (propInfo.Name == "EntityKey") continue;
+
+					var attributes = propInfo.GetCustomAttributes(false);
+					var columnMapping = attributes.FirstOrDefault(a => a.GetType() == typeof(IncludeInSearch));
+						
+					if (columnMapping == null) continue;
+
+					var searchFilterCondition = ((IncludeInSearch)columnMapping).SearchFilterCondition;
+					var searchColumn = ((IncludeInSearch)columnMapping).SearchColumn;
+
+					if (propInfo.PropertyType.ToString() != "System.Nullable`1[System.Int32]" &&
+					    propInfo.PropertyType.ToString() != "System.Int32") continue;
+
+					WriteLine(preText + "	" + propInfo.Name + " = ISNULL(@" + propInfo.Name + ", " + propInfo.Name + ")");								
+									
+					preText = "AND		";
+				}
+			}
+
+			WriteLine(string.Empty); 		
+			RenderDeleteAuditScript(tableName, modelType);
+
+			WriteLine(string.Empty); 
+			PopIndent();
+						
+		WriteLine("END");
+		WriteLine("GO");
+	}
+
+	void RenderDeleteAuditScript(string tableName, Type modelType)
+	{		
+		WriteLine("EXEC dbo.AuditHistoryInsert ");
+		WriteLine("	@SystemEntityType	= @SystemEntityType");
+		WriteLine(",	@EntityKey			= @"+ tableName+"Id");
+		WriteLine(",	@AuditAction		= 'Delete'");
+		WriteLine(",	@CreatedDate		= @AuditDate");
+		WriteLine(",	@CreatedByPersonId	= @AuditId");
+	}
+#>
+
+<#+
+	
+	void RenderDeleteScript(string tableName, Type modelType, bool isCrossReference)
+	{	
+		RenderDropDeletePrcodure(tableName);
+		RenderDeleteDefinition(tableName, modelType, isCrossReference);
+		RenderDeleteStatement(tableName, modelType, isCrossReference);		
+	}	
+    
+#>

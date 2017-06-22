@@ -1,0 +1,57 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Framework.Components.DataAccess" #>
+<#@ output extension=".sql" #>
+
+<#+
+
+	void RenderPrimaryKeyStatement(string tableName, Type modelType)
+	{
+	
+		var primaryKeyColumns = string.Empty;
+
+		var properties = modelType.GetProperties();
+		var preText = "";
+
+		foreach (var propInfo in properties)
+		{					
+			// get custom attributes
+			var attributes = propInfo.GetCustomAttributes(false);
+
+			try{
+
+				// check if any attribute is of type "PrimaryKey"
+				var columnMapping = attributes.FirstOrDefault(a => a.GetType() == typeof(PrimaryKey));
+				if(columnMapping != null)
+				{
+					primaryKeyColumns += preText + propInfo.Name;
+					preText = ", ";
+				}	
+			}catch{}			
+		}
+
+		if (!string.IsNullOrEmpty(primaryKeyColumns))
+		{
+			WriteLine("ALTER TABLE dbo." + tableName);
+			WriteLine("ADD CONSTRAINT PK_" + tableName + " PRIMARY KEY CLUSTERED ");
+			WriteLine("(");
+			WriteLine("	" +	primaryKeyColumns);
+			WriteLine(")");  
+			WriteLine("GO");
+		}
+	}
+
+#>
+
+<#+
+	void RenderPrimaryKeyScript(string tableName, Type modelType)
+	{
+		RenderPrimaryKeyStatement(tableName, modelType);
+	}	
+    
+#>

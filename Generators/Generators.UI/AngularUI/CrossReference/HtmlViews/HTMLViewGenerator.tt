@@ -1,0 +1,203 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ include file="../../../MultipleOutputFileHelper.tt" #>
+<#@ include file="../../../UtilityHelper.tt" #>
+
+<#+
+
+	void AddBreadCrumbForView()
+	{
+		WriteLine("<ol class='breadcrumb'>");
+		
+			PushIndent("\t");
+			WriteLine("<li class='active'>{{entityDisplayName}}</li>");
+			PopIndent();
+
+		WriteLine("</ol>");
+	}
+
+	void AddView(string sourceEntity, string targetEntity)
+	{
+		WriteLine(string.Empty);
+		WriteLine("<div class='form-horizontal'>");
+
+			WriteLine(string.Empty);
+			PushIndent("\t");
+			WriteLine("<div class='form-group'>");
+				
+				PushIndent("\t");
+				WriteLine("<label class='col-sm-2 control-label'>Direction:</label>");
+				WriteLine("<div class='col-sm-4'>");
+					
+					PushIndent("\t");
+					WriteLine("<select class='form-control' ng-model='sourceEntity' ng-change='resetSourceEntity()'>");
+						
+						PushIndent("\t");
+						WriteLine("<option selected='selected' value='" + sourceEntity + "'>" + sourceEntity + " To " + targetEntity + "</option>");
+						WriteLine("<option value='" + targetEntity + "'>" + targetEntity + " To " + sourceEntity + "</option>");
+						PopIndent();
+
+					WriteLine("</select>");
+					PopIndent();
+
+				WriteLine("</div>");
+				WriteLine("<div class='col-sm-6'></div>");
+				PopIndent();
+
+			WriteLine("</div>");
+
+			WriteLine(string.Empty);
+			WriteLine("<div class='form-group'>");
+				
+				PushIndent("\t");
+				WriteLine("<label class='col-sm-2 control-label'>{{sourceEntity}}:</label>");
+				WriteLine("<div class='col-sm-4'>");
+					
+					PushIndent("\t");
+					WriteLine("<select class='form-control' ng-model='sourceEntityItem'  ng-change='loadTargetEntity()'");
+					WriteLine("		ng-options='srcItem.Text for srcItem in sourceEntityList track by srcItem.EntityKey'>");
+					WriteLine("</select>");
+					PopIndent();
+
+				WriteLine("</div>");
+				WriteLine("<div class='col-sm-6'></div>");
+				PopIndent();
+
+			WriteLine("</div>");
+
+			WriteLine(string.Empty);
+			WriteLine("<div class='form-group'>");
+				
+				PushIndent("\t");
+				WriteLine("<div class='col-sm-4'>");
+					
+					PushIndent("\t");
+					WriteLine("<label class='col-sm-12 control-label text-left'>Possible {{targetEntity}}(s):</label>");
+					WriteLine("<div class='col-sm-12'>");
+						
+						PushIndent("\t");
+						WriteLine("<select class='form-control' multiple ng-model='possibleTargetEntityItems' size='10'");
+						WriteLine("		ng-options='targetItem.Text for targetItem in possibleTargetEntityList track by targetItem.EntityKey'>");
+						WriteLine("</select>");
+						PopIndent();
+
+					WriteLine("</div>");
+					WriteLine("<div class='col-sm-12 text-center'>");
+						
+						PushIndent("\t");
+						WriteLine("<button type='button' value='-->' class='btn btn-default' ng-click='moveRight();'><b>--></b></button>");
+						PopIndent();
+
+					WriteLine("</div>");
+					PopIndent();
+
+				WriteLine("</div>");
+				WriteLine("<div class='col-sm-4'>");
+					
+					PushIndent("\t");
+					WriteLine("<label class='col-sm-12 control-label text-left'>Currently Associated {{targetEntity}}(s):</label>");
+					WriteLine("<div class='col-sm-12'>");
+						
+						PushIndent("\t");
+						WriteLine("<select class='form-control' multiple ng-model='assignedTargetEntityItems' size='10'");
+						WriteLine("		ng-options='targetItem.Text for targetItem in assignedTargetEntityList track by targetItem.EntityKey'>");
+						WriteLine("</select>");
+						PopIndent();
+
+					WriteLine("</div>");
+					WriteLine("<div class='col-sm-12  text-center'>");
+						
+						PushIndent("\t");
+						WriteLine("<button type='button' value='<--' class='btn btn-default' ng-click='moveLeft();'><b><--</b></button>");
+						PopIndent();
+
+					WriteLine("</div>");
+					PopIndent();
+
+				WriteLine("</div>");
+				WriteLine("<div class='col-sm-4'></div>");
+				PopIndent();
+
+			WriteLine("</div>");
+
+			WriteLine(string.Empty);
+			WriteLine("<div class='form-group'>");
+				
+				PushIndent("\t");
+				WriteLine("<div class='col-sm-8'>");
+					
+					PushIndent("\t");
+					WriteLine("<div class=' pull-right'>");
+
+						PushIndent("\t");
+						WriteLine("<button type='submit' value='Save' class='btn btn-default' ng-click='saveEntityRecords();'>Save</button>");
+						WriteLine("<button type='reset' value='Reset' class='btn btn-default' ng-click='loadTargetEntity();'>Reset</button>");
+						PopIndent();
+
+					WriteLine("</div>");
+					PopIndent();
+
+				WriteLine("</div>");
+				WriteLine("<div class='col-sm-4'></div>");
+				PopIndent();
+
+			WriteLine("</div>");
+			PopIndent();
+
+		WriteLine("</div>");
+
+	}
+
+#>
+
+
+<#+
+
+	void RenderView(string entityName)
+	{
+		var sourceEntity = string.Empty;
+		var targetEntity = string.Empty;
+
+		var listEntityNames = GetCrossReferenceEntityNames(entityName);
+		if(listEntityNames.Count > 0)
+		{
+			sourceEntity = listEntityNames[0];
+		}
+
+		if(listEntityNames.Count > 1)
+		{
+			targetEntity = listEntityNames[1];
+		}
+
+		AddBreadCrumbForView();
+
+		WriteLine(string.Empty);
+		WriteLine("<div class='panel panel-info'>");
+
+			PushIndent("\t");
+			AddView(sourceEntity, targetEntity);
+			PopIndent();
+
+		WriteLine("</div>");
+	}
+
+	void RenderViews(string[] entities)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+			foreach(string entityName in entities)
+			{	
+				manager.StartNewFile(entityName + ".html");
+				this.RenderView(entityName);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+#>

@@ -1,0 +1,455 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ include file="../../../MultipleOutputFileHelper.tt" #>
+<#@ include file="../../../UtilityHelper.tt" #>
+
+<#+
+
+	void RenderJSFunctions(string compatibleEntityName)
+	{
+		WriteLine(string.Empty);
+		WriteLine("$scope.loadTargetEntity = function () {");
+            
+			PushIndent("\t");
+			WriteLine(compatibleEntityName + "Service.getSourceEntityList(");
+                
+				PushIndent("\t");
+				WriteLine("{");
+                    
+					PushIndent("\t");
+					WriteLine("value: JSON.stringify($scope.targetEntity)");
+					PopIndent();
+
+                WriteLine("},");
+                WriteLine("onSuccessLoadTargetEntityList, onFailedLoad);");
+				PopIndent();			
+			
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("// on successfull load of source entity list items");
+        WriteLine("function onSuccessLoadSourceEntityList(data) {");
+
+			WriteLine(string.Empty);
+			PushIndent("\t");
+            WriteLine("$scope.sourceEntityList = data;");
+            WriteLine("$scope.sourceEntityItem = data[0];");
+
+			WriteLine(string.Empty);
+            WriteLine("$scope.loadTargetEntity();");
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("function onSuccessLoadTargetEntityList(data) {");
+
+			WriteLine(string.Empty);
+			PushIndent("\t");
+            WriteLine("$scope.possibleTargetEntityList = data;");
+
+			WriteLine(string.Empty);
+            WriteLine("var entityKey = 0;");
+            WriteLine("if ($scope.sourceEntityItem.EntityKey != undefined) {");
+                
+				PushIndent("\t");
+				WriteLine("entityKey = $scope.sourceEntityItem.EntityKey;");
+				PopIndent();
+
+            WriteLine("}");
+
+			WriteLine(string.Empty);
+            WriteLine("" + compatibleEntityName + "Service.getEntityRecords(");
+                
+				PushIndent("\t");
+				WriteLine("{");
+                    
+					PushIndent("\t");
+					WriteLine("    value: JSON.stringify($scope.sourceEntity)");
+                    WriteLine(",   value1: JSON.stringify($scope.sourceEntityItem.EntityKey)");
+					PopIndent();
+
+                WriteLine("},");
+                WriteLine("onSuccessLoadAssignedTargetEntityList, onFailedLoad);");
+				PopIndent();
+			
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("function onSuccessLoadAssignedTargetEntityList(data) {");
+            
+			PushIndent("\t");
+			WriteLine("$scope.assignedTargetEntityList = [];");
+
+			WriteLine(string.Empty);
+            WriteLine("if (data.length > 0) {");
+               
+			   PushIndent("\t");
+			   WriteLine(" _.each(data, function (dataObject) {");
+
+					WriteLine(string.Empty);
+                    WriteLine("var filteredResult = _.filter($scope.possibleTargetEntityList,");
+                        
+						PushIndent("\t");
+						WriteLine("function (obj) {");
+                            
+							PushIndent("\t");
+							WriteLine("return obj.EntityKey == dataObject[$scope.targetEntity + 'Id']");
+							PopIndent();
+
+                        WriteLine("});");
+						PopIndent();
+	
+					WriteLine(string.Empty);
+                    WriteLine("if (filteredResult.length > 0) {");
+                        
+						PushIndent("\t");
+						WriteLine("$scope.assignedTargetEntityList.push(filteredResult[0]);");
+						PopIndent();
+
+                    WriteLine("}");
+
+					WriteLine(string.Empty);
+                    WriteLine("$scope.possibleTargetEntityList = _.filter($scope.possibleTargetEntityList,");
+                        
+						PushIndent("\t");
+						WriteLine("function (obj) {");
+                            
+							PushIndent("\t");
+							WriteLine("return obj.EntityKey.toString() != dataObject[$scope.targetEntity + 'Id']");
+							PopIndent();
+
+                        WriteLine("});");
+						PopIndent();
+					
+					PopIndent();
+
+				WriteLine(string.Empty);
+                WriteLine("});");
+				PopIndent();
+
+            WriteLine("}");
+			PopIndent();
+
+        WriteLine("}");
+
+        WriteLine("$scope.moveRight = function () {");
+            
+			PushIndent("\t");
+			WriteLine("if ($scope.possibleTargetEntityItems.length > 0) {");
+                
+				PushIndent("\t");
+				WriteLine("_.each($scope.possibleTargetEntityItems, function (dataObject) {");
+                    
+					WriteLine(string.Empty);
+					PushIndent("\t");
+                    WriteLine("var filteredResult = _.filter($scope.possibleTargetEntityList,");
+                        
+						PushIndent("\t");
+						WriteLine("function (obj) {");
+                            
+							PushIndent("\t");
+							WriteLine("return obj.EntityKey == dataObject.EntityKey");
+							PopIndent();
+
+                        WriteLine("});");
+						PopIndent();
+
+					WriteLine(string.Empty);
+                    WriteLine("if (filteredResult.length > 0) {");
+                        
+						PushIndent("\t");
+						WriteLine("$scope.assignedTargetEntityList.push(filteredResult[0]);");
+						PopIndent();
+
+                    WriteLine("}");
+
+					WriteLine(string.Empty);
+                    WriteLine("$scope.possibleTargetEntityList = _.filter($scope.possibleTargetEntityList,");
+                        
+						PushIndent("\t");
+						WriteLine("function (obj) {");
+                            
+							PushIndent("\t");
+							WriteLine("return obj.EntityKey != dataObject.EntityKey");
+							PopIndent();
+
+                        WriteLine("});");
+						PopIndent();
+					PopIndent();
+	
+				WriteLine(string.Empty);
+                WriteLine("})");
+				PopIndent();
+
+            WriteLine("}");
+            WriteLine("else {");
+                
+				PushIndent("\t");
+				WriteLine("alert('No Item Selected');");
+				PopIndent();
+
+            WriteLine("}");
+			PopIndent();
+
+		WriteLine(string.Empty);
+        WriteLine("};");
+
+		WriteLine(string.Empty);
+        WriteLine("$scope.moveLeft = function () {");
+            
+			PushIndent("\t");
+			WriteLine("if ($scope.assignedTargetEntityItems != undefined && $scope.assignedTargetEntityItems.length > 0) {");
+                
+				PushIndent("\t");
+				WriteLine("_.each($scope.assignedTargetEntityItems, function (dataObject) {");
+					
+					WriteLine(string.Empty);
+					PushIndent("\t");
+                    WriteLine("var filteredResult = _.filter($scope.assignedTargetEntityList,");
+                        
+						PushIndent("\t");
+						WriteLine("function (obj) {");
+                            
+							PushIndent("\t");
+							WriteLine("return obj.EntityKey == dataObject.EntityKey");
+							PopIndent();
+
+                        WriteLine("});");
+						PopIndent();
+	
+					WriteLine(string.Empty);
+                    WriteLine("if (filteredResult.length > 0) {");
+                        
+						PushIndent("\t");
+						WriteLine("$scope.possibleTargetEntityList.push(filteredResult[0]);");
+						PopIndent();
+
+                    WriteLine("}");
+
+					WriteLine(string.Empty);
+                    WriteLine("$scope.assignedTargetEntityList = _.filter($scope.assignedTargetEntityList,");
+                        
+						PushIndent("\t");
+						WriteLine("function (obj) {");
+                            
+							PushIndent("\t");
+							WriteLine("return obj.EntityKey != dataObject.EntityKey");
+							PopIndent();
+
+                        WriteLine("});");
+						PopIndent();
+
+					PopIndent();
+				
+				WriteLine(string.Empty);
+                WriteLine("})");
+				PopIndent();
+
+            WriteLine("}");
+            WriteLine("else {");
+                
+				PushIndent("\t");
+				WriteLine("alert('No Item Selected');");
+				PopIndent();
+
+            WriteLine("}");
+			PopIndent();
+
+        WriteLine("};");
+
+		WriteLine(string.Empty);
+        WriteLine("$scope.saveEntityRecords = function () {");
+            
+			PushIndent("\t");
+			WriteLine("" + compatibleEntityName + "Service.removeEntityRecords(");
+                
+				PushIndent("\t");
+				WriteLine("{");
+                    
+					PushIndent("\t");
+					WriteLine("value: JSON.stringify($scope.sourceEntity)");
+                    WriteLine(", value1: JSON.stringify($scope.sourceEntityItem.EntityKey)");
+					PopIndent();
+
+                WriteLine("},");
+                WriteLine("onSuccessRemoveRecords, onFailedLoad);");
+				PopIndent();
+        
+		WriteLine(string.Empty);    
+        WriteLine("};");
+
+		WriteLine(string.Empty);
+		WriteLine("function onSuccessRemoveRecords(data) {");
+            
+			PushIndent("\t");
+			WriteLine("if (data.Result == true) {");
+                
+				PushIndent("\t");
+				WriteLine("if ($scope.assignedTargetEntityList.length > 0) {");
+					
+					WriteLine(string.Empty);
+					PushIndent("\t");
+                    WriteLine("var assignedIds = [];");
+                    WriteLine("_.each($scope.assignedTargetEntityList, function (dataObject) {");
+                        
+						PushIndent("\t");
+						WriteLine("assignedIds.push(dataObject.EntityKey);");
+						PopIndent();
+
+                    WriteLine("});");
+
+					WriteLine(string.Empty);
+                    WriteLine("" + compatibleEntityName + "Service.addEntityRecords(");
+                    WriteLine("{");
+                        
+						PushIndent("\t");
+						WriteLine("value1: JSON.stringify($scope.sourceEntity)");
+                        WriteLine(", value2: JSON.stringify($scope.sourceEntityItem.EntityKey)");
+                        WriteLine(", value3: JSON.stringify(assignedIds)");
+						PopIndent();
+
+                    WriteLine("},");
+                    WriteLine("onSuccessAddRecords, onFailedLoad);");
+					PopIndent();
+
+                WriteLine("}");
+				PopIndent();
+
+            WriteLine("}");
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("function onSuccessAddRecords(data) {");
+            
+			PushIndent("\t");
+			WriteLine("if (data.Result == true) {");
+                
+				PushIndent("\t");
+				WriteLine("userService.AlertManager.addSuccessAlert('Records Saved.');");
+				PopIndent();
+
+            WriteLine("}");
+			PopIndent();
+
+        WriteLine("}");
+
+	}
+
+	void RenderController(string entityName, string compatibleEntityName)
+	{	
+		var sourceEntity = string.Empty;
+		var targetEntity = string.Empty;
+
+		var listEntityNames = GetCrossReferenceEntityNames(entityName);
+		if(listEntityNames.Count > 0)
+		{
+			sourceEntity = listEntityNames[0];
+		}
+
+		if(listEntityNames.Count > 1)
+		{
+			targetEntity = listEntityNames[1];
+		}
+
+		WriteLine("'use strict';");
+
+		WriteLine(string.Empty);
+		WriteLine("angular.module('rootAppShell')");
+			
+			PushIndent("\t");
+			WriteLine(".controller('" + compatibleEntityName + "Ctrl', [");
+				
+				PushIndent("\t");
+				WriteLine("'$location', '$scope', '$injector', '$routeParams', 'userService', '" + compatibleEntityName + "Service',");
+				WriteLine("function ($location, $scope, $injector, $routeParams, userService, " + compatibleEntityName + "Service) {");
+					
+					WriteLine(string.Empty);
+					PushIndent("\t");
+					WriteLine("$scope.entityDisplayName = '" + sourceEntity + " X " + targetEntity + "';");
+
+					WriteLine(string.Empty);
+					WriteLine("$scope.sourceEntity = '" + sourceEntity + "';");
+
+					WriteLine(string.Empty);
+					WriteLine("function onFailedLoad(serverResponse) {");
+						
+						PushIndent("\t");
+						WriteLine("alert(serverResponse.data);");
+						WriteLine("userService.AlertManager.logFailureAlert('', serverResponse.data, []);");
+						PopIndent();
+
+					WriteLine("} "); 
+
+					WriteLine(string.Empty);
+					WriteLine("$scope.resetSourceEntity = function () {");
+						
+						PushIndent("\t");
+						WriteLine("if ($scope.sourceEntity == '" + sourceEntity + "') {");
+							
+							PushIndent("\t");
+							WriteLine("$scope.targetEntity = '" + targetEntity + "';");
+							PopIndent();
+
+						WriteLine("} else {");
+							
+							PushIndent("\t");
+							WriteLine("$scope.targetEntity = '" + sourceEntity + "';");
+							PopIndent();
+
+						WriteLine("}");
+						WriteLine("// get source entity items");
+						WriteLine("" + compatibleEntityName + "Service.getSourceEntityList({ value: JSON.stringify($scope.sourceEntity) }, onSuccessLoadSourceEntityList, onFailedLoad);");
+						PopIndent();
+
+					WriteLine("};");
+
+					WriteLine(string.Empty);
+					WriteLine("$scope.resetSourceEntity();");
+
+					RenderJSFunctions(compatibleEntityName);
+					
+					PopIndent();
+				
+				WriteLine(string.Empty);
+				WriteLine("}");
+				PopIndent();
+
+			WriteLine("]");
+			PopIndent();
+
+		WriteLine(");");
+	}
+
+#>
+
+<#+
+
+	void RenderControllers(string[] entities)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+			foreach(string entityName in entities)
+			{	
+				var compatibleEntityName = GetFileCompatibleEntityName(entityName);
+
+				manager.StartNewFile(compatibleEntityName + "Ctrl.js");
+				this.RenderController(entityName, compatibleEntityName);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+#>

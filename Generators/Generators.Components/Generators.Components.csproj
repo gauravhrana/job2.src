@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0525B5B3-9F16-4D7D-8078-C5EDA78A80ED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Generators.Components</RootNamespace>
+    <AssemblyName>Generators.Components</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CoreCommon.cs">
+      <DependentUpon>CoreCommon.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataManagerGeneratorHelper.cs">
+      <DependentUpon>DataManagerGeneratorHelper.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataModelColumnGeneratorHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModelColumnGeneratorHelper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModelGeneratorHelper.generated.cs">
+      <DependentUpon>DataModelGeneratorHelper.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DayCare\DataManagerGeneratorHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataManagerGeneratorHelper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DayCare\MultipleOutputFileHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MultipleOutputFileHelper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MultipleOutputFileHelper.cs">
+      <DependentUpon>MultipleOutputFileHelper.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="NonStdEntityDataManagerGeneratorHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NonStdEntityDataManagerGeneratorHelper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="CoreCommon.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CoreCommon.cs</LastGenOutput>
+    </None>
+    <None Include="DataManagerGeneratorHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataManagerGeneratorHelper.cs</LastGenOutput>
+    </None>
+    <None Include="DataModelColumnGeneratorHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataModelColumnGeneratorHelper.cs</LastGenOutput>
+    </None>
+    <None Include="DataModelGeneratorHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataModelGeneratorHelper.generated.cs</LastGenOutput>
+    </None>
+    <None Include="DayCare\DataManagerGeneratorHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataManagerGeneratorHelper.cs</LastGenOutput>
+    </None>
+    <None Include="DayCare\MultipleOutputFileHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MultipleOutputFileHelper.cs</LastGenOutput>
+    </None>
+    <None Include="MultipleOutputFileHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MultipleOutputFileHelper.cs</LastGenOutput>
+    </None>
+    <None Include="NonStdEntityDataManagerGeneratorHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>NonStdEntityDataManagerGeneratorHelper.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Components\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj">
+      <Project>{3c1bf755-3c2a-4016-aba7-62f6dea056f0}</Project>
+      <Name>Framework.Components.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Models\Capital Markets\DataModel.CapitalMarkets.csproj">
+      <Project>{2d1740ae-a004-4bf5-87a5-19bf2c1a0695}</Project>
+      <Name>DataModel.CapitalMarkets</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Models\Day Care\DataModel.DayCare.csproj">
+      <Project>{19a1eb56-7232-4930-9d62-85c49730fec6}</Project>
+      <Name>DataModel.DayCare</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Models\Legal\DataModel.Legal.csproj">
+      <Project>{e043e876-c12c-4d07-b4b4-556eca577c14}</Project>
+      <Name>DataModel.Legal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Models\TaskTimeTracker\DataModel.TaskTimeTracker\DataModel.TaskTimeTracker.csproj">
+      <Project>{3ce97e00-470c-43db-8489-fd89559268c9}</Project>
+      <Name>DataModel.TaskTimeTracker</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
