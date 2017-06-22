@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TaskTimeTracker.Components.BusinessLayer</RootNamespace>
+    <AssemblyName>TaskTimeTracker.Components.BusinessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccLocalPath>..</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\..\..\UI\Task Time Tracker\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel.DomainServices.EntityFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityXDeliverableArtifactDataManager.cs" />
+    <Compile Include="Admin.cs" />
+    <Compile Include="ClientDataManager.cs" />
+    <Compile Include="ClientDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientXProjectDataManager.cs" />
+    <Compile Include="DataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultDataRules.cs" />
+    <Compile Include="DeliverableArtifactDataManager.cs" />
+    <Compile Include="DeliverableArtifactDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeliverableArtifactStatusDataManager.cs" />
+    <Compile Include="DeliverableArtifactStatusDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDateRangeStateDataManager.cs" />
+    <Compile Include="EntityDateRangeStateTypeDataManager.cs" />
+    <Compile Include="EntityDateRangeStateTypeDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\ApplicationModeXRunTimeFeatureDataManager.cs" />
+    <Compile Include="Feature\DataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\FeatureDataManager.cs" />
+    <Compile Include="Feature\FeatureDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\FeatureGroupDataManager.cs" />
+    <Compile Include="Feature\FeatureGroupDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\FeatureGroupXFeatureDataManager.cs" />
+    <Compile Include="Feature\FeatureRuleCategoryDataManager.cs" />
+    <Compile Include="Feature\FeatureRuleCategoryDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\FeatureRuleDataManager.cs" />
+    <Compile Include="Feature\FeatureRuleStatusDataManager.cs" />
+    <Compile Include="Feature\FeatureRuleStatusDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\FeatureXFeatureRuleDataManager.cs" />
+    <Compile Include="Feature\FeatureXTaskDataManager.cs" />
+    <Compile Include="Feature\RunTimeFeatureDataManager.cs" />
+    <Compile Include="Feature\RunTimeFeatureDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LayerDataManager.cs" />
+    <Compile Include="LayerDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MilestoneDataManager.cs" />
+    <Compile Include="MilestoneFeatureStateDataManager.cs" />
+    <Compile Include="MilestoneFeatureStateDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MilestoneXFeatureArchiveDataManager.cs" />
+    <Compile Include="MilestoneXFeatureDataManager.cs" />
+    <Compile Include="ProductivityAreaDataManager.cs" />
+    <Compile Include="ProductivityAreaDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductivityAreaFeatureDataManager.cs" />
+    <Compile Include="ProductivityAreaFeatureDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectPortfolioDataManager.cs" />
+    <Compile Include="ProductivityAreaFeatureXApplicationUser.cs" />
+    <Compile Include="ProductivityAreaFeatureXApplicationUser.Helper.cs" />
+    <Compile Include="ProductivityAreaXProductivityAreaFeature.cs" />
+    <Compile Include="ProductivityAreaXProductivityAreaFeature.Helper.cs" />
+    <Compile Include="ProjectPortfolioDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectPortfolioGroupDataManager.cs" />
+    <Compile Include="ProjectPortfolioGroupDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectPortfolioGroupXProjectPortfolioDataManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequirementAnalysis\DataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RequirementAnalysis\NeedDataManager.cs" />
+    <Compile Include="RequirementAnalysis\NeedDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RequirementAnalysis\NeedXFeatureDataManager.cs" />
+    <Compile Include="RequirementAnalysis\ProjectDataManager.cs" />
+    <Compile Include="RequirementAnalysis\ProjectDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RequirementAnalysis\ProjectTimeLineDataManager.cs" />
+    <Compile Include="RequirementAnalysis\ProjectXNeedDataManager.cs" />
+    <Compile Include="Task\DataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Task\TaskDataManager.cs" />
+    <Compile Include="Task\TaskFormulationDataManager.cs" />
+    <Compile Include="Task\TaskNoteDataManager.cs" />
+    <Compile Include="Task\TaskNoteDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Task\TaskPackageXOwnerXTaskDataManager.cs" />
+    <Compile Include="Task\TaskRoleDataManager.cs" />
+    <Compile Include="Task\TaskRoleDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Task\TaskStatusTypeDataManager.cs" />
+    <Compile Include="Task\TaskStatusTypeDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Task\TaskTypeDataManager.cs" />
+    <Compile Include="Task\TaskTypeDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Task\TaskXActivityInstanceDataManager.cs" />
+    <Compile Include="Task\TaskXApplicationUserDataManager.cs" />
+    <Compile Include="Task\TaskXDeliverableArtifactDataManager.cs" />
+    <Compile Include="Task\TaskXTaskNote.cs" />
+    <Compile Include="Task\TaskXTaskNote.Helper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Models\TaskTimeTracker\DataModel.TaskTimeTracker\DataModel.TaskTimeTracker.csproj">
+      <Project>{3ce97e00-470c-43db-8489-fd89559268c9}</Project>
+      <Name>DataModel.TaskTimeTracker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework.Audit\Core\Framework.Components.Audit.csproj">
+      <Project>{0EB669D6-85F0-4D2A-A4BE-CB62DF878791}</Project>
+      <Name>Framework.Components.Audit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework.Configuration\Core\Framework.Components.Configuration.csproj">
+      <Project>{33362436-0628-4dec-a423-614e825c9bad}</Project>
+      <Name>Framework.Components.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj">
+      <Project>{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}</Project>
+      <Name>Framework.Components.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\Core\Framework.Components.Core.csproj">
+      <Project>{BEEBDCB2-5929-4C8E-A861-F1A09F2E8FA2}</Project>
+      <Name>Framework.Components.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Test Case Management\Core\TestCaseManagement.Components.DataAccess.csproj">
+      <Project>{60CC596B-2FE1-4353-B198-DB9EC410A7A2}</Project>
+      <Name>TestCaseManagement.Components.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="Feature\DataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="RequirementAnalysis\DataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="Task\DataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataManagerGenerator.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

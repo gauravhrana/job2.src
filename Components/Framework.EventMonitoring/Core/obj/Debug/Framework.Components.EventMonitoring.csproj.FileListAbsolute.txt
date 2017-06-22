@@ -1,0 +1,15 @@
+R:\717\Projects\Components\Framework.EventMonitoring\Core\bin\Debug\Framework.Components.EventMonitoring.dll.config
+R:\717\Projects\Components\Framework.EventMonitoring\Core\bin\Debug\Framework.Components.EventMonitoring.dll
+R:\717\Projects\Components\Framework.EventMonitoring\Core\bin\Debug\Framework.Components.EventMonitoring.pdb
+R:\717\Projects\Components\Framework.EventMonitoring\Core\bin\Debug\Dapper.dll
+R:\717\Projects\Components\Framework.EventMonitoring\Core\bin\Debug\Framework.Components.DataAccess.dll
+R:\717\Projects\Components\Framework.EventMonitoring\Core\bin\Debug\Newtonsoft.Json.dll
+R:\717\Projects\Components\Framework.EventMonitoring\Core\bin\Debug\log4net.dll
+R:\717\Projects\Components\Framework.EventMonitoring\Core\bin\Debug\Framework.Components.DataAccess.pdb
+R:\717\Projects\Components\Framework.EventMonitoring\Core\bin\Debug\Dapper.pdb
+R:\717\Projects\Components\Framework.EventMonitoring\Core\bin\Debug\Dapper.xml
+R:\717\Projects\Components\Framework.EventMonitoring\Core\bin\Debug\Newtonsoft.Json.xml
+R:\717\Projects\Components\Framework.EventMonitoring\Core\bin\Debug\log4net.xml
+R:\717\Projects\Components\Framework.EventMonitoring\Core\obj\Debug\Framework.Components.EventMonitoring.csprojResolveAssemblyReference.cache
+R:\717\Projects\Components\Framework.EventMonitoring\Core\obj\Debug\Framework.Components.EventMonitoring.dll
+R:\717\Projects\Components\Framework.EventMonitoring\Core\obj\Debug\Framework.Components.EventMonitoring.pdb

@@ -1,0 +1,16 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file="../../../Generators/Generators.Components/NonStdEntityDataManagerGeneratorHelper.tt" #>
+<#
+	
+	this.GenerateCrossReferenceDataManagerFiles(	"CapitalMarkets.Components.BusinessLayer", 
+								"DataModel.CapitalMarkets",
+		new [] {
+				"FundXPortfolio"
+		   ,	"PortfolioXCustodianAccount"
+		   ,	"FundXLegalEntity"
+		   ,	"PriceScheduleXPriceList"
+		}, 
+		false );
+	
+						
+#>

@@ -1,0 +1,9 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ 
+	include file="../../../../../Generators/Generators.Components/DataModelGeneratorHelper.tt" 
+#>
+<#
+this.GenerateDataModelFiles(	"DataModel.TestCaseManagement",
+								new [] {"TestCase", "TestCaseOwner", "TestCasePriority", "TestCaseStatus", "TestRun", "TestSuite"} 
+							);
+#>

@@ -1,0 +1,25 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.CapitalMarkets.dll" #>
+<#@ include file="../../../Generators/Generators.Components/NonStdEntityDataManagerGeneratorHelper.tt" #>
+<#
+	
+	this.GenerateNonStandardDataManagerFiles(	"CapitalMarkets.Components.BusinessLayer", 
+								"DataModel.CapitalMarkets",
+		new [] {
+
+				"MarketCapitalizationCategory",
+				"OrderAction",  
+				"OrderRequest", 
+				"OrderType",
+				"OrderStatusGroup",
+				"OrderStatusType",
+				"OrderStatus",
+				"OrderItem"
+				
+		} );
+	
+						
+#>
+
+
+

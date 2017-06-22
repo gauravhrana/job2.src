@@ -1,0 +1,8 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file="..\..\..\Generators\Generators.Components\DataManagerGeneratorHelper.tt" #>
+<#
+this.GenerateDataManagerFiles(	"Framework.Components.ApplicationUser", 
+								"DataModel.Framework.AuthenticationAndAuthorization",
+								new [] {"ApplicationUserTitle"} 
+							);
+#>

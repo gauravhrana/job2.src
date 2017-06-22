@@ -1,0 +1,8 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file="..\..\..\..\Generators\Generators.Components\DataManagerGeneratorHelper.tt" #>
+<#
+this.GenerateDataManagerFiles(	"TaskTimeTracker.Components.BusinessLayer.Task", 
+								"DataModel.TaskTimeTracker.Task",
+								new [] {"TaskStatusType", "TaskType", "TaskNote", "TaskRole"} 
+							);
+#>

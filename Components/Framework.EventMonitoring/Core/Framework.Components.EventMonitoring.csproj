@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{02C3C616-4097-4999-926C-CA99DC6A6FF9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Framework.Components.EventMonitoring</RootNamespace>
+    <AssemblyName>Framework.Components.EventMonitoring</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccLocalPath>..</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\..\..\UI\Task Time Tracker\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationMonitoredEventDataManager.cs" />
+    <Compile Include="ApplicationMonitoredEventEmailDataManager.cs" />
+    <Compile Include="ApplicationMonitoredEventProcessingStateDataManager.cs" />
+    <Compile Include="ApplicationMonitoredEventSourceDataManager.cs" />
+    <Compile Include="DataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\ApplicationMonitoredEvent.cs" />
+    <Compile Include="DomainModel\ApplicationMonitoredEventEmail.cs" />
+    <Compile Include="DomainModel\ApplicationMonitoredEventProcessingState.cs" />
+    <Compile Include="DomainModel\ApplicationMonitoredEventSource.cs" />
+    <Compile Include="DomainModel\DataModelGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\NotificationEventType.cs" />
+    <Compile Include="DomainModel\NotificationEventTypeDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\NotificationPublisher.cs" />
+    <Compile Include="DomainModel\NotificationPublisherDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\NotificationPublisherXEventType.cs" />
+    <Compile Include="DomainModel\NotificationRegistrar.cs" />
+    <Compile Include="DomainModel\NotificationSubscriber.cs" />
+    <Compile Include="DomainModel\NotificationSubscriberDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\NotificationSubscriberXEventType.cs" />
+    <Compile Include="NotificationEventTypeDataManager.cs" />
+    <Compile Include="NotificationEventTypeDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationPublisherDataManager.cs" />
+    <Compile Include="NotificationPublisherDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationPublisherXEventTypeDataManager.cs" />
+    <Compile Include="NotificationPublisherXNotificationEventType.cs" />
+    <Compile Include="NotificationPublisherXNotificationEventType.Helper.cs" />
+    <Compile Include="NotificationRegistrarDataManager.cs" />
+    <Compile Include="NotificationSubscriberDataManager.cs" />
+    <Compile Include="NotificationSubscriberDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationSubscriberXEventTypeDataManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj">
+      <Project>{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}</Project>
+      <Name>Framework.Components.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="DomainModel\DataModelGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataModelGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

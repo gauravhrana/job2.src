@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{21D87894-145A-4CE4-8955-F869EA75EC84}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Framework.Components.UserPreference</RootNamespace>
+    <AssemblyName>Framework.Components.UserPreference</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccLocalPath>..</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationMode.cs" />
+    <Compile Include="ApplicationModeXFieldConfigurationMode.cs" />
+    <Compile Include="ApplicationModeXFieldConfigurationMode.Helper.cs" />
+    <Compile Include="ApplicationSecurity.cs" />
+    <Compile Include="DateRangeTitle.cs" />
+    <Compile Include="DefaultDataRules.cs" />
+    <Compile Include="DomainModel\ApplicationMode.cs" />
+    <Compile Include="DomainModel\FieldConfiguration.cs" />
+    <Compile Include="DomainModel\FieldConfigurationMode.cs" />
+    <Compile Include="DomainModel\FieldConfigurationModeAccessMode.cs" />
+    <Compile Include="DomainModel\FieldConfigurationModeCategory.cs" />
+    <Compile Include="DomainModel\FieldConfigurationModeXApplicationRole.cs" />
+    <Compile Include="DomainModel\FieldConfigurationModeXApplicationUser.cs" />
+    <Compile Include="DomainModel\UserPreferenceCategory.cs" />
+    <Compile Include="DomainModel\UserPreferenceKey.cs" />
+    <Compile Include="DomainModel\DateRangeTitle.cs" />
+    <Compile Include="FieldConfiguration.cs" />
+    <Compile Include="FieldConfigurationDisplayName.cs" />
+    <Compile Include="FieldConfigurationDisplayName.Helper.cs" />
+    <Compile Include="FieldConfigurationMode.cs" />
+    <Compile Include="FieldConfigurationModeAccessMode.cs" />
+    <Compile Include="FieldConfigurationModeCategory.cs" />
+    <Compile Include="FieldConfigurationModeCategoryXFCMode.cs" />
+    <Compile Include="FieldConfigurationModeCategoryXFCMode.Helper.cs" />
+    <Compile Include="FieldConfigurationModeXApplicationRole.cs" />
+    <Compile Include="FieldConfigurationModeXApplicationUser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserPreference.Helper.cs" />
+    <Compile Include="UserPreferenceCategory.cs" />
+    <Compile Include="UserPreferenceDataType.cs" />
+    <Compile Include="UserPreferenceDataType.Helper.cs" />
+    <Compile Include="UserPreferenceKey.cs" />
+    <Compile Include="UserPreference.cs" />
+    <Compile Include="UserPreferenceSelectedItem.cs" />
+    <Compile Include="UserPreferenceSelectedItem.Helper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj">
+      <Project>{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}</Project>
+      <Name>Framework.Components.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\Core\Framework.Components.Core.csproj">
+      <Project>{BEEBDCB2-5929-4C8E-A861-F1A09F2E8FA2}</Project>
+      <Name>Framework.Components.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

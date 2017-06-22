@@ -1,0 +1,8 @@
+R:\717\Projects\Components\Library.CommonServices.Utils\Core\bin\Debug\Library.CommonServices.Utils.dll
+R:\717\Projects\Components\Library.CommonServices.Utils\Core\bin\Debug\Library.CommonServices.Utils.pdb
+R:\717\Projects\Components\Library.CommonServices.Utils\Core\bin\Debug\AjaxControlToolkit.dll
+R:\717\Projects\Components\Library.CommonServices.Utils\Core\bin\Debug\ICSharpCode.SharpZipLib.dll
+R:\717\Projects\Components\Library.CommonServices.Utils\Core\bin\Debug\log4net.dll
+R:\717\Projects\Components\Library.CommonServices.Utils\Core\obj\Debug\Library.CommonServices.Utils.dll
+R:\717\Projects\Components\Library.CommonServices.Utils\Core\obj\Debug\Library.CommonServices.Utils.pdb
+R:\717\Projects\Components\Library.CommonServices.Utils\Core\obj\Debug\Library.CommonServices.Utils.csprojResolveAssemblyReference.cache

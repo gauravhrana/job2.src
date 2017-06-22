@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B19B7914-588F-4498-87AD-8CD16EF5C070}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TaskTimeTracker.Components.Module.TimeTracking</RootNamespace>
+    <AssemblyName>TaskTimeTracker.Components.Module.TimeTracking</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccLocalPath>..</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Atlassian.Jira, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\UI\Task Time Tracker\packages\Atlassian.SDK.4.5.2\lib\Atlassian.Jira.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper">
+      <HintPath>..\..\..\UI\Task Time Tracker\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\UI\Task Time Tracker\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\UI\Task Time Tracker\packages\RestSharp.105.1.0\lib\net45\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityDataManager.cs" />
+    <Compile Include="ActivityStateDataManager.cs" />
+    <Compile Include="ActivityStateDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomTimeCategoryDataManager.cs" />
+    <Compile Include="CustomTimeCategoryDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomTimeLogDataManager.cs" />
+    <Compile Include="DailyTaskItemQueueDataManager.cs" />
+    <Compile Include="DailyTaskItemQueueStatusDataManager.cs" />
+    <Compile Include="DataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Activity.cs" />
+    <Compile Include="DomainModel\ActivityState.cs" />
+    <Compile Include="DomainModel\ActivityStateDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\BranchRecord.cs" />
+    <Compile Include="DomainModel\CustomTimeCategory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DomainModel\CustomTimeCategoryDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\CustomTimeLog.cs" />
+    <Compile Include="DomainModel\DailyTaskItemQueue.cs" />
+    <Compile Include="DomainModel\DailyTaskItemQueueStatus.cs" />
+    <Compile Include="DomainModel\DataModelGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\JiraDataModel.cs" />
+    <Compile Include="DomainModel\QuestionCategoryDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\ReleaseNotesVsSchedule.cs" />
+    <Compile Include="DomainModel\Schedule.cs" />
+    <Compile Include="DomainModel\ScheduleDetail.cs" />
+    <Compile Include="DomainModel\ScheduleDetailActivityCategory.cs" />
+    <Compile Include="DomainModel\ScheduleDetailActivityCategoryDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\ScheduleEmail.cs" />
+    <Compile Include="DomainModel\ScheduleHistory.cs" />
+    <Compile Include="DomainModel\ScheduleItem.cs" />
+    <Compile Include="DomainModel\ScheduleQuestion.cs" />
+    <Compile Include="DomainModel\ScheduleState.cs" />
+    <Compile Include="DomainModel\ScheduleStateDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Statistic.cs" />
+    <Compile Include="DomainModel\TargetDetails.cs" />
+    <Compile Include="DomainModel\TaskAlgorithm.cs" />
+    <Compile Include="DomainModel\TaskAlgorithmDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\TaskAlgorithmItem.cs" />
+    <Compile Include="DomainModel\WorkCategory.cs" />
+    <Compile Include="DomainModel\WorkCategoryRecord.cs" />
+    <Compile Include="JiraDataManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionCategoryDataManager.cs" />
+    <Compile Include="QuestionCategoryDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionDataManager.cs" />
+    <Compile Include="ScheduleDataManager.cs" />
+    <Compile Include="ScheduleDetailActivityCategoryDataManager.cs" />
+    <Compile Include="ScheduleDetailActivityCategoryDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleDetailDataManager.cs" />
+    <Compile Include="ScheduleEmailDataManager.cs" />
+    <Compile Include="ScheduleHistoryDataManager.cs" />
+    <Compile Include="ScheduleItemDataManager.cs" />
+    <Compile Include="ScheduleQuestionDataManager.cs" />
+    <Compile Include="ScheduleStateDataManager.cs" />
+    <Compile Include="ScheduleStateDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TargetDetailsDataManager.cs" />
+    <Compile Include="TaskAlgorithmDataManager.cs" />
+    <Compile Include="TaskAlgorithmDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskAlgorithmItemDataManager.cs" />
+    <Compile Include="VacationPlanDataManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Models\TaskTimeTracker\DataModel.TaskTimeTracker\DataModel.TaskTimeTracker.csproj">
+      <Project>{3ce97e00-470c-43db-8489-fd89559268c9}</Project>
+      <Name>DataModel.TaskTimeTracker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessLayer\TaskTimeTracker.Components.BusinessLayer.csproj">
+      <Project>{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}</Project>
+      <Name>TaskTimeTracker.Components.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj">
+      <Project>{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}</Project>
+      <Name>Framework.Components.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="DomainModel\DataModelGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataModelGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

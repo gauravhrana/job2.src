@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3A3A5E74-F7DA-405E-9963-45D15D8E54AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TaskTimeTracker.Components.Module.ApplicationDevelopment</RootNamespace>
+    <AssemblyName>TaskTimeTracker.Components.Module.ApplicationDevelopment</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\..\..\UI\Task Time Tracker\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AllEntityDetailDataManager.cs" />
+    <Compile Include="DataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBComponentNameDataManager.cs" />
+    <Compile Include="DBComponentNameDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBNameDataManager.cs" />
+    <Compile Include="DBNameDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBProjectNameDataManager.cs" />
+    <Compile Include="DBProjectNameDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeveloperRoleDataManager.cs" />
+    <Compile Include="DomainModel\AllEntityDetail.cs" />
+    <Compile Include="DomainModel\DataModelGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\DBComponentName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DomainModel\DBComponentNameDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\DBName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DomainModel\DBNameDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\DBProjectName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DomainModel\DBProjectNameDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\DeveloperRole.cs" />
+    <Compile Include="DomainModel\Entity.cs" />
+    <Compile Include="DomainModel\EntityOwner.cs" />
+    <Compile Include="DomainModel\EntityXWorkTicket.cs" />
+    <Compile Include="DomainModel\FeatureOwnerStatus.cs" />
+    <Compile Include="DomainModel\FeatureOwnerStatusDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Functionality.cs" />
+    <Compile Include="DomainModel\FunctionalityActiveStatus.cs" />
+    <Compile Include="DomainModel\FunctionalityActiveStatusDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\FunctionalityDevelopmentStep.cs" />
+    <Compile Include="DomainModel\FunctionalityEntityStatus.cs" />
+    <Compile Include="DomainModel\FunctionalityEntityStatusArchive.cs" />
+    <Compile Include="DomainModel\FunctionalityHistory.cs" />
+    <Compile Include="DomainModel\FunctionalityImage.cs" />
+    <Compile Include="DomainModel\FunctionalityImageAttribute.cs" />
+    <Compile Include="DomainModel\FunctionalityImageInstance.cs" />
+    <Compile Include="DomainModel\FunctionalityOwner.cs" />
+    <Compile Include="DomainModel\FunctionalityPriority.cs" />
+    <Compile Include="DomainModel\FunctionalityPriorityDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\FunctionalityStatus.cs" />
+    <Compile Include="DomainModel\FunctionalityXFunctionalityActiveStatus.cs" />
+    <Compile Include="DomainModel\FunctionalityXFunctionalityDevelopmentStep.cs" />
+    <Compile Include="DomainModel\FunctionalityXFunctionalityImage.cs" />
+    <Compile Include="DomainModel\Module.cs" />
+    <Compile Include="DomainModel\ModuleDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\ModuleOwner.cs" />
+    <Compile Include="DomainModel\Statistic.cs" />
+    <Compile Include="DomainModel\WorkTicket.cs" />
+    <Compile Include="EntityDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityOwnerDataManager.cs" />
+    <Compile Include="EntityXWorkTicketDataManager.cs" />
+    <Compile Include="FeatureOwnerStatusDataManager.cs" />
+    <Compile Include="FeatureOwnerStatusDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FunctionalityActiveStatusDataManager.cs" />
+    <Compile Include="FunctionalityActiveStatusDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FunctionalityDataManager.cs" />
+    <Compile Include="FunctionalityDevelopmentStepDataManager.cs" />
+    <Compile Include="FunctionalityEntityStatusArchiveDataManager.cs" />
+    <Compile Include="FunctionalityEntityStatusDataManager.cs" />
+    <Compile Include="FunctionalityHistoryDataManager.cs" />
+    <Compile Include="FunctionalityImageAttributeDataManager.cs" />
+    <Compile Include="FunctionalityImageDataManager.cs" />
+    <Compile Include="FunctionalityImageInstanceDataManager.cs" />
+    <Compile Include="FunctionalityOwnerDataManager.cs" />
+    <Compile Include="FunctionalityPriorityDataManager.cs" />
+    <Compile Include="FunctionalityPriorityDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FunctionalityStatusDataManager.cs" />
+    <Compile Include="FunctionalityXFunctionalityActiveStatus..cs" />
+    <Compile Include="FunctionalityXFunctionalityDevelopmentStep.cs" />
+    <Compile Include="FunctionalityXFunctionalityImage.cs" />
+    <Compile Include="ModuleDataManager.cs" />
+    <Compile Include="ModuleDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleOwnerDataManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkTicketDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework.Configuration\Core\Framework.Components.Configuration.csproj">
+      <Project>{33362436-0628-4dec-a423-614e825c9bad}</Project>
+      <Name>Framework.Components.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj">
+      <Project>{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}</Project>
+      <Name>Framework.Components.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="DomainModel\DataModelGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataModelGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

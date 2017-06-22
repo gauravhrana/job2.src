@@ -1,0 +1,14 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.UserPreference.dll" #>
+<#@ include file="../../../../Generators/Generators.Components/DataModelColumnGeneratorHelper.tt" #>
+<#
+	this.GenerateDataModelFiles
+	( 
+		"DataModel.Framework.Configuration",	
+		new [] 
+		{	  	
+				"FieldConfigurationBase"
+		} 
+	);
+#>
+ 

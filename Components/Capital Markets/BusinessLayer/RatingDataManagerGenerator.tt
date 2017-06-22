@@ -1,0 +1,15 @@
+﻿
+<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file="../../../Generators/Generators.Components/NonStdEntityDataManagerGeneratorHelper.tt" #>
+<#
+this.GenerateNonStandardDataManagerFiles(	"CapitalMarkets.Components.BusinessLayer", 
+											"DataModel.CapitalMarkets",
+											new [] 
+											{
+													"Rating",
+													"RatingService" 
+
+											}, 
+		false 
+										);
+#>

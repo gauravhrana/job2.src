@@ -1,0 +1,15 @@
+﻿
+<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file="../../../Generators/Generators.Components/NonStdEntityDataManagerGeneratorHelper.tt" #>
+<#
+this.GenerateNonStandardDataManagerFiles(	"DayCare.Components.BusinessLayer", 
+											"DataModel.DayCare",
+											new [] 
+											{
+													"SampleNonStdEntity2"
+												,	"EventSubType"												
+												
+											}, 
+											false 
+										);
+#>

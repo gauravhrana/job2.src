@@ -1,0 +1,9 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file="..\..\..\Generators\Generators.Components\DataManagerGeneratorHelper.tt" #>
+<#
+this.GenerateDataManagerFiles(	"Framework.Components.UserPreference", 
+								"DataModel.Framework.Configuration",
+								new [] {"ApplicationMode", "DateRangeTitle", "FieldConfigurationMode", "FieldConfigurationModeAccessMode", "FieldConfigurationModeCategory",
+								"UserPreferenceCategory", "UserPreferenceDataType"} 
+							);
+#>

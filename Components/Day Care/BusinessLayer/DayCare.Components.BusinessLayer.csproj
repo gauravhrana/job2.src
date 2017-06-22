@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7E6CA603-37AD-48E7-A01C-B266BAB29BC1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DayCare.Components.BusinessLayer</RootNamespace>
+    <AssemblyName>DayCare.Components.BusinessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccLocalPath>..</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\UI\Task Time Tracker\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccidentPlaceDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccidentReportDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivitySubTypeDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityTypeDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BathRoomDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommentDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CourseDataManager.generated.cs">
+      <DependentUpon>EnrollmentDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CourseInstanceDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentDataManager.generated.cs">
+      <DependentUpon>EnrollmentDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiaperStatusDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiscountDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EnrollmentDataManagerGenerator.cs">
+      <DependentUpon>EnrollmentDataManagerGenerator.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="EventSubTypeDataManager.generated.cs">
+      <DependentUpon>NonStdEntityDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EventTypeDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FoodTypeDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Legal\CaseStatusDataManager.generated.cs">
+      <DependentUpon>LegalDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Legal\CaseTypeDataManager.generated.cs">
+      <DependentUpon>LegalDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Legal\ClientTypeDataManager.generated.cs">
+      <DependentUpon>LegalDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Legal\CounselDataManager.generated.cs">
+      <DependentUpon>LegalDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Legal\JurisdictionsDataManager.generated.cs">
+      <DependentUpon>LegalDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Legal\LegalDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LegalDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Legal\MovantTypeDataManager.generated.cs">
+      <DependentUpon>LegalDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Legal\PressReleaseTypeDataManager.generated.cs">
+      <DependentUpon>LegalDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Legal\ReportingRequirementDataManager.generated.cs">
+      <DependentUpon>LegalDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Legal\ReportTypeDataManager.generated.cs">
+      <DependentUpon>LegalDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Legal\RetrievalMethodDataManager.generated.cs">
+      <DependentUpon>LegalDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Legal\SettlementStatusDataManager.generated.cs">
+      <DependentUpon>LegalDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MealDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MealDetailDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MealTypeDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NeedItemDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NonStdEntityDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NonStdEntityDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentMethodDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\AddressDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\AirportDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\CalendarDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\CityDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\ContinentDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\CountryDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\CountryXReligionDataManager.generated.cs">
+      <DependentUpon>CrossReferenceDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\CrossReferenceDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrossReferenceDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\CurrencyDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\DataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\EthnicityDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\GenderDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\GeographicRegionDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\HelpLineDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\HolidayDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\HolidayXCountryDataManager.generated.cs">
+      <DependentUpon>CrossReferenceDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\MallDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\MonumentDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\PersonSuffixDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\ProvinceDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\ProvinceTypeDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\RegionDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\ReligionDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\StateDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\TimeZoneDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\TimeZoneXCountryDataManager.generated.cs">
+      <DependentUpon>CrossReferenceDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceData\TrainStationDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrationDataManager.generated.cs">
+      <DependentUpon>EnrollmentDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SampleNonStdEntity2DataManager.generated.cs">
+      <DependentUpon>NonStdEntityDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SampleNonStdEntityDataManager.cs" />
+    <Compile Include="SickReportDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SleepDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectMatterDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TuitionDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="DataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <Compile Include="DataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="EnrollmentDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EnrollmentDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="Legal\LegalDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LegalDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="NonStdEntityDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>NonStdEntityDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="ReferenceData\CrossReferenceDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CrossReferenceDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="ReferenceData\DataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataManagerGenerator.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Models\Capital Markets\DataModel.CapitalMarkets.csproj">
+      <Project>{2d1740ae-a004-4bf5-87a5-19bf2c1a0695}</Project>
+      <Name>DataModel.CapitalMarkets</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Models\Day Care\DataModel.DayCare.csproj">
+      <Project>{19a1eb56-7232-4930-9d62-85c49730fec6}</Project>
+      <Name>DataModel.DayCare</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Models\Legal\DataModel.Legal.csproj">
+      <Project>{e043e876-c12c-4d07-b4b4-556eca577c14}</Project>
+      <Name>DataModel.Legal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Models\ReferenceData\DataModel.ReferenceData.csproj">
+      <Project>{6708b269-e948-429a-bcb3-99c46a336986}</Project>
+      <Name>DataModel.ReferenceData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj">
+      <Project>{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}</Project>
+      <Name>Framework.Components.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library.CommonServices.Utils\Core\Library.CommonServices.Utils.csproj">
+      <Project>{4a94e353-75dd-46cc-b784-c49d42dca73b}</Project>
+      <Name>Library.CommonServices.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

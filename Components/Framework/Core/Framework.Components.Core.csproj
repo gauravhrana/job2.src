@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BEEBDCB2-5929-4C8E-A861-F1A09F2E8FA2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Framework.Components.Core</RootNamespace>
+    <AssemblyName>Framework.Components.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccLocalPath>..</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\..\..\UI\Task Time Tracker\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\UI\Task Time Tracker\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationRelationDataManager.cs" />
+    <Compile Include="ApplicationRouteDataManager.cs" />
+    <Compile Include="ApplicationRouteParameterDataManager.cs" />
+    <Compile Include="AuditLogDataManager.cs" />
+    <Compile Include="AuditLogDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseClass.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="ConnectionStringDataManager.cs" />
+    <Compile Include="ConnectionStringXApplication.cs" />
+    <Compile Include="DataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\ApplicationEntityParentalHierarchy.cs" />
+    <Compile Include="DomainModel\ApplicationEntityParentalHierarchyDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\ApplicationRelation.cs" />
+    <Compile Include="DomainModel\ApplicationRoute.cs" />
+    <Compile Include="DomainModel\ApplicationRouteParameter.cs" />
+    <Compile Include="DomainModel\AuditLog.cs" />
+    <Compile Include="DomainModel\AuditLogDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\ConnectionString.cs" />
+    <Compile Include="DomainModel\ConnectionStringXApplication.cs" />
+    <Compile Include="DomainModel\DataModelGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\HelpPage.cs" />
+    <Compile Include="DomainModel\HelpPageContext.cs" />
+    <Compile Include="DomainModel\HelpPageContextDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Language.cs" />
+    <Compile Include="DomainModel\LanguageDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Menu.cs" />
+    <Compile Include="DomainModel\MenuCategory.cs" />
+    <Compile Include="DomainModel\MenuCategoryDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\MenuCategoryXMenu.cs" />
+    <Compile Include="DomainModel\MenuDisplayName.cs" />
+    <Compile Include="DomainModel\QuickPaginationRun.cs" />
+    <Compile Include="DomainModel\Report.cs" />
+    <Compile Include="DomainModel\ReportCategory.cs" />
+    <Compile Include="DomainModel\ReportXReportCategory.cs" />
+    <Compile Include="DomainModel\SearchKey.cs" />
+    <Compile Include="DomainModel\SearchKeyDetail.cs" />
+    <Compile Include="DomainModel\SearchKeyDetailItem.cs" />
+    <Compile Include="DomainModel\SubscriberApplicationRole.cs" />
+    <Compile Include="DomainModel\SubscriberApplicationRoleDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\SuperKey.cs" />
+    <Compile Include="DomainModel\SuperKeyDetail.cs" />
+    <Compile Include="DomainModel\SystemDevNumbers.cs" />
+    <Compile Include="DomainModel\SystemEntityCategory.cs" />
+    <Compile Include="DomainModel\SystemEntityCategoryDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\SystemEntityType.cs" />
+    <Compile Include="DomainModel\SystemEntityXSystemEntityCategory.cs" />
+    <Compile Include="DomainModel\SystemForeignRelationship.cs" />
+    <Compile Include="DomainModel\SystemForeignRelationshipDatabase.cs" />
+    <Compile Include="DomainModel\SystemForeignRelationshipDatabaseDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\SystemForeignRelationshipType.cs" />
+    <Compile Include="DomainModel\SystemForeignRelationshipTypeDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\TabChildStructure.cs" />
+    <Compile Include="DomainModel\TabParentStructure.cs" />
+    <Compile Include="DomainModel\Theme.cs" />
+    <Compile Include="DomainModel\ThemeCategory.cs" />
+    <Compile Include="DomainModel\ThemeCategoryDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\ThemeDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\ThemeDetail.cs" />
+    <Compile Include="DomainModel\ThemeDetails.cs" />
+    <Compile Include="DomainModel\ThemeKey.cs" />
+    <Compile Include="DomainModel\ThemeKeyDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\Themes.cs" />
+    <Compile Include="DomainModel\ThemesDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HelpPageContextDataManager.cs" />
+    <Compile Include="HelpPageContextDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HelpPageDataManager.cs" />
+    <Compile Include="LanguageDataManager.cs" />
+    <Compile Include="LanguageDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuCategoryDataManager.cs" />
+    <Compile Include="MenuCategoryDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuCategoryXMenu.cs" />
+    <Compile Include="MenuDataManager.cs" />
+    <Compile Include="MenuDisplayNameDataManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuickPaginationRunDataManager.cs" />
+    <Compile Include="RegularExpressionConstants.cs" />
+    <Compile Include="ReportCategoryDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReportXReportCategory.cs" />
+    <Compile Include="SearchKeyDataManager.cs" />
+    <Compile Include="SearchKeyDetailDataManager.cs" />
+    <Compile Include="SearchKeyDetailItemDataManager.cs" />
+    <Compile Include="SubscriberApplicationRoleDataManager.cs" />
+    <Compile Include="SubscriberApplicationRoleDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SuperKeyDataManager.cs" />
+    <Compile Include="SuperKeyDetailDataManager.cs" />
+    <Compile Include="SystemDevNumbersDataManager.cs" />
+    <Compile Include="SystemEntityCategoryDataManager.cs" />
+    <Compile Include="SystemEntityCategoryDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemEntityTypeDataManager.cs" />
+    <Compile Include="SystemEntityXSystemEntityCategory.cs" />
+    <Compile Include="SystemForeignRelationshipDatabaseDataManager.cs" />
+    <Compile Include="SystemForeignRelationshipDatabaseDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemForeignRelationshipDataManager.cs" />
+    <Compile Include="SystemForeignRelationshipTypeDataManager.cs" />
+    <Compile Include="SystemForeignRelationshipTypeDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TabChildStructureDataManager.cs" />
+    <Compile Include="TabParentStructureDataManager.cs" />
+    <Compile Include="ThemeCategoryDataManager.cs" />
+    <Compile Include="ThemeCategoryDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThemeDataManager.cs" />
+    <Compile Include="ThemeDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThemeDetailDataManager.cs" />
+    <Compile Include="ThemeDetailsDataManager.cs" />
+    <Compile Include="ThemeKeyDataManager.cs" />
+    <Compile Include="ThemeKeyDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThemesDataManager.cs" />
+    <Compile Include="ThemesDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj">
+      <Project>{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}</Project>
+      <Name>Framework.Components.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SQL\GetEntityMaxId.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQL\GetNextValue.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQL\GetEntityTestDataCount.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQL\GetEntityDetails.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQL\GetEntityData.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQL\GetEntityCount.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQL\GetEntityMinId.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="SQL\GetEntitySuperKeyForRandomIds.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="DomainModel\DataModelGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataModelGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

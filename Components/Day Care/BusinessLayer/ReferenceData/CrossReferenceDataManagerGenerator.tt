@@ -1,0 +1,16 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file="../../../../Generators/Generators.Components/NonStdEntityDataManagerGeneratorHelper.tt" #>
+<#
+	
+	this.GenerateCrossReferenceDataManagerFiles(	"ReferenceData.Components.BusinessLayer", 
+								"DataModel.ReferenceData",
+		new [] {
+				"TimeZoneXCountry"
+		   ,	"HolidayXCountry"
+		   ,	"CountryXReligion"
+		   
+		}, 
+		false );
+	
+						
+#>

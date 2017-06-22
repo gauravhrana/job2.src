@@ -1,0 +1,198 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Data" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ assembly name="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.IO" #>
+<#@ assembly name="EnvDTE" #>
+<#@ Import Namespace="EnvDTE" #>
+<#@ Import Namespace="System.Text" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Diagnostics" #>
+
+<#
+WriteLine("using System;");
+WriteLine("using System.Collections.Generic;");
+WriteLine("using System.Linq;");
+WriteLine("using System.Text;");
+WriteLine(String.Empty);
+
+WriteLine("namespace Framework.Components.DataAccess");
+WriteLine("{");
+	
+	PushIndent("\t");
+	WriteLine("// *** - DO NOT EDIT");
+	WriteLine("// Sample - DO NOT EDIT");
+	WriteLine("// *** - DO NOT EDIT");
+	WriteLine("internal enum ZSystemEntityEnum");
+	WriteLine("{");
+				
+		var longestName = 0;
+		foreach(DataRow row in GetTable().Rows)
+		{
+			var name = row["EntityName"].ToString();
+
+			if (name.Length > longestName)
+			{
+				longestName = name.Length;
+			}			
+		}
+
+		PushIndent("\t");
+		var isFirst = true;
+		foreach(DataRow row in GetTable().Rows)
+		{
+			var name	= row["EntityName"].ToString();
+			var key		= row["SystemEntityTypeId"].ToString();
+			
+			if (isFirst)
+			{
+				WriteLine("\t" + name + GetTabs(name.Length, longestName) + " = " + key);
+				isFirst = false;
+			}
+			else
+			{
+				WriteLine(",\t" + name + GetTabs(name.Length, longestName) + " = " + key);			
+			}
+					
+		}
+		PopIndent();
+	
+	WriteLine("}");		 
+	PopIndent();
+
+	//PushIndent("\t");
+	//WriteLine("public class MyGeneratedClass");
+	//WriteLine("{");
+
+		//PushIndent("\t");
+		//foreach(var name in GetTableNames())
+		//{
+			//WriteLine("public class " + name);
+			//WriteLine("{");
+			//WriteLine("}");		 
+		//}
+		//PopIndent();
+	
+	//WriteLine("}");		 
+	//PopIndent();
+
+WriteLine("}");		 
+#>
+
+<#+
+
+	private string GetTabs(int s, int t)
+	{
+		var count = HowManTabs(s, t);
+		var tabString = String.Empty;
+		
+		for (var i = 0; i < count; i++)
+		{
+			tabString += "\t";
+		}
+
+		return tabString;
+	}
+
+	private int HowManTabs(int s, int t)
+	{
+		if ((t - s) == 0)
+		{
+			//Write("//" + (t - s- (t%4))%(4));
+			return 1;
+		}		
+		else if (((t - s - (t%4))%(4)) == 3)
+		{
+			//Write("//" + (t - s- (t%4))%(4));
+			return  1 + ((t - s)/(4));
+		}
+		else if (((t - s - (t%4))%(4)) != 0)
+		{
+			//Write("//" + (t - s- (t%4))%(4));
+			return  2 + ((t - s)/(4));
+		}		
+		else
+		{
+			//Write("//" + (t - s- (t%4))%(4));
+			return  1 + ((t - s)/(4));
+		}		
+	}
+
+#>
+<#+
+
+	public DataTable GetTable()
+	{
+		var connectionString =
+			@"Data Source=IVR-SQL-01\SQL01;Initial Catalog=Configuration;Persist Security Info=True;User ID=706;Password=Welcome1;Connect Timeout=0";
+		var commandText = "SELECT a.SystemEntityTypeId, a.EntityName" +
+		                  " FROM SystemEntityType a" +
+		                  " ORDER BY a.EntityName";
+
+		var DBDataset = new DataSet();
+
+		using (var connection = new SqlConnection(connectionString))
+		{
+			connection.Open();
+
+			var DBCommand = new SqlCommand(commandText, connection);
+			var DBAdapter = new SqlDataAdapter(DBCommand);
+
+			DBAdapter.Fill(DBDataset);
+		}
+
+		return DBDataset.Tables[0];
+	}
+
+#>
+
+<#+
+	IEnumerable<string> GetTableNames() 
+	{
+		var connectionString = @"Data Source=IVR-SQL-01\SQL01;Initial Catalog=Configuration;Persist Security Info=True;User ID=706;Password=Welcome1;Connect Timeout=0"; 
+		var commandText = "SELECT a.SystemEntityTypeId, a.EntityName" +
+							" FROM SystemEntityType a" +
+							" ORDER BY a.EntityName";
+            
+		using(var connection = new SqlConnection(connectionString))        
+		{
+			connection.Open();
+
+			using(var command = new SqlCommand(commandText, connection))
+
+			using(var reader = command.ExecuteReader())
+			{
+				while (reader.Read())
+				{                                                
+					yield return reader["EntityName"] as string;
+				}    
+			}
+		}
+#>
+
+<#+
+		var transformationType = this.GetType();
+		var hostProperty = transformationType.GetProperty("Host");
+
+		if (hostProperty == null)
+		{
+			throw new Exception("Unable to retrieve templating engine host. " 
+						+ "Ensure that the template includes hostspecific=\"True\" "
+						+ "parameter in the template directive.");
+		}
+
+		var host = (Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost)hostProperty.GetValue(this, null);
+	
+		var hostServiceProvider = (IServiceProvider)host;
+	
+		var dte = (EnvDTE.DTE)hostServiceProvider.GetService(typeof(EnvDTE.DTE));
+	
+		EnvDTE.ProjectItem containingProjectItem = dte.Solution.FindProjectItem(host.TemplateFile);
+	
+		var project = containingProjectItem.ContainingProject;
+	}
+#>

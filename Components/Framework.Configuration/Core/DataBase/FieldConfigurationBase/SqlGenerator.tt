@@ -1,0 +1,13 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.UserPreference.dll" #>
+
+
+<#@ 
+	include file="../../../../../Generators/Generators.SQL/SQLNonStandardEntity/EntitySqlGeneratorHelper.tt"
+#>
+ 
+<#
+	this.GenerateSqlFiles("DataModel.Framework.Configuration", "FieldConfigurationBase", "FieldConfigurationBaseDataModel", "Configuration", "706", "Welcome1");
+#>
+

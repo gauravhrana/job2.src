@@ -1,0 +1,10 @@
+R:\717\Projects\Components\Framework.UserPreferences\Core\bin\Debug\Framework.Components.UserPreference.dll
+R:\717\Projects\Components\Framework.UserPreferences\Core\bin\Debug\Framework.Components.UserPreference.pdb
+R:\717\Projects\Components\Framework.UserPreferences\Core\bin\Debug\Framework.Components.Core.dll
+R:\717\Projects\Components\Framework.UserPreferences\Core\bin\Debug\Framework.Components.DataAccess.dll
+R:\717\Projects\Components\Framework.UserPreferences\Core\bin\Debug\log4net.dll
+R:\717\Projects\Components\Framework.UserPreferences\Core\bin\Debug\Framework.Components.DataAccess.pdb
+R:\717\Projects\Components\Framework.UserPreferences\Core\bin\Debug\Framework.Components.Core.pdb
+R:\717\Projects\Components\Framework.UserPreferences\Core\obj\Debug\Framework.Components.UserPreference.dll
+R:\717\Projects\Components\Framework.UserPreferences\Core\obj\Debug\Framework.Components.UserPreference.pdb
+R:\717\Projects\Components\Framework.UserPreferences\Core\obj\Debug\Framework.Components.UserPreference.csprojResolveAssemblyReference.cache

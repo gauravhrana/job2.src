@@ -1,0 +1,30 @@
+﻿
+<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.DayCare.dll" #>
+<#@ include file="../../../Generators/Generators.Components/NonStdEntityDataManagerGeneratorHelper.tt" #>
+<#
+this.GenerateNonStandardDataManagerFiles(	"DayCare.Components.BusinessLayer", 
+								"DataModel.DayCare",
+								new [] 
+								{
+										"AccidentReport"	
+									,	"AccidentPlace"									
+									,	"ActivitySubType"
+									,	"ActivityType"
+									,   "DiaperStatus"
+									,	"EventType"
+									,	"FoodType"
+									,	"MealType"
+									,	"NeedItem"
+									,	"BathRoom"
+									,	"Discount"
+									,	"PaymentMethod"
+									,	"Comment",	"Meal"
+									,	"MealDetail"
+									,	"SickReport"
+									,	"Tuition"
+									,	"Sleep","Student", "Teacher", "CourseInstance" , "SubjectMatter"
+								}, 
+								false 
+							);
+#>

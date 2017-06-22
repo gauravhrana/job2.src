@@ -1,0 +1,10 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ 
+	include file="../../../../Generators/Generators.Components/DataModelGeneratorHelper.tt" 
+#>
+<#
+this.GenerateDataModelFiles(	"DataModel.TaskTimeTracker.Priority",
+								new [] {"TaskPackage"} 
+
+							);
+#>

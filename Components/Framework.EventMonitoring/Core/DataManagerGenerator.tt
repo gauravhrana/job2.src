@@ -1,0 +1,8 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file="..\..\..\Generators\Generators.Components\DataManagerGeneratorHelper.tt" #>
+<#
+this.GenerateDataManagerFiles(	"Framework.Components.EventMonitoring", 
+								"DataModel.Framework.EventMonitoring",
+								new [] {"NotificationEventType", "NotificationPublisher", "NotificationSubscriber"} 
+							);
+#>

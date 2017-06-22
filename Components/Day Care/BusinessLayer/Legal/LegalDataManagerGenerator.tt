@@ -1,0 +1,27 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file="../../../../Generators/Generators.Components/NonStdEntityDataManagerGeneratorHelper.tt" #>
+<#
+	
+	this.GenerateNonStandardDataManagerFiles(	"Legal.Components.BusinessLayer", 
+								"DataModel.Legal",
+		new [] {
+
+		"CaseStatus",
+		"CaseType",
+		"ClientType", 
+		"Counsel",
+		"Jurisdictions",
+		"MovantType",
+		"PressReleaseType",
+		"ReportingRequirement",
+		"ReportType",
+		"RetrievalMethod",
+		"SettlementStatus"
+
+		} );
+	
+						
+#>
+
+
+

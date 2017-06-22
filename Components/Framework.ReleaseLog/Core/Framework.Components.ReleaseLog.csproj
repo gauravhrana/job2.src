@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DAAAFFE0-C710-49FC-B315-E13089A327B7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Framework.Components.ReleaseLog</RootNamespace>
+    <AssemblyName>Framework.Components.ReleaseLog</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccLocalPath>..</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\..\..\UI\Task Time Tracker\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DevelopmentCategoryDataManager.cs" />
+    <Compile Include="DomainModel\DataModelGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\DevelopmentCategory.cs" />
+    <Compile Include="DomainModel\ReleaseFeature.cs" />
+    <Compile Include="DomainModel\ReleaseNoteBusinessValue.cs" />
+    <Compile Include="DomainModel\ReleaseNoteDeveloperValue.cs" />
+    <Compile Include="DomainModel\ReleaseNoteLogisticsDifficulty.cs" />
+    <Compile Include="DomainModel\ReleaseNoteTechnicalDifficulty.cs" />
+    <Compile Include="DomainModel\ReleasePublishCategoryDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReleaseFeatureDataManager.cs" />
+    <Compile Include="ReleaseIssueTypeDataManager.cs" />
+    <Compile Include="ReleaseLogDataManager.cs" />
+    <Compile Include="ReleaseLogDetailDataManager.cs" />
+    <Compile Include="ReleaseLogDetailMappingDataManager.cs" />
+    <Compile Include="ReleaseLogStatusDataManager.cs" />
+    <Compile Include="DomainModel\ReleaseNoteBusinessDifficulty.cs" />
+    <Compile Include="DomainModel\PublishXDevelopment.cs" />
+    <Compile Include="DomainModel\ReleaseIssueType.cs" />
+    <Compile Include="DomainModel\ReleaseLog.cs" />
+    <Compile Include="DomainModel\ReleaseLogDetail.cs" />
+    <Compile Include="DomainModel\ReleaseLogDetailMapping.cs" />
+    <Compile Include="DomainModel\ReleaseLogStatus.cs" />
+    <Compile Include="DomainModel\ReleaseNoteQualitative.cs" />
+    <Compile Include="DomainModel\ReleasePublishCategory.cs" />
+    <Compile Include="DomainModel\Statistic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublishXDevelopment.cs" />
+    <Compile Include="ReleaseNoteBusinessDifficultyDataManager.cs" />
+    <Compile Include="ReleaseNoteBusinessValueDataManager.cs" />
+    <Compile Include="ReleaseNoteDeveloperValueDataManager.cs" />
+    <Compile Include="ReleaseNoteLogisticsDifficultyDataManager.cs" />
+    <Compile Include="ReleaseNoteQualitativeDataManager.cs" />
+    <Compile Include="ReleaseNotesWorkFlow.cs" />
+    <Compile Include="ReleaseNoteTechnicalDifficultyDataManager.cs" />
+    <Compile Include="ReleasePublishCategoryDataManager.cs" />
+    <Compile Include="ReleasePublishCategoryDataManager.generated.cs">
+      <DependentUpon>DataManagerGenerator.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj">
+      <Project>{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}</Project>
+      <Name>Framework.Components.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="DomainModel\DataModelGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataModelGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

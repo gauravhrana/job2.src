@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.Components.BusinessLayer", "BusinessLayer\TaskTimeTracker.Components.BusinessLayer.csproj", "{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Components.Core", "..\Framework\Core\Framework.Components.Core.csproj", "{BEEBDCB2-5929-4C8E-A861-F1A09F2E8FA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Components.DataAccess", "..\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj", "{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.Components.Module.Competency", "Module.Competency\TaskTimeTracker.Components.Module.Competency.csproj", "{F3DD4DA4-5F72-43B2-999F-551B331BEFA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.Components.Module.Priority", "Module.Priority\TaskTimeTracker.Components.Module.Priority.csproj", "{41D01BFC-8D49-4BFA-827D-47BAAAA02C8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.Components.Module.RiskReward", "Module.RiskReward\TaskTimeTracker.Components.Module.RiskReward.csproj", "{998C0E5C-1B47-4FE8-8B47-F12DDF6D0EF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.Components.Module.TimeTracking", "Module.TimeTracking\TaskTimeTracker.Components.Module.TimeTracking.csproj", "{B19B7914-588F-4498-87AD-8CD16EF5C070}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 8
+		SccProjectName0 = TaskTimeTracker.Components.BusinessLayer
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Surround\u0020SCM
+		SccProjectUniqueName1 = BusinessLayer\\TaskTimeTracker.Components.BusinessLayer.csproj
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = BusinessLayer\\
+		SccProjectUniqueName2 = ..\\Framework\\Core\\Framework.Components.Core.csproj
+		SccProjectName2 = Framework.Components.Core
+		SccLocalPath2 = ..\\Framework
+		SccProjectFilePathRelativizedFromConnection2 = Core\\
+		SccProjectUniqueName3 = ..\\Framework.DataAccess\\Core\\Framework.Components.DataAccess.csproj
+		SccProjectName3 = Framework.Components.DataAccess
+		SccLocalPath3 = ..\\Framework.DataAccess
+		SccProjectFilePathRelativizedFromConnection3 = Core\\
+		SccProjectUniqueName4 = Module.Competency\\TaskTimeTracker.Components.Module.Competency.csproj
+		SccLocalPath4 = .
+		SccProjectFilePathRelativizedFromConnection4 = Module.Competency\\
+		SccProjectUniqueName5 = Module.Priority\\TaskTimeTracker.Components.Module.Priority.csproj
+		SccLocalPath5 = .
+		SccProjectFilePathRelativizedFromConnection5 = Module.Priority\\
+		SccProjectUniqueName6 = Module.RiskReward\\TaskTimeTracker.Components.Module.RiskReward.csproj
+		SccLocalPath6 = .
+		SccProjectFilePathRelativizedFromConnection6 = Module.RiskReward\\
+		SccProjectUniqueName7 = Module.TimeTracking\\TaskTimeTracker.Components.Module.TimeTracking.csproj
+		SccLocalPath7 = .
+		SccProjectFilePathRelativizedFromConnection7 = Module.TimeTracking\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEEBDCB2-5929-4C8E-A861-F1A09F2E8FA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEEBDCB2-5929-4C8E-A861-F1A09F2E8FA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEEBDCB2-5929-4C8E-A861-F1A09F2E8FA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEEBDCB2-5929-4C8E-A861-F1A09F2E8FA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3DD4DA4-5F72-43B2-999F-551B331BEFA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3DD4DA4-5F72-43B2-999F-551B331BEFA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3DD4DA4-5F72-43B2-999F-551B331BEFA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3DD4DA4-5F72-43B2-999F-551B331BEFA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41D01BFC-8D49-4BFA-827D-47BAAAA02C8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41D01BFC-8D49-4BFA-827D-47BAAAA02C8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41D01BFC-8D49-4BFA-827D-47BAAAA02C8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41D01BFC-8D49-4BFA-827D-47BAAAA02C8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{998C0E5C-1B47-4FE8-8B47-F12DDF6D0EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{998C0E5C-1B47-4FE8-8B47-F12DDF6D0EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{998C0E5C-1B47-4FE8-8B47-F12DDF6D0EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{998C0E5C-1B47-4FE8-8B47-F12DDF6D0EF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B19B7914-588F-4498-87AD-8CD16EF5C070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B19B7914-588F-4498-87AD-8CD16EF5C070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B19B7914-588F-4498-87AD-8CD16EF5C070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B19B7914-588F-4498-87AD-8CD16EF5C070}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,15 @@
+R:\717\Projects\Components\TaskTimeTracker\Module.RequirementAnalysis\bin\Debug\TaskTimeTracker.Components.Module.RequirementAnalysis.dll.config
+R:\717\Projects\Components\TaskTimeTracker\Module.RequirementAnalysis\bin\Debug\TaskTimeTracker.Components.Module.RequirementAnalysis.dll
+R:\717\Projects\Components\TaskTimeTracker\Module.RequirementAnalysis\bin\Debug\TaskTimeTracker.Components.Module.RequirementAnalysis.pdb
+R:\717\Projects\Components\TaskTimeTracker\Module.RequirementAnalysis\bin\Debug\Dapper.dll
+R:\717\Projects\Components\TaskTimeTracker\Module.RequirementAnalysis\bin\Debug\Framework.Components.DataAccess.dll
+R:\717\Projects\Components\TaskTimeTracker\Module.RequirementAnalysis\bin\Debug\Newtonsoft.Json.dll
+R:\717\Projects\Components\TaskTimeTracker\Module.RequirementAnalysis\bin\Debug\log4net.dll
+R:\717\Projects\Components\TaskTimeTracker\Module.RequirementAnalysis\bin\Debug\Framework.Components.DataAccess.pdb
+R:\717\Projects\Components\TaskTimeTracker\Module.RequirementAnalysis\bin\Debug\Dapper.pdb
+R:\717\Projects\Components\TaskTimeTracker\Module.RequirementAnalysis\bin\Debug\Dapper.xml
+R:\717\Projects\Components\TaskTimeTracker\Module.RequirementAnalysis\bin\Debug\Newtonsoft.Json.xml
+R:\717\Projects\Components\TaskTimeTracker\Module.RequirementAnalysis\bin\Debug\log4net.xml
+R:\717\Projects\Components\TaskTimeTracker\Module.RequirementAnalysis\obj\Debug\TaskTimeTracker.Components.Module.RequirementAnalysis.csprojResolveAssemblyReference.cache
+R:\717\Projects\Components\TaskTimeTracker\Module.RequirementAnalysis\obj\Debug\TaskTimeTracker.Components.Module.RequirementAnalysis.dll
+R:\717\Projects\Components\TaskTimeTracker\Module.RequirementAnalysis\obj\Debug\TaskTimeTracker.Components.Module.RequirementAnalysis.pdb

@@ -1,0 +1,9 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file="..\..\..\Generators\Generators.Components\DataManagerGeneratorHelper.tt" #>
+<#
+this.GenerateDataManagerFiles(	"TaskTimeTracker.Components.BusinessLayer.RequirementAnalysis", 
+								"DataModel.TaskTimeTracker.RequirementAnalysis",
+								new [] {"UseCase", "UseCaseActor", "UseCasePackage", "UseCaseRelationship", "UseCaseStep", 
+								"UseCaseWorkFlowCategory", "ProjectUseCaseStatus"} 
+							);
+#>

@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DayCare.Components.BusinessLayer", "BusinessLayer\DayCare.Components.BusinessLayer.csproj", "{7E6CA603-37AD-48E7-A01C-B266BAB29BC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Components Framework", "05 - Components Framework", "{36D26203-8941-4B1E-9F49-6D3AD60986E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Components.Audit", "..\Framework.Audit\Core\Framework.Components.Audit.csproj", "{0EB669D6-85F0-4D2A-A4BE-CB62DF878791}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Components.DataAccess", "..\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj", "{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 4
+		SccProjectName0 = DayCare.Components.BusinessLayer
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Surround\u0020SCM
+		SccProjectUniqueName1 = BusinessLayer\\DayCare.Components.BusinessLayer.csproj
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = BusinessLayer\\
+		SccProjectUniqueName2 = ..\\Framework.Audit\\Core\\Framework.Components.Audit.csproj
+		SccProjectTopLevelParentUniqueName2 = DayCare.Components.BusinessLayer.sln
+		SccProjectName2 = Framework.Components.Audit
+		SccLocalPath2 = ..\\Framework.Audit
+		SccProjectFilePathRelativizedFromConnection2 = Core\\
+		SccProjectUniqueName3 = ..\\Framework.DataAccess\\Core\\Framework.Components.DataAccess.csproj
+		SccProjectTopLevelParentUniqueName3 = DayCare.Components.BusinessLayer.sln
+		SccProjectName3 = Framework.Components.DataAccess
+		SccLocalPath3 = ..\\Framework.DataAccess
+		SccProjectFilePathRelativizedFromConnection3 = Core\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E6CA603-37AD-48E7-A01C-B266BAB29BC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E6CA603-37AD-48E7-A01C-B266BAB29BC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E6CA603-37AD-48E7-A01C-B266BAB29BC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E6CA603-37AD-48E7-A01C-B266BAB29BC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EB669D6-85F0-4D2A-A4BE-CB62DF878791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EB669D6-85F0-4D2A-A4BE-CB62DF878791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EB669D6-85F0-4D2A-A4BE-CB62DF878791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EB669D6-85F0-4D2A-A4BE-CB62DF878791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0EB669D6-85F0-4D2A-A4BE-CB62DF878791} = {36D26203-8941-4B1E-9F49-6D3AD60986E0}
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0} = {36D26203-8941-4B1E-9F49-6D3AD60986E0}
+	EndGlobalSection
+EndGlobal

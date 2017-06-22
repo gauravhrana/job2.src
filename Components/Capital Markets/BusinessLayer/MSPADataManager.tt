@@ -1,0 +1,22 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.CapitalMarkets.dll" #>
+<#@ include file="../../../Generators/Generators.Components/NonStdEntityDataManagerGeneratorHelper.tt" #>
+<#
+	
+	this.GenerateNonStandardDataManagerFiles(	"CapitalMarkets.Components.BusinessLayer", 
+								"DataModel.CapitalMarkets",
+		new [] {
+
+				"MSPAFile",
+				"MSPAFileEvent",	
+				"TradingEventType",
+				"MSPAFileEventType",		
+				
+		}, 
+		false );
+	
+						
+#>
+
+
+

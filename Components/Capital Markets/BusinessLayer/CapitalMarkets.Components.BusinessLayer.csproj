@@ -1,0 +1,655 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3E489A15-0037-4993-A282-AC0BBA46E631}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CapitalMarkets.Components.BusinessLayer</RootNamespace>
+    <AssemblyName>CapitalMarkets.Components.BusinessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccLocalPath>..</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\UI\Task Time Tracker\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountAdministratorDataManager.generated.cs">
+      <DependentUpon>PartiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountExcecutiveDataManager.generated.cs">
+      <DependentUpon>PartiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountingCalenderDataManager.generated.cs">
+      <DependentUpon>CalenderDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountingDataManagerGenerator1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountingParametersDataManager.generated.cs">
+      <DependentUpon>AccountingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountingViewDataManager.generated.cs">
+      <DependentUpon>AccountingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountSpecificTypeDataManager.generated.cs">
+      <DependentUpon>AccountingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountSubTypeDataManager.generated.cs">
+      <DependentUpon>AccountingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityAndOrdersDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActivityAndOrdersDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdjustmentCategoryDataManager.generated.cs">
+      <DependentUpon>AccountingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AgentBankDataManager.generated.cs">
+      <DependentUpon>PartiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllocationGroupDataManager.generated.cs">
+      <DependentUpon>FundStructuresDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AmortizationDataManager.generated.cs">
+      <DependentUpon>AccountingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AnalystDataManager.generated.cs">
+      <DependentUpon>PartiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AnnotationsDataManager.generated.cs">
+      <DependentUpon>PricesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssetBackedDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssetTypeDataManager.generated.cs">
+      <DependentUpon>ClassificationDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutomatedFreezepointDataManager.generated.cs">
+      <DependentUpon>AccountingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BondDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BrokerDataManager.generated.cs">
+      <DependentUpon>PartiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BrokerGroupDataManager.generated.cs">
+      <DependentUpon>PartiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BrokerTypeDataManager.generated.cs">
+      <DependentUpon>PartiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessCalenderDataManager.generated.cs">
+      <DependentUpon>CalenderDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessUnitDataManager.generated.cs">
+      <DependentUpon>PricesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CalenderDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CalenderDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CashDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChartOfAccountsDataManager.generated.cs">
+      <DependentUpon>AccountingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClassDataManager.generated.cs">
+      <DependentUpon>FundStructuresDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClassificationDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClassificationDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommissionCodeDataManager.generated.cs">
+      <DependentUpon>CommissionDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommissionDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommissionDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommissionRateDataManager.generated.cs">
+      <DependentUpon>CommissionDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommissionSplitDataManager.generated.cs">
+      <DependentUpon>CommissionDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommissionTypeDataManager.generated.cs">
+      <DependentUpon>CommissionDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyDealTypeDataManager.generated.cs">
+      <DependentUpon>ManagementEntitiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CoreDataManagerGeneratorHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CoreDataManagerGeneratorHelper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CoreGenerationDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CoreGenerationDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditContractDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditDealDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditDefaultSwapDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditDefaultSwapIndexDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditFacilityDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CrossReferenceDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrossReferenceDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustodianAccountDataManager.generated.cs">
+      <DependentUpon>ManagementEntitiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustodianDataManager.generated.cs">
+      <DependentUpon>PartiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryAgentDataManager.generated.cs">
+      <DependentUpon>PartiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EquityDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExchangeDataManager.generated.cs">
+      <DependentUpon>PartiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialAccountClassDataManager.generated.cs">
+      <DependentUpon>AccountingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialAccountTypeDataManager.generated.cs">
+      <DependentUpon>HoldingsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinancingDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FiscalCalenderDataManager.generated.cs">
+      <DependentUpon>CalenderDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ForwardCashDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ForwardFXContractDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FreezePointsDataManager.generated.cs">
+      <DependentUpon>AccountingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FundDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FundPricesDataManager.generated.cs">
+      <DependentUpon>PricesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FundStructuresDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FundStructuresDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FundXLegalEntityDataManager.generated.cs">
+      <DependentUpon>CrossReferenceDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FundXPortfolioDataManager.generated.cs">
+      <DependentUpon>CrossReferenceDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FutureDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HoldingsDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HoldingsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IndustryDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InstrumentsDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryStateDataManager.generated.cs">
+      <DependentUpon>AccountingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvestingFeederDataManager.generated.cs">
+      <DependentUpon>FundStructuresDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvestmentPricesDataManager.generated.cs">
+      <DependentUpon>PricesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvestmentThemeDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvestmentTypeDataManager.generated.cs">
+      <DependentUpon>ClassificationDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IssuerDataManager.generated.cs">
+      <DependentUpon>PartiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LegalEntityDataManager.generated.cs">
+      <DependentUpon>FundStructuresDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LockdownPoolsDataManager.generated.cs">
+      <DependentUpon>AccountingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementEntitiesDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManagementEntitiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementFirmDataManager.generated.cs">
+      <DependentUpon>ManagementEntitiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerDataManager.generated.cs">
+      <DependentUpon>PartiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MarketCapitalizationCategoryDataManager.generated.cs">
+      <DependentUpon>TradeDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MediumOfExchangeDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSPADataManager.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MSPADataManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSPAFileDataManager.generated.cs">
+      <DependentUpon>MSPADataManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSPAFileEventDataManager.generated.cs">
+      <DependentUpon>MSPADataManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSPAFileEventTypeDataManager.generated.cs">
+      <DependentUpon>MSPADataManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OptionDataManager.generated.cs">
+      <DependentUpon>OptionInstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OptionInstrumentsDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OptionInstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderActionDataManager.generated.cs">
+      <DependentUpon>TradeDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderItemDataManager.generated.cs">
+      <DependentUpon>TradeDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderRequestDataManager.generated.cs">
+      <DependentUpon>TradeDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderStatusDataManager.generated.cs">
+      <DependentUpon>TradeDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderStatusGroupDataManager.generated.cs">
+      <DependentUpon>TradeDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderStatusTypeDataManager.generated.cs">
+      <DependentUpon>TradeDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderTypeDataManager.generated.cs">
+      <DependentUpon>TradeDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartiesDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PartiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PerformanceDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceKeyDataManager.generated.cs">
+      <DependentUpon>PerformanceDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceParametersDataManager.generated.cs">
+      <DependentUpon>PerformanceDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortfolioDataManager.generated.cs">
+      <DependentUpon>ManagementEntitiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortfolioGroupRulesDataManager.generated.cs">
+      <DependentUpon>ManagementEntitiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortfolioTypeDataManager.generated.cs">
+      <DependentUpon>ManagementEntitiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortfolioXCustodianAccountDataManager.generated.cs">
+      <DependentUpon>CrossReferenceDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PositionDataManager.generated.cs">
+      <DependentUpon>HoldingsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PriceListDataManager.generated.cs">
+      <DependentUpon>PricesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PriceMarketDataManager.generated.cs">
+      <DependentUpon>PricesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PriceProviderDataManager.generated.cs">
+      <DependentUpon>PricesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PriceScheduleDataManager.generated.cs">
+      <DependentUpon>PricesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PriceScheduleXPriceListDataManager.generated.cs">
+      <DependentUpon>CrossReferenceDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PricesDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PricesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PriceSourceDataManager.generated.cs">
+      <DependentUpon>PricesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PriceTypeDataManager.generated.cs">
+      <DependentUpon>PricesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RatingDataManager.generated.cs">
+      <DependentUpon>RatingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RatingDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RatingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RatingServiceDataManager.generated.cs">
+      <DependentUpon>RatingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RatingServicesDataManager.generated.cs">
+      <DependentUpon>PartiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecordTypeDataManager.generated.cs">
+      <DependentUpon>ClassificationDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RightDataManager.generated.cs">
+      <DependentUpon>OptionInstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SectorDataManager.generated.cs">
+      <DependentUpon>ClassificationDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityClassDataManager.generated.cs">
+      <DependentUpon>ClassificationDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityDataManager.generated.cs">
+      <DependentUpon>ClassificationDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityTypeDataManager.generated.cs">
+      <DependentUpon>ClassificationDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityTypeGroupDataManager.generated.cs">
+      <DependentUpon>ClassificationDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityXExternalMarketDataIdentifierDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityXInvestmentIdentifierDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityXOtherDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityXPartyDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityXSettlementDayDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SeriesDataManager.generated.cs">
+      <DependentUpon>FundStructuresDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STIFDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StrategyDataManager.generated.cs">
+      <DependentUpon>ManagementEntitiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StrategyGroupDataManager.generated.cs">
+      <DependentUpon>ManagementEntitiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubBusinessUnitDataManager.generated.cs">
+      <DependentUpon>PricesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubClassDataManager.generated.cs">
+      <DependentUpon>FundStructuresDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubIndustryDataManager.generated.cs">
+      <DependentUpon>ClassificationDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SwapInvestmentDataManager.generated.cs">
+      <DependentUpon>InstrumentsDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaxAccountTypeDataManager.generated.cs">
+      <DependentUpon>AccountingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaxStatusDataManager.generated.cs">
+      <DependentUpon>AccountingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TradeDataManagerGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TradeDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TraderDataManager.generated.cs">
+      <DependentUpon>ManagementEntitiesDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TradingEventTypeDataManager.generated.cs">
+      <DependentUpon>MSPADataManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionEventBuyDataManager.generated.cs">
+      <DependentUpon>ActivityAndOrdersDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionEventCoverShortDataManager.generated.cs">
+      <DependentUpon>ActivityAndOrdersDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionEventDataManager.generated.cs">
+      <DependentUpon>ActivityAndOrdersDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionEventSellDataManager.generated.cs">
+      <DependentUpon>ActivityAndOrdersDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionEventSellShortDataManager.generated.cs">
+      <DependentUpon>ActivityAndOrdersDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionTypeDataManager.generated.cs">
+      <DependentUpon>CoreDataManagerGeneratorHelper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TWRBatchProcessingDataManager.generated.cs">
+      <DependentUpon>PerformanceDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TWRSetDataManager.generated.cs">
+      <DependentUpon>PerformanceDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TxInvestmentDataManager.generated.cs">
+      <DependentUpon>CoreGenerationDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TxOtherDataManager.generated.cs">
+      <DependentUpon>CoreGenerationDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TxSettlementInfoDataManager.generated.cs">
+      <DependentUpon>CoreGenerationDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TxTradeAndSettleDatesDataManager.generated.cs">
+      <DependentUpon>ActivityAndOrdersDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TxTradeFiguresDataManager.generated.cs">
+      <DependentUpon>CoreGenerationDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TxTradeInfoDataManager.generated.cs">
+      <DependentUpon>CoreGenerationDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WithholdingTaxTypeDataManager.generated.cs">
+      <DependentUpon>AccountingDataManagerGenerator.tt</DependentUpon>
+    </Compile>
+    <None Include="AccountingDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AccountingDataManagerGenerator1.cs</LastGenOutput>
+    </None>
+    <None Include="ActivityAndOrdersDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ActivityAndOrdersDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="app.config" />
+    <None Include="CalenderDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CalenderDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="ClassificationDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ClassificationDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="CommissionDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CommissionDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="CoreDataManagerGeneratorHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CoreDataManagerGeneratorHelper.cs</LastGenOutput>
+    </None>
+    <None Include="CoreGenerationDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CoreGenerationDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="CrossReferenceDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CrossReferenceDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="FundStructuresDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>FundStructuresDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="HoldingsDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HoldingsDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="InstrumentsDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>InstrumentsDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="ManagementEntitiesDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ManagementEntitiesDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="MSPADataManager.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MSPADataManager.cs</LastGenOutput>
+    </None>
+    <None Include="OptionInstrumentsDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OptionInstrumentsDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="PartiesDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PartiesDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="PerformanceDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PerformanceDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="PricesDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PricesDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="RatingDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RatingDataManagerGenerator.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="packages.config" />
+    <None Include="TradeDataManagerGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TradeDataManagerGenerator.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Models\Capital Markets\DataModel.CapitalMarkets.csproj">
+      <Project>{2d1740ae-a004-4bf5-87a5-19bf2c1a0695}</Project>
+      <Name>DataModel.CapitalMarkets</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Models\Day Care\DataModel.DayCare.csproj">
+      <Project>{19a1eb56-7232-4930-9d62-85c49730fec6}</Project>
+      <Name>DataModel.DayCare</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj">
+      <Project>{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}</Project>
+      <Name>Framework.Components.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library.CommonServices.Utils\Core\Library.CommonServices.Utils.csproj">
+      <Project>{4a94e353-75dd-46cc-b784-c49d42dca73b}</Project>
+      <Name>Library.CommonServices.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

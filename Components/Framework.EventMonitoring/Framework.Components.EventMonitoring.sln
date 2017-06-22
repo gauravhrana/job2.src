@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Components.EventMonitoring", "Core\Framework.Components.EventMonitoring.csproj", "{02C3C616-4097-4999-926C-CA99DC6A6FF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Components.DataAccess", "..\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj", "{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 3
+		SccProjectName0 = Framework.Components.EventMonitoring
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Surround\u0020SCM
+		SccProjectUniqueName1 = Core\\Framework.Components.EventMonitoring.csproj
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = Core\\
+		SccProjectUniqueName2 = ..\\Framework.DataAccess\\Core\\Framework.Components.DataAccess.csproj
+		SccProjectName2 = Framework.Components.DataAccess
+		SccLocalPath2 = ..\\Framework.DataAccess
+		SccProjectFilePathRelativizedFromConnection2 = Core\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02C3C616-4097-4999-926C-CA99DC6A6FF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02C3C616-4097-4999-926C-CA99DC6A6FF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02C3C616-4097-4999-926C-CA99DC6A6FF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02C3C616-4097-4999-926C-CA99DC6A6FF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

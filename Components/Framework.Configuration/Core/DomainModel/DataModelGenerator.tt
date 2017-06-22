@@ -1,0 +1,11 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ 
+	include file="../../../../Generators/Generators.Components/DataModelGeneratorHelper.tt" 
+#>
+<#
+this.GenerateDataModelFiles(	"DataModel.Framework.Configuration",
+								new [] {"ApplicationMode", "DateRangeTitle", "FieldConfigurationMode", "FieldConfigurationModeAccessMode",
+								"FieldConfigurationModeCategory", "UserPreferenceCategory", "UserPreferenceDataType" } 
+
+							);
+#>
