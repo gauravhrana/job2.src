@@ -1,0 +1,12 @@
+﻿ALTER TABLE dbo.BatchFile
+	ADD CONSTRAINT PK_BatchFile PRIMARY KEY CLUSTERED 
+	(
+		BatchFileId
+	)  
+GO
+ALTER TABLE dbo.BatchFile
+ADD  CONSTRAINT [UQ_BatchFile_Name] UNIQUE NONCLUSTERED 
+(
+	[Name] ASC
+)
+GO

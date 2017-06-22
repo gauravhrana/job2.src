@@ -1,0 +1,13 @@
+﻿ALTER TABLE dbo.FileType
+	ADD CONSTRAINT PK_FileType PRIMARY KEY CLUSTERED 
+	(
+		FileTypeId	
+	)  
+GO
+
+ALTER TABLE dbo.FileType
+ADD  CONSTRAINT [_UQ_FileType_Name] UNIQUE NONCLUSTERED 
+(
+	[Name] ASC
+)
+GO

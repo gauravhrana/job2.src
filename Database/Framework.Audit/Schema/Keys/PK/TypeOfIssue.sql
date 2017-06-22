@@ -1,0 +1,6 @@
+﻿ALTER TABLE dbo.TypeOfIssue
+	ADD CONSTRAINT PK_TypeOfIssue PRIMARY KEY CLUSTERED 
+	(
+		TypeOfIssueId
+	)  
+GO

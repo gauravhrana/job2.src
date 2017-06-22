@@ -1,0 +1,22 @@
+﻿IF EXISTS
+(
+	SELECT	*
+	FROM	dbo.sysindexes
+	WHERE	id		= OBJECT_ID(N'[dbo].[NotificationPublisherXNotificationEventType]')
+	AND		name	= N'UQ_NotificationPublisherXNotificationEventType_ApplicationId_NotificationPublisherId_NotificationEventTypeId'
+)
+BEGIN
+	PRINT	'Dropping UQ_NotificationPublisherXNotificationEventType_ApplicationId_NotificationPublisherId_NotificationEventTypeId'
+	ALTER	TABLE dbo.NotificationPublisherXNotificationEventType
+	DROP	CONSTRAINT	UQ_NotificationPublisherXNotificationEventType_ApplicationId_NotificationPublisherId_NotificationEventTypeId
+END
+GO
+
+ALTER TABLE dbo.NotificationPublisherXNotificationEventType
+ADD CONSTRAINT UQ_NotificationPublisherXNotificationEventType_ApplicationId_NotificationPublisherId_NotificationEventTypeId UNIQUE NONCLUSTERED
+(
+		ApplicationId
+	,	NotificationPublisherId
+	,	NotificationEventTypeId
+	)
+GO

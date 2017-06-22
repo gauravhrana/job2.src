@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+    <PostConversionRemoveFromScc>
+    </PostConversionRemoveFromScc>
+    <PostConversionAddToScc>
+    </PostConversionAddToScc>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>01 Schema</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <GenerateDac>true</GenerateDac>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DacApplicationName>$(MSBuildProjectName)</DacApplicationName>
+    <DacVersion>1.0.0.0</DacVersion>
+    <DacDescription>
+    </DacDescription>
+    <RootNamespace>Schema</RootNamespace>
+    <DefaultSchema>dbo</DefaultSchema>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <SccAuxPath />
+    <SccLocalPath>..</SccLocalPath>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2f6eda84-6dd3-4b2a-8331-0b6efbe18b4a}</ProjectGuid>
+    <GenerateDatabaseFile>False</GenerateDatabaseFile>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <DefaultCollation>SQL_Latin1_General_CP1_CS_AS</DefaultCollation>
+    <AnsiNullDefault>True</AnsiNullDefault>
+    <AnsiNulls>True</AnsiNulls>
+    <AnsiPadding>True</AnsiPadding>
+    <AnsiWarnings>True</AnsiWarnings>
+    <ArithAbort>True</ArithAbort>
+    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
+    <QuotedIdentifier>True</QuotedIdentifier>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <DatabaseState>ONLINE</DatabaseState>
+    <UpdateOptions>READ_WRITE</UpdateOptions>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DefaultCursor>LOCAL</DefaultCursor>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <TornPageDetection>False</TornPageDetection>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <Recovery>FULL</Recovery>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <Trustworthy>False</Trustworthy>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <PageVerify>NONE</PageVerify>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <Parameterization>SIMPLE</Parameterization>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+    <DefaultFileStreamFilegroup />
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>master</TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+    <DacDatabaseCollation>SQL_Latin1_General_CP1_CI_AS</DacDatabaseCollation>
+    <ValidatePolicy>True</ValidatePolicy>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>master</TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+    <DacDatabaseCollation>SQL_Latin1_General_CP1_CI_AS</DacDatabaseCollation>
+    <ValidatePolicy>True</ValidatePolicy>
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <Folder Include="Tables" />
+    <Folder Include="Tables\Constraints" />
+    <Folder Include="Tables\Constraints\Defaults" />
+    <Folder Include="Tables\Indexes" />
+    <Folder Include="Tables\Indexes\Unique" />
+    <Folder Include="Tables\Keys" />
+    <Folder Include="Tables\Keys\PK" />
+    <Folder Include="Tables\Keys\FK" />
+    <Folder Include="Tables\Statistics" />
+    <Folder Include="Tables\Triggers" />
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tables\ApplicationMonitoredEventSource.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\ApplicationMonitoredEventProcessingState.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\ApplicationMonitoredEventEmail.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\ApplicationMonitoredEvent.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Keys\PK\ApplicationMonitoredEventSource.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Keys\PK\ApplicationMonitoredEvent.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Keys\PK\ApplicationMonitoredEventEmail.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Keys\PK\ApplicationMonitoredEventProcessingState.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Keys\FK\ApplicationMonitoredEventEmail.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Keys\FK\ApplicationMonitoredEvent.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Indexes\Unique\ApplicationMonitoredEventSource.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Constraints\Defaults\ApplicationMonitoredEventSource.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Constraints\Defaults\ApplicationMonitoredEventProcessingState.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Indexes\Unique\ApplicationMonitoredEventProcessingState.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\NotificationEventType.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Keys\PK\NotificationEventType.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\NotificationRegistrar.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Keys\PK\NotificationRegistrar.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Keys\FK\NotificationRegistrar.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Indexes\Unique\NotificationEventType.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Indexes\Unique\NotificationRegistrar.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\NotificationPublisher.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Keys\PK\NotificationPublisher.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Indexes\Unique\NotificationPublisher.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\NotificationPublisherXNotificationEventType.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Keys\PK\NotificationPublisherXNotificationEventType.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Keys\FK\NotificationPublisherXNotificationEventType.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Indexes\Unique\NotificationPublisherXNotificationEventType.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\NotificationPublisherXEventType.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Keys\FK\NotificationPublisherXEventType.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Keys\PK\NotificationPublisherXEventType.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Indexes\Unique\NotificationPublisherXEventType.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\NotificationSubscriber.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Keys\PK\NotificationSubscriber.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Tables\Indexes\Unique\NotificationSubscriber.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+  </ItemGroup>
+</Project>
