@@ -1,0 +1,10 @@
+R:\717\Projects\UI\Task Time Tracker\WebBranding\bin\Shared.UI.WebBranding.dll
+R:\717\Projects\UI\Task Time Tracker\WebBranding\bin\Shared.UI.WebBranding.pdb
+R:\717\Projects\UI\Task Time Tracker\WebBranding\bin\Antlr3.Runtime.dll
+R:\717\Projects\UI\Task Time Tracker\WebBranding\bin\Newtonsoft.Json.dll
+R:\717\Projects\UI\Task Time Tracker\WebBranding\bin\WebGrease.dll
+R:\717\Projects\UI\Task Time Tracker\WebBranding\bin\Antlr3.Runtime.pdb
+R:\717\Projects\UI\Task Time Tracker\WebBranding\bin\Newtonsoft.Json.xml
+R:\717\Projects\UI\Task Time Tracker\WebBranding\obj\Debug\Shared.UI.WebBranding.csprojResolveAssemblyReference.cache
+R:\717\Projects\UI\Task Time Tracker\WebBranding\obj\Debug\Shared.UI.WebBranding.dll
+R:\717\Projects\UI\Task Time Tracker\WebBranding\obj\Debug\Shared.UI.WebBranding.pdb

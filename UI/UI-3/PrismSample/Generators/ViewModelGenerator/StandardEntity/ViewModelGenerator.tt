@@ -1,0 +1,28 @@
+﻿
+<#@ include file="../../MultipleOutputFileHelper.tt" #>
+<#@ include file="SaveViewModelGenerator.tt" #>
+<#@ include file="DetailViewModelGenerator.tt" #>
+<#@ include file="ListViewModelGenerator.tt" #>
+
+<#+
+	
+	public void GenerateViewModelClassesForEntity(string entityName, string viewModelNameSpace, string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		var manager = Manager.Create(Host, GenerationEnvironment);	
+
+		// create List View Model Class File
+		manager.StartNewFile(entityName + "ListViewModel.cs");
+		this.GenerateListViewModelFile(entityName, viewModelNameSpace, dataModelNameSpace, dataManagerNameSpace);	
+
+		// create Save View Model Class File
+		manager.StartNewFile(entityName + "SaveViewModel.cs");
+		this.GenerateSaveViewModelFile(entityName, viewModelNameSpace, dataModelNameSpace, dataManagerNameSpace);
+
+		// create Detail View Model Class File
+		manager.StartNewFile(entityName + "DetailViewModel.cs");
+		this.GenerateDetailViewModelFile(entityName, viewModelNameSpace, dataModelNameSpace, dataManagerNameSpace);
+
+		manager.Process(true);
+	}
+
+#>

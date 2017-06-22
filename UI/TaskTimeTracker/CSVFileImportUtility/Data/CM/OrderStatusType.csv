@@ -1,0 +1,6 @@
+﻿OrderStatusTypeId,Code,Description,OrderStatusGroupId
+1,Pending,Pending,1
+2,Ordered,Ordered,2
+3,Processing,Processing,3
+4,Completed,Completed,4
+5,Cancelled,Cancelled,5

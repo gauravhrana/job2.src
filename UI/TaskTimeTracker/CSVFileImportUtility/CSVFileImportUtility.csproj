@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E57A6E20-EE5C-4DF9-B253-2B0AEF70EBD2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSVFileImportUtility</RootNamespace>
+    <AssemblyName>CSVFileImportUtility</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccLocalPath>..</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationConstants.cs" />
+    <Compile Include="Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import.Designer.cs">
+      <DependentUpon>Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportDayCare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportDayCare.Designer.cs">
+      <DependentUpon>ImportDayCare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportLegal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportLegal.Designer.cs">
+      <DependentUpon>ImportLegal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Import.resx">
+      <DependentUpon>Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportDayCare.resx">
+      <DependentUpon>ImportDayCare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportLegal.resx">
+      <DependentUpon>ImportLegal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Data\CM\AdjustmentCategory.csv" />
+    <None Include="Data\CM\AssetType.csv" />
+    <None Include="Data\CM\BrokerGroup.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\CM\BrokerType.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\CM\CommissionCode.csv" />
+    <None Include="Data\CM\CommissionRate.csv" />
+    <None Include="Data\CM\Custodian.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\CM\Exchange.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\CM\FinancialAccountClass.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\CM\Industry.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\CM\InvestmentType.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\CM\Issuer.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\CM\MarketCapitalizationCategory.csv" />
+    <None Include="Data\CM\MediumOfExchange.CSV">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\CM\MSPAFileEventType.csv" />
+    <None Include="Data\CM\OrderAction.csv" />
+    <None Include="Data\CM\OrderStatusGroup.csv" />
+    <None Include="Data\CM\OrderStatusType.csv" />
+    <None Include="Data\CM\OrderType.csv" />
+    <None Include="Data\CM\RecordType.csv" />
+    <None Include="Data\CM\Sector.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\CM\Security.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\CM\SecurityType.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\CM\SecurityTypeGroup.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\CM\SecurityXExternalMarketDataIdentifier.csv" />
+    <None Include="Data\CM\SecurityXInvestmentIdentifier.csv" />
+    <None Include="Data\CM\SecurityXOther.csv" />
+    <None Include="Data\CM\SecurityXParty.csv" />
+    <None Include="Data\CM\SecurityXSettlementDay.csv" />
+    <None Include="Data\CM\SubIndustry.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\CM\TradingEventType.csv" />
+    <None Include="Data\CM\TransactionEvent.csv" />
+    <None Include="Data\CM\TransactionType.csv" />
+    <None Include="Data\CM\TxInvestment.csv" />
+    <None Include="Data\CM\TxOther.csv" />
+    <None Include="Data\CM\TxSettlementInfo.csv" />
+    <None Include="Data\CM\TxTradeFigures.csv" />
+    <None Include="Data\CM\TxTradeInfo.csv" />
+    <None Include="Data\DC\Schedule.csv" />
+    <None Include="Data\DC\ScheduleState.csv" />
+    <None Include="Data\DC\SubjectMatter.csv" />
+    <None Include="Data\Legal\Jurisdiction.csv" />
+    <None Include="Data\Legal\ReferenceData\AssetType.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Legal\ReferenceData\CaseStatus.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Legal\Counsel.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Legal\ReferenceData\CaseType.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Legal\ReferenceData\Currency.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Legal\Custodian.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Legal\ReferenceData\TransactionType.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\RD\Airport.csv" />
+    <None Include="Data\RD\City.csv" />
+    <None Include="Data\RD\Country.csv" />
+    <None Include="Data\RD\Ethnicity.csv" />
+    <None Include="Data\RD\Gender.csv" />
+    <None Include="Data\RD\OrderType.csv" />
+    <None Include="Data\RD\Province.csv" />
+    <None Include="Data\RD\ProvinceType.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\RD\Region.csv" />
+    <None Include="Data\RD\State.csv" />
+    <None Include="Data\RD\TrainStation.csv" />
+    <None Include="Data_Upload\Bond.csv" />
+    <None Include="Data_Upload\Gender.csv" />
+    <None Include="Data_Upload\SubjectMatter.csv" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Components\Capital Markets\BusinessLayer\CapitalMarkets.Components.BusinessLayer.csproj">
+      <Project>{3e489a15-0037-4993-a282-ac0bba46e631}</Project>
+      <Name>CapitalMarkets.Components.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Components\Day Care\BusinessLayer\DayCare.Components.BusinessLayer.csproj">
+      <Project>{7e6ca603-37ad-48e7-a01c-b266bab29bc1}</Project>
+      <Name>DayCare.Components.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Components\Framework.ApplicationUser\Core\Framework.Components.ApplicationUser.csproj">
+      <Project>{5ee13ff1-810f-43ca-98bc-afa880388a43}</Project>
+      <Name>Framework.Components.ApplicationUser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Components\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj">
+      <Project>{3c1bf755-3c2a-4016-aba7-62f6dea056f0}</Project>
+      <Name>Framework.Components.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Components\TaskTimeTracker\Module.TimeTracking\TaskTimeTracker.Components.Module.TimeTracking.csproj">
+      <Project>{b19b7914-588f-4498-87ad-8cd16ef5c070}</Project>
+      <Name>TaskTimeTracker.Components.Module.TimeTracking</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Models\Capital Markets\DataModel.CapitalMarkets.csproj">
+      <Project>{2d1740ae-a004-4bf5-87a5-19bf2c1a0695}</Project>
+      <Name>DataModel.CapitalMarkets</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Models\Day Care\DataModel.DayCare.csproj">
+      <Project>{19a1eb56-7232-4930-9d62-85c49730fec6}</Project>
+      <Name>DataModel.DayCare</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Models\Framework\ApplicationUser\DataModel.Framework.ApplicationUser\DataModel.Framework.AuthenticationAndAuthorization.csproj">
+      <Project>{f5d7ed71-b73e-4a28-ba89-41f39c4259f4}</Project>
+      <Name>DataModel.Framework.AuthenticationAndAuthorization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Models\Legal\DataModel.Legal.csproj">
+      <Project>{e043e876-c12c-4d07-b4b4-556eca577c14}</Project>
+      <Name>DataModel.Legal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Models\ReferenceData\DataModel.ReferenceData.csproj">
+      <Project>{6708b269-e948-429a-bcb3-99c46a336986}</Project>
+      <Name>DataModel.ReferenceData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Models\TaskTimeTracker\DataModel.TaskTimeTracker\DataModel.TaskTimeTracker.csproj">
+      <Project>{3ce97e00-470c-43db-8489-fd89559268c9}</Project>
+      <Name>DataModel.TaskTimeTracker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebFramework\Shared.UI.WebFramework.csproj">
+      <Project>{e74520e7-5097-4d37-bdec-056dd138ab4e}</Project>
+      <Name>Shared.UI.WebFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exception\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Upload\Province_JSON.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

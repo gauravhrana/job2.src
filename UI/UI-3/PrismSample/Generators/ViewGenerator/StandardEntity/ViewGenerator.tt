@@ -1,0 +1,55 @@
+﻿<#@ include file="../../MultipleOutputFileHelper.tt" #>
+<#@ include file="SaveViewGenerator.tt" #>
+<#@ include file="DetailViewGenerator.tt" #>
+<#@ include file="ListViewGenerator.tt" #>
+
+<#+
+
+	void GenerateListViewFiles(Manager manager, string entityName, string viewNameSpace, string viewModelNameSpace)
+	{	
+		// create XAML File
+		manager.StartNewFile(entityName + "ListView.xaml");
+		this.GenerateXAMLFileForListView(entityName, viewNameSpace, viewModelNameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile(entityName + "ListView.xaml.cs");
+		this.GenerateCodeBehindFileForListView(entityName, viewNameSpace, viewModelNameSpace);
+	
+	}
+
+	void GenerateSaveViewFiles(Manager manager, string entityName, string viewNameSpace, string viewModelNameSpace)
+	{	
+		// create XAML File
+		manager.StartNewFile(entityName + "SaveView.xaml");
+		this.GenerateXAMLFileForSaveView(entityName, viewNameSpace, viewModelNameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile(entityName + "SaveView.xaml.cs");
+		this.GenerateCodeBehindFileForSaveView(entityName, viewNameSpace, viewModelNameSpace);
+	
+	}	
+
+	void GenerateDetailViewFiles(Manager manager, string entityName, string viewNameSpace, string viewModelNameSpace)
+	{	
+		// create XAML File
+		manager.StartNewFile(entityName + "DetailView.xaml");
+		this.GenerateXAMLFileForDetailView(entityName, viewNameSpace, viewModelNameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile(entityName + "DetailView.xaml.cs");
+		this.GenerateCodeBehindFileForDetailView(entityName, viewNameSpace, viewModelNameSpace);
+	
+	}
+
+	public void GenerateViewFilesForEntity(string entityName, string viewNameSpace, string viewModelNameSpace)
+	{
+		var manager = Manager.Create(Host, GenerationEnvironment);			
+		
+		GenerateListViewFiles(manager, entityName, viewNameSpace, viewModelNameSpace);
+		GenerateSaveViewFiles(manager, entityName, viewNameSpace, viewModelNameSpace);
+		GenerateDetailViewFiles(manager, entityName, viewNameSpace, viewModelNameSpace);
+
+		manager.Process(true);
+	}
+
+#>

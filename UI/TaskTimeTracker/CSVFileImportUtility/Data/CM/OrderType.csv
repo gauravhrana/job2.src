@@ -1,0 +1,5 @@
+﻿OrderTypeId,Code,Description
+1,MKT,Market Order
+2,LMT,Limited Order
+3,Bulk,Bulk Order
+4,Small order,Small Order

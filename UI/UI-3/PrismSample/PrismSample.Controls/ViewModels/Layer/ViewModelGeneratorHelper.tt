@@ -1,0 +1,13 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file="../../../Generators/ViewModelGenerator/StandardEntity/ViewModelGenerator.tt" #>
+
+<#
+	
+	string entityName = "Layer";
+	string viewModelNameSpace = "PrismSample.Controls.ViewModels";
+	string dataModelNameSpace = "DataModel.TaskTimeTracker";
+	string dataManagerNameSpace = "TaskTimeTracker.Components.BusinessLayer";
+
+	this.GenerateViewModelClassesForEntity(entityName, viewModelNameSpace, dataModelNameSpace, dataManagerNameSpace);
+
+#>

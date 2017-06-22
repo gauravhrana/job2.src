@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Clients - Edit";
+}
+<h2>
+    Edit</h2>
+<div id="body">
+    <section class="content-wrapper main-content clear-fix">
+        <div>
+            <h2>Clients Details</h2>
+            <div id="message"></div>
+            <table id="clientContainer">
+                <tr>
+                    <td>ClientId    </td>
+                    <td id="clientId"></td>
+                </tr>
+                <tr>
+                    <td>Name        </td>
+                    <td><input id="clientName" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>Description </td>
+                    <td><input id="clientDesc" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>SortOrder   </td>
+                    <td><input id="clientSortOrder" type="text" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input id="Submit1" type="submit" value="Save" onclick="updateItem();" />                        
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <a href="/client">Back to List</a>
+        </div>
+    </section>
+</div>
+@section scripts {
+    <script>
+
+
+        $(document).ready(function () {
+            // Send an AJAX request
+            var id = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+            var apiUrl = '/api/clients' + '/' + id;
+
+            $('#clientId').text(apiUrl);
+
+            $.getJSON(
+                    apiUrl,
+                    function (data) {
+                        loadItem(data);
+                    })
+                    .fail(
+                        function (xhr, textStatus, err) {
+
+                            $('#message').text('Error: ' + err);
+                        });
+
+        });
+
+        function loadItem(item) {
+            $('#clientId').text(item.ClientId);
+            $('#clientName').val(item.Name);
+            $('#clientDesc').val(item.Description);
+            $('#clientSortOrder').val(item.SortOrder);
+        }
+
+        function updateItem() {
+
+            var id = $("#clientId").text();
+            var name = $('#clientName').val();
+            var desc = $('#clientDesc').val();
+            var sortOrder = $('#clientSortOrder').val();
+            var clientObj = { ClientId: id, Name: name, Description: desc, SortOrder: sortOrder };
+            var json = JSON.stringify(clientObj);
+
+            $.ajax({
+                url: "/api/clients/" + id,
+                type: 'put',
+                cache: false,
+                data: json,
+                contentType: 'application/json; charset=utf-8',
+                statusCode: {
+                    200: function (data) {
+                        $('#message').text('update success');
+                    }
+                }
+            });
+
+
+            return false;
+        }
+    </script>
+}

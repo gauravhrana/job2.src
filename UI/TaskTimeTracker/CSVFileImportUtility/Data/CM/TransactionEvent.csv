@@ -1,0 +1,2 @@
+﻿TransactionEventId,TransactionEventDate,TransactionSettleDate,TransactionTypeCode,CustodianCode,StrategyCode,AccountCode,InvestmentCode,Quantity,Price,Fees
+10019,Date,Sdate,ASn,Imp,Rds,Msi,Mol,2,300,1600

@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Clients - Details";
+}
+<h2>
+    Details</h2>
+<div id="body">
+    <section class="content-wrapper main-content clear-fix">
+        <div>
+            <h2>Clients Details</h2>
+            <div id="message"></div>
+            <table id="clientContainer">
+                <tr>
+                    <td>ClientId    </td>
+                    <td id="clientId"></td>
+                </tr>
+                <tr>
+                    <td>Name        </td>
+                    <td id="clientName"></td>
+                </tr>
+                <tr>
+                    <td>Description </td>
+                    <td id="clientDesc"></td>
+                </tr>
+                <tr>
+                    <td>SortOrder   </td>
+                    <td id="clientSortOrder"></td>
+                </tr>
+                <tr>
+                    <td>            </td><td></td>
+                </tr>
+                <tr>
+                    <td></td><td><input id="Submit1" type="submit" value="Delete"  onclick="deleteItem();" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <a href="/client">Back to List</a>
+        </div>
+    </section>
+</div>
+@section scripts {
+    <script>
+
+    $(document).ready(function () {
+        // Send an AJAX request
+        var id = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+        var apiUrl = '/api/clients' + '/' + id;
+
+        $('#clientId').text(apiUrl);
+
+        $.getJSON(
+                apiUrl,
+                function (data) {
+                    loadItem(data);
+                })
+        // Handler for error response:
+                .fail(
+                    function (xhr, textStatus, err) {
+                        $('#message').text('Error: ' + err);
+                    });
+
+    });
+
+    function loadItem(item) {
+        $('#clientId').text(item.ClientId);
+        $('#clientName').text(item.Name);
+        $('#clientDesc').text(item.Description);
+        $('#clientSortOrder').text(item.SortOrder);
+    }
+
+    function deleteItem()
+    {
+        var id = $("#clientId").text();
+
+        $.ajax({
+            url: "/api/clients/" + id,
+            type: 'DELETE',
+            cache: false,
+            statusCode: {
+                200: function (data) {
+                    $('#message').text('delete success');
+                }
+            }
+        });
+
+
+        return false;
+    }
+</script>
+}

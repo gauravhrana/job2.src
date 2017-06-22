@@ -1,0 +1,97 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<#+
+	
+	public void GenerateListViewModelFile(string entityName, string viewModelNameSpace, string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		RenderUsingStatementsForListViewModel(dataModelNameSpace, dataManagerNameSpace);
+
+		RenderListViewModelClass(entityName, viewModelNameSpace);
+	}
+
+	public void RenderUsingStatementsForListViewModel(string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		WriteLine("using Microsoft.Practices.Prism.Regions;");
+		WriteLine("using PrismSample.Infrastructure;");
+		WriteLine("using System.Windows.Data;");
+		WriteLine("using DataModel.TaskTimeTracker;");
+		WriteLine("using TaskTimeTracker.Components.BusinessLayer;");
+	}
+
+	public void RenderListViewModelClass(string entityName, string viewModelNameSpace)
+	{
+		WriteLine(string.Empty);
+		WriteLine("namespace " + viewModelNameSpace);
+		WriteLine("{");
+			
+			WriteLine(string.Empty);
+			PushIndent("\t");
+			WriteLine("public class " + entityName + "ListViewModel : ListViewModelBase");
+			WriteLine("{");
+
+				WriteLine(string.Empty);
+				PushIndent("\t");
+				WriteLine("private " + entityName + "DataModel _searchItem = null;");
+				WriteLine("public " + entityName + "DataModel SearchItem");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("get { return _searchItem; }");
+					WriteLine("set { SetProperty(ref _searchItem, value); }");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("public " + entityName + "ListViewModel(IRegionManager regionManager) : base(regionManager)");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("PrimaryEntity    = Framework.Components.DataAccess.SystemEntity." + entityName + ";");
+					WriteLine("PrimaryEntityKey = \"" + entityName + "\";");
+					WriteLine("SettingCategory  = PrimaryEntityKey + \"ListView\";");
+
+					WriteLine(string.Empty);
+					WriteLine("SearchItem = new " + entityName + "DataModel();");
+					WriteLine("SearchItem.Name = UserPerferenceUtility.GetUserPreferenceByKey(\"Name\", SettingCategory);");
+
+					WriteLine(string.Empty);
+					WriteLine("InitializeState();");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("protected override void SaveSearch()");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("UserPerferenceUtility.UpdateUserPreference(SettingCategory, \"Name\", SearchItem.Name);");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("protected override void RefreshData()");
+				WriteLine("{");	
+					
+					PushIndent("\t");
+					WriteLine("Data = new ListCollectionView(" + entityName + "DataManager.GetEntityDetails(SearchItem, ApplicationCommon.GetRequestProfile(), AuditDetailsFlag.DoNotFetchDetails.Value()));");
+					PopIndent();
+
+				WriteLine("}");
+				PopIndent();
+
+			WriteLine(string.Empty);
+			WriteLine("}");
+			PopIndent();
+
+		WriteLine(string.Empty);
+		WriteLine("}");
+	}
+
+#>

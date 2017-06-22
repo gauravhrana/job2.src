@@ -1,0 +1,30 @@
+ProvinceId,Name,Description,CountryId,ProvinceTypeId
+1,Uttar Pradesh, Uttar Pradesh,-10,5
+2,Maharashtra, Maharashtra,-10,2
+3,Bihar, Bihar,-10,3
+4,West Bengal, West Bengal,-10,3
+5,Madhya Pradesh,Madhya Prasesh,-10,1
+6,Tamil Nadu, Tamil Nadu,-10,4
+7,Rajasthan, Rajisthan,-10,2
+8,Karnataka, Karnataka,-10,4
+9,Gujarat, Gujarat,-10,2
+10,Andhra Pradesh, Andhra Pradesh,-10,4
+11,Odisha, Odisha,-10,3
+12,Telangana, Telangana,-10,4
+13,Kerala, Kerala,-10,4
+14,Jharkhand, Jharkhand,-10,3
+15,Assam, Assam,-10,3
+16,Punjab, Punjab,-10,2
+17,Chhattisgarh, Chhattisgarh,-10,3
+18,Haryana, Haryana,-10,1
+19,Jammu and Kashmir, Jammu and Kashmir,-10,1
+20,Uttarakhand, Uttarakhand,-10,1
+21,Himachal Pradesh, Himachal Pradesh,-10,2
+22,Tripura, Tripura,-10,2
+23,Meghalaya, Meghalaya,-10,1
+24,Manipur, Manipur,-10,1
+25,Nagaland, Nangaland,-10,2
+26,Goa, Goa,-10,4
+27,Arunachal Pradesh, Arunachal Pradesh,-10,5
+28,Mizoram, Mizroram,-10,1
+29,Sikkim, Sikkim,-10,1

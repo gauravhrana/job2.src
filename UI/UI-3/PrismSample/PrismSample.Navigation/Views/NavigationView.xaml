@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="PrismSample.Navigation.Views.NavigationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PrismSample.Navigation.Views"
+             mc:Ignorable="d" >
+    <Grid>
+        <!--<Menu x:Name="menu" HorizontalAlignment="Left" VerticalAlignment="Top" FlowDirection="LeftToRight" Margin="0,0,-427,0" >
+            <MenuItem Header="CRUD">
+                <MenuItem Header="List Client" Command="{Binding NavigateCommand}" CommandParameter="EntityListView" />
+                <MenuItem Header="Add Client" Command="{Binding NavigateCommand}" CommandParameter="EntitySaveView" />
+            </MenuItem>
+            <MenuItem Header="Dynamic CRUD" ItemsSource="{Binding TestMenu}">
+                <MenuItem.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </MenuItem.ItemTemplate>
+                <MenuItem.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="MenuItem.Header" Value="{Binding Name}"/>
+                    </Style>
+                </MenuItem.ItemContainerStyle>
+            </MenuItem>
+        </Menu>-->
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" ItemsSource="{Binding MainMenu}">
+                <Menu.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="MenuItem.Header" Value="{Binding Header}"/>
+                        <Setter Property="MenuItem.Command" Value="{Binding}"/>
+                        <Setter Property="MenuItem.CommandParameter" Value="{Binding CommandParameter}"/>
+                        <Setter Property="MenuItem.ItemsSource" Value="{Binding Items}"/>
+                        <!--<Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=(contracts:IMenuItem.IsSeparator)}" Value="true">
+                            <Setter Property="MenuItem.Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type MenuItem}">
+                                        <Separator Style="{DynamicResource {x:Static MenuItem.SeparatorStyleKey}}"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>-->
+                    </Style>
+                </Menu.ItemContainerStyle>
+            </Menu>
+        </DockPanel>
+    </Grid>
+</UserControl>

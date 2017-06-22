@@ -1,0 +1,5 @@
+﻿OrderActionId,OrderActionCode,OrderActionDescription,PositionDirection
+1,Buy,Buy,NULL
+2,Sell,Sell,NULL
+3,Short,Short,NULL
+4,Cover,Cover,NULL

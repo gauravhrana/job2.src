@@ -1,0 +1,7 @@
+﻿ALTER TABLE dbo.DBProjectName
+	ADD CONSTRAINT PK_DBProjectName PRIMARY KEY CLUSTERED 
+	(
+		DBProjectNameId
+	)  
+GO
+

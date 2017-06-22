@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "02 Logic", "Logic\02 Logic.sqlproj", "{960DCEE6-1AE7-4FDB-BF15-3FF85E16A87C}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Reference Data", "Reference Data\Reference Data.sqlproj", "{847EB6E1-E7B9-4516-9241-4B940BEA28AA}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "01 Schema", "Schema\01 Schema.sqlproj", "{B78DDC9F-93EA-4ADB-A2CC-A8D094B73FBF}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Unit Test", "Unit Test\Unit Test.sqlproj", "{A7CF2477-4694-4FBD-8A7E-B93610987996}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 5
+		SccProjectName0 = SurroundSCMScci
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Surround\u0020SCM
+		SccProjectUniqueName1 = Reference\u0020Data\\Reference\u0020Data.sqlproj
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = Reference\u0020Data\\
+		SccProjectUniqueName2 = Unit\u0020Test\\Unit\u0020Test.sqlproj
+		SccLocalPath2 = .
+		SccProjectFilePathRelativizedFromConnection2 = Unit\u0020Test\\
+		SccProjectUniqueName3 = Schema\\01\u0020Schema.sqlproj
+		SccLocalPath3 = .
+		SccProjectFilePathRelativizedFromConnection3 = Schema\\
+		SccProjectUniqueName4 = Logic\\02\u0020Logic.sqlproj
+		SccLocalPath4 = .
+		SccProjectFilePathRelativizedFromConnection4 = Logic\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{960DCEE6-1AE7-4FDB-BF15-3FF85E16A87C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{960DCEE6-1AE7-4FDB-BF15-3FF85E16A87C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{960DCEE6-1AE7-4FDB-BF15-3FF85E16A87C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{960DCEE6-1AE7-4FDB-BF15-3FF85E16A87C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{960DCEE6-1AE7-4FDB-BF15-3FF85E16A87C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{960DCEE6-1AE7-4FDB-BF15-3FF85E16A87C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{847EB6E1-E7B9-4516-9241-4B940BEA28AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{847EB6E1-E7B9-4516-9241-4B940BEA28AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{847EB6E1-E7B9-4516-9241-4B940BEA28AA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{847EB6E1-E7B9-4516-9241-4B940BEA28AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{847EB6E1-E7B9-4516-9241-4B940BEA28AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{847EB6E1-E7B9-4516-9241-4B940BEA28AA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B78DDC9F-93EA-4ADB-A2CC-A8D094B73FBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B78DDC9F-93EA-4ADB-A2CC-A8D094B73FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B78DDC9F-93EA-4ADB-A2CC-A8D094B73FBF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B78DDC9F-93EA-4ADB-A2CC-A8D094B73FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B78DDC9F-93EA-4ADB-A2CC-A8D094B73FBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B78DDC9F-93EA-4ADB-A2CC-A8D094B73FBF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A7CF2477-4694-4FBD-8A7E-B93610987996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7CF2477-4694-4FBD-8A7E-B93610987996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7CF2477-4694-4FBD-8A7E-B93610987996}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A7CF2477-4694-4FBD-8A7E-B93610987996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7CF2477-4694-4FBD-8A7E-B93610987996}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7CF2477-4694-4FBD-8A7E-B93610987996}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

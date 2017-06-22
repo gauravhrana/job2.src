@@ -1,0 +1,914 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+    <PostConversionRemoveFromScc>
+    </PostConversionRemoveFromScc>
+    <PostConversionAddToScc>
+    </PostConversionAddToScc>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>02 Logic</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+    <RootNamespace>Core</RootNamespace>
+    <DefaultSchema>dbo</DefaultSchema>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <SccAuxPath />
+    <SccLocalPath>..\..</SccLocalPath>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9ed34b54-88d4-4adf-9ed9-cd77008ed772}</ProjectGuid>
+    <GenerateDatabaseFile>False</GenerateDatabaseFile>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <AnsiNullDefault>True</AnsiNullDefault>
+    <AnsiNulls>True</AnsiNulls>
+    <AnsiPadding>True</AnsiPadding>
+    <AnsiWarnings>True</AnsiWarnings>
+    <ArithAbort>True</ArithAbort>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DatabaseState>ONLINE</DatabaseState>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultCursor>LOCAL</DefaultCursor>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <PageVerify>NONE</PageVerify>
+    <Parameterization>SIMPLE</Parameterization>
+    <QuotedIdentifier>True</QuotedIdentifier>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <Recovery>FULL</Recovery>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <TornPageDetection>False</TornPageDetection>
+    <Trustworthy>False</Trustworthy>
+    <UpdateOptions>READ_WRITE</UpdateOptions>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>Logic</TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>02 Logic</TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <Folder Include="Functions" />
+    <Folder Include="Views" />
+    <Folder Include="Views\Indexes" />
+    <Folder Include="Views\Statistics" />
+    <Folder Include="Views\Triggers" />
+    <Folder Include="Deploy Scripts" />
+    <Folder Include="Stored Procedures" />
+    <Folder Include="Stored Procedures\AccidentReport" />
+    <Folder Include="Stored Procedures\Activity" />
+    <Folder Include="Stored Procedures\ActivitySubType" />
+    <Folder Include="Stored Procedures\ActivityType" />
+    <Folder Include="Stored Procedures\Bathroom" />
+    <Folder Include="Stored Procedures\Comment" />
+    <Folder Include="Stored Procedures\DiaperStatus" />
+    <Folder Include="Stored Procedures\Discount" />
+    <Folder Include="Stored Procedures\FoodType" />
+    <Folder Include="Stored Procedures\Meal" />
+    <Folder Include="Stored Procedures\MealDetails" />
+    <Folder Include="Stored Procedures\MealType" />
+    <Folder Include="Stored Procedures\NeedItem" />
+    <Folder Include="Stored Procedures\PaymentMethod" />
+    <Folder Include="Stored Procedures\SickReport" />
+    <Folder Include="Stored Procedures\Student" />
+    <Folder Include="Stored Procedures\Teacher" />
+    <Folder Include="Stored Procedures\Tuition" />
+    <Folder Include="Stored Procedures\AccidentPlace" />
+    <Folder Include="Stored Procedures\Needs" />
+    <Folder Include="Stored Procedures\Sleep" />
+    <Folder Include="Stored Procedures\EventType" />
+    <Folder Include="Stored Procedures\SystemGetMaxID" />
+    <Folder Include="Stored Procedures\AboutPages" />
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Deploy Scripts\deployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Deploy Scripts\ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <Build Include="Permissions.sql" />
+    <Build Include="Stored Procedures\AccidentReport\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\AccidentReport\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\AccidentReport\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\AccidentReport\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\AccidentReport\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Activity\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Activity\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Activity\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Activity\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Activity\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\ActivitySubType\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\ActivitySubType\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\ActivitySubType\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\ActivitySubType\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\ActivitySubType\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\ActivityType\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\ActivityType\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\ActivityType\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\ActivityType\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\ActivityType\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Bathroom\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Bathroom\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Bathroom\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Bathroom\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Bathroom\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Comment\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Comment\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Comment\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Comment\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Comment\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\DiaperStatus\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\DiaperStatus\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\DiaperStatus\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\DiaperStatus\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Discount\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Discount\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Discount\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Discount\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Discount\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\FoodType\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\FoodType\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\FoodType\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\FoodType\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\FoodType\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Meal\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Meal\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Meal\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Meal\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Meal\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\MealDetails\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\MealDetails\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\MealDetails\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\MealDetails\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\MealDetails\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\MealType\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\MealType\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\MealType\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\MealType\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\MealType\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\NeedItem\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\NeedItem\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\NeedItem\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\NeedItem\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\NeedItem\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\PaymentMethod\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\PaymentMethod\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\PaymentMethod\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\PaymentMethod\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\PaymentMethod\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\SickReport\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\SickReport\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\SickReport\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\SickReport\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\SickReport\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Student\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Student\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Student\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Student\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Student\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Teacher\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Teacher\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Teacher\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Teacher\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Teacher\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Tuition\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Tuition\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Tuition\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Tuition\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Tuition\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <None Include="Stored Procedures\AccidentPlace\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AccidentPlace\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AccidentPlace\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AccidentPlace\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AccidentPlace\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <Build Include="Stored Procedures\Needs\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Needs\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Needs\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Needs\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Needs\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <None Include="Stored Procedures\DiaperStatus\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AccidentPlace\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AccidentReport\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Activity\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ActivitySubType\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ActivityType\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Bathroom\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Comment\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\DiaperStatus\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Discount\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\FoodType\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Meal\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\MealDetails\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\MealType\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\NeedItem\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Needs\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\PaymentMethod\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\SickReport\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Student\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Teacher\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Tuition\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AccidentPlace\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AccidentReport\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Activity\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ActivitySubType\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ActivityType\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Bathroom\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Comment\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\DiaperStatus\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\DiaperStatus\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Discount\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\FoodType\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Meal\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\MealDetails\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\MealType\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\NeedItem\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\PaymentMethod\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Needs\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\SickReport\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Student\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Teacher\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Tuition\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AccidentPlace\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AccidentReport\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Activity\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ActivitySubType\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ActivityType\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Bathroom\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Comment\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Discount\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\FoodType\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Meal\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\MealDetails\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\MealType\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\NeedItem\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Needs\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\PaymentMethod\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\SickReport\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Tuition\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Student\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Teacher\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AccidentPlace\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ActivitySubType\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ActivityType\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\DiaperStatus\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Student\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Teacher\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Sleep\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <Build Include="Stored Procedures\Sleep\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <None Include="Stored Procedures\Sleep\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <Build Include="Stored Procedures\Sleep\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <None Include="Stored Procedures\Sleep\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <Build Include="Stored Procedures\Sleep\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Sleep\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Sleep\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <None Include="Stored Procedures\AccidentPlace\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AccidentPlace\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AccidentReport\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AccidentReport\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Activity\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Activity\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ActivitySubType\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ActivitySubType\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ActivityType\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ActivityType\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Bathroom\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Bathroom\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Comment\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Comment\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\DiaperStatus\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\DiaperStatus\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Discount\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Discount\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\FoodType\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\FoodType\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Meal\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Meal\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\MealDetails\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\MealDetails\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\MealType\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\MealType\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\NeedItem\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\NeedItem\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Needs\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Needs\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\PaymentMethod\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\PaymentMethod\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\SickReport\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\SickReport\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Sleep\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Sleep\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Student\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Student\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Teacher\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Teacher\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Tuition\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Tuition\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\EventType\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\EventType\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\EventType\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <Build Include="Stored Procedures\EventType\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <None Include="Stored Procedures\EventType\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <Build Include="Stored Procedures\EventType\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <None Include="Stored Procedures\EventType\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <Build Include="Stored Procedures\EventType\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\EventType\List.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\EventType\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Stored Procedures\EventType\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <None Include="Stored Procedures\SystemGetMaxID\SystemGetMaxID.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AccidentReport\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Bathroom\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Comment\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\MealDetails\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Needs\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\SickReport\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Sleep\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Tuition\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AuditHistoryLastValues.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AboutPages\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AboutPages\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AboutPages\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AboutPages\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AboutPages\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AboutPages\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AboutPages\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AboutPages\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AboutPages\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AboutPages\_StoredProcs.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\AboutPages\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Stored Procedures\MealType\List.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Meal\List.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Stored Procedures\FoodType\List.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Stored Procedures\PaymentMethod\List.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Stored Procedures\NeedItem\List.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Stored Procedures\Discount\List.sql">
+      <SubType>Code</SubType>
+    </Build>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Debug.publish.xml" />
+    <None Include="Release.publish.xml" />
+  </ItemGroup>
+</Project>

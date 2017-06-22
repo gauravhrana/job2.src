@@ -1,0 +1,23 @@
+﻿SecurityTypeId,SecurityTypeGroupId,SecurityAccountTypeId,SecurityTypeCode,SecurityTypeDesc,BBergMarketSectorCode,DisplayYN,GenevaQueryClassCode,IsFirmTradableYN,IsFirmPortfolioTradableYN,IsPmuTradableYN,IsPmuPortfolioTradableYN,ShortRateThreshold,CrossTradeCommApllyYN,InternalCreditCommApplyYN,ReportClass13F,GenevaRecordClassCode,Report13FYN,IsFirmAutoTradableYN,IsOnDemandTradableYN,IsAutoExTradableYN,IsAlwaysEasyToBorrowYN
+1,3,NULL,CASH,USD Cash,Curncy,NULL,MediumOfExchange,0,0,0,0,0.50,0,0,NULL,MediumOfExchange,0,0,0,0,1
+2,2,NULL,CONVB,Convertible Bonds,Comdty,NULL,,0,0,0,0,0.50,0,0,NULL,,0,0,0,0,1
+3,1,NULL,ADR,Depository Receipt,Equity,NULL,Equity,0,0,0,0,0.50,0,0,NULL,Equity,0,0,0,0,1
+4,1,NULL,ADRO,Depository Receipt Option,Equity,NULL,Option,0,0,0,0,0.50,0,0,NULL,Option,0,0,0,0,1
+5,1,NULL,CS,Common Stock,Equity,NULL,Equity,0,0,0,0,0.50,0,0,NULL,Equity,0,0,0,0,1
+6,1,NULL,EI,Equity Index Spot,Index,NULL,Equity,0,0,0,0,0.50,0,0,NULL,Equity,0,0,0,0,1
+7,1,NULL,EO,Equity Option,Equity,NULL,Option,0,0,0,0,0.50,0,0,NULL,Option,0,0,0,0,1
+8,2,NULL,ETFFI,Exchange Traded Fund - FI,Index,NULL,Equity,0,0,0,0,0.50,0,0,NULL,Equity,0,0,0,0,1
+9,3,NULL,CCYFWD,Currency Forward,Equity,NULL,ForwardCash,0,0,0,0,0.50,0,0,NULL,ForwardCash,0,0,0,0,1
+10,3,NULL,FXCASH,Non USD Cash Spot,Curncy,NULL,MediumOfExchange,0,0,0,0,0.50,0,0,NULL,MediumOfExchange,0,0,0,0,1
+11,3,NULL,MMI,Money Market Investment Spot,NULL,NULL,Equity,0,0,0,0,0.50,0,0,NULL,Equity,0,0,0,0,1
+12,5,NULL,RIC,Registered Investment Companies,NULL,NULL,,0,0,0,0,0.50,0,0,NULL,,0,0,0,0,1
+13,5,NULL,PLC,PlaceHolder,NULL,NULL,,0,0,0,0,0.50,0,0,NULL,,0,0,0,0,1
+14,1,NULL,ESWAP,Equity Swap,Equity,NULL,Equity,0,0,0,0,0.50,0,0,NULL,Equity,0,0,0,0,1
+15,2,NULL,BOND,Bond,NULL,NULL,NULL,0,0,0,0,0.50,0,0,NULL,NULL,0,0,0,0,1
+16,3,NULL,FXSPOT,FX Spot,NULL,NULL,NULL,0,0,0,0,0.50,0,0,NULL,NULL,0,0,0,0,1
+17,3,NULL,ARPCASH,Acount Receivable Payable Cash,NULL,NULL,NULL,0,0,0,0,0.50,0,0,NULL,NULL,0,0,0,0,1
+18,1,NULL,WARRANT,Warrant,Equity,NULL,Equity,0,0,0,0,0.50,0,0,NULL,Equity,0,0,0,0,1
+19,1,NULL,ER,Equity RIGHT,Equity,NULL,WARRANT,0,0,0,0,0.50,0,0,NULL,WARRANT,0,0,0,0,1
+20,1,NULL,PT,Accounting Pass Through,Equity,NULL,NULL,0,0,0,0,0.50,0,0,NULL,NULL,0,0,0,0,1
+21,2,NULL,CDS,Credit Default Swap,NULL,NULL,NULL,0,0,0,0,0.50,0,0,NULL,NULL,0,0,0,0,1
+22,1,NULL,EIO,Equity Index Option,Index,NULL,NULL,0,0,0,0,0.50,0,0,NULL,NULL,0,0,0,0,1

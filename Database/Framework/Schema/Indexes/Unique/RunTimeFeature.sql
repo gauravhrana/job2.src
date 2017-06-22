@@ -1,0 +1,21 @@
+﻿--IF EXISTS
+--(
+--	SELECT *
+--	FROM	dbo.sysindexes
+--	WHERE	id		= OBJECT_ID(N'dbo.RunTimeFeature')
+--	AND		name	= N'UQ_RunTimeFeature_ApplicationId_Name'
+--)
+--BEGIN
+--	PRINT	'Dropping UQ_RunTimeFeatureOperation_Name'
+--	ALTER TABLE dbo.RunTimeFeature
+--		DROP CONSTRAINT	UQ_RunTimeFeature_ApplicationId_Name
+--END
+--GO
+
+--ALTER TABLE dbo.RunTimeFeature
+--	ADD CONSTRAINT UQ_RunTimeFeature_ApplicationId_Name UNIQUE NONCLUSTERED
+--	(
+--			ApplicationId
+--		,	Name
+--	)
+--GO

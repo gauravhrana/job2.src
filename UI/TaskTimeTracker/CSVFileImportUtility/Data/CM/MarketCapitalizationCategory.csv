@@ -1,0 +1,4 @@
+﻿MarketCapitalizationCategoryId,Name,Description,SortOrder
+1,Large Cap stock,Market caps that are $10 billion or above,1
+2,Mid Cap stock,Market caps that are between $2 billion and $10 millon,2
+3,Small Cap stock,Market caps that are less than $2 billion,3

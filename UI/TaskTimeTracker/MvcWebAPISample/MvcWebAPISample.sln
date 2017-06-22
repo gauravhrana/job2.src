@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcWebAPISample", "MvcWebAPISample\MvcWebAPISample.csproj", "{2370219C-108A-49D3-B176-6028F43445AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - UI", "03 - UI", "{4B6F5E81-7C3F-48F4-8A48-90BD1F1124EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Components", "05 - Components", "{41856C70-A591-41B8-8CC7-C6486185066F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Components - Framework", "05 - Components - Framework", "{6A64DFF7-8C68-4DD7-AD7F-219A07B97EA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Components.DataAccess", "..\..\..\Components\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj", "{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.Components.BusinessLayer", "..\..\..\Components\TaskTimeTracker\BusinessLayer\TaskTimeTracker.Components.BusinessLayer.csproj", "{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 4
+		SccProjectUniqueName0 = ..\\..\\..\\Components\\Framework.DataAccess\\Core\\Framework.Components.DataAccess.csproj
+		SccProjectTopLevelParentUniqueName0 = MvcWebAPISample.sln
+		SccLocalPath0 = ..\\..\\..\\Components\\Framework.DataAccess
+		SccProjectFilePathRelativizedFromConnection0 = Core\\
+		SccProjectUniqueName1 = ..\\..\\..\\Components\\TaskTimeTracker\\BusinessLayer\\TaskTimeTracker.Components.BusinessLayer.csproj
+		SccProjectTopLevelParentUniqueName1 = MvcWebAPISample.sln
+		SccLocalPath1 = ..\\..\\..\\Components\\TaskTimeTracker
+		SccProjectFilePathRelativizedFromConnection1 = BusinessLayer\\
+		SccProjectName2 = SurroundSCMScci
+		SccLocalPath2 = .
+		SccProvider2 = MSSCCI:Surround\u0020SCM
+		SccProjectUniqueName3 = MvcWebAPISample\\MvcWebAPISample.csproj
+		SccProjectTopLevelParentUniqueName3 = MvcWebAPISample.sln
+		SccLocalPath3 = .
+		SccProjectFilePathRelativizedFromConnection3 = MvcWebAPISample\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2370219C-108A-49D3-B176-6028F43445AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2370219C-108A-49D3-B176-6028F43445AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2370219C-108A-49D3-B176-6028F43445AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2370219C-108A-49D3-B176-6028F43445AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2370219C-108A-49D3-B176-6028F43445AE} = {4B6F5E81-7C3F-48F4-8A48-90BD1F1124EA}
+		{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6} = {41856C70-A591-41B8-8CC7-C6486185066F}
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0} = {6A64DFF7-8C68-4DD7-AD7F-219A07B97EA1}
+	EndGlobalSection
+EndGlobal

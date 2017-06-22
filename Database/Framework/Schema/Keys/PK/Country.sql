@@ -1,0 +1,6 @@
+﻿ALTER TABLE dbo.Country
+	ADD CONSTRAINT PK_Country PRIMARY KEY CLUSTERED 
+	(
+		CountryId
+	)  
+GO

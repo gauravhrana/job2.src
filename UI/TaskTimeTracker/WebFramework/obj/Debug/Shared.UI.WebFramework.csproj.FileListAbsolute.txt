@@ -1,0 +1,14 @@
+R:\717\Projects\UI\Task Time Tracker\WebFramework\bin\Debug\Shared.UI.WebFramework.dll.config
+R:\717\Projects\UI\Task Time Tracker\WebFramework\bin\Debug\Shared.UI.WebFramework.dll
+R:\717\Projects\UI\Task Time Tracker\WebFramework\bin\Debug\Shared.UI.WebFramework.pdb
+R:\717\Projects\UI\Task Time Tracker\WebFramework\bin\Debug\Antlr3.Runtime.dll
+R:\717\Projects\UI\Task Time Tracker\WebFramework\bin\Debug\Framework.Components.DataAccess.dll
+R:\717\Projects\UI\Task Time Tracker\WebFramework\bin\Debug\log4net.dll
+R:\717\Projects\UI\Task Time Tracker\WebFramework\bin\Debug\Newtonsoft.Json.dll
+R:\717\Projects\UI\Task Time Tracker\WebFramework\bin\Debug\WebGrease.dll
+R:\717\Projects\UI\Task Time Tracker\WebFramework\bin\Debug\Framework.Components.DataAccess.pdb
+R:\717\Projects\UI\Task Time Tracker\WebFramework\bin\Debug\Antlr3.Runtime.pdb
+R:\717\Projects\UI\Task Time Tracker\WebFramework\bin\Debug\Newtonsoft.Json.xml
+R:\717\Projects\UI\Task Time Tracker\WebFramework\obj\Debug\Shared.UI.WebFramework.csprojResolveAssemblyReference.cache
+R:\717\Projects\UI\Task Time Tracker\WebFramework\obj\Debug\Shared.UI.WebFramework.dll
+R:\717\Projects\UI\Task Time Tracker\WebFramework\obj\Debug\Shared.UI.WebFramework.pdb

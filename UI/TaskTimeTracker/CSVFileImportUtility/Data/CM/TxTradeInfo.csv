@@ -1,0 +1,3 @@
+﻿TxTradeInfoId,TransactionEventId,TradeCurrencyId,BuyCurrencyId,CrossSettlementFXRate,NetTradeAmount,TradeAccruedInterest
+1,10017,11,23,1050,1500,569
+2,10018,12,45,569,125,263

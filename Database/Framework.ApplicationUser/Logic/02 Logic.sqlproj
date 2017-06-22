@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+    <PostConversionRemoveFromScc>
+    </PostConversionRemoveFromScc>
+    <PostConversionAddToScc>
+    </PostConversionAddToScc>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>02 Logic</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+    <RootNamespace>Logic</RootNamespace>
+    <DefaultSchema>dbo</DefaultSchema>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <SccAuxPath />
+    <SccLocalPath>..</SccLocalPath>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{960dcee6-1ae7-4fdb-bf15-3ff85e16a87c}</ProjectGuid>
+    <GenerateDatabaseFile>False</GenerateDatabaseFile>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <SqlServerVerification>False</SqlServerVerification>
+    <TargetLanguage>CS</TargetLanguage>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <AnsiNullDefault>True</AnsiNullDefault>
+    <AnsiNulls>True</AnsiNulls>
+    <AnsiPadding>True</AnsiPadding>
+    <AnsiWarnings>True</AnsiWarnings>
+    <ArithAbort>True</ArithAbort>
+    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
+    <QuotedIdentifier>True</QuotedIdentifier>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <DatabaseState>ONLINE</DatabaseState>
+    <UpdateOptions>READ_WRITE</UpdateOptions>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DefaultCursor>LOCAL</DefaultCursor>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <TornPageDetection>False</TornPageDetection>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <Recovery>FULL</Recovery>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <Trustworthy>False</Trustworthy>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <PageVerify>NONE</PageVerify>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <Parameterization>SIMPLE</Parameterization>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <DefaultFileStreamFilegroup />
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <Folder Include="Stored Procedures" />
+    <Folder Include="Functions" />
+    <Folder Include="Rules" />
+    <Folder Include="Deploy Scripts" />
+    <Folder Include="Views" />
+    <Folder Include="Stored Procedures\ApplicationUser" />
+    <Folder Include="Stored Procedures\ApplicationUserTitle" />
+    <Folder Include="Stored Procedures\ApplicationUserProfileImage" />
+    <Folder Include="Stored Procedures\ApplicationUserProfileImageMaster" />
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Deploy Scripts\deployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Deploy Scripts\ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUser\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUser\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUser\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUser\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUser\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUser\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUser\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUser\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserTitle\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserTitle\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserTitle\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserTitle\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserTitle\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserTitle\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserTitle\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserTitle\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserTitle\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUser\ChildrenGet.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserTitle\ChildrenGet.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImage\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImage\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImage\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImage\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImage\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImage\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImage\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImage\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImage\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImage\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImageMaster\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImageMaster\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImageMaster\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImageMaster\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImageMaster\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImageMaster\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImageMaster\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImageMaster\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImageMaster\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ApplicationUserProfileImageMaster\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Debug.publish.xml" />
+    <None Include="Release.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Permissions.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Schema\01 Schema.sqlproj">
+      <Name>01 Schema</Name>
+      <Project>{b78ddc9f-93ea-4adb-a2cc-a8d094b73fbf}</Project>
+      <Private>True</Private>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

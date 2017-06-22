@@ -1,0 +1,3 @@
+﻿SecurityXIdentifierId,Ticker,CUSIP,SEDOL,ISIN,WKN,AltID1,AltID2,AltID3,AltID4,AltID5,SecurityId
+1,Ticker Person,Contact,Secuirty,Master,Office,10,20,30,40,50,1
+2,Officer,Dupty,Change,from,Location,20,40,50,46,85,2

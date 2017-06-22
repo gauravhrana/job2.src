@@ -1,0 +1,3 @@
+﻿BrokerTypeId,BrokerTypeCode,BrokerTypeDesc
+1,CLR,Clearing Broker
+2,EXEC,Executing Broker

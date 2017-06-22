@@ -1,0 +1,1528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>Logic</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <ProjectGuid>{6b755a4f-f2c0-4b56-b144-813523ac981d}</ProjectGuid>
+    <DSP>Microsoft.Data.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchema</DefaultFileStructure>
+    <DeployToDatabaseAddToServerExplorer>True</DeployToDatabaseAddToServerExplorer>
+    <DeployToScript>True</DeployToScript>
+    <CatalogPropertiesFile>Properties\Database.sqlsettings</CatalogPropertiesFile>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+    <RootNamespace>Logic</RootNamespace>
+    <DefaultSchema>dbo</DefaultSchema>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <SccAuxPath />
+    <SccLocalPath>..</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>
+    </TargetConnectionString>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>
+    </TargetConnectionString>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\TeamData\Microsoft.Data.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <Folder Include="Stored Procedures" />
+    <Folder Include="Stored Procedures\SystemEntityType" />
+    <Folder Include="Functions" />
+    <Folder Include="Deploy Scripts" />
+    <Folder Include="Views" />
+    <Folder Include="Stored Procedures\Application" />
+    <Folder Include="Stored Procedures\ApplicationOperation" />
+    <Folder Include="Stored Procedures\ApplicationOperationXApplicationRole" />
+    <Folder Include="Stored Procedures\ApplicationEntityParentalHierarchy" />
+    <Folder Include="Stored Procedures\SystemEntityCategory" />
+    <Folder Include="Stored Procedures\ApplicationUserXApplicationRole" />
+    <Folder Include="Stored Procedures\SetUpConfiguration" />
+    <Folder Include="Properties\Rules" />
+    <Folder Include="Stored Procedures\SuperKey" />
+    <Folder Include="Stored Procedures\SuperKeyDetail" />
+    <Folder Include="Stored Procedures\TimeZone" />
+    <Folder Include="Stored Procedures\Country" />
+    <Folder Include="Stored Procedures\Menu" />
+    <Folder Include="Stored Procedures\TabParentStructure" />
+    <Folder Include="Stored Procedures\TabChildStructure" />
+    <Folder Include="Stored Procedures\HelpPageContext" />
+    <Folder Include="Stored Procedures\HelpPage" />
+    <Folder Include="Stored Procedures\BackupTableData" />
+    <Folder Include="Stored Procedures\QuickPaginationRun" />
+    <Folder Include="Stored Procedures\Language" />
+    <Folder Include="Stored Procedures\MenuDisplayName" />
+    <Folder Include="Stored Procedures\DeveloperRole" />
+    <Folder Include="Stored Procedures\Module" />
+    <Folder Include="Stored Procedures\FeatureOwnerStatus" />
+    <Folder Include="Stored Procedures\ModuleOwner" />
+    <Folder Include="Stored Procedures\EntityOwner" />
+    <Folder Include="Stored Procedures\MenuCategory" />
+    <Folder Include="Stored Procedures\ApplicationMode" />
+    <Folder Include="Stored Procedures\MenuCategoryXMenu" />
+    <Folder Include="Stored Procedures\RunTimeFeature" />
+    <Folder Include="Stored Procedures\ApplicationModeXRunTimeFeature" />
+    <Folder Include="Stored Procedures\SearchKey" />
+    <Folder Include="Stored Procedures\SearchKeyDetail" />
+    <Folder Include="Stored Procedures\ApplicationRoute" />
+    <Folder Include="Stored Procedures\ApplicationRouteParameter" />
+    <Folder Include="Stored Procedures\SearchKeyDetailItem" />
+    <Folder Include="Stored Procedures\SystemEntityXSystemEntityCategory" />
+    <Folder Include="Stored Procedures\DateRangeTitle" />
+    <Folder Include="Stored Procedures\Themes" />
+    <Folder Include="Stored Procedures\ThemeCategory" />
+    <Folder Include="Stored Procedures\ThemeKey" />
+    <Folder Include="Stored Procedures\ThemeDetails" />
+    <Folder Include="Stored Procedures\SystemForeignRelationship" />
+    <Folder Include="Stored Procedures\SystemForeignRelationshipType" />
+    <Folder Include="Stored Procedures\SystemForeignRelationshipDatabase" />
+    <Folder Include="Stored Procedures\ConnectionStringXApplication" />
+    <Folder Include="Stored Procedures\DBName" />
+    <Folder Include="Stored Procedures\DBProjectName" />
+    <Folder Include="Stored Procedures\DBComponentName" />
+    <Folder Include="Stored Procedures\ConnectionString" />
+    <Folder Include="Stored Procedures\ApplicationRelation" />
+    <Folder Include="Stored Procedures\SubscriberApplicationRole" />
+    <Folder Include="Stored Procedures\Theme" />
+    <Folder Include="Stored Procedures\ThemeDetail" />
+    <Folder Include="Stored Procedures\ApplicationAttribute" />
+  </ItemGroup>
+  <ItemGroup>
+    <PropertiesFile Include="Properties\Database.sqlsettings">
+    </PropertiesFile>
+    <PropertiesFile Include="Properties\Database.sqldeployment">
+    </PropertiesFile>
+    <PropertiesFile Include="Properties\Database.sqlcmdvars">
+    </PropertiesFile>
+    <Build Include="Properties\Database.sqlpermissions">
+      <ModelBuilderType>Permissions</ModelBuilderType>
+    </Build>
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Stored Procedures\SystemEntityType\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityType\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityType\GetNextSequence.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityType\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityType\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Deploy Scripts\deployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Deploy Scripts\ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityType\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityType\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityType\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Application\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Application\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Application\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Application\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Application\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Application\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationOperation\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationOperation\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationOperation\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationOperation\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationOperation\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationOperationXApplicationRole\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationOperationXApplicationRole\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationOperationXApplicationRole\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationOperationXApplicationRole\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationOperationXApplicationRole\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationEntityParentalHierarchy\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationEntityParentalHierarchy\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationEntityParentalHierarchy\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationEntityParentalHierarchy\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationEntityParentalHierarchy\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationEntityParentalHierarchy\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityType\GetId.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityType\GetNextSequenceTemp.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityType\GetNextSequencePerson.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityType\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityType\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationOperationXApplicationRole\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationOperationXApplicationRole\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationOperation\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationOperation\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationEntityParentalHierarchy\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationEntityParentalHierarchy\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Application\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Application\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationOperationXApplicationRole\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityCategory\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityCategory\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityCategory\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityCategory\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityCategory\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityCategory\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityCategory\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityCategory\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityCategory\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationUserXApplicationRole\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationUserXApplicationRole\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationUserXApplicationRole\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationUserXApplicationRole\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationUserXApplicationRole\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationUserXApplicationRole\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationUserXApplicationRole\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationUserXApplicationRole\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Functions\GetSystemEntityTypeId.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SetUpConfiguration\ListConnectionKeyName.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SetUpConfiguration\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityType\MaxId.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKey\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKey\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKey\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKey\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKey\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKey\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKey\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKey\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKey\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKeyDetail\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKeyDetail\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKeyDetail\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKeyDetail\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKeyDetail\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKeyDetail\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKeyDetail\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKeyDetail\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKeyDetail\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Country\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Country\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Country\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Country\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Country\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Country\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Country\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Country\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Country\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TimeZone\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TimeZone\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TimeZone\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TimeZone\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TimeZone\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TimeZone\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TimeZone\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TimeZone\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TimeZone\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKey\ChildrenGet.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TimeZone\ChildrenGet.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SuperKey\DeleteExpired.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityType\TestDataCount.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Menu\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Menu\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Menu\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Menu\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Menu\ChildrenGet.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Menu\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Menu\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Menu\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Menu\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Menu\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Menu\MenuCloneByParent.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabParentStructure\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabParentStructure\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabParentStructure\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabParentStructure\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabParentStructure\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabParentStructure\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabParentStructure\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabParentStructure\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabParentStructure\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabChildStructure\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabChildStructure\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabChildStructure\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabChildStructure\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabChildStructure\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabChildStructure\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabChildStructure\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabChildStructure\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\TabChildStructure\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPageContext\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPageContext\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPageContext\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPageContext\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPageContext\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPageContext\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPageContext\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPageContext\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPageContext\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPage\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPage\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPage\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPage\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPage\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPage\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPage\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPage\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPage\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\HelpPageContext\ChildrenGet.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\BackupTableData\BackupTableData.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationOperation\Renumber.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\QuickPaginationRun\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\QuickPaginationRun\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\QuickPaginationRun\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\QuickPaginationRun\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\QuickPaginationRun\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\QuickPaginationRun\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\QuickPaginationRun\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\QuickPaginationRun\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\QuickPaginationRun\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Language\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Language\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Language\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Language\ChildrenGet.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Language\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Language\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Language\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Language\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Language\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Language\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuDisplayName\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuDisplayName\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuDisplayName\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuDisplayName\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuDisplayName\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuDisplayName\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuDisplayName\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuDisplayName\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuDisplayName\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DeveloperRole\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DeveloperRole\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DeveloperRole\ChildrenGet.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DeveloperRole\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DeveloperRole\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DeveloperRole\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DeveloperRole\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DeveloperRole\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DeveloperRole\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DeveloperRole\List.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DeveloperRole\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DeveloperRole\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Module\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Module\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Module\ChildrenGet.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Module\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Module\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Module\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Module\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Module\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Module\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Module\List.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Module\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Module\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\FeatureOwnerStatus\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\FeatureOwnerStatus\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\FeatureOwnerStatus\ChildrenGet.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\FeatureOwnerStatus\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\FeatureOwnerStatus\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\FeatureOwnerStatus\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\FeatureOwnerStatus\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\FeatureOwnerStatus\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\FeatureOwnerStatus\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\FeatureOwnerStatus\List.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\FeatureOwnerStatus\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\FeatureOwnerStatus\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ModuleOwner\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ModuleOwner\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ModuleOwner\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ModuleOwner\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ModuleOwner\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ModuleOwner\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ModuleOwner\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ModuleOwner\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ModuleOwner\List.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ModuleOwner\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\EntityOwner\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\EntityOwner\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\EntityOwner\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\EntityOwner\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\EntityOwner\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\EntityOwner\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\EntityOwner\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\EntityOwner\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\EntityOwner\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\EntityOwner\List.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\EntityOwner\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Menu\UpdateParentMenu.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuCategory\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuCategory\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuCategory\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuCategory\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuCategory\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuCategory\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuCategory\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationMode\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationMode\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationMode\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationMode\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationMode\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationMode\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuCategoryXMenu\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuCategoryXMenu\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuCategoryXMenu\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuCategoryXMenu\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuCategoryXMenu\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\MenuCategoryXMenu\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Menu\ListParentMenu.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\RunTimeFeature\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\RunTimeFeature\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\RunTimeFeature\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\RunTimeFeature\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\RunTimeFeature\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\RunTimeFeature\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\RunTimeFeature\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\RunTimeFeature\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\RunTimeFeature\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationModeXRunTimeFeature\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationModeXRunTimeFeature\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationModeXRunTimeFeature\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationModeXRunTimeFeature\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationModeXRunTimeFeature\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationModeXRunTimeFeature\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationModeXRunTimeFeature\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationModeXRunTimeFeature\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationModeXRunTimeFeature\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKey\ChildrenGet.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKey\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKey\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKey\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKey\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKey\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKey\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKey\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKeyDetail\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKeyDetail\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKeyDetail\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKeyDetail\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKeyDetail\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKeyDetail\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKeyDetail\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRoute\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRoute\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRoute\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRoute\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRoute\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRouteParameter\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRouteParameter\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRouteParameter\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRouteParameter\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRouteParameter\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKeyDetailItem\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKeyDetailItem\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKeyDetailItem\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKeyDetailItem\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKeyDetailItem\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKeyDetailItem\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKeyDetailItem\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityXSystemEntityCategory\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityXSystemEntityCategory\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityXSystemEntityCategory\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityXSystemEntityCategory\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityXSystemEntityCategory\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemEntityXSystemEntityCategory\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SearchKey\SearchByKey.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DateRangeTitle\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DateRangeTitle\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DateRangeTitle\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DateRangeTitle\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DateRangeTitle\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DateRangeTitle\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DateRangeTitle\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Themes\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Themes\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Themes\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Themes\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Themes\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Themes\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Themes\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Themes\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Themes\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeCategory\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeCategory\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeCategory\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeCategory\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeCategory\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeCategory\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeCategory\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeCategory\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeCategory\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeKey\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeKey\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeKey\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeKey\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeKey\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeKey\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeKey\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeKey\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeKey\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeDetails\_DeployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeDetails\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeDetails\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeDetails\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeDetails\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeDetails\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeDetails\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeDetails\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeDetails\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationship\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationship\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationship\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationship\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationship\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationship\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationship\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationshipType\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationshipType\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationshipType\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationshipType\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationshipType\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationshipType\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationshipType\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationshipDatabase\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationshipDatabase\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationshipDatabase\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationshipDatabase\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationshipDatabase\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationshipDatabase\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SystemForeignRelationshipDatabase\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Menu\ReNumber.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionStringXApplication\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionStringXApplication\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionStringXApplication\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionStringXApplication\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionStringXApplication\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionStringXApplication\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionStringXApplication\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBName\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBName\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBName\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBName\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBName\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBName\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBName\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBName\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBProjectName\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBProjectName\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBComponentName\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBComponentName\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBProjectName\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBComponentName\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBProjectName\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBComponentName\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBProjectName\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBComponentName\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBProjectName\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBComponentName\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBProjectName\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBComponentName\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBProjectName\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBComponentName\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBProjectName\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\DBComponentName\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionString\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionString\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionString\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionString\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionString\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionString\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionString\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionString\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionString\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionString\List.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ConnectionString\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRelation\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRelation\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRelation\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRelation\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRelation\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRelation\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationRelation\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SubscriberApplicationRole\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SubscriberApplicationRole\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SubscriberApplicationRole\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SubscriberApplicationRole\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SubscriberApplicationRole\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SubscriberApplicationRole\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\SubscriberApplicationRole\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Application\GetChildren.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Theme\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Theme\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Theme\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Theme\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Theme\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\Theme\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeDetail\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeDetail\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeDetail\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeDetail\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeDetail\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ThemeDetail\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationAttribute\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationAttribute\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationAttribute\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationAttribute\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationAttribute\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationAttribute\List.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Stored Procedures\ApplicationAttribute\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+  </ItemGroup>
+</Project>

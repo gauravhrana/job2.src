@@ -1,0 +1,6 @@
+﻿RecordTypeId,Code,Description
+1,Development,Develop record
+2,Test,Test all records
+3,Human resource,Recording human resource
+4,User details,Record all user details
+5,Other,Other

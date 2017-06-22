@@ -1,0 +1,167 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismSample", "PrismSample\PrismSample.csproj", "{B56656D5-A2F3-404A-A718-0347377FEE4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.Components.BusinessLayer", "..\..\Components\TaskTimeTracker\BusinessLayer\TaskTimeTracker.Components.BusinessLayer.csproj", "{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel.TaskTimeTracker", "..\..\Models\TaskTimeTracker\DataModel.TaskTimeTracker\DataModel.TaskTimeTracker.csproj", "{3CE97E00-470C-43DB-8489-FD89559268C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Components.DataAccess", "..\..\Components\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj", "{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Components.Configuration", "..\..\Components\Framework.Configuration\Core\Framework.Components.Configuration.csproj", "{33362436-0628-4DEC-A423-614E825C9BAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - UI", "03 - UI", "{52023633-912A-4B99-8DCB-2192EB002C1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06 - Components - Library", "06 - Components - Library", "{ECA7CC83-6845-4B9E-BFAB-5D810FB005DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06 - Components - Framework", "06 - Components - Framework", "{1699C793-6876-47D4-8F30-7B30BFF57A5E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Models", "04 - Models", "{A6E08524-39D7-41B9-8DDE-ED21EC6B0E88}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Components", "05 - Components", "{4FDFA663-4C1E-4E2B-95A5-6F42E86285B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismSample.Controls", "PrismSample.Controls\PrismSample.Controls.csproj", "{CF768229-C2FA-4686-873A-3DB7F723615E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismSample.TTT", "PrismSample.TTT\PrismSample.TTT.csproj", "{3E11ADD4-D6A3-460D-9815-974E7C46A879}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismSample.Navigation", "PrismSample.Navigation\PrismSample.Navigation.csproj", "{662EE2E0-79A4-4F41-B9F5-A368FCA9D797}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismSample.Infrastructure", "PrismSample.Infrastructure\PrismSample.Infrastructure.csproj", "{C88AF9E2-F841-4A7F-8E16-772D13DD3DAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel.Framework.AuthenticationAndAuthorization", "..\..\Models\Framework\ApplicationUser\DataModel.Framework.ApplicationUser\DataModel.Framework.AuthenticationAndAuthorization.csproj", "{F5D7ED71-B73E-4A28-BA89-41F39C4259F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Components.ApplicationUser", "..\..\Components\Framework.ApplicationUser\Core\Framework.Components.ApplicationUser.csproj", "{5EE13FF1-810F-43CA-98BC-AFA880388A43}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - Generators", "00 - Generators", "{D7233229-0A7F-4FF3-A5E1-77802E36825F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generators", "Generators\Generators.csproj", "{64E3BDF5-BB62-4ED1-AA44-55010DF980D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B56656D5-A2F3-404A-A718-0347377FEE4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B56656D5-A2F3-404A-A718-0347377FEE4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B56656D5-A2F3-404A-A718-0347377FEE4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B56656D5-A2F3-404A-A718-0347377FEE4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CE97E00-470C-43DB-8489-FD89559268C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CE97E00-470C-43DB-8489-FD89559268C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CE97E00-470C-43DB-8489-FD89559268C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CE97E00-470C-43DB-8489-FD89559268C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33362436-0628-4DEC-A423-614E825C9BAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33362436-0628-4DEC-A423-614E825C9BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33362436-0628-4DEC-A423-614E825C9BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33362436-0628-4DEC-A423-614E825C9BAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF768229-C2FA-4686-873A-3DB7F723615E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF768229-C2FA-4686-873A-3DB7F723615E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF768229-C2FA-4686-873A-3DB7F723615E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF768229-C2FA-4686-873A-3DB7F723615E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E11ADD4-D6A3-460D-9815-974E7C46A879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E11ADD4-D6A3-460D-9815-974E7C46A879}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E11ADD4-D6A3-460D-9815-974E7C46A879}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E11ADD4-D6A3-460D-9815-974E7C46A879}.Release|Any CPU.Build.0 = Release|Any CPU
+		{662EE2E0-79A4-4F41-B9F5-A368FCA9D797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{662EE2E0-79A4-4F41-B9F5-A368FCA9D797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{662EE2E0-79A4-4F41-B9F5-A368FCA9D797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{662EE2E0-79A4-4F41-B9F5-A368FCA9D797}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C88AF9E2-F841-4A7F-8E16-772D13DD3DAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C88AF9E2-F841-4A7F-8E16-772D13DD3DAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C88AF9E2-F841-4A7F-8E16-772D13DD3DAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C88AF9E2-F841-4A7F-8E16-772D13DD3DAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5D7ED71-B73E-4A28-BA89-41F39C4259F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5D7ED71-B73E-4A28-BA89-41F39C4259F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5D7ED71-B73E-4A28-BA89-41F39C4259F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5D7ED71-B73E-4A28-BA89-41F39C4259F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EE13FF1-810F-43CA-98BC-AFA880388A43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE13FF1-810F-43CA-98BC-AFA880388A43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE13FF1-810F-43CA-98BC-AFA880388A43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE13FF1-810F-43CA-98BC-AFA880388A43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64E3BDF5-BB62-4ED1-AA44-55010DF980D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64E3BDF5-BB62-4ED1-AA44-55010DF980D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64E3BDF5-BB62-4ED1-AA44-55010DF980D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64E3BDF5-BB62-4ED1-AA44-55010DF980D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B56656D5-A2F3-404A-A718-0347377FEE4E} = {52023633-912A-4B99-8DCB-2192EB002C1C}
+		{CBB22F91-6F8A-4409-A7AE-A5904FE45DC6} = {4FDFA663-4C1E-4E2B-95A5-6F42E86285B1}
+		{3CE97E00-470C-43DB-8489-FD89559268C9} = {A6E08524-39D7-41B9-8DDE-ED21EC6B0E88}
+		{3C1BF755-3C2A-4016-ABA7-62F6DEA056F0} = {1699C793-6876-47D4-8F30-7B30BFF57A5E}
+		{33362436-0628-4DEC-A423-614E825C9BAD} = {1699C793-6876-47D4-8F30-7B30BFF57A5E}
+		{1699C793-6876-47D4-8F30-7B30BFF57A5E} = {ECA7CC83-6845-4B9E-BFAB-5D810FB005DF}
+		{CF768229-C2FA-4686-873A-3DB7F723615E} = {52023633-912A-4B99-8DCB-2192EB002C1C}
+		{3E11ADD4-D6A3-460D-9815-974E7C46A879} = {52023633-912A-4B99-8DCB-2192EB002C1C}
+		{662EE2E0-79A4-4F41-B9F5-A368FCA9D797} = {52023633-912A-4B99-8DCB-2192EB002C1C}
+		{C88AF9E2-F841-4A7F-8E16-772D13DD3DAE} = {52023633-912A-4B99-8DCB-2192EB002C1C}
+		{F5D7ED71-B73E-4A28-BA89-41F39C4259F4} = {A6E08524-39D7-41B9-8DDE-ED21EC6B0E88}
+		{5EE13FF1-810F-43CA-98BC-AFA880388A43} = {1699C793-6876-47D4-8F30-7B30BFF57A5E}
+		{64E3BDF5-BB62-4ED1-AA44-55010DF980D5} = {D7233229-0A7F-4FF3-A5E1-77802E36825F}
+	EndGlobalSection
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 13
+		SccProjectName0 = SurroundSCMScci
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Surround\u0020SCM
+		SccProjectUniqueName1 = ..\\..\\Components\\TaskTimeTracker\\BusinessLayer\\TaskTimeTracker.Components.BusinessLayer.csproj
+		SccProjectTopLevelParentUniqueName1 = PrismSample.sln
+		SccLocalPath1 = ..\\..\\Components\\TaskTimeTracker
+		SccProjectFilePathRelativizedFromConnection1 = BusinessLayer\\
+		SccProjectUniqueName2 = ..\\..\\Models\\TaskTimeTracker\\DataModel.TaskTimeTracker\\DataModel.TaskTimeTracker.csproj
+		SccProjectTopLevelParentUniqueName2 = PrismSample.sln
+		SccLocalPath2 = ..\\..\\Models\\TaskTimeTracker\\DataModel.TaskTimeTracker
+		SccProjectUniqueName3 = ..\\..\\Components\\Framework.DataAccess\\Core\\Framework.Components.DataAccess.csproj
+		SccProjectTopLevelParentUniqueName3 = PrismSample.sln
+		SccLocalPath3 = ..\\..\\Components\\Framework.DataAccess
+		SccProjectFilePathRelativizedFromConnection3 = Core\\
+		SccProjectUniqueName4 = ..\\..\\Components\\Framework.Configuration\\Core\\Framework.Components.Configuration.csproj
+		SccProjectTopLevelParentUniqueName4 = PrismSample.sln
+		SccLocalPath4 = ..\\..\\Components\\Framework.Configuration
+		SccProjectFilePathRelativizedFromConnection4 = Core\\
+		SccProjectUniqueName5 = PrismSample\\PrismSample.csproj
+		SccProjectTopLevelParentUniqueName5 = PrismSample.sln
+		SccLocalPath5 = .
+		SccProjectFilePathRelativizedFromConnection5 = PrismSample\\
+		SccProjectUniqueName6 = PrismSample.Controls\\PrismSample.Controls.csproj
+		SccProjectTopLevelParentUniqueName6 = PrismSample.sln
+		SccLocalPath6 = .
+		SccProjectFilePathRelativizedFromConnection6 = PrismSample.Controls\\
+		SccProjectUniqueName7 = PrismSample.TTT\\PrismSample.TTT.csproj
+		SccProjectTopLevelParentUniqueName7 = PrismSample.sln
+		SccLocalPath7 = .
+		SccProjectFilePathRelativizedFromConnection7 = PrismSample.TTT\\
+		SccProjectUniqueName8 = PrismSample.Navigation\\PrismSample.Navigation.csproj
+		SccProjectTopLevelParentUniqueName8 = PrismSample.sln
+		SccLocalPath8 = .
+		SccProjectFilePathRelativizedFromConnection8 = PrismSample.Navigation\\
+		SccProjectUniqueName9 = PrismSample.Infrastructure\\PrismSample.Infrastructure.csproj
+		SccProjectTopLevelParentUniqueName9 = PrismSample.sln
+		SccLocalPath9 = .
+		SccProjectFilePathRelativizedFromConnection9 = PrismSample.Infrastructure\\
+		SccProjectUniqueName10 = ..\\..\\Models\\Framework\\ApplicationUser\\DataModel.Framework.ApplicationUser\\DataModel.Framework.AuthenticationAndAuthorization.csproj
+		SccProjectTopLevelParentUniqueName10 = PrismSample.sln
+		SccLocalPath10 = ..\\..\\Models\\Framework\\ApplicationUser\\DataModel.Framework.ApplicationUser
+		SccProjectUniqueName11 = ..\\..\\Components\\Framework.ApplicationUser\\Core\\Framework.Components.ApplicationUser.csproj
+		SccProjectTopLevelParentUniqueName11 = PrismSample.sln
+		SccLocalPath11 = ..\\..\\Components\\Framework.ApplicationUser
+		SccProjectFilePathRelativizedFromConnection11 = Core\\
+		SccProjectUniqueName12 = Generators\\Generators.csproj
+		SccProjectTopLevelParentUniqueName12 = PrismSample.sln
+		SccLocalPath12 = .
+		SccProjectFilePathRelativizedFromConnection12 = Generators\\
+	EndGlobalSection
+EndGlobal

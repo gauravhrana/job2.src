@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>Schema</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <ProjectGuid>{88a40420-d24f-4f9d-904f-f3ba1ebb5f9c}</ProjectGuid>
+    <DSP>Microsoft.Data.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchema</DefaultFileStructure>
+    <DeployToDatabaseAddToServerExplorer>True</DeployToDatabaseAddToServerExplorer>
+    <DeployToScript>True</DeployToScript>
+    <CatalogPropertiesFile>Properties\Database.sqlsettings</CatalogPropertiesFile>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+    <RootNamespace>Core.Schema</RootNamespace>
+    <DefaultSchema>dbo</DefaultSchema>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <SccProjectName>DB DayCare</SccProjectName>
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <SccAuxPath />
+    <SccLocalPath>..\..</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>
+    </TargetConnectionString>
+    <TargetDatabase>Schema</TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>
+    </TargetConnectionString>
+    <TargetDatabase>Schema</TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>False</DeployToDatabase>
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\TeamData\Microsoft.Data.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <Folder Include="Tables" />
+    <Folder Include="Tables\Constraints" />
+    <Folder Include="Tables\Indexes" />
+    <Folder Include="Tables\Keys" />
+    <Folder Include="Tables\Statistics" />
+    <Folder Include="Tables\Triggers" />
+    <Folder Include="Tables\Keys\FK" />
+    <Folder Include="Tables\Keys\PK" />
+    <Folder Include="Tables\Constraints\Defaults" />
+    <Folder Include="Tables\Indexes\UNIQUE" />
+    <Folder Include="Deploy Scripts" />
+    <Folder Include="Tables\Keys\UK" />
+  </ItemGroup>
+  <ItemGroup>
+    <PropertiesFile Include="Properties\Database.sqlsettings">
+    </PropertiesFile>
+    <PropertiesFile Include="Properties\Database.sqldeployment">
+    </PropertiesFile>
+    <PropertiesFile Include="Properties\Database.sqlcmdvars">
+    </PropertiesFile>
+    <Build Include="Properties\Database.sqlpermissions">
+      <ModelBuilderType>Permissions</ModelBuilderType>
+    </Build>
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Keys\PK\Comment.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\AccidentPlace.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\AccidentReport.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\Activity.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\ActivityType.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\Bathroom.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\DiaperStatus.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\PaymentMethod.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\Discount.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\EventType.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\FoodType.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\Meal.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\MealDetail.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\MealType.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\NeedItem.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\Needs.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\SickReport.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\Tuition.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\Sleep.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\Special.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Keys\PK\Student.sql">
+      <SubType>Code</SubType>
+    </Build>
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Tables\Constraints\Defaults\AccidentPlace.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Constraints\Defaults\AccidentReport.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Constraints\Defaults\Activity.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Constraints\Defaults\ActivitySubType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Constraints\Defaults\ActivityType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Constraints\Defaults\Bathroom.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Constraints\Defaults\Comment.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Constraints\Defaults\DiaperStatus.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Constraints\Defaults\Discount.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Constraints\Defaults\EventType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Constraints\Defaults\FoodType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Constraints\Defaults\Meal.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Constraints\Defaults\MealType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <Build Include="Tables\Constraints\Defaults\MealDetail.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <NotInBuild Include="Deploy Scripts\deployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Deploy Scripts\Schema.cmd">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <Build Include="Tables\Constraints\Defaults\NeedItem.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Constraints\Defaults\Needs.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Constraints\Defaults\PaymentMethod.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Constraints\Defaults\SickReport.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Constraints\Defaults\Sleep.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Constraints\Defaults\Tuition.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Constraints\Defaults\Student.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Constraints\Defaults\Teacher.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <NotInBuild Include="Tables\Indexes\UNIQUE\AccidentPlace.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <Build Include="Tables\Indexes\UNIQUE\AccidentReport.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\Tuition.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\Activity.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\ActivitySubType.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\ActivityType.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\Bathroom.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\Comment.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\DiaperStatus.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\Discount.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\EventType.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\FoodType.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\Meal.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\MealDetail.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\MealType.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\NeedItem.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\Needs.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\PaymentMethod.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\SickReport.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\Sleep.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\Student.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Indexes\UNIQUE\Teacher.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <NotInBuild Include="Tables\Keys\FK\AccidentReport_Student_AccidentPlace.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\FK\Activity_Student_ActivityType_ActivitySubTypeId.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\PK\ActivitySubType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\FK\ActivitySubType_ActivityType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\FK\BathRoom_Student_Teacher_DiaperStatus.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\PK\Teacher.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\FK\Comment_Student_EventType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\FK\Meal_Student_MealType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\FK\MealDetail_Meal_FoodType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\FK\Needs_Student_NeedItem.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\FK\SickReport_Student.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\FK\Sleep_Student.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\FK\Tuition_Student_Discount_PaymentMethod.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\AccidentPlace.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <Build Include="Tables\Tuition.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\AccidentReport.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Activity.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\ActivitySubType.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\ActivityType.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Bathroom.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Comment.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\DiaperStatus.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Discount.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\EventType.sql">
+      <SubType>NotInBuild</SubType>
+    </Build>
+    <Build Include="Tables\FoodType.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Meal.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\MealDetail.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\MealType.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\NeedItem.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Needs.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <NotInBuild Include="Tables\PaymentMethod.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <Build Include="Tables\SickReport.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Sleep.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Student.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Tables\Teacher.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <NotInBuild Include="Tables\Constraints\Defaults\ApplicationRole.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Constraints\Defaults\Person.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Indexes\UNIQUE\ApplicationRole.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Indexes\UNIQUE\Person.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\PK\ApplicationRole.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\PK\Person.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\ApplicationRole.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\FK\PersonXApplicationRole.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Indexes\UNIQUE\PersonXApplicationRole.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\UK\AccidentPlace.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\UK\ActivitySubType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\UK\ActivityType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\UK\DiaperStatus.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\UK\Discount.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\UK\EventType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\UK\FoodType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\UK\MealType.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\UK\NeedItem.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\UK\PaymentMethod.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\AboutPages.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Tables\Keys\PK\AboutPages.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+  </ItemGroup>
+</Project>

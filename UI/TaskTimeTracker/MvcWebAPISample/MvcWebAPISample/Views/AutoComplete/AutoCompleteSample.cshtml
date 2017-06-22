@@ -1,0 +1,164 @@
+﻿@{
+    ViewBag.Title = "AutoCompleteSample";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AutoCompleteSample</h2>
+
+<h4>
+    Render Custom action to generate Multiple column Combo.</h4>
+<table>
+    <tr>
+        <td>
+            Names:
+        </td>
+        <td>
+            @{Html.RenderAction("MultiColumnComboBox", "Custom", new { ControlFor = "name", ControlId = "comboName" });}
+        </td>
+    </tr>
+    
+</table>
+
+@{
+    Layout = null;
+}
+<style type="text/css">
+    table td
+    {
+        padding: 3px 5px;
+        margin: 0;
+    }
+    a:link
+    {
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .tdHeader
+    {
+        background-color: #CEF6F5;
+    }
+    .DataBlock
+    {
+        max-width: 520px;
+        min-width: 215px;
+        max-height: 200px;
+        overflow: auto;
+        background-color: #fff;
+    }
+    .renderpart
+    {
+        z-index: 99999;
+        position: absolute;
+    }
+</style>
+<input type="hidden" id="@ViewBag.ProcId" name="@ViewBag.ProcId" value=""/>
+<input type="hidden" id="@ViewBag.ControlId" name="@ViewBag.ControlId" value=""/>
+<input type="text" name="@ViewBag.ControlTxtId" id="@ViewBag.ControlTxtId" autocomplete="off"/>
+<div class="@ViewBag.ControlTxtId renderpart">
+    <div class="DataBlock">
+        <div id="@ViewBag.ControlBlockId" style="max-width: 520px;">
+        </div>
+    </div>
+</div>
+<script src="../../Scripts/jquery-1.7.1.js" type="text/javascript"></script>
+<script src="../../Scripts/json.debug.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".renderpart").hide();
+        var txtid = "#" + '@ViewBag.ControlTxtId';
+        var renderpart = "." + '@ViewBag.ControlTxtId';
+        var selectlinkvalueid = ".Get" + '@ViewBag.ProcId';
+
+        $(selectlinkvalueid).live("click", function () {
+            var value = $(this).attr('id');
+            var valueText = $(this).attr('title');
+            $("#@ViewBag.ControlId").val(value);
+            $(txtid).val(valueText);
+            $(renderpart).slideUp("slow");
+        });
+ 
+        $(txtid).keyup(function () {
+            var value = $(txtid).val();
+            var Procvalue = '@ViewBag.ProcId';
+            var controlid = "#" + '@ViewBag.ControlBlockId';
+
+            value = encodeURI(value);
+            if (value.length > 2) {
+                $.ajaxSetup({ cache: false });
+                $.getJSON("/Custom/LoadComboData", { strSearch: " " + value, ProcId: " " + Procvalue }, function (data) {
+                    $(controlid).html("");
+                    var activecols = $("#hdnActiveColumns").val();
+                    var htmlrow = "";
+                    var tempprocId = '@ViewBag.ProcId';
+                    var jsondata = JSON.stringify(data);
+                    $(controlid).html(CreateDynamicTable(jsondata, tempprocId));
+                    $(renderpart).slideDown("slow");
+                });
+                $.ajaxSetup({ cache: true });
+            }
+            else {
+                $(renderpart).slideUp("slow");
+            }
+        });
+        $(txtid).focusin(function () {
+            var txtid = "#" + '@ViewBag.ControlTxtId';
+            var value = $(txtid).val();
+            var Procvalue = '@ViewBag.ProcId';
+            var controlid = "#" + '@ViewBag.ControlBlockId';
+            value = encodeURI(value);
+            if (value.length > 2) {
+                $.ajaxSetup({ cache: false });
+                $.getJSON("/Custom/LoadComboData", { strSearch: " " + value, ProcId: " " + Procvalue }, function (data) {
+                    $(controlid).html("");
+                    var htmlrow = "";
+                    var tempprocId = '@ViewBag.ProcId';
+                    var jsondata = JSON.stringify(data);
+                    $(controlid).html(CreateDynamicTable(jsondata, tempprocId));
+                    $(renderpart).slideDown("slow");
+                });
+                $.ajaxSetup({ cache: true });
+            }
+            else {
+                $(renderpart).slideUp("slow");
+            }
+        });
+        function CreateDynamicTable(objArray, tempprocId) {
+            var array = JSON.parse(objArray);
+            var str = '<table style="width:100%;">';
+            str += '<tr>';
+            for (var index in array[0]) {
+                str += '<th scope="col">' + index + '</th>';
+            }
+            str += '</tr>';
+            str += '<tbody>';
+            var flag = false;
+            var ids;
+            for (var i = 0; i < array.length; i++) {
+                str += (i % 2 == 0) ? '<tr>' : '<tr>';
+                for (var index in array[i]) {
+                    if (flag == false) {
+                        ids = array[i][index];
+                        flag = true;
+                    }
+                    str += '<td><a id="' + ids + '" class="Get' + tempprocId + '" title="' + array[i][index] + '" href="#">' + array[i][index] + '</a></td>';
+                }
+                str += '</tr>';
+            }
+            str += '</tbody>';
+            str += '</table>';
+            return str;
+        }
+    });
+    $(document).click(function (evt) {
+        var renderpart = "." + '@ViewBag.ControlTxtId';
+        var theElem = (evt.srcElement) ? evt.srcElement : evt.target;
+ 
+        if (theElem.id == "main" || theElem.id == "sub1") {
+            $(renderpart).slideUp("fast");
+        }
+    });
+</script>
+
+ 
+
+

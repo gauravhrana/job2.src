@@ -1,0 +1,6 @@
+﻿OrderStatusGroupId,OrderStatusGroupCode,OrderStatusGroupDescription,OrderProcessFlag
+1,Initial,Initial States,1
+2,Inprocess,In process States,1
+3,Error,Error State,0
+4,Final,Final State,0
+5,OrderFills, Order Fills States,0

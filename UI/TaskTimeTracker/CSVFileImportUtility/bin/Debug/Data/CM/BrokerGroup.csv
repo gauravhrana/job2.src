@@ -1,0 +1,3 @@
+﻿BrokerGroupId,BrokerCounterpartyTypeId,BrokerGroupCode,BrokerGroupDesc,ActiveYN,IsBrokerVoteEligibleYN,IsApprovedYN,CreatedBy,CreatedOn,LastModifiedBy,LastModifiedOn
+1,NULL,Clearing,Generic Custodian,1,0,0,NULL,NULL,NULL,NULL
+2,NULL,Executing,Generic Executing,1,0,0,NULL,NULL,NULL,NULL

@@ -1,0 +1,108 @@
+﻿<UserControl x:Class='PrismSample.Controls.Views.ClientListView'
+             xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'
+             xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+             xmlns:mc='http://schemas.openxmlformats.org/markup-compatibility/2006' 
+             xmlns:d='http://schemas.microsoft.com/expression/blend/2008' 
+             xmlns:local='clr-namespace:PrismSample.Controls.Views'             
+             xmlns:inf='clr-namespace:PrismSample.Infrastructure.Extensions;assembly=PrismSample.Infrastructure'
+             xmlns:i='http://schemas.microsoft.com/expression/2010/interactivity'
+             xmlns:xctk='http://schemas.xceed.com/wpf/xaml/toolkit'
+             xmlns:prism='http://prismlibrary.com/'
+             mc:Ignorable='d' 
+             d:DesignHeight='600' d:DesignWidth='600'>
+    <Grid x:Name='LayoutRoot'>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint='0.5,1' StartPoint='0.5,0'>
+                <GradientStop Color='#FF7B97D4' />
+                <GradientStop Color='#FF244C8D' Offset='1' />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width='*' />
+            <ColumnDefinition Width='*' />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height='Auto' />
+            <RowDefinition Height='Auto' />
+            <RowDefinition Height='Auto' />
+            <RowDefinition Height='*' />
+            <RowDefinition Height='Auto' />
+            <RowDefinition Height='Auto' />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row='0' Text='Client List View' TextWrapping='Wrap' Grid.RowSpan='1' Grid.ColumnSpan='2' FontSize='18' Foreground='#FF2F3806' Margin='8,8,8,8' />
+
+        <StackPanel HorizontalAlignment='Left' Grid.Row='1' VerticalAlignment='Top' Grid.ColumnSpan='2'  Width='600' >
+            <StackPanel HorizontalAlignment='Center' Width='400' Orientation='Horizontal'>
+                <TextBlock VerticalAlignment='Center' Margin='5' Text='Name: ' Width='100'/>
+                <TextBox Margin='5' Text='{Binding SearchItem.Name}' Width='150' />
+            </StackPanel>
+            <StackPanel HorizontalAlignment='Center' Width='400' Orientation='Horizontal'>
+                <TextBlock VerticalAlignment='Center' Margin='5'  Text='Group By: ' Width='100'/>
+                <ComboBox x:Name='comboBoxGroupBy'  Margin='5' VerticalAlignment='Top' HorizontalAlignment='Left'  Width='150' />
+            </StackPanel>
+            <StackPanel HorizontalAlignment='Center' Width='400' Orientation='Horizontal'>
+                <TextBlock VerticalAlignment='Center' Margin='5' Text='Sub Group By: ' Width='100'/>
+                <ComboBox x:Name='comboBoxSubGroupBy' Margin='5' VerticalAlignment='Top' HorizontalAlignment='Left'  Width='150' />
+            </StackPanel>
+            <StackPanel HorizontalAlignment='Center' Width='400' Orientation='Horizontal'>
+                <TextBlock VerticalAlignment='Center' Margin='5' Text=' ' Width='100'/>
+                <Button HorizontalAlignment='Left' VerticalAlignment='Center' Width='75' Margin='5'
+                    Command='{Binding SearchCommand}'
+                    Content='Search' />
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment='Right' Grid.Row='2' VerticalAlignment='Top' Grid.ColumnSpan='2'>
+            <ComboBox x:Name='comboBox' ItemsSource='{Binding FCModes}'
+                DisplayMemberPath='Name'
+                SelectedValuePath='FieldConfigurationModeId'
+                SelectedValue='{Binding SelectedFCMode}' Width='200' Margin='5' />
+
+        </StackPanel>
+
+        <xctk:BusyIndicator Grid.Row='3' Grid.Column='0' Grid.ColumnSpan='2' IsBusy='{Binding IsBusy}' BusyContent='Laoding Client...' >
+            <DataGrid x:Name='Clients'  SelectionMode='Single'
+                               ItemsSource='{Binding Path=Data}' AutoGenerateColumns='False' Margin='8'
+                               AutomationProperties.AutomationId='ClientsListGrid' IsReadOnly='True' 
+                      inf:DataGridColumnsBehavior.BindableColumns='{Binding ColumnCollection}'>
+                <DataGrid.Columns>
+
+                    <DataGridTemplateColumn DisplayIndex='0'>
+                        <DataGridTemplateColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <CheckBox  HorizontalAlignment='Center' VerticalAlignment='Center' />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.HeaderTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox HorizontalAlignment='Center' VerticalAlignment='Center'/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header='Action' IsReadOnly='True' >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                        <Hyperlink 
+                                            Command='{Binding DataContext.NavigateToDetailCommand, RelativeSource={ RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}'
+                                            CommandParameter='{Binding Path=ClientId}'>Detail</Hyperlink>
+                                        <Hyperlink 
+                                            Command='{Binding DataContext.NavigateToEditCommand, RelativeSource={ RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}'
+                                            CommandParameter='{Binding Path=ClientId}'>Edit</Hyperlink>
+                                        <Hyperlink 
+                                            Command='{Binding DataContext.NavigateToDetailCommand, RelativeSource={ RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}'
+                                            CommandParameter='{Binding Path=ClientId}'>Delete</Hyperlink>
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </xctk:BusyIndicator>
+
+        <Button x:Name='button' Content='Add Client' Grid.Row='4' Command='{Binding AddCommand}' Margin='10' HorizontalAlignment='Left' VerticalAlignment='Top' Width='75'/>
+
+    </Grid>
+</UserControl>

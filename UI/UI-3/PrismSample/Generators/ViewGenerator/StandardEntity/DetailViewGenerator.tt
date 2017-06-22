@@ -1,0 +1,119 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<#+	
+
+	public void GenerateCodeBehindFileForDetailView(string entityName, string viewNameSpace, string viewModelNameSpace)
+	{
+		WriteLine("using " + viewModelNameSpace + ";");
+		WriteLine("using System.Windows.Controls;");
+
+		WriteLine(string.Empty);
+		WriteLine("namespace " + viewNameSpace);
+		WriteLine("{");
+		
+			PushIndent("\t");
+			WriteLine(string.Empty);
+			WriteLine("public partial class " + entityName + "DetailView : UserControl");
+			WriteLine("{");
+
+				PushIndent("\t");
+				WriteLine("public " + entityName + "DetailView(" + entityName + "DetailViewModel viewModel)");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("InitializeComponent();");
+					WriteLine("this.DataContext = viewModel;");
+					PopIndent();
+
+				WriteLine("}");
+				PopIndent();
+
+			WriteLine("}");
+			PopIndent();
+
+		WriteLine("}");
+
+	}
+
+	public void GenerateXAMLFileForDetailView(string entityName, string viewNameSpace, string viewModelNameSpace)
+	{
+		WriteLine("<UserControl x:Class='" + viewNameSpace + "." + entityName + "DetailView'");
+        WriteLine("     xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'");
+        WriteLine("     xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'");
+        WriteLine("     xmlns:mc='http://schemas.openxmlformats.org/markup-compatibility/2006' ");
+        WriteLine("     xmlns:d='http://schemas.microsoft.com/expression/blend/2008' ");
+        WriteLine("     xmlns:local='clr-namespace:" + viewNameSpace + "'");
+        WriteLine("     xmlns:i='http://schemas.microsoft.com/expression/2010/interactivity'");
+        WriteLine("     mc:Ignorable='d' ");
+        WriteLine("     d:DesignHeight='400' d:DesignWidth='400'>");
+
+			PushIndent("\t");
+			WriteLine(string.Empty);
+			WriteLine("<Grid HorizontalAlignment='Center' VerticalAlignment='Center' MinWidth='300'>");
+				
+				PushIndent("\t");
+				WriteLine("<Grid.Background>");
+					
+					PushIndent("\t");
+					WriteLine("<LinearGradientBrush EndPoint='0.5,1' StartPoint='0.5,0'>");
+						
+						PushIndent("\t");
+						WriteLine("<GradientStop Color='#FF7B97D4' />");
+						WriteLine("<GradientStop Color='#FF244C8D' Offset='1' />");
+						PopIndent();
+
+					WriteLine("</LinearGradientBrush>");
+					PopIndent();
+
+				WriteLine("</Grid.Background>");
+				WriteLine("<Grid.ColumnDefinitions>");
+					
+					PushIndent("\t");
+					WriteLine("<ColumnDefinition Width='Auto'/>");
+					WriteLine("<ColumnDefinition/>");
+					PopIndent();
+
+				WriteLine("</Grid.ColumnDefinitions>");
+				WriteLine("<Grid.RowDefinitions>");
+					
+					PushIndent("\t");
+					WriteLine("<RowDefinition Height='Auto'/>");
+					WriteLine("<RowDefinition Height='Auto'/>");
+					WriteLine("<RowDefinition Height='Auto'/>");
+					WriteLine("<RowDefinition Height='Auto'/>");
+					WriteLine("<RowDefinition Height='Auto'/>");
+					WriteLine("<RowDefinition Height='Auto'/>");
+					PopIndent();
+
+				WriteLine("</Grid.RowDefinitions>");
+
+				WriteLine("<TextBlock Grid.Row='0' Text='"+ entityName + " Detail View' HorizontalAlignment='Center' TextWrapping='Wrap' Grid.RowSpan='1' Grid.ColumnSpan='2' FontSize='18' Foreground='#FF2F3806' Margin='8,8,8,8' />");
+				WriteLine("<TextBlock VerticalAlignment='Center' Margin='5' Grid.Row='1' Text='"+ entityName + " Id: '/>");
+				WriteLine("<TextBlock VerticalAlignment='Center' Margin='5' Grid.Row='2' Text='Name: '/>");
+				WriteLine("<TextBlock VerticalAlignment='Center' Margin='5' Grid.Row='3' Text='Description: '/>");
+				WriteLine("<TextBlock VerticalAlignment='Center' Margin='5' Grid.Row='4' Text='Sort Order: '/>");
+
+				WriteLine("<TextBlock VerticalAlignment='Center' Margin='5' Grid.Row='1' Grid.Column='1' Text='{Binding Item."+ entityName + "Id}'/>");
+				WriteLine("<TextBlock VerticalAlignment='Center' Margin='5' Grid.Row='2' Grid.Column='1' Text='{Binding Item.Name}'/>");
+				WriteLine("<TextBlock VerticalAlignment='Center' Margin='5' Grid.Row='3' Grid.Column='1' Text='{Binding Item.Description}'/>");
+				WriteLine("<TextBlock VerticalAlignment='Center' Margin='5' Grid.Row='4' Grid.Column='1' Text='{Binding Item.SortOrder}'/>");
+
+				WriteLine("<Button Grid.Row='5' HorizontalAlignment='Center' VerticalAlignment='Center' Width='75' Margin='17,10,132,10'");
+				WriteLine("		Command='{Binding NavigateCommand}' Content='Back' Grid.Column='1' />");
+				
+				WriteLine("<Button Grid.Row='5' HorizontalAlignment='Center' VerticalAlignment='Center' Width='76' Margin='114,10,34,10'");
+				WriteLine("		Command='{Binding DeleteCommand}' Content='Delete' Grid.Column='1' />");
+				PopIndent();
+
+			WriteLine("</Grid>");
+			PopIndent();
+
+		WriteLine("</UserControl>");
+
+	}
+
+#>

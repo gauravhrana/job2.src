@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+    <PostConversionRemoveFromScc>
+    </PostConversionRemoveFromScc>
+    <PostConversionAddToScc>
+    </PostConversionAddToScc>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>Reference Data</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+    <RootNamespace>Reference Data</RootNamespace>
+    <DefaultSchema>dbo</DefaultSchema>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <SccAuxPath />
+    <SccLocalPath>..\..</SccLocalPath>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0d782fbc-2fb1-48f6-8698-3ea95d3d3e2f}</ProjectGuid>
+    <GenerateDatabaseFile>False</GenerateDatabaseFile>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <AnsiNullDefault>True</AnsiNullDefault>
+    <AnsiNulls>True</AnsiNulls>
+    <AnsiPadding>True</AnsiPadding>
+    <AnsiWarnings>True</AnsiWarnings>
+    <ArithAbort>True</ArithAbort>
+    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
+    <QuotedIdentifier>True</QuotedIdentifier>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <DatabaseState>ONLINE</DatabaseState>
+    <UpdateOptions>READ_WRITE</UpdateOptions>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DefaultCursor>LOCAL</DefaultCursor>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <TornPageDetection>False</TornPageDetection>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <Recovery>FULL</Recovery>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <Trustworthy>False</Trustworthy>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <PageVerify>NONE</PageVerify>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <Parameterization>SIMPLE</Parameterization>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <DefaultFileStreamFilegroup />
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <Folder Include="Data Generation Plans\Teacher" />
+    <Folder Include="Data Generation Plans\AccidentPlace" />
+    <Folder Include="Data Generation Plans\AccidentReport" />
+    <Folder Include="Data Generation Plans\Activity" />
+    <Folder Include="Data Generation Plans\ActivitySubType" />
+    <Folder Include="Data Generation Plans\ActivityType" />
+    <Folder Include="Data Generation Plans\Bathroom" />
+    <Folder Include="Data Generation Plans\Comment" />
+    <Folder Include="Data Generation Plans\DiaperStatus" />
+    <Folder Include="Data Generation Plans\Discount" />
+    <Folder Include="Data Generation Plans\EventTypeId" />
+    <Folder Include="Data Generation Plans\FoodType" />
+    <Folder Include="Data Generation Plans\Meal" />
+    <Folder Include="Data Generation Plans\MealDetails" />
+    <Folder Include="Data Generation Plans\MealType" />
+    <Folder Include="Data Generation Plans\NeedItem" />
+    <Folder Include="Data Generation Plans\PaymentMethod" />
+    <Folder Include="Data Generation Plans\Student" />
+    <Folder Include="Data Generation Plans" />
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data Generation Plans\Teacher\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Teacher\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Teacher\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\AccidentPlace\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\AccidentPlace\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\AccidentPlace\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\AccidentReport\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\AccidentReport\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\AccidentReport\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Activity\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Activity\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Activity\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\ActivitySubType\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\ActivitySubType\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\ActivitySubType\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\ActivityType\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\ActivityType\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\ActivityType\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Bathroom\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Bathroom\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Bathroom\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Comment\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Comment\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Comment\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\DiaperStatus\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\DiaperStatus\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\DiaperStatus\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Discount\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Discount\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Discount\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\EventTypeId\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\EventTypeId\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\EventTypeId\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\FoodType\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\FoodType\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\FoodType\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Meal\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Meal\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Meal\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\MealDetails\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\MealDetails\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\MealDetails\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\MealType\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\MealType\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\MealType\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\NeedItem\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\NeedItem\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\NeedItem\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\PaymentMethod\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\PaymentMethod\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\PaymentMethod\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Student\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Student\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Data Generation Plans\Student\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="SystemEntityType.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Debug.publish.xml" />
+    <None Include="Release.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Permissions.sql" />
+  </ItemGroup>
+</Project>

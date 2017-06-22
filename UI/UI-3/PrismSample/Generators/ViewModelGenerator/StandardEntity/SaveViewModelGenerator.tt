@@ -1,0 +1,125 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<#+
+	
+	public void GenerateSaveViewModelFile(string entityName, string viewModelNameSpace, string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		RenderUsingStatementsForSaveViewModel(dataModelNameSpace, dataManagerNameSpace);
+
+		RenderSaveViewModelClass(entityName, viewModelNameSpace);
+	}
+
+	public void RenderUsingStatementsForSaveViewModel(string dataModelNameSpace, string dataManagerNameSpace)
+	{	
+		WriteLine("using Microsoft.Practices.Prism.Regions;");
+		WriteLine("using PrismSample.Infrastructure;");
+		WriteLine("using System.Linq;");
+		WriteLine("using " + dataModelNameSpace + ";");
+		WriteLine("using " + dataManagerNameSpace + ";");
+	}
+
+	public void RenderSaveViewModelClass(string entityName, string viewModelNameSpace)
+	{	
+		WriteLine(string.Empty);
+		WriteLine("namespace " + viewModelNameSpace);
+		WriteLine("{");
+			
+			PushIndent("\t");
+			WriteLine("public class " + entityName + "SaveViewModel : SaveViewModelBase");
+			WriteLine("{");
+
+				WriteLine(string.Empty);
+				PushIndent("\t");
+				WriteLine("private " + entityName + "DataModel _item = null;");
+				WriteLine("public " + entityName + "DataModel Item");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("get { return _item; }");
+					WriteLine("set { SetProperty(ref _item, value); }");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("public " + entityName + "SaveViewModel(IRegionManager regionManager) : base(regionManager)");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("PrimaryEntity    = Framework.Components.DataAccess.SystemEntity." + entityName + ";");
+					WriteLine("PrimaryEntityKey = \"" + entityName + "\";");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("protected override void ExecuteSave()");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("if (Item." + entityName + "Id != null)");
+					WriteLine("{");
+						
+						PushIndent("\t");
+						WriteLine("" + entityName + "DataManager.Update(Item, ApplicationCommon.GetRequestProfile());");
+						PopIndent();
+
+					WriteLine("}");
+					WriteLine("else");
+					WriteLine("{");
+						
+						PushIndent("\t");
+						WriteLine("" + entityName + "DataManager.Create(Item, ApplicationCommon.GetRequestProfile());");
+						PopIndent();
+
+					WriteLine("}");
+
+					WriteLine(string.Empty);
+					WriteLine("NavigateToListView();");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("public override void OnNavigatedTo(NavigationContext navigationContext)");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("if (navigationContext.Parameters.Count() > 0)");
+					WriteLine("{");
+						
+						PushIndent("\t");
+						WriteLine("Item = new " + entityName + "DataModel();");
+						WriteLine("Item." + entityName + "Id = int.Parse(navigationContext.Parameters[\"id\"].ToString());");
+
+						WriteLine(string.Empty);
+						WriteLine("var data = " + entityName + "DataManager.GetEntityDetails(Item, ApplicationCommon.GetRequestProfile());");
+						WriteLine("Item = data[0];");
+						PopIndent();
+
+					WriteLine("}");
+					WriteLine("else");
+					WriteLine("{");
+						
+						PushIndent("\t");
+						WriteLine("Item = new " + entityName + "DataModel();");
+						PopIndent();
+
+					WriteLine("}");
+					PopIndent();
+
+				WriteLine("}");
+				PopIndent();
+
+			WriteLine(string.Empty);
+			WriteLine("}");
+			PopIndent();
+
+		WriteLine("}");
+	}
+
+#>

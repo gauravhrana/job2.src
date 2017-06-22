@@ -1,0 +1,11 @@
+﻿TradingEventTypeId,Name,Description,SortOrder
+1,Catalog Event,Official ITA Event,1
+2,Certified Trade Mission,Official ITA Event,2
+3,International Buyer Program,Official ITA Event,3
+4,Trade Fair,Official ITA Event,4
+5,Trade Mission,Official ITA Event,5
+6,Trade Promotion Event,Official ITA Event,6
+7,Seminar-Webinar,Official ITA Event,7
+8,Domestic Initiated,Local Event,8
+9,Post Initiated Event,Local Event,9
+10,Training,Local Event,10

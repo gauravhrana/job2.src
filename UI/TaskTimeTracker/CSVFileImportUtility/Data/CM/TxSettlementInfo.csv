@@ -1,0 +1,3 @@
+﻿TxSettlementInfoId,TransactionEventId,SettlementCurrencyId,SellCurrencyId,TradeDateFXRate,NetSettlementAmount,NetSettlementCashAmount,AccruedInterest
+10012,10017,100,101,1800,1000,1500,500
+10014,10018,102,105,1400,1600,1480,430

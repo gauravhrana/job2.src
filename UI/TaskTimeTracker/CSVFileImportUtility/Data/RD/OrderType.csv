@@ -1,0 +1,3 @@
+﻿OrderTypeId,OrderTypeCode,OrderDescription
+1,Mkt,MarketOrder
+2,Lmt,LimitOrder

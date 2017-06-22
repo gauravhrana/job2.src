@@ -1,0 +1,121 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<#+
+
+	public void GenerateCodeBehindFileForSaveView(string entityName, string viewNameSpace, string viewModelNameSpace)
+	{
+		WriteLine("using " + viewModelNameSpace + ";");
+		WriteLine("using System.Windows.Controls;");
+
+		WriteLine(string.Empty);
+		WriteLine("namespace " + viewNameSpace);
+		WriteLine("{");
+		
+			PushIndent("\t");
+			WriteLine(string.Empty);
+			WriteLine("public partial class " + entityName + "SaveView : UserControl");
+			WriteLine("{");
+
+				PushIndent("\t");
+				WriteLine("public " + entityName + "SaveView(" + entityName + "SaveViewModel viewModel)");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("InitializeComponent();");
+					WriteLine("this.DataContext = viewModel;");
+					PopIndent();
+
+				WriteLine("}");
+				PopIndent();
+
+			WriteLine("}");
+			PopIndent();
+
+		WriteLine("}");
+
+	}
+
+	public void GenerateXAMLFileForSaveView(string entityName, string viewNameSpace, string viewModelNameSpace)
+	{
+		WriteLine("<UserControl x:Class='" + viewNameSpace + "." + entityName + "SaveView'");
+        WriteLine("     xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'");
+        WriteLine("     xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'");
+        WriteLine("     xmlns:mc='http://schemas.openxmlformats.org/markup-compatibility/2006' ");
+        WriteLine("     xmlns:d='http://schemas.microsoft.com/expression/blend/2008' ");
+        WriteLine("     xmlns:local='clr-namespace:" + viewNameSpace + "'");
+        WriteLine("     xmlns:i='http://schemas.microsoft.com/expression/2010/interactivity'");
+        WriteLine("     mc:Ignorable='d' ");
+        WriteLine("     d:DesignHeight='300' d:DesignWidth='300'>");
+
+			PushIndent("\t");
+			WriteLine(string.Empty);
+			WriteLine("<Grid HorizontalAlignment='Center' VerticalAlignment='Center' MinWidth='300'>");
+				
+				PushIndent("\t");
+				WriteLine("<Grid.Background>");
+					
+					PushIndent("\t");
+					WriteLine("<LinearGradientBrush EndPoint='0.5,1' StartPoint='0.5,0'>");
+						
+						PushIndent("\t");
+						WriteLine("<GradientStop Color='#FF7B97D4' />");
+						WriteLine("<GradientStop Color='#FF244C8D' Offset='1' />");
+						PopIndent();
+
+					WriteLine("</LinearGradientBrush>");
+					PopIndent();
+
+				WriteLine("</Grid.Background>");
+				WriteLine("<Grid.ColumnDefinitions>");
+					
+					PushIndent("\t");
+					WriteLine("<ColumnDefinition Width='Auto'/>");
+					WriteLine("<ColumnDefinition/>");
+					PopIndent();
+
+				WriteLine("</Grid.ColumnDefinitions>");
+				WriteLine("<Grid.RowDefinitions>");
+					
+					PushIndent("\t");
+					WriteLine("<RowDefinition Height='Auto'/>");
+					WriteLine("<RowDefinition Height='Auto'/>");
+					WriteLine("<RowDefinition Height='Auto'/>");
+					WriteLine("<RowDefinition Height='Auto'/>");
+					WriteLine("<RowDefinition Height='Auto'/>");
+					WriteLine("<RowDefinition Height='Auto'/>");
+					PopIndent();
+
+				WriteLine("</Grid.RowDefinitions>");
+
+				WriteLine(string.Empty);
+				WriteLine("<TextBlock Grid.Row='0' Text='" + entityName + " Save View' HorizontalAlignment='Center' TextWrapping='Wrap' Grid.RowSpan='1' Grid.ColumnSpan='2' FontSize='18' Foreground='#FF2F3806' Margin='8,8,8,8' />");
+				WriteLine("<TextBlock VerticalAlignment='Center' Margin='5' Grid.Row='1' Text='Name: '/>");
+				WriteLine("<TextBlock VerticalAlignment='Center' Margin='5' Grid.Row='2' Text='Description: '/>");
+				WriteLine("<TextBlock VerticalAlignment='Center' Margin='5' Grid.Row='3' Text='Sort Order: '/>");
+
+				WriteLine(string.Empty);
+				WriteLine("<TextBox Grid.Column='1' Grid.Row='1' Margin='5' Text='{Binding Item.Name}'/>");
+				WriteLine("<TextBox Grid.Column='1' Grid.Row='2' Margin='5' Text='{Binding Item.Description}'/>");
+				WriteLine("<TextBox Grid.Column='1' Grid.Row='3' Margin='5' Text='{Binding Item.SortOrder}'/>");
+
+				WriteLine(string.Empty);
+				WriteLine("<Button Grid.Row='4' Grid.Column='1' HorizontalAlignment='Center' VerticalAlignment='Center' Width='76' Margin='5,8,143,12'");
+				WriteLine("		Command='{Binding SaveCommand}' Content='Save' />");
+
+				WriteLine(string.Empty);
+				WriteLine("<Button Grid.Row='4' HorizontalAlignment='Center' VerticalAlignment='Center' Width='75' ");
+				WriteLine("		Command='{Binding CancelCommand}' Content='Back' Grid.Column='1' Margin='95,8,54,12' />");
+				
+				PopIndent();
+
+			WriteLine("</Grid>");
+			PopIndent();
+
+		WriteLine("</UserControl>");
+	}
+
+#>

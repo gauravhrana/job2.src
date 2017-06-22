@@ -1,0 +1,15 @@
+R:\717\Projects\UI\Task Time Tracker\WebAPISample\bin\WebAPISample.dll
+R:\717\Projects\UI\Task Time Tracker\WebAPISample\bin\WebAPISample.pdb
+R:\717\Projects\UI\Task Time Tracker\WebAPISample\bin\Microsoft.Web.Infrastructure.dll
+R:\717\Projects\UI\Task Time Tracker\WebAPISample\bin\Newtonsoft.Json.dll
+R:\717\Projects\UI\Task Time Tracker\WebAPISample\bin\System.Net.Http.Formatting.dll
+R:\717\Projects\UI\Task Time Tracker\WebAPISample\bin\System.Web.Http.dll
+R:\717\Projects\UI\Task Time Tracker\WebAPISample\bin\System.Web.Http.WebHost.dll
+R:\717\Projects\UI\Task Time Tracker\WebAPISample\bin\WebActivatorEx.dll
+R:\717\Projects\UI\Task Time Tracker\WebAPISample\bin\Newtonsoft.Json.xml
+R:\717\Projects\UI\Task Time Tracker\WebAPISample\bin\System.Net.Http.Formatting.xml
+R:\717\Projects\UI\Task Time Tracker\WebAPISample\bin\System.Web.Http.xml
+R:\717\Projects\UI\Task Time Tracker\WebAPISample\bin\System.Web.Http.WebHost.xml
+R:\717\Projects\UI\Task Time Tracker\WebAPISample\obj\Debug\WebAPISample.dll
+R:\717\Projects\UI\Task Time Tracker\WebAPISample\obj\Debug\WebAPISample.pdb
+R:\717\Projects\UI\Task Time Tracker\WebAPISample\obj\Debug\WebAPISample.csprojResolveAssemblyReference.cache

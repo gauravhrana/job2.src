@@ -1,0 +1,105 @@
+﻿CountryId,Name,Description,SortOrder
+1,Afghanistan,Afghanistan,1
+2,Albania,Albania,2
+3,Algeria,Algeria,3
+4,Antarctica,Antarctica,4
+5,Bangladesh,Bangladesh,5
+6,Belgium,Belgium,6
+7,Botswana,Botswana,7
+8,Brazil,Brazil,8
+9,Canada,Canada,9
+10,China,China,10,
+11,Colombia,Colombia,11
+12,Cuba,Cuba,12
+13,Denmark,Denmark,13
+14,Djibouti,Djibouti,14
+15,Dominica,Dominica,15
+16,Dominican Republic,Dominican Republic,16
+17,Egypt,Egypt,17
+18,Equatorial Guinea,Equatorial Guinea,18
+19,Estonia,Estonia,19
+20,Ethiopia,Ethiopia,20
+21,Finland,Finland,21
+22,France,France,22
+23,French Guiana,French Guiana,23
+24,French Polynesia,French Polynesia,24
+25,Georgia,Georgia,25
+26,Germany,Germany,26
+27,Greece,Greece,27
+28,Greenland,Greenland,28
+29,Holy See,Holy See,29
+30,Honduras,Honduras,30
+31,Hong Kong,Hong Kong,31
+32,Hungary,Hungary,32
+33,India,India,33
+34,Indonesia,Indonesia,34
+35,Iraq,Iraq,35
+36,Italy,Italy,36
+37,Jamaica,Jamaica,37
+38,Japan,Japan,38
+39,Jordan,Jordan,39
+40,Kazakhstan,Kazakhstan,40
+41,Kenya,Kenya,41
+42,Kiribati,Kiribati,42
+43,Korea,Korea,43
+44,Kuwait,Kuwait,44
+45,Latvia,Latvia,45
+46,Liberia,Liberia,46
+47,Libya,Libya,47
+48,Liechtenstein,Liechtenstein,48
+49,Malaysia,Malaysia,49
+50,Maldives,Maldives,50
+51,Mauritius,Mauritius,51
+52,Monaco,Monaco,52
+53,New Zealand,New Zealand,53
+54,Netherlands,Netherlands,54
+55,New Zealand,New Zealand,55
+56,Norway,Norway,56
+57,Oman,Oman,57
+58,Pakistan,Pakistan,58
+59,Palau,Palau,59
+60,Panama,Panama,60
+61,Philippines,Philippines,61
+62,Poland,Poland,62
+63,Portugal,Portugal,63
+64,Puerto Rico,Puerto Rico,64
+65,Qatar,Qatar,65
+66,Reunion Island,Reunion Island,66
+67,Romania,Romania,67
+68,Rwanda,Rwanda,68
+69,Singapore,Singapore,69
+70,South Africa,South Africa,70
+71,Spain,Spain,71
+72,Sri Lanka,Sri Lanka,72
+73,Suriname,Suriname,73
+74,Swaziland,Swaziland,74
+75,Sweden,Sweden,75
+76,Switzerland,Switzerland,76
+77,Thailand,Thailand,77
+78,Tibet,Tibet,78
+79,Togo,Togo,79
+80,Turkey,Turkey,80
+81,Ukraine,Ukraine,81
+82,United Arab Emirates,United Arab Emirates,82
+83,United Kingdom,United Kingdom,83
+84,United States,United States,84
+85,Uruguay,Uruguay,85
+86,Ugandax,Ugandax,86
+87,Uzbekistan,Uzbekistan,87
+88,Vanuatu,Vanuatu,88
+89,Venezuela,Venezuela,89
+90,Vietnam,Vietnam,90
+91,Virgin Islands,Virgin Island,91
+92,Wallis and Futuna Islands,Wallis and Futuna Islands,92
+93,Western Sahara,Western Sahara,93
+94,Yemen,Yemen,94
+95,Zambia,Zambia,95
+96,Zimbabwe,Zimbabwe,96
+97,Slovenia,Slovenia,97
+98,Senegal,Senegal,98
+99,San Marino,San Marino,99
+100,Nepal,Nepal,100
+101,Netherlands,Netherlands,101
+102,New Caledonia,New Caledonia,102
+103,Mali,Mali,103
+104,Mongolia,Mongolia,104

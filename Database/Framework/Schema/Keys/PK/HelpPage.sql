@@ -1,0 +1,6 @@
+﻿ALTER TABLE dbo.HelpPage
+	ADD CONSTRAINT PK_HelpPage PRIMARY KEY CLUSTERED 
+	(
+		HelpPageId
+	)  
+GO

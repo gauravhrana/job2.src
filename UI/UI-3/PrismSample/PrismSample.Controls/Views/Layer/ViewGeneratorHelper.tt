@@ -1,0 +1,12 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file="../../../Generators/ViewGenerator/StandardEntity/ViewGenerator.tt" #>
+
+<#
+	
+	string entityName = "Layer";
+	string viewNameSpace = "PrismSample.Controls.Views";
+	string viewModelNameSpace = "PrismSample.Controls.ViewModels";
+
+	this.GenerateViewFilesForEntity(entityName, viewNameSpace, viewModelNameSpace);
+
+#>
