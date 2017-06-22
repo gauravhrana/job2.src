@@ -1,0 +1,14 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\_Generators\ForPages\PageGeneratorDefaultAndCU.tt" #>
+
+<#@ assembly name="$(TargetDir)\Framework.Components.Core.dll" #>
+
+<#
+	string entityName = "ThemeCategory";
+	string nameSpace = "Shared.UI.Web.Configuration.ThemeCategory";
+	string dataModelNameSpace = "DataModel.Framework.Core";
+	string dataManagerNameSpace = "Framework.Components.Core";
+
+	this.GeneratePageFiles(entityName, nameSpace, dataModelNameSpace, dataManagerNameSpace);
+
+#>

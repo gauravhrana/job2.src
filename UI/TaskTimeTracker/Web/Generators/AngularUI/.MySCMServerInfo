@@ -1,0 +1,21 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Generators/AngularUI
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=32937
+EntitySaveViewGeneratorHelper.html;1034698998;1;1427217570;|35521|298475
+EntityDetailControllerGeneratorHelper.cs;1034698998;1;1427401731;|35539|298543
+EntityListTableControllerGeneratorHelper.cs;1034698998;1;1427401731;|35541|298545
+EntitySaveControllerGeneratorHelper.cs;1034698998;1;1427401731;|35543|298547
+EntityServiceJsGeneratorHelper.cs;1034698998;1;1427401731;|35544|298548
+EntityAPIControllerGeneratorHelper.cs;17864673;1;1427689094;|35568|298620
+EntityAPIControllerGeneratorHelper.tt;1877729879;1;1427689094;|35569|298621
+EntityDetailControllerGeneratorHelper.tt;3014231475;4;1430707033;|35534|302582
+EntitySaveControllerGeneratorHelper.tt;2344681853;4;1430707033;|35538|302584
+EntityServiceJsGeneratorHelper.tt;1726587403;2;1430707033;|35545|302585
+EntityDetailViewGeneratorHelper.cs;546881451;2;1436761830;|35540|313661
+EntityDetailViewGeneratorHelper.tt;2530332589;3;1436761830;|35537|313662
+EntityListTableControllerGeneratorHelper.tt;1021178178;6;1436761830;|35536|313663
+EntityListTableViewGeneratorHelper.cs;42954251;2;1436761830;|35542|313664
+EntityListTableViewGeneratorHelper.tt;639265707;7;1436761830;|35533|313665
+EntitySaveViewGeneratorHelper.cs;42954251;2;1436761841;|35535|313666
+EntitySaveViewGeneratorHelper.tt;455737327;4;1436761841;|35522|313667

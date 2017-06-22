@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Content/library/ng-table
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=32522
+ng-table.css;1809942762;1;1421818104;|35131|294958
+ng-table.js;122028573;1;1421818104;|35126|294953
+ng-table.less;1405502093;1;1421818104;|35127|294954
+ng-table.min.css;1369877157;1;1421818104;|35128|294955
+ng-table.min.js;2621170936;1;1421818104;|35129|294956
+ng-table.min.js.map;566654015;1;1421818104;|35130|294957

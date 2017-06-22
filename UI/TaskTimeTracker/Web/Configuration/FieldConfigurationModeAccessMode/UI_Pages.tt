@@ -1,0 +1,14 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\_Generators\ForPages\PageGeneratorDefaultAndCU.tt" #>
+
+<#@ assembly name="$(TargetDir)\Framework.Components.UserPreference.dll" #>
+
+<#
+	string entityName = "FieldConfigurationModeAccessMode";
+	string nameSpace = "Shared.UI.Web.Configuration.FieldConfigurationModeAccessMode";
+	string dataModelNameSpace = "DataModel.Framework.Configuration";
+	string dataManagerNameSpace = "Framework.Components.UserPreference";
+
+	this.GeneratePageFiles(entityName, nameSpace, dataModelNameSpace, dataManagerNameSpace);
+
+#>

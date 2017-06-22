@@ -1,0 +1,8 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Generators
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=31491
+MultipleOutputFileHelper.tt;4232473323;1;1428694510;|34101|290504
+MultipleOutputFileHelper.cs;17864673;1;1428694512;|34100|290503
+UtilityHelper.cs;1034698998;1;1434339172;|38806|309069
+UtilityHelper.tt;1901570707;2;1436761830;|38807|313660

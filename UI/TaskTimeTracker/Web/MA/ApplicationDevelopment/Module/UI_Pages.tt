@@ -1,0 +1,14 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\_Generators\ForPages\PageGeneratorDefaultAndCU.tt" #>
+
+<#@ assembly name="$(TargetDir)\TaskTimeTracker.Components.Module.ApplicationDevelopment.dll" #>
+
+<#
+	string entityName = "Module";
+	string nameSpace = "ApplicationContainer.UI.Web.ApplicationDevelopment.Module";
+	string dataModelNameSpace = "DataModel.TaskTimeTracker.ApplicationDevelopment";
+	string dataManagerNameSpace = "TaskTimeTracker.Components.Module.ApplicationDevelopment";
+
+	this.GeneratePageFiles(entityName, nameSpace, dataModelNameSpace, dataManagerNameSpace);
+
+#>

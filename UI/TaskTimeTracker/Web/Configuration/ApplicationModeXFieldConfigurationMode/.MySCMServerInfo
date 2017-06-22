@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Configuration/ApplicationModeXFieldConfigurationMode
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=29101
+ApplicationModeXFieldConfigurationModeView.aspx;590313645;1;1417403876;|27738|278322
+ApplicationModeXFieldConfigurationModeView.aspx.designer.cs;210660365;1;1417403876;|27741|278325
+CrossReference.aspx;684863166;1;1417403876;|27743|278327
+CrossReference.aspx.designer.cs;2971755648;1;1417403876;|27739|278323
+CrossReference.aspx.cs;4092281043;2;1447042478;|27740|335256
+ApplicationModeXFieldConfigurationModeView.aspx.cs;2141470429;4;1447046859;|27742|335679

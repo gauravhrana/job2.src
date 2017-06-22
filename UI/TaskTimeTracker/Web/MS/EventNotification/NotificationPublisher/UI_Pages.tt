@@ -1,0 +1,14 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\_Generators\ForPages\PageGeneratorDefaultAndCU.tt" #>
+
+<#@ assembly name="$(TargetDir)\Framework.Components.EventMonitoring.dll" #>
+
+<#
+	string entityName = "NotificationPublisher";
+	string nameSpace = "ApplicationContainer.UI.Web.EventNotification.NotificationPublisher";
+	string dataModelNameSpace = "DataModel.Framework.EventMonitoring";
+	string dataManagerNameSpace = "Framework.Components.EventMonitoring";
+
+	this.GeneratePageFiles(entityName, nameSpace, dataModelNameSpace, dataManagerNameSpace);
+
+#>

@@ -1,0 +1,14 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\_Generators\ForPages\PageGeneratorDefaultAndCU.tt" #>
+
+<#@ assembly name="$(TargetDir)\Framework.Components.ApplicationUser.dll" #>
+
+<#
+	string entityName = "ApplicationUserTitle";
+	string nameSpace = "Shared.UI.Web.AuthenticationAndAuthorization.ApplicationUserTitle";
+	string dataModelNameSpace = "DataModel.Framework.AuthenticationAndAuthorization";
+	string dataManagerNameSpace = "Framework.Components.ApplicationUser";
+
+	this.GeneratePageFiles(entityName, nameSpace, dataModelNameSpace, dataManagerNameSpace);
+
+#>

@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Configuration/FieldConfigurationModeXApplicationRole
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=29117
+CrossReference.aspx;1238115114;1;1417403878;|28037|278621
+CrossReference.aspx.designer.cs;581098056;1;1417403878;|28039|278623
+CrossReference.aspx.cs;4147961656;3;1447042478;|28038|335593

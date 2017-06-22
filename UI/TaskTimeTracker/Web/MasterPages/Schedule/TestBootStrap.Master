@@ -1,0 +1,125 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TestBootStrap.master.cs" Inherits="TaskTimeTracker.UI.Web.MasterPages.Schedule.TestBootStrap" %>
+
+<%@ Register TagName="QuickSearchControl" TagPrefix="qs" Src="~/Shared/Controls/QuickSearch/QuickSearch.ascx" %>
+<%@ Register TagPrefix="bc" TagName="BreadCrumb" Src="~/Shared/Controls/BreadCrumb/BreadCrumb.ascx" %>
+<%@ Register Src="~/Shared/Controls/SliderMenu.ascx" TagName="SliderMenu" TagPrefix="sm" %>
+
+<!DOCTYPE html>
+<html>
+<head id="Head1" runat="server">
+    <meta charset="”utf-8”">
+    <title></title>
+    <link href="~/Styles/Reset.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+
+    <link href="/Styles/Style.aspx" rel="stylesheet" type="text/css" />
+    <link href="/Styles/StyleMenu.aspx" rel="stylesheet" type="text/css" />
+
+
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" type="text/css" />
+    <!--Bootstrap -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <!--Bootstrap Theme -->
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery -->
+    <script src="/Scripts/jquery-2.1.1.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="/Scripts/jquery-ui-1.10.4.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+</head>
+<body>
+
+    <form id="form1" runat="server">
+        <ajaxToolkit:ToolkitScriptManager EnablePageMethods="true" runat="Server" ID="ScriptManager1">
+            <Services>
+                <asp:ServiceReference Path="~/AutoComplete.asmx" />
+            </Services>
+        </ajaxToolkit:ToolkitScriptManager>
+        <div class="container-fluid">
+            <div class="header">
+                <div class="loginDisplay" style="display: none">
+                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                        <AnonymousTemplate>
+                            [ <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a>
+                            ]
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            Welcome <span class="bold">
+                                <asp:LoginName ID="HeadLoginName" runat="server" />
+                            </span>! [
+                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
+                            LogoutPageUrl="~/" />
+                            ]
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4 borderless">
+                            <asp:HyperLink ID="HyperLink1" ImageUrl="~/home.png" runat="server" NavigateUrl="~/Default.aspx" ForeColor="#4b6c9e" />
+                            <input id="showRight" type="button" value="[R]" />
+                            <input id="showBottom" type="button" value="[B]" />
+                            <input id="showTopPush" type="button" value="[TP]" />
+                            <input id="showBottomPush" type="button" value="[BP]" />
+                        </div>
+                        <div class="col-md-4 borderless">
+                            <h1>Time Entry
+                            </h1>
+                        </div>
+                        <div class="col-md-2 borderless">
+                            <qs:QuickSearchControl ID="QuickSearchControlId" runat="server" />
+                        </div>
+                        <div class="col-md-1 borderless">
+                            <asp:HyperLink runat="server" ForeColor="Black" Font-Size="Small" ID="hprCustomise">
+                     Customize </asp:HyperLink>
+                        </div>
+                        <div class="col-md-1 borderless">
+                            <asp:HyperLink ID="HyperLink2" NavigateUrl="#" runat="server" BorderStyle="None" ImageUrl="~/Content/images/user_male_go.png" BorderWidth="0" ForeColor="#4b6c9e"></asp:HyperLink>
+                        </div>
+                    </div>
+                    <div style="text-align: left">
+                        <h2>
+                            <asp:Label ID="lblPerson" runat="server" />
+                            <asp:Label ID="lblStatus" runat="server" Style="font-size: medium; color: White; font-weight: bold;" />
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="menuContainer">
+                        <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
+                            IncludeStyleBlock="false" Orientation="Horizontal" OnMenuItemClick="NavigationMenu_MenuItemClick">
+                            <DynamicItemTemplate>
+                                <asp:Label runat="server" ID="Label1" Text='<%# Eval("Text") %>' CssClass='<%# GetItemCSSStyle( Eval("Value") ) %>' />
+                            </DynamicItemTemplate>
+                            <StaticItemTemplate>
+                                <asp:Label runat="server" ID="Label1" Text='<%# Eval("Text") %>' CssClass='<%# GetItemCSSStyle( Eval("Value") ) %>' />
+                            </StaticItemTemplate>
+                        </asp:Menu>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" style="padding-left: 40px; padding-top: 5px;">
+            <div class="myBreadcrumb">
+                <bc:BreadCrumb ID="oBreadCrumb" runat="server" />
+            </div>
+            <asp:ContentPlaceHolder ID="SectionName" runat="server" />
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+        <div class="container-fluid">
+            <div class="footer">
+            </div>
+        </div>
+
+
+        <sm:SliderMenu ID="oSliderMenu" runat="server" />
+        <!--Bootstrap -->
+        <script src="/Scripts/bootstrap.min.js"></script>
+    </form>
+</body>
+</html>

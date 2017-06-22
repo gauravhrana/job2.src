@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/MA/ApplicationDevelopment/FunctionalityHistory
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=30757
+Default.aspx.cs;2351788222;1;1418613667;|32665|285243
+Default.aspx.designer.cs;740551451;1;1418613667;|32662|285240
+Details.aspx.cs;1095231727;1;1418613667;|32663|285241
+Details.aspx.designer.cs;201292230;1;1418613667;|32664|285242
+Default.aspx;953587688;2;1418663976;|32660|286882
+Details.aspx;1654051059;2;1419542781;|32661|290784

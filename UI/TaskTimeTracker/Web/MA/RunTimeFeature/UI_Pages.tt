@@ -1,0 +1,14 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\_Generators\ForPages\PageGeneratorDefaultAndCU.tt" #>
+
+<#@ assembly name="$(TargetDir)\DataModel.TaskTimeTracker.dll" #>
+
+<#
+	string entityName = "RunTimeFeature";
+	string nameSpace = "ApplicationContainer.UI.Web.RunTimeFeature";
+	string dataModelNameSpace = "DataModel.TaskTimeTracker.Feature";
+	string dataManagerNameSpace = "TaskTimeTracker.Components.BusinessLayer.Feature";
+
+	this.GeneratePageFiles(entityName, nameSpace, dataModelNameSpace, dataManagerNameSpace);
+
+#>
