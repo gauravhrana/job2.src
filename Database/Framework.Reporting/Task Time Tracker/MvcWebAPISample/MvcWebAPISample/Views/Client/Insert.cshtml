@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Clients - Insert";
+}
+<h2>
+    Insert</h2>
+<div id="body">
+    <section class="content-wrapper main-content clear-fix">
+        <div>
+            <h2>Clients</h2>
+            <div id="message"></div>
+            <table id="clientContainer">
+                <tr>
+                    <td>ClientId    </td>
+                    <td id="clientId"></td>
+                </tr>
+                <tr>
+                    <td>Name        </td>
+                    <td><input id="clientName" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>Description </td>
+                    <td><input id="clientDesc" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>SortOrder   </td>
+                    <td><input id="clientSortOrder" type="text" /></td>
+                </tr>
+                <tr>
+                    <td></td><td><input id="Submit1" type="submit" value="Save"  onclick="insert();" /></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <a href="/client">Back to List</a>
+        </div>
+    </section>
+</div>
+@section scripts {
+    <script>
+
+        function insert() {
+
+            var name = $('#clientName').val();
+            var desc = $('#clientDesc').val();
+            var sortOrder = $('#clientSortOrder').val();
+            var clientObj = { ClientId: 0, Name: name, Description: desc, SortOrder: sortOrder };
+            var json = JSON.stringify(clientObj);
+
+            $.ajax({
+                url: '/api/clients',
+                cache: false,
+                type: 'POST',
+                data: json,
+                contentType: 'application/json; charset=utf-8',
+                statusCode: {
+                    201 /*Created*/: function (data) {
+                        $('#message').text("insert success <br/>new ClientId:  " + data.ClientId);
+                    }
+                }
+            });
+
+        }
+    </script>
+}

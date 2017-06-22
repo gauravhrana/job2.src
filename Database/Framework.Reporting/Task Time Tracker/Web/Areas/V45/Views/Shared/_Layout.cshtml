@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="@Url.Content("~/Areas/V45/Content/Site.css")" rel="stylesheet" type="text/css" />
+
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">@Html.ActionLink("Your logo here", "Index", "Home")</p>
+            </div>
+            <div class="float-right">
+
+                <nav>
+                    <ul id="vertical-navigation">
+                        <li><a href="/Default.aspx">TTT Home</a></li>
+                        <li>@Html.ActionLink("MVC Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Person", "Index", "Person")</li>
+                        <li>@Html.ActionLink("Release Note Qualitative", "Index", "ReleaseNoteQualitative")</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+            </div>
+            <div class="float-right">
+                <ul id="social">
+                    <li><a href="http://facebook.com" class="facebook">Facebook</a></li>
+                    <li><a href="http://twitter.com" class="twitter">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

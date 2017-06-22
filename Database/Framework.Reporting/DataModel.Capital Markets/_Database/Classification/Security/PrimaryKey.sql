@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Security
+ADD CONSTRAINT PK_Security PRIMARY KEY CLUSTERED 
+(
+	SecurityId
+)
+GO

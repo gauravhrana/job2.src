@@ -1,0 +1,29 @@
+<ol class='breadcrumb'>
+	<li class='active'>Registration Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{Registration}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Registration Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='RegistrationId' data-ng-model='EntityItem.RegistrationId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Enrollment Date:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='EnrollmentDate' placeholder='EnrollmentDate' data-ng-model='EntityItem.EnrollmentDate'>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        .tableCellBorder
+        {
+            border-style: ##CellTableBorder##;
+            border-width: ##CellTableWidth##;
+        }
+
+        table, th, td
+        {
+            border: 1px solid black;
+            padding: 2px !important;
+        }
+
+        th
+        {
+            background-color: #337ab7;
+            color: white;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+    <table class="tableCellBorder">
+        <tr>
+            <td class="tableCellBorder">
+                <table class="tableCellBorder table">
+                    <tr>
+                        <td align='right' class="tableCellBorder" valign='top'><b>Team Member: </b></td>
+                        <td align='left' align='top' style="width: 800px" class="tableCellBorder" valign="top">##PersonName##</td>
+                        <td align='right' class="tableCellBorder" valign='top'><b>Date: </b></td>
+                        <td align='left' class="tableCellBorder">##WorkDate##</td>
+                    </tr>
+
+                    <tr>
+                        <td align='right' class="tableCellBorder" valign='top'><b>Total Hours Worked: </b></td>
+
+                        <td align='left' class="tableCellBorder" style="width: 800px" valign='top'>##TotalHrs##</td>
+                        <td align='right' class="tableCellBorder" valign='top'><b>JIRA Status Date: </b></td>
+                        <td align='left' class="tableCellBorder">##CurrentDate##</td>
+
+                    </tr>
+
+                    <tr>
+                        <td align='right' class="tableCellBorder" valign='top'><b>Primary Project: </b></td>
+                        <td align='left' valign='top' style="width: 800px" class="tableCellBorder">Time Task Tracker</td>
+                        <td align='right' class="tableCellBorder" valign='top'><b>Started: </b></td>
+                        <td align='left' class="tableCellBorder">##StartTime##</td>
+
+                    </tr>
+                    <tr>
+                        <td class="tableCellBorder"></td>
+                        <td class="tableCellBorder"></td>
+                        <td align='right' class="tableCellBorder" valign='top'><b>Finished: </b></td>
+                        <td align='left' class="tableCellBorder">##EndTime##</td>
+                    </tr>
+                    <tr>
+                        <td class="tableCellBorder" colspan="4"></td>
+                    </tr>
+                    <tr>
+                        <td class="tableCellBorder" align='right' valign='top'><b>Worked On: </b></td>
+                        <td class="tableCellBorder" align='left' colspan="3">
+                            <div class="container">
+                                <div class="row">
+                                    <table class="table" style='border-collapse: collapse' cellpadding='5'>
+                                        <tr style="vertical-align: top">
+                                            <th class="col-sm-2 text-center" rowspan="2">Category</th>
+                                            <th class="col-sm-2 text-center" rowspan="2">Time</th>
+                                            <th class="col-sm-2 text-center" rowspan="2">Duration (min)</th>
+                                            <th class="col-sm-2 text-center" rowspan="2">Work Ticket</th>
+                                            <th class="col-sm-5 text-center" rowspan="2">Activity</th>
+                                        </tr>
+                                        <tr>
+                                            ##Table1##
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tableCellBorder" colspan="4"></td>
+                    </tr>
+                    <tr>
+
+                        <td class="tableCellBorder" align='right' valign='top'><b>Work Ticket: </b></td>
+                        <td class="tableCellBorder" align='left' colspan="3">
+                            <div class="container">
+                                <div class="row">
+                                    <table class="table" style='border-collapse: collapse' cellpadding='5'>
+                                        <tr style="vertical-align: top">
+                                            <th class="col-sm-2 text-center">Work Ticket</th>
+                                            <th class="col-sm-1 text-center">Priority</th>
+                                            <th class="col-sm-5 text-center">Description</th>
+                                            <th class="col-sm-1 text-center">Person Hours/Total Hours</th>
+                                            <th class="col-sm-1 text-center">Status</th>
+                                            <th class="col-sm-1 text-center">DueDate</th>
+                                        </tr>
+                                        ##Table2##            
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td class="tableCellBorder" colspan="4"></td>
+                    </tr>
+                    <tr>
+
+                        <td class="tableCellBorder" align='right' valign='top'><b>QA Ticket: </b></td>
+                        <td class="tableCellBorder" align='left' colspan="3">
+                            <div class="container">
+                                <div class="row">
+                                    <table class="table" style='border-collapse: collapse' cellpadding='5'>
+                                        <tr style="vertical-align: top">
+                                            <th class="col-sm-2 text-center">Work Ticket</th>
+                                            <th class="col-sm-1 text-center">Priority</th>
+                                            <th class="col-sm-5 text-center">Description</th>
+
+
+                                        </tr>
+                                        ##TableQA##            
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td class="tableCellBorder" colspan="4"></td>
+                    </tr>
+                    <tr>
+                        <td class="tableCellBorder" align='right' valign='top'><b>Reopened: </b></td>
+                        <td class="tableCellBorder" align='left' colspan="3">
+                            <div class="container">
+                                <div class="row">
+                                    <table class="table" style='border-collapse: collapse' cellpadding='5'>
+                                        <tr style="vertical-align: top">
+                                            <th class="col-sm-2 text-center">Work Ticket</th>
+                                            <th class="col-sm-1 text-center">Priority</th>
+                                            <th class="col-sm-5 text-center">Description</th>
+                                        </tr>
+                                        ##TableReOpened##            
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tableCellBorder" colspan="4"></td>
+                    </tr>
+                    <tr>
+                        <td class="tableCellBorder" align='right' valign='top'>
+                            <div><b>Ticket By Project: </b></div>
+                            <!--<div>As On ##CurrentDate##</div>-->
+                        </td>
+                        <td class="tableCellBorder" align='left' colspan="3">
+                            <div class="container">
+                                <div class="row">
+                                    <table class="table" style='border-collapse: collapse' cellpadding='5'>
+                                        <!--<tr>
+                                            <th colspan="4">Count</th>
+                                            <th colspan="4"></th>
+                                        </tr>-->
+                                        <!-- <tr>
+                                            <th>Blocker</th>
+                                            <th>Critical</th>
+                                            <th>Major</th>
+                                            <th>Standard</th>
+                                            <th>Minor</th>
+                                            <th>Total:</th>
+                                        </tr>-->
+                                        ##TablePendingJIRAs##            
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tableCellBorder" colspan="4"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableCellBorder" align='right' valign='top'><b>Next Working Day: </b></td>
+                        <td class="tableCellBorder" align='left' colspan="3">##NextWorkingDate##</td>
+                    </tr>
+                    <tr>
+                        <td class="tableCellBorder" align='right' valign='top'><b>Next Working Time: </b></td>
+                        <td class="tableCellBorder" align='left' colspan="3">##NextWorkingTime##</td>
+                    </tr>
+                    <tr>
+                        <td class="tableCellBorder" align='right' valign='top'><b>Planned Hours:</b></td>
+                        <td class="tableCellBorder" align='left' colspan="3">##PlannedHours##</td>
+                    </tr>
+                    <tr>
+                        <td class="tableCellBorder" colspan="4"></td>
+                    </tr>
+                    <tr>
+                        <td class="tableCellBorder" align='right' valign='top'><b>Question:</b></td>
+                        <td class="tableCellBorder" align='left' colspan="3">
+                            <table class="table" style='border-collapse: collapse' cellpadding='5'>
+                                <tr>
+                                    <th class="col-sm-10" align='center'>Question</th>
+                                    <th class="col-sm-2" align='center'>Answer</th>
+                                </tr>
+                                ##Table3##
+                            </table>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+            <td class="tableCellBorder"></td>
+
+        </tr>
+    </table>
+</body>
+</html>

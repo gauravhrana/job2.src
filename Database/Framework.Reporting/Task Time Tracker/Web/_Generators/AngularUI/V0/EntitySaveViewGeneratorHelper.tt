@@ -1,0 +1,144 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ include file="../../MultipleOutputFileHelper.tt" #>
+<#@ include file="../../UtilityHelper.tt" #>
+
+<#+
+
+	void AddBreadCrumbForSaveView(string entityName)
+	{
+		WriteLine("<ol class='breadcrumb'>");
+		
+			PushIndent("\t");
+			WriteLine("<li class='active'>" + InsertSpaceInCamelCase(entityName) + " Details</li>");
+			PopIndent();
+
+		WriteLine("</ol>");
+	}
+
+	void AddButtonsForSaveView(string entityName)
+	{		
+		WriteLine(string.Empty);
+		WriteLine("<nav class='navbar navbar-default'>");
+			
+			PushIndent("\t");
+			WriteLine("<ul class='nav navbar-nav'>");
+				
+				PushIndent("\t");
+				WriteLine("<li><a data-ng-href='#/{{" + entityName + "}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>");
+				WriteLine("<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>");
+				WriteLine("<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>");
+				PopIndent();
+
+			WriteLine("</ul>");
+			PopIndent();
+
+		WriteLine("</nav>");
+	}
+
+	void AddInputControlsForSaveView(string entityName)
+	{
+		WriteLine(string.Empty);
+		WriteLine("<div class='form-horizontal'>");
+
+			WriteLine(string.Empty);
+			PushIndent("\t");
+			WriteLine("<div class='form-group'>");
+				
+				PushIndent("\t");
+				WriteLine("<label for='SummaryCode' class='col-sm-2 control-label'>" + InsertSpaceInCamelCase(entityName) + " Id:</label>");
+				WriteLine("<div class='col-sm-10'>");
+					
+					PushIndent("\t");
+					WriteLine("<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='Id' data-ng-model='EntityItem.Id'>");
+					PopIndent();
+
+				WriteLine("</div>");
+				PopIndent();
+
+			WriteLine("</div>");
+
+			WriteLine(string.Empty);
+			WriteLine("<div class='form-group'>");
+				
+				PushIndent("\t");
+				WriteLine("<label for='Name' class='col-sm-2 control-label'>Name:</label>");
+				WriteLine("<div class='col-sm-10'>");
+					
+					PushIndent("\t");
+					WriteLine("<input type='text' class='form-control' id='Name' placeholder='Name' data-ng-model='EntityItem.Name'>");
+					PopIndent();
+
+				WriteLine("</div>");
+				PopIndent();
+
+			WriteLine("</div>");
+
+			WriteLine(string.Empty);
+			WriteLine("<div class='form-group'>");
+				
+				PushIndent("\t");
+				WriteLine("<label for='Description' class='col-sm-2 control-label'>Description:</label>");
+				WriteLine("<div class='col-sm-10'>");
+					
+					PushIndent("\t");
+					WriteLine("<textarea class='form-control' id='Description' rows='2' ng-model='EntityItem.Description'></textarea>");
+					PopIndent();
+
+				WriteLine("</div>");
+				PopIndent();
+
+			WriteLine("</div>");
+
+			WriteLine(string.Empty);
+			WriteLine("<div class='form-group'>");
+				
+				PushIndent("\t");
+				WriteLine("<label for='ActiveStatusCode' class='col-sm-2 control-label'>Sort Order:</label>");
+				WriteLine("<div class='col-sm-10'>");
+					
+					PushIndent("\t");
+					WriteLine("<input type='text' class='form-control' id='ActiveStatusCode' placeholder='Sort Order' data-ng-model='EntityItem.SortOrder'>");
+					PopIndent();
+
+				WriteLine("</div>");
+				PopIndent();
+
+			WriteLine("</div>");
+			PopIndent();
+
+		WriteLine(string.Empty);
+		WriteLine("</div>");
+	}
+
+#>
+
+<#+
+
+	void RenderSaveView(string entityName)
+	{
+		AddBreadCrumbForSaveView(entityName);
+		AddButtonsForSaveView(entityName);
+		AddInputControlsForSaveView(entityName);
+	}
+
+	void RenderSaveViews(string[] entities)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+			foreach(string entityName in entities)
+			{	
+				manager.StartNewFile("save" + entityName + ".html");
+				this.RenderSaveView(entityName);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+#>

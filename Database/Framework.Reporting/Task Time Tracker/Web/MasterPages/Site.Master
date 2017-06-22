@@ -1,0 +1,183 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs"
+     Inherits="ApplicationContainer.UI.Web.SiteMaster" EnableViewState="true" EnableTheming="false" %>
+
+<%@ Register TagName="QuickSearchControl" TagPrefix="qs" Src="~/Shared/Controls/QuickSearch/QuickSearch.ascx" %>
+<%@ Register TagPrefix="bc" TagName="BreadCrumb" Src="~/Shared/Controls/BreadCrumb/BreadCrumb.ascx" %>
+<%@ Register Src="~/Shared/Controls/SliderMenu.ascx" TagName="SliderMenu" TagPrefix="sm" %>
+<%@ Register Src="~/MasterPages/controls/CommonRender.ascx" TagName="RenderPage" TagPrefix="cr" %>
+<%@ Register Src="~/MasterPages/controls/CommonBannerMenu.ascx" TagName="CommonBanner" TagPrefix="cr" %>
+<%@ Register Src="~/MasterPages/controls/CommonBodyStart.ascx" TagName="CommonBodyStart" TagPrefix="cr" %>
+
+<!DOCTYPE html>
+<html>
+
+<head id="Head1" runat="server">
+    <cr:RenderPage  ID="SiteRender" runat ="server" />
+	<asp:ContentPlaceHolder ID="HeadContent" runat="server"/>
+</head>
+
+<body>
+
+    <form id="Form1" runat="server">
+
+		<cr:CommonBodyStart runat="server" />
+
+        <sm:SliderMenu ID="oSliderMenu" runat="server" Visible="true" />
+
+        <div class="container-fluid main" style="padding-left: 45px; padding-right: 20px;">
+
+            <div class="row" style="background-color: #4b6c9e;">
+                <div class="col-sm-12">
+                    <div class="header">
+
+                        <div class="row">
+
+                            <div class="col-sm-4 visible-sm visible-xs">
+                            </div>
+                            <div class="col-sm-4 visible-md visible-lg">
+                                <a href="/" class="btn">
+                                    <img src="/home.png">
+                                </a>
+                                <button id="showBottom" type="button" class="btn">
+                                    <i class="icon-user icon-white"></i>
+                                </button>
+                                <button id="showTopPush" type="button" class="btn">
+                                    <i class="icon-hdd icon-white"></i>
+                                </button>
+                                <button id="showBottomPush" type="button" class="btn">
+                                    <i class="icon-leaf icon-white"></i>
+                                </button>
+                                <button id="showRight" type="button" class="btn">
+                                    <i class="icon-hand-right icon-white"></i>
+                                </button>
+                            </div>
+                            <div class="col-sm-4 text-center">
+                                <h4 style="color: White; font-weight: 100">
+                                    <label id="lblProjectTitle" runat="server" style="font-weight: 100;"></label>
+                                </h4>
+                            </div>
+                            <div class="col-sm-2">
+                                <qs:QuickSearchControl ID="QuickSearchControlId" runat="server" />
+                            </div>
+                            <div class="col-sm-1">
+                                <asp:HyperLink runat="server" ForeColor="Black" Font-Size="Small" ID="hprCustomise">Customize</asp:HyperLink>
+                            </div>
+                            <div class="col-sm-1">
+                                <asp:HyperLink ID="HyperLink2" NavigateUrl="#" runat="server" BorderStyle="None" ImageUrl="~/Content/Images/user_male_go.png" BorderWidth="0" ForeColor="#4b6c9e"></asp:HyperLink>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <nav id="nav">
+
+                <div class="row" style="background-color: #4b6c9e;">
+
+                    <div class="col-sm-12">
+
+                        <cr:CommonBanner ID="CommonBanner" runat="server" />
+
+                    </div>
+
+                </div>
+
+                <div class="row" style="margin-top: 2px;">
+
+                    <div class="col-sm-11">
+                        <ul class="breadcrumb" style="background-color: transparent; margin-top: 3px; margin-bottom: 3px;">
+                            <bc:BreadCrumb ID="oBreadCrumb" runat="server" />
+                        </ul>
+                    </div>
+                    <div class="col-sm-1">
+                        <asp:ContentPlaceHolder ID="SectionName" runat="server" />
+                    </div>
+                </div>
+
+            </nav>
+
+
+            <div class="row hide" style="height: 20px; background-color: lightgreen;">
+                <div class="col-sm-12" style="height: 20px;">
+                    <table class="table table-bordered table-condensed" style="height: 10px;">
+                        <tbody>
+                            <tr class="text-center" style="height: 20px;">
+                                <td class="span1">01</td>
+                                <td class="span1">02</td>
+                                <td class="span1">03</td>
+                                <td class="span1">04</td>
+                                <td class="span1">05</td>
+                                <td class="span1">06</td>
+                                <td class="span1">07</td>
+                                <td class="span1">08</td>
+                                <td class="span1">09</td>
+                                <td class="span1">10</td>
+                                <td class="span1">11</td>
+                                <td class="span1">12</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 bg-info footer">
+                    <asp:Label ID="lblPerson" runat="server" />
+                    <asp:Label ID="lblStatus" runat="server">
+                        <i class="icon-info-sign icon-white icon-medium"></i>
+                    </asp:Label>
+                </div>
+            </div>
+
+            <table class="table table-striped table-bordered table-condensed">
+                <tr>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                    <td>06</td>
+                    <td>07</td>
+                    <td>08</td>
+                    <td>09</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="loginDisplay" style="display: none">
+                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                        <AnonymousTemplate>
+                            [ <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a>]
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            Welcome <span class="bold">
+                                <asp:LoginName ID="HeadLoginName" runat="server" />
+                            </span>!    [
+                                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/" />
+                            ]
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</body>
+
+</html>

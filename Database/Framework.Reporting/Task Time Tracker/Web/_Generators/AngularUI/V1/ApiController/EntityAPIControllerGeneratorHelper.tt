@@ -1,0 +1,185 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ include file="../../../MultipleOutputFileHelper.tt" #>
+<#+
+
+	void AddUsingStatements(string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		WriteLine("using System;");
+		WriteLine("using System.Collections.Generic;");
+		WriteLine("using System.Data;");
+		WriteLine("using System.Linq;");
+		WriteLine("using System.Net;");
+		WriteLine("using System.Net.Http;");		
+		WriteLine("using System.Web.Http;");
+		WriteLine("using Shared.WebCommon.UI.Web;");		
+		WriteLine("using Newtonsoft.Json;");
+		WriteLine("using " + dataModelNameSpace + ";");
+		WriteLine("using " + dataManagerNameSpace + ";");
+		WriteLine("using Framework.Components.DataAccess;");
+		WriteLine("using Framework.Components.UserPreference;");
+	}
+
+	void AddGetListMethod(string entityName)
+	{
+		WriteLine(string.Empty);
+		WriteLine("// GET api/summary/GetList");
+		WriteLine("public IEnumerable<" + entityName + "DataModel> GetList(string value, string value1)");
+		WriteLine("{");
+
+			PushIndent("\t");
+			WriteLine("var settingCategory = value1;");
+            WriteLine("var searchString = value;");
+
+			WriteLine(string.Empty);
+            WriteLine("var dictionaryObject = JsonConvert.DeserializeObject<Dictionary<string, string>>(searchString);");
+                        
+			WriteLine(string.Empty);
+            WriteLine("// save search filter parameters in user preference");
+            WriteLine("if (dictionaryObject != null)");
+            WriteLine("{");
+				
+				PushIndent("\t");
+                WriteLine("foreach (var searchFilterColumnName in dictionaryObject.Keys)");
+                WriteLine("{");
+					
+					PushIndent("\t");
+                    WriteLine("var searchFilterValue = dictionaryObject[searchFilterColumnName];");
+                    WriteLine("PerferenceUtility.UpdateUserPreference(settingCategory, searchFilterColumnName, dictionaryObject[searchFilterColumnName]);");
+					PopIndent();
+
+                WriteLine("}");
+				PopIndent();
+
+            WriteLine("}");
+
+			WriteLine(string.Empty);
+            WriteLine("var dataQuery = JsonConvert.DeserializeObject<" + entityName + "DataModel>(searchString);");
+			WriteLine("return " + entityName + "DataManager.GetEntityDetails(dataQuery, SessionVariables.RequestProfile);");
+			PopIndent();
+
+		WriteLine("}");		
+	}
+
+	void AddGetByIdMethod(string entityName)
+	{
+		WriteLine(string.Empty);
+		WriteLine("public " + entityName + "DataModel GetById(string value)");
+		WriteLine("{");
+			
+			PushIndent("\t");
+			WriteLine("var dataQuery = new " + entityName + "DataModel();");
+			WriteLine("dataQuery." + entityName + "Id = int.Parse(value);");
+			
+			WriteLine(string.Empty);
+			WriteLine("var result = " + entityName + "DataManager.GetEntityDetails(dataQuery, SessionVariables.RequestProfile, 1);");
+			WriteLine("return result[0];");
+			PopIndent();
+
+		WriteLine("}");
+	}
+
+	void AddCreateMethod(string entityName)
+	{
+		WriteLine(string.Empty);
+		WriteLine("[HttpPost]");
+		WriteLine("public void Create([FromBody]dynamic data)");
+		WriteLine("{");
+			
+			PushIndent("\t");
+
+			WriteLine("var jsonString = JsonConvert.SerializeObject(data);");
+            WriteLine("var dataCreate = JsonConvert.DeserializeObject<" + entityName + "DataModel>(jsonString);");
+            
+			WriteLine(string.Empty);
+            WriteLine("dataCreate.ApplicationId = SessionVariables.RequestProfile.ApplicationId;");
+
+			WriteLine(string.Empty);
+			WriteLine(entityName + "DataManager.Create(dataCreate, SessionVariables.RequestProfile);");
+			PopIndent();
+
+		WriteLine("}");
+	}
+
+	void AddUpdateMethod(string entityName)
+	{
+		WriteLine(string.Empty);
+		WriteLine("[HttpPost]");
+		WriteLine("public void Update([FromBody]dynamic data)");
+		WriteLine("{");
+			
+			PushIndent("\t");
+			WriteLine("var jsonString = JsonConvert.SerializeObject(data);");
+            WriteLine("var dataUpdate = JsonConvert.DeserializeObject<" + entityName + "DataModel>(jsonString);");
+			WriteLine("" + entityName + "DataManager.Update(dataUpdate, SessionVariables.RequestProfile);");
+			PopIndent();
+
+		WriteLine("}");
+	}
+
+	void AddDeleteMethod(string entityName)
+	{
+		WriteLine(string.Empty);
+		WriteLine("[System.Web.Http.AcceptVerbs(\"DELETE\", \"GET\", \"POST\")]");
+		WriteLine("public void Delete(string value)");
+		WriteLine("{");
+			
+			PushIndent("\t");
+			WriteLine("var dataDelete = new " + entityName + "DataModel();");
+			WriteLine("dataDelete." + entityName + "Id = int.Parse(value);");
+			WriteLine("" + entityName + "DataManager.Delete(dataDelete, SessionVariables.RequestProfile);");
+			PopIndent();
+
+		WriteLine("}");
+	}
+#>
+
+<#+
+
+	void RenderAPIController(string entityName, string controllerNameSpace, string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		AddUsingStatements(dataModelNameSpace, dataManagerNameSpace);
+
+		WriteLine(string.Empty);
+
+		WriteLine("namespace " + controllerNameSpace);
+		WriteLine("{");
+			
+			PushIndent("\t");
+			WriteLine("//[Authorize]");
+			WriteLine("public class " + entityName + "Controller : ApiController");
+			WriteLine("{");
+		
+				PushIndent("\t");
+				AddGetListMethod(entityName);
+				AddGetByIdMethod(entityName);
+				AddCreateMethod(entityName);
+				AddUpdateMethod(entityName);
+				AddDeleteMethod(entityName);
+				PopIndent();
+				
+			WriteLine("}");
+			PopIndent();
+
+		WriteLine("}");
+	}
+
+	void RenderAPIControllers(string[] entities, string controllerNameSpace, string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+			foreach(string entityName in entities)
+			{	
+				manager.StartNewFile(entityName + "Controller.cs");
+				this.RenderAPIController(entityName, controllerNameSpace, dataModelNameSpace, dataManagerNameSpace);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+#>

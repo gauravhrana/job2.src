@@ -1,0 +1,37 @@
+﻿@using DataModel.Framework.DataAccess
+@model Framework.Components.ReleaseLog.DomainModel.ReleaseNoteTechnicalDifficultyDataModel
+
+@{
+    ViewBag.Title = "ReleaseNoteTechnicalDifficultyDataModel";
+}
+<h2>Release Note Technical Difficulty Item</h2>
+
+@Html.HiddenFor(modelItem => @Model.ReleaseNoteTechnicalDifficultyId)
+
+<div class="display-label">
+    @Framework.Components.ReleaseLog.DomainModel.ReleaseNoteTechnicalDifficultyDataModel.DataColumns.ReleaseNoteTechnicalDifficultyId
+</div>
+<div class="display-field">
+    @Model.ReleaseNoteTechnicalDifficultyId
+</div>
+
+<div class="display-label">
+	@StandardDataModel.StandardDataColumns.Name
+</div>
+<div class="display-field">
+    @Model.Name
+</div>
+
+<div class="display-label">
+	@StandardDataModel.StandardDataColumns.Description
+</div>
+<div class="display-field">
+    @Model.Description
+</div>
+
+<div class="display-label">
+	@StandardDataModel.StandardDataColumns.SortOrder
+</div>
+<div class="display-field">
+    @Model.SortOrder
+</div>

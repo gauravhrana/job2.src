@@ -1,0 +1,39 @@
+﻿@model DataModel.TaskTimeTracker.ApplicationDevelopment.FunctionalityDevelopmentStepDataModel
+
+@{
+    ViewBag.Title = "FunctionalityDevelopmentStepDataModel";
+}
+
+<h2>Functionality Development Step</h2>
+
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.FunctionalityDevelopmentStepId)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(modelItem => @Model.FunctionalityDevelopmentStepId)
+    @Html.ValidationMessageFor(modelItem => @Model.FunctionalityDevelopmentStepId)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.Name)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(modelItem => @Model.Name)
+    @Html.ValidationMessageFor(modelItem => @Model.Name)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.Description)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(modelItem => @Model.Description)
+    @Html.ValidationMessageFor(modelItem => @Model.Description)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.SortOrder)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(modelItem => @Model.SortOrder)
+    @Html.ValidationMessageFor(modelItem => @Model.SortOrder)
+</div>

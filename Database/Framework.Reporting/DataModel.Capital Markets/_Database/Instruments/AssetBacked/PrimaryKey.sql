@@ -1,0 +1,6 @@
+ALTER TABLE dbo.AssetBacked
+ADD CONSTRAINT PK_AssetBacked PRIMARY KEY CLUSTERED 
+(
+	AssetBackedId
+)
+GO

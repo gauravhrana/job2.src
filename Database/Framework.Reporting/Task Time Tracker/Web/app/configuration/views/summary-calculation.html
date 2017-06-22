@@ -1,0 +1,218 @@
+﻿<div class="page-header"><h3>Summary Calculations</h3></div>
+
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+        <li><a data-ng-href="#/summaries/" title="Back"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a></li>
+        <li><a data-ng-click="save();"><span class="glyphicon glyphicon-floppy-disk"></span> Save</a></li>
+        <li><a data-ng-click="delete();" ng-disabled="WorkflowStateIsNew()"><span class="glyphicon glyphicon-remove"></span> Delete</a></li>        
+    </ul>
+</nav>
+
+<div class="form-horizontal">
+    
+    <div class="form-group">
+        <label for="SummaryCode" class="col-sm-2 control-label">Code</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="SummaryCode" placeholder="Code" data-ng-model="summary.SummaryCode" ng-readonly="!WorkflowStateIsNew()" style="cursor: pointer;">                
+        </div>
+        <label for="ActiveStatusCode" class="col-sm-2 control-label">Active Status</label>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" id="ActiveStatusCode" placeholder="ActiveStatusCode" data-ng-model="summary.ActiveStatusCode">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Name" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="Name" placeholder="Name" data-ng-model="summary.Name" ng-readonly="!WorkflowStateIsNew()" style="cursor: pointer;">
+        </div>
+        <label for="Name" class="col-sm-2 control-label">Data Repository</label>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" placeholder="{Source Data Repository}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Description" class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" id="Description" rows="2" ng-model="summary.Description"></textarea>
+        </div>
+    </div>
+    
+    <div class="form-group" ng-hide="WorkflowStateIsNew()">
+        <label class="col-sm-2 control-label">
+            <a ng-click="DependencyStatusDisplay.isCollapsed = !DependencyStatusDisplay.isCollapsed">
+                <span ng-hide="!DependencyStatusDisplay.isCollapsed" class="fa fa-plus-square-o"></span>
+                <span ng-hide="DependencyStatusDisplay.isCollapsed" class="fa fa-minus-square-o"></span>
+            </a> Dependency Info
+        </label>
+        <div class="col-sm-10"></div>
+    </div> 
+    
+    <div collapse="DependencyStatusDisplay.isCollapsed" ng-hide="WorkflowStateIsNew()">
+        
+        <div class=" form-group">
+            <label class="col-sm-2 control-label">Depends On Summary</label>
+            <div class="col-sm-10">
+                <ol>
+                    <li ng-repeat="dependency in summary.Dependencies | orderBy:['SortOrder']" class="">
+                        <a href="#/summaries/{{dependency.SummaryCode}}">{{dependency.Name}}</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class=" form-group" >
+            <label for="UsedInCalculation" class="col-sm-2 control-label">Used In Calculation</label>
+            <div class="col-sm-10">
+                <ol id="UsedInCalculation">
+                    <li ng-repeat="dependency in summary.UsedInCalculationsFormula | orderBy:['SortOrder']" class="">
+                        <a href="#/calculations/{{dependency.CalculationCode}}">{{dependency.Name}}</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="form-group" ng-hide="WorkflowStateIsNew() || !summary.HasSelfDependency">
+        <label for="SelfDependencies" class="col-sm-2 control-label">Self Dependency</label>
+        <div class="col-sm-10">
+            <div class="alert-danger" id="SelfDependencies">Please Review Calcuations</div>            
+        </div>
+    </div>
+        
+    <div class="form-group" ng-hide="WorkflowStateIsNew() || summary.FailedCalculationDependency.length == 0">
+        <label for="FailedCalculation" class="col-sm-2 control-label">Failed Calculation(s)</label>
+        <div class="col-sm-10 alert-danger">
+            <ol id="FailedCalculation">
+                <li ng-repeat="dependency in summary.FailedCalculationDependency" class="">{{dependency}}</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="form-group" ng-hide="WorkflowStateIsNew() || true">
+        <label for="CyclicalCalculation" class="col-sm-2 control-label">Cyclical Calculation</label>
+        <div class="col-sm-10">
+            <ol id="CyclicalCalculation">
+                <li ng-repeat="dependency in summary.CyclicalCalculationDependency" class="">{{dependency}}</li>
+            </ol>
+        </div>
+    </div>
+    
+    <div class="form-group" ng-hide="WorkflowStateIsNew()">
+        <label class="col-sm-2 control-label">
+            <label ng-click="togggleCalculations(!allCalculationsVisible);">
+                <span ng-hide="!allCalculationsVisible" class="fa fa-plus-square-o" title="Expand"></span>
+                <span ng-hide="allCalculationsVisible" class="fa fa-minus-square-o" title="Collapse"></span>
+            </label>  Calculation(s)
+        </label>
+        <div class="col-sm-10">
+            <input type="text" ng-model="searchText" class="form-control col-sm-8" placeholder="Search" />
+            <span class="btn btn-primary btn-link pull-right" ng-click="showAddSummaryCalculation()"><span class="glyphicon glyphicon-plus"></span> Add Calculation</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-hide="WorkflowStateIsNew()">
+        <label class="col-sm-2 control-label"><input type="checkbox" ng-model="showKeys" /> Keys</label>
+        <div class="col-sm-10">
+            <div ng-hide="!showKeys" ng-repeat="calculation in summary.SummaryCalculationsDetails | filter:filterCalculationIsKeyColumn | filter:searchText " class="panel panel-info">
+                <div>
+                    <div class="col-sm-5">
+                        <a ng-click="calculation.isCollapsed = !calculation.isCollapsed">
+                            <span ng-hide="calculation.isCollapsed" class="fa fa-minus-square-o"></span>
+                            <span ng-hide="!calculation.isCollapsed" class="fa fa-plus-square-o"></span>
+                        </a><a ng-click="calculation.isCollapsed = !calculation.isCollapsed">{{calculation.CalculationCode}}</a>
+                    </div>
+                    <div class="col-sm-2" ng-show="showCalculationType">{{calculation.ExecutionCalculationTypeCode}}</div>
+                    <div class="col-sm-3" ng-show="showCalculationOrder">{{calculation.ExecutionSortOrder}}</div>
+                    <div class="col-sm-2 pull-right text-right">
+                        <a href="#/calculations/{{calculation.CalculationCode}}" title="Edit"><span class="glyphicon glyphicon-edit">&nbsp;</span></a>
+                        <a ng-click="deleteSummaryCalculation(calculation)" title="Delete"><span class="glyphicon glyphicon-remove">&nbsp;</span></a>
+                    </div>
+                </div>
+                <div id="pnl{{calculation.CalculationCode}}" collapse="calculation.isCollapsed">
+                    <div class="panel-body">
+                        <div>
+                            <div ng-show="showDependencies" class="col-sm-12 info" ng-repeat="dependency in calculation.Dependencies">
+                                <ol>
+                                    <li ng-repeat="dependency in calculation.Dependencies" class="">
+                                        <a href="#/summaries/{{dependency}}">{{dependency}}</a>
+                                    </li>
+                                </ol>
+                            </div>                                                                
+                            <div style="padding-top: 12px;"><pre>{{calculation.Formula}}</pre></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group" ng-hide="WorkflowStateIsNew()">
+        <label class="col-sm-2 control-label"><input type="checkbox" ng-model="showCalculations" /> Calculations</label>
+        <div class="col-sm-10">
+            <div ng-hide="!showCalculations" ng-repeat="calculation in summary.SummaryCalculationsDetails | filter:filterCalculationIsCalculation | filter:searchText | orderBy:['ExecutionSortOrder']" class="panel panel-info">
+                <div>
+                    <div class="col-sm-5">
+                        <a ng-click="calculation.isCollapsed = !calculation.isCollapsed">
+                            <span ng-hide="calculation.isCollapsed" class="fa fa-minus-square-o"></span>
+                            <span ng-hide="!calculation.isCollapsed" class="fa fa-plus-square-o"></span>
+                        </a>
+                        <a ng-click="calculation.isCollapsed = !calculation.isCollapsed">{{calculation.CalculationCode}}</a>
+                    </div>
+                    <div class="col-sm-2" ng-show="showCalculationType">{{calculation.ExecutionCalculationTypeCode}}</div>
+                    <div class="col-sm-3" ng-show="showCalculationOrder">{{calculation.ExecutionSortOrder}}</div>
+                    <div class="col-sm-2 pull-right text-right">                        
+                        <a href="#/calculations/{{calculation.CalculationCode}}" title="Edit"><span class="glyphicon glyphicon-edit">&nbsp;</span></a>
+                        <a ng-click="deleteSummaryCalculation(calculation)" title="Delete"><span class="glyphicon glyphicon-remove">&nbsp;</span></a>
+                    </div>
+                </div>
+                <div id="pnl{{calculation.CalculationCode}}" collapse="calculation.isCollapsed">
+                    <div class="panel-body">
+                        <div>
+                            <div class="col-sm-12 info" ng-show="showDependencies">
+                                <ol>
+                                    <li ng-repeat="dependency in calculation.Dependencies" class="">
+                                        <a href="#/summaries/{{dependency}}">{{dependency}}</a>
+                                    </li>
+                                </ol>
+                            </div>
+                            <div style="padding-top: 12px;"><pre>{{calculation.Formula}}</pre></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <div class="col-sm-12">
+                <!--
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="checkbox" ng-model="showFormula" /> Formula
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="checkbox" ng-model="showDependencies" /> Dependencies
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="checkbox" ng-model="showCalculationType" /> Calculation Type
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="checkbox" ng-model="showCalculationOrder" /> Execution Order
+                        </div>
+                        <div class="col-sm-2">
+                        </div>
+                    </div>
+                    -->
+            </div>
+        </div>
+    </div>
+
+</div>
+    

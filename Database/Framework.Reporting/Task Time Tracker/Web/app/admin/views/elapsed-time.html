@@ -1,0 +1,112 @@
+﻿<ol class="breadcrumb">
+    <li><a href="#">Reports</a></li>
+    <li class="active">Elapsed Time Data</li>
+</ol>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        Search:
+    </div>
+
+    <div class="collapse in panel-body" id="pnlSearchParameters">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Computer Name :</label>
+                <div class="col-md-4">
+                    <input kendo-auto-complete class="form-control"
+                        k-data-source="computerNames"
+                        name="computerName" data-ng-model="computerName" style="width: 200px;" />
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Connection Key :</label>
+                <div class="col-md-4">
+                    <input kendo-auto-complete class="form-control"
+                        k-data-source="connectionKeyList"
+                        name="connectionKey" data-ng-model="connectionKey" style="width: 200px;" />
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Application User :</label>
+                <div class="col-md-4">
+                    <select kendo-combo-box class="form-control"
+                        k-data-source="applicationUsers"
+                        k-data-text-field="'ApplicationCode'"
+                        k-data-value-field="'ApplicationUserId'"
+                        ng-model="applicationUser" style="width: 200px;" />
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Group By :</label>
+                <div class="col-md-4">
+                    <select ng-model="groupBy" kendo-combo-box 
+                        k-data-source="groupByOptions"
+                        k-data-text-field="'name'"
+                        k-data-value-field="'name'"
+                        class="form-control" style="width: 200px;" />
+
+                    </select>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-md-2">
+                    <input type="submit" class="btn btn-primary"
+                        ng-click="generateReport()" value="Generate Report" />
+                </div>
+                <div class="col-md-8"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        Elapsed Time Data
+    </div>
+    <table class="table table-bordered" ng-if="groupingLevel == 0">
+        <tr>
+            <th ng-show="!(groupBy == 'ApplicationUser')">ApplicationUser</th>
+            <th>ElapsedTime</th>
+            <th>RecordCount</th>
+            <th ng-show="!(groupBy == 'Computer')">Computer</th>
+            <th ng-show="!(groupBy == 'ConnectionKey')">ConnectionKey</th>
+            <th>Message</th>
+        </tr>
+        <tr ng-repeat="item in elapsedTimeData">
+            <td ng-show="!(groupBy == 'ApplicationUser')">{{item.ApplicationUser}}</td>
+            <td style="text-align:right">{{item.ElapsedTime}}</td>
+            <td style="text-align:right">{{item.RecordCount}}</td>
+            <td ng-show="!(groupBy == 'Computer')">{{item.Computer}}</td>
+            <td ng-show="!(groupBy == 'ConnectionKey')">{{item.ConnectionKey}}</td>
+            <td>{{item.Message}}</td>
+        </tr>
+    </table>
+    <tabset ng-if="groupingLevel == 1">
+        <tab ng-repeat="groupByVal in groupValues" heading="{{groupByVal}}">
+            <table class="table table-bordered">
+                <tr>
+                    <th>LogUser</th>
+                    <th>ApplicationUser</th>
+                    <th>ElapsedTime</th>
+                    <th>RecordCount</th>
+                    <th>Computer</th>
+                    <th>ConnectionKey</th>
+                    <th>Message</th>
+                </tr>
+                <tr ng-repeat="item in groups[groupByVal]">
+                    <td>{{item.LogUser}}</td>
+                    <td>{{item.ApplicationUser}}</td>
+                    <td style="text-align:right">{{item.ElapsedTime}}</td>
+                    <td style="text-align:right">{{item.RecordCount}}</td>
+                    <td>{{item.Computer}}</td>
+                    <td>{{item.ConnectionKey}}</td>
+                    <td>{{item.Message}}</td>
+                </tr>
+            </table>
+        </tab>
+    </tabset>
+</div>

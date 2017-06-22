@@ -1,0 +1,13 @@
+﻿GICSSectorId,GICSSectorCode,GICSSectorDesc,ActiveYN
+10,10,Energy,1
+15,15,Materials,1
+20,20,Industrials,1
+25,25,Consumer Discretionary,1
+30,30,Consumer Staples,1
+35,35,Health Care,1
+40,40,Financials,1
+45,45,Information Technology,1
+50,50,Telecommunication Services,1
+55,55,Utilities,1
+77,77,Others,1
+99,99,Non Corporate,1

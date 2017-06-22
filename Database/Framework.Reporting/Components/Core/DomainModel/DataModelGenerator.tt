@@ -1,0 +1,12 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ 
+	include file="../../../../Generators/Generators.Components/DataModelGeneratorHelper.tt" 
+#>
+<#
+this.GenerateDataModelFiles(	"DataModel.Framework.Core",
+								new [] {"Language", "ApplicationEntityParentalHierarchy", "MenuCategory",
+								"SubscriberApplicationRole", "AuditLog", "SystemEntityCategory", "SystemForeignRelationshipDatabase",
+								"SystemForeignRelationshipType", "Theme", "ThemeCategory", "ThemeKey", "Themes", "HelpPageContext"} 
+
+							);
+#>

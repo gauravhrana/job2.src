@@ -1,0 +1,30 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.DayCare.dll" #>
+<#@ include file=".\..\..\..\..\_Generators\AngularUI\V1\View\EntityDetailViewGeneratorHelper.tt" #>
+<#
+	this.RenderDetailViews
+	(
+		new string[]
+		{	
+				"AccidentPlace"
+			,	"AccidentReport"			
+			,	"ActivitySubType" 			
+			,	"BathRoom"
+			,	"Discount"
+			,	"PaymentMethod"
+			,	"Comment"
+			,	"ActivityType"
+			,	"DiaperStatus"
+			,	"EventType"
+			,	"MealType"
+			,	"NeedItem"
+			,	"Meal"
+			,	"MealDetail"
+			,	"SickReport"
+			,	"Tuition"
+			,	"Sleep"
+			,	"Student"
+			,	"Teacher"},								 
+								"DataModel.DayCare"
+							);
+#>

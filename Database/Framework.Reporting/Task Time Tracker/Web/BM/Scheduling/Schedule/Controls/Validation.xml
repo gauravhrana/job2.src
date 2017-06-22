@@ -1,0 +1,115 @@
+﻿<DynamicValidators>
+  <!--
+	This section contains default values for different types validator controls
+	-->
+  <Defaults>
+    <!--
+		These are default property values that are common to all validator controls
+		-->
+    <Common>
+      <!--
+		These are default property values that are common to all validator controls
+		-->
+      <Property name="ForeColor" value="Red" />
+      <Property name="Display" value="Dynamic" />
+      <Property name="EnableViewState" value="False" />
+    </Common>
+    <!--
+		These are default property values specific to the RegularExpression validator
+		-->
+    <RegularExpression>
+      <Property name="Text" value="Allowed chracters are {LegalValues}" />
+      <Property name="ErrorMessage" value="{FriendlyName} can only consist of {LegalValues}" />
+    </RegularExpression>
+    <!--
+		These are default property values specific to the RequiredField validator
+		-->
+    <!--<RequiredField>
+      <Property name="InitialValue" value="" />
+      <Property name="Text" value="This is a required field" />
+      <Property name="ErrorMessage" value="You must enter something for the {FriendlyName}" />
+    </RequiredField>-->
+  </Defaults>
+  <!--
+	This section defines the validator groups
+	A validator group defines a collection of validators and their properties
+	-->
+  <!--As there will be a number of user input fields, there will be a set of ValidatorCollection nodes, 
+  and these will be held in a single ValidatorSets node of the configuration file.-->
+  <ValidatorSets>
+    
+    <!--ScheduleId-->
+    <!--<ValidatorCollection id="dynScheduleId" FriendlyName="ScheduleId"
+                         LegalValues="Integers Only"
+                         ControlToValidate="txtScheduleId">
+      <Validator type="RequiredField" />
+      <Validator type="RegularExpression">
+        <Property name="ValidationExpression" value="^\d+$" />
+      </Validator>
+    </ValidatorCollection>-->
+
+    <!--ApplicationId-->
+    <ValidatorCollection id="dynApplicationId" FriendlyName="ApplicationId"
+                        LegalValues="Integers Only"
+                        ControlToValidate="txtApplicationId">
+      <Validator type="RequiredField" />
+      <Validator type="RegularExpression">
+        <Property name="ValidationExpression" value="^\d+$" />
+      </Validator>
+    </ValidatorCollection>
+    
+    <!--PersonId-->
+    <ValidatorCollection id="dynPersonId" FriendlySchedule="PersonId"
+                         LegalValues="Alphabets Only"
+                         ControlToValidate="txtPersonId">
+      <Validator type="RequiredField" />
+      <Validator type="RegularExpression">
+        <Property name="ValidationExpression" value="^\d+$" />
+      </Validator>
+    </ValidatorCollection>
+    
+    <!--WorkDate-->
+    <ValidatorCollection id="dynWorkDate" FriendlyName="WorkDate"
+                         LegalValues="Alphabets Only"
+                         ControlToValidate="txtWorkDate">
+      <Validator type="RequiredField" />
+   </ValidatorCollection>
+
+    <!--StartTime-->
+    <ValidatorCollection id="dynStartTime" FriendlyName="StartTime"
+                        LegalValues="Integers Only"
+                        ControlToValidate="txtStartTime">
+      <Validator type="RequiredField" />
+      
+    </ValidatorCollection>
+
+    <!--EndTime-->
+    <ValidatorCollection id="dynEndTime" FriendlyName="EndTime"
+                         LegalValues="DateTimeOnly"
+                         ControlToValidate="txtEndTime">
+      <Validator type="RequiredField" />
+    </ValidatorCollection>
+
+    <!--TotalHoursWorked-->
+    <ValidatorCollection id="dynTotalHoursWorked" FriendlyName="TotalHoursWorked"
+                         LegalValues="HoursOnly"
+                         ControlToValidate="txtTotalHoursWorked">
+      <Validator type="RequiredField" />
+    </ValidatorCollection>
+
+    <!--NextWorkDate-->
+    <ValidatorCollection id="dynNextWorkDate" FriendlyName="NextWorkDate"
+                         LegalValues="DateOnly"
+                         ControlToValidate="txtNextWorkDate">
+      <Validator type="RequiredField" />
+    </ValidatorCollection>
+
+    <!--NextWorktime-->
+    <ValidatorCollection id="dynNextWorkTime" FriendlyName="NextWorkTime"
+                         LegalValues="TimeOnly"
+                         ControlToValidate="txtNextWorkTime">
+      <Validator type="RequiredField" />
+    </ValidatorCollection>
+    
+  </ValidatorSets>
+</DynamicValidators>

@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Custodian
+ADD CONSTRAINT PK_Custodian PRIMARY KEY CLUSTERED 
+(
+	CustodianId
+)
+GO

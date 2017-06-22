@@ -1,0 +1,6 @@
+﻿ALTER TABLE dbo.Module
+	ADD CONSTRAINT PK_Module PRIMARY KEY CLUSTERED 
+	(
+		ModuleId
+	)  
+GO

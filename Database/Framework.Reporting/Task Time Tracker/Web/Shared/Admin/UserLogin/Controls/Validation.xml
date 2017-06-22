@@ -1,0 +1,109 @@
+﻿<DynamicValidators>
+  <!--
+	This section contains default values for different types validator controls
+	-->
+  <Defaults>
+    <!--
+		These are default property values that are common to all validator controls
+		-->
+    <Common>
+      <!--
+		These are default property values that are common to all validator controls
+		-->
+      <Property UserName="ForeColor" value="Red" />
+      <Property UserName="Display" value="Dynamic" />
+      <Property UserName="EnableViewState" value="False" />
+    </Common>
+    <!--
+		These are default property values specific to the RegularExpression validator
+		-->
+    <RegularExpression>
+      <Property UserName="Text" value="Allowed chracters are {LegalValues}" />
+      <Property UserName="ErrorMessage" value="{FriendlyName} can only consist of {LegalValues}" />
+    </RegularExpression>
+    <!--
+		These are default property values specific to the RequiredField validator
+		-->
+    <!--<RequiredField>
+      <Property UserName="InitialValue" value="" />
+      <Property UserName="Text" value="This is a required field" />
+      <Property UserName="ErrorMessage" value="You must enter something for the {FriendlyName}" />
+    </RequiredField>-->
+  </Defaults>
+  <!--
+	This section defines the validator groups
+	A validator group defines a collection of validators and their properties
+	-->
+  <!--As there will be a number of user input fields, there will be a set of ValidatorCollection nodes, 
+  and these will be held in a single ValidatorSets node of the configuration file.-->
+  <ValidatorSets>
+    <!--
+		This is the collection of validator controls to be used for the UserName
+		-->
+    <!--//The ID attribute of the ValidatorCollection will match the PlaceHolder's ID 
+    property on the Web form in order to connect the user input field with the collection 
+    of validators that should to be created and applied.-->
+    <!--<ValidatorCollection id="dynNeedsId" FriendlyName="NeedsId"
+                         LegalValues="Integers Only"
+                         ControlToValidate="txtNeedsId">
+      <Validator type="RequiredField" />
+      <Validator type="RegularExpression">
+        <Property UserName="ValidationExpression" value="^\d+$" />
+      </Validator>-->
+    <!--
+      <Validator type="Range">
+        -->
+    <!--
+				This is the Rangevalidators
+				-->
+    <!--
+        <Property UserName="MinimumValue" value="1" />
+        <Property UserName="MaximumValue" value="30" />
+        <Property UserName="Type" value="integer" />
+        <Property UserName="Text" value="Value must be greater than 1 and smaller than 30" />
+      </Validator>
+    </ValidatorCollection>-->
+    <!--
+		This is the collection of validator controls to be used for the UserLoginStatusId
+		-->
+    <ValidatorCollection id="dynName" FriendlyName="UserName"
+                         LegalValues="Alphabets Only"
+                         ControlToValidate="txtName">
+      <!--As the Validator node has no child nodes, all the property values will be derived
+      from those defined in the Defaults node.-->
+      <Validator type="RequiredField" />
+      <Validator type="RegularExpression">
+        <Property UserName="ValidationExpression" value= "^[A-Za-z _]*$" />
+      </Validator>
+    </ValidatorCollection>
+    <!--
+		This is the collection of validator controls to be used for the RecordDate
+		-->
+    <!-- ControlToValidate Property validates 'User Control'-->
+    <ValidatorCollection id="dynUserLoginStatusId" FriendlyName="UserLoginStatusId"
+                         LegalValues="Integers Only"
+                         ControlToValidate="txtUserLoginStatusId">
+      <Validator type="RequiredField" />
+      <Validator type="RegularExpression">
+        <Property UserName="ValidationExpression" value="^\d+$" />
+      </Validator>
+    </ValidatorCollection>
+    <ValidatorCollection id="dynRecordDate" FriendlyName="RecordDate"
+                        LegalValues="Integers Only"
+                        ControlToValidate="txtRecordDate">
+      <!--<Validator type="RequiredField" />-->
+      <Validator type="RegularExpression">
+        <Property UserName="ValidationExpression" value="^\d+$" />
+      </Validator>
+      <Validator type="Range">
+        <!--
+				This is the Rangevalidators
+				-->
+        <Property UserName="MinimumValue" value="1" />
+        <Property UserName="MaximumValue" value="30" />
+        <Property UserName="Type" value="integer" />
+        <Property UserName="Text" value="Value must be greater than 1 and smaller than 30" />
+      </Validator>
+    </ValidatorCollection>
+  </ValidatorSets>
+</DynamicValidators>

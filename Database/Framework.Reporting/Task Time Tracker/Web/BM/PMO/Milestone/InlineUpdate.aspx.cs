@@ -1,0 +1,115 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using DataModel.Framework.DataAccess;
+using DataModel.TaskTimeTracker;
+using Framework.Components.DataAccess;
+using Shared.UI.Web.Controls;
+using Shared.WebCommon.UI.Web;
+using Shared.UI.WebFramework;
+using Framework.UI.Web.BaseClasses;
+using TaskTimeTracker.Components.BusinessLayer;
+
+namespace ApplicationContainer.UI.Web.Milestone
+{
+	public partial class InlineUpdate : PageInlineUpdate
+	{
+		#region Methods
+
+		protected override DataTable GetData()
+		{
+			try
+			{
+				SuperKey = ApplicationCommon.GetSuperKey();
+				SetId = ApplicationCommon.GetSetId();
+
+				var selectedrows = new DataTable();
+				var milestonedata = new MilestoneDataModel();
+
+                selectedrows = MilestoneDataManager.GetDetails(milestonedata, SessionVariables.RequestProfile).Clone();
+				if (!string.IsNullOrEmpty(SuperKey))
+				{
+					var systemEntityTypeId = (int)PrimaryEntity;
+					var lstEntityKeys = ApplicationCommon.GetSuperKeyDetails(systemEntityTypeId, SuperKey);
+
+					foreach (var entityKey in lstEntityKeys)
+					{
+						milestonedata.MilestoneId = entityKey;
+                        var result = MilestoneDataManager.GetDetails(milestonedata, SessionVariables.RequestProfile);
+						selectedrows.ImportRow(result.Rows[0]);
+					}
+				}
+				else 
+				{
+					milestonedata.MilestoneId = SetId;
+                    var result = MilestoneDataManager.GetDetails(milestonedata, SessionVariables.RequestProfile);
+					selectedrows.ImportRow(result.Rows[0]);
+
+				}
+				return selectedrows;
+			}
+			catch (Exception ex)
+			{
+				Response.Write(ex.Message);
+			}
+			return null;
+		}
+
+		protected override void Update(Dictionary<string, string> values)
+		{
+			var data = new MilestoneDataModel();
+
+            if (values.ContainsKey(MilestoneDataModel.DataColumns.MilestoneId))
+            {
+                data.MilestoneId = int.Parse(values[MilestoneDataModel.DataColumns.MilestoneId].ToString());
+            }
+
+            if (values.ContainsKey(StandardDataModel.StandardDataColumns.Name))
+            {
+                data.Name = values[StandardDataModel.StandardDataColumns.Name].ToString();
+            }
+
+            if (values.ContainsKey(StandardDataModel.StandardDataColumns.Description))
+            {
+                data.Description = values[StandardDataModel.StandardDataColumns.Description].ToString();
+            }
+
+            if (values.ContainsKey(StandardDataModel.StandardDataColumns.SortOrder))
+            {
+                data.SortOrder = int.Parse(values[StandardDataModel.StandardDataColumns.SortOrder].ToString());
+            }
+
+            if (values.ContainsKey(MilestoneDataModel.DataColumns.ProjectId))
+            {
+                data.ProjectId = int.Parse(values[MilestoneDataModel.DataColumns.ProjectId].ToString());
+            }
+
+            MilestoneDataManager.Update(data, SessionVariables.RequestProfile);
+			
+			base.Update(values);
+		}
+
+		#endregion
+
+		#region Events
+
+		protected override void OnInit(EventArgs e)
+		{
+            PrimaryEntity = SystemEntity.Milestone;
+            PrimaryEntityKey = "Milestone";
+
+            InlineEditingListCore = InlineEditingList;
+            BreadCrumbObject = Master.BreadCrumbObject;
+
+            base.OnInit(e);
+        }
+
+        #endregion
+
+    }
+}

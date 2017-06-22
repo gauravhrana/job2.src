@@ -1,0 +1,6 @@
+﻿ALTER TABLE dbo.SuperKey
+	ADD CONSTRAINT PK_SuperKey PRIMARY KEY CLUSTERED 
+	(
+		SuperKeyId
+	)  
+GO

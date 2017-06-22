@@ -1,0 +1,12 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\_Generators\ForPages\PageGeneratorHelper.tt" #>
+
+<#
+	string entityName = "Risk";
+	string nameSpace = "ApplicationContainer.UI.Web.RiskAndReward.Demo";
+	string dataModelNameSpace = "DataModel.TaskTimeTracker.RiskReward";
+	string dataManagerNameSpace = "TaskTimeTracker.Components.Module.RiskReward";
+
+	this.GeneratePageFiles(entityName, nameSpace, dataModelNameSpace, dataManagerNameSpace);
+
+#>

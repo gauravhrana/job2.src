@@ -1,0 +1,10 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ assembly name="$(TargetDir)\DataModel.Legal.dll" #>
+<#@ 
+	include file="../../../../Generators/Generators.SQL//SQLNonStandardEntity/EntitySqlGeneratorHelper.tt"
+#>
+<#
+	
+	this.GenerateSqlFiles("DataModel.Legal", "ClientType", "ClientTypeDataModel", "Legal", "706", "Welcome1");
+#> 

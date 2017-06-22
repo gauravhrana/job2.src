@@ -1,0 +1,28 @@
+﻿@model List<DataModel.TaskTimeTracker.TimeTracking.ScheduleDetailActivityCategoryDataModel>
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@Html.ValidationSummary(true)   
+@using (Html.BeginForm())
+{
+
+    <fieldset>
+        <legend>scheduleDetailActivityCategory</legend>
+       
+            @Html.EditorFor(Model => Model)
+       
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,190 @@
+<ol class='breadcrumb'>
+	<li class='active'>Schedule Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Schedule Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ScheduleId' placeholder='ScheduleId' data-ng-model='EntityItem.ScheduleId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Person Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='PersonId' placeholder='PersonId' data-ng-model='EntityItem.PersonId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Schedule State Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ScheduleStateId' placeholder='ScheduleStateId' data-ng-model='EntityItem.ScheduleStateId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Exclude Items:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ExcludeItems' placeholder='ExcludeItems' data-ng-model='EntityItem.ExcludeItems'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Work Date:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='WorkDate' placeholder='WorkDate' data-ng-model='EntityItem.WorkDate'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Start Time:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='StartTime' placeholder='StartTime' data-ng-model='EntityItem.StartTime'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>End Time:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='EndTime' placeholder='EndTime' data-ng-model='EntityItem.EndTime'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Total Hours Worked:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='TotalHoursWorked' placeholder='TotalHoursWorked' data-ng-model='EntityItem.TotalHoursWorked'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Planned Hours:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='PlannedHours' placeholder='PlannedHours' data-ng-model='EntityItem.PlannedHours'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Computed Hours:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ComputedHours' placeholder='ComputedHours' data-ng-model='EntityItem.ComputedHours'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Next Work Date:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='NextWorkDate' placeholder='NextWorkDate' data-ng-model='EntityItem.NextWorkDate'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Next Work Time:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='NextWorkTime' placeholder='NextWorkTime' data-ng-model='EntityItem.NextWorkTime'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Person:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Person' placeholder='Person' data-ng-model='EntityItem.Person'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Schedule State Name:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ScheduleStateName' placeholder='ScheduleStateName' data-ng-model='EntityItem.ScheduleStateName'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>From Search Date:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='FromSearchDate' placeholder='FromSearchDate' data-ng-model='EntityItem.FromSearchDate'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>To Search Date:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ToSearchDate' placeholder='ToSearchDate' data-ng-model='EntityItem.ToSearchDate'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Created Date Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='CreatedDateId' placeholder='CreatedDateId' data-ng-model='EntityItem.CreatedDateId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Updated Date Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='UpdatedDateId' placeholder='UpdatedDateId' data-ng-model='EntityItem.UpdatedDateId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Created Date:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='CreatedDate' placeholder='CreatedDate' data-ng-model='EntityItem.CreatedDate'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Updated Date:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='UpdatedDate' placeholder='UpdatedDate' data-ng-model='EntityItem.UpdatedDate'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Updated By:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='UpdatedBy' placeholder='UpdatedBy' data-ng-model='EntityItem.UpdatedBy'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Last Action:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='LastAction' placeholder='LastAction' data-ng-model='EntityItem.LastAction'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Modified Date:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ModifiedDate' placeholder='ModifiedDate' data-ng-model='EntityItem.ModifiedDate'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Created By Audit Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='CreatedByAuditId' placeholder='CreatedByAuditId' data-ng-model='EntityItem.CreatedByAuditId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Modified By Audit Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ModifiedByAuditId' placeholder='ModifiedByAuditId' data-ng-model='EntityItem.ModifiedByAuditId'>
+		</div>
+	</div>
+
+</div>

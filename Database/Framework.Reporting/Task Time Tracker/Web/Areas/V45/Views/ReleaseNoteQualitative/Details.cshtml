@@ -1,0 +1,48 @@
+﻿
+
+
+@using DataModel.Framework.DataAccess
+@model Framework.Components.ReleaseLog.DomainModel.ReleaseNoteQualitativeDataModel
+@{
+	ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+	<legend>ReleaseNoteQualitative</legend>
+
+	<div class="display-label">
+		@Framework.Components.ReleaseLog.DomainModel.ReleaseNoteQualitativeDataModel.DataColumns.ReleaseNoteQualitativeId
+	</div>
+	<div class="display-field">
+		@Model.ReleaseNoteQualitativeId
+	</div>
+
+	<div class="display-label">
+		@StandardDataModel.StandardDataColumns.Name
+	</div>
+	<div class="display-field">
+		@Model.Name
+	</div>
+
+	<div class="display-label">
+		@StandardDataModel.StandardDataColumns.Description
+	</div>
+	<div class="display-field">
+		@Model.Description
+	</div>
+
+	<div class="display-label">
+		@StandardDataModel.StandardDataColumns.SortOrder
+	</div>
+	<div class="display-field">
+		@Model.SortOrder
+	</div>
+
+</fieldset>
+
+<p>
+	@Html.ActionLink("Edit", "Edit", new { id = @Model.ReleaseNoteQualitativeId }) |
+	@Html.ActionLink("Back to List", "Index")
+</p>

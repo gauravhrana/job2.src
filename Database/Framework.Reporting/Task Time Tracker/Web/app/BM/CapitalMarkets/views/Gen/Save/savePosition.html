@@ -1,0 +1,120 @@
+<ol class='breadcrumb'>
+	<li class='active'>Position Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Position Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='PositionId' data-ng-model='EntityItem.PositionId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Custodian Code:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='CustodianCode' placeholder='CustodianCode' data-ng-model='EntityItem.CustodianCode'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Strategy Code:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='StrategyCode' placeholder='StrategyCode' data-ng-model='EntityItem.StrategyCode'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Account Code:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='AccountCode' placeholder='AccountCode' data-ng-model='EntityItem.AccountCode'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Investment Code:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='InvestmentCode' placeholder='InvestmentCode' data-ng-model='EntityItem.InvestmentCode'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Quantity:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Quantity' placeholder='Quantity' data-ng-model='EntityItem.Quantity'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Cost Basis:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='CostBasis' placeholder='CostBasis' data-ng-model='EntityItem.CostBasis'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Market Value:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='MarketValue' placeholder='MarketValue' data-ng-model='EntityItem.MarketValue'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Start Market Value:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='StartMarketValue' placeholder='StartMarketValue' data-ng-model='EntityItem.StartMarketValue'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Delta Adjusted Exposure:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='DeltaAdjustedExposure' placeholder='DeltaAdjustedExposure' data-ng-model='EntityItem.DeltaAdjustedExposure'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Start Delta Adjusted Exposure:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='StartDeltaAdjustedExposure' placeholder='StartDeltaAdjustedExposure' data-ng-model='EntityItem.StartDeltaAdjustedExposure'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Realized Pn L:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='RealizedPnL' placeholder='RealizedPnL' data-ng-model='EntityItem.RealizedPnL'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Unrealized Pn L:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='UnrealizedPnL' placeholder='UnrealizedPnL' data-ng-model='EntityItem.UnrealizedPnL'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Period Date:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='PeriodDate' placeholder='PeriodDate' data-ng-model='EntityItem.PeriodDate'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Mark:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Mark' placeholder='Mark' data-ng-model='EntityItem.Mark'>
+		</div>
+	</div>
+
+</div>

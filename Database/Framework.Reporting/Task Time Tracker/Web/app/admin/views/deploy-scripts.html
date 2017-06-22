@@ -1,0 +1,136 @@
+﻿<ol class="breadcrumb">
+  <li><a href="#">App Configuration</a></li>
+  <li><a href="#">Beta</a></li>
+  <li class="active">Database Script Deployment</li>
+</ol>
+
+<div class="row">
+	
+	<div class="panel panel-info">
+
+		<div class="panel-title bg-info">&nbsp;
+			<span class="clickable" data-toggle="collapse" data-target="#pnlSearchParameters">
+				<i class="glyphicon glyphicon-chevron-up"></i>
+			</span>&nbsp;&nbsp;Search:
+		</div>
+
+		<div class="collapse in panel-body" id="pnlSearchParameters">
+
+			<div class="form-horizontal">
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Application:</label>
+					<div class="col-sm-9">
+						<select class="form-control" ng-model="objectDatabase" ng-options="dbName.ConnectionString for dbName in databaseNames track by dbName.ConnectionString">
+						</select>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Entity:</label>
+					<div class="col-sm-9">
+						<select ng-model="selectedEntity"
+						        ng-options="entityItem.EntityName  for entityItem in systemEntityTypes  track by entityItem.EntityName">
+						</select>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label"></label>
+					<div class="col-sm-9">
+						<button type="submit" value="Reset" class="btn btn-default" id="btnReset" ng-click="#" >Reset</button>
+						<button type="submit" value="Search" class="btn btn-primary " id="btnSearch" ng-click="generateProcedures();" >Generate</button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	
+	</div>
+
+</div>
+
+<div class="row">
+	
+		<div class="panel panel-info">
+
+			<div class="panel-title bg-info">&nbsp;
+				Procedures:
+			</div>
+
+			<div class="collapse in panel-body" id="coreContent">
+				
+				<div ng-show="showTabs">
+					<div data-hbo-tabs id="tabs">
+						<ul>
+							<li><a href="#insertProc">Insert</a></li>
+							<li><a href="#updateProc">Update</a></li>
+							<li><a href="#deleteProc">Delete</a></li>
+							<li><a href="#searchProc">Search</a></li>
+						</ul>
+						<div id="insertProc" title="Insert">
+							<section>
+								<div id="editorInsertProcedure" class="editor" ui-ace="{ onLoad : loadAceEditor }"
+								     ng-model="insertProcedureText">
+								</div>
+							</section>
+							<div class="row">
+								<div class="col-md-2">
+									<input type="button" value="Deploy" class="form-control"
+									       ng-click="deployProcedures('Insert');" />
+								</div>
+							</div>
+						</div>
+						<div id="updateProc" title="Update">
+							<section>
+								<div id="editorUpdateProcedure" class="editor" ui-ace="{ onLoad : loadAceEditor }"
+								     ng-model="updateProcedureText">
+								</div>
+							</section>
+							<div class="row">
+								<div class="col-md-2">
+									<input type="button" value="Deploy" class="form-control"
+									       ng-click="deployProcedures('Update');" />
+								</div>
+							</div>
+						</div>
+						<div id="deleteProc" title="Delete">
+							<section>
+								<div id="editorDeleteProcedure" class="editor" ui-ace="{ onLoad : loadAceEditor }"
+								     ng-model="deleteProcedureText">
+								</div>
+							</section>
+							<div class="row">
+								<div class="col-md-2">
+									<input type="button" value="Deploy" class="form-control"
+									       ng-click="deployProcedures('Delete');" />
+								</div>
+							</div>
+						</div>
+						<div id="searchProc" title="Search">
+							<section>
+								<div id="editorSearchProcedure" class="editor" ui-ace="{ onLoad : loadAceEditor }"
+								     ng-model="searchProcedureText">
+								</div>
+							</section>
+							<div class="row">
+								<div class="col-md-2">
+									<input type="button" value="Deploy" class="form-control"
+									       ng-click="deployProcedures('Search');" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+
+				<div>
+					<input type="button" value="Deploy All Procedures" class="form-control"
+					       ng-click="deployProcedures('All');" />
+				</div>
+			
+			</div>
+		</div>
+		
+	</div>
+</div>
+

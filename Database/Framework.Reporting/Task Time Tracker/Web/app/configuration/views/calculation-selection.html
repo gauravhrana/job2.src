@@ -1,0 +1,65 @@
+﻿<div class="page-header" style="padding-left: 10px;"><h3>{{title}}</h3></div>
+
+
+<div class="container-fluid" style="padding-left: 5px; padding-right: 5px;">
+    <div style="padding-left: 15px; padding-right: 15px; padding-bottom: 15px; width: 100%">
+        <h6>
+            <div ng-repeat="itemG in Grouped">
+                <div ng-repeat="item in itemG">
+                    <span ng-repeat="i in item.Items | filter:filterSelectedItem" style="padding-left: 5px;">
+                        <input type="checkbox" ng-model="i.Selected">
+                        <a ng-click="i.Selected = !i.Selected" title="{{i.Calculation.Description}}">
+                            {{i.Calculation.CalculationCode}}
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </h6>
+    </div>
+</div>
+
+<nav class="navbar navbar-default" style="padding-top: 10px;">   
+    <div class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+            <input type="text" ng-model="selectionSearchText" class="form-control" placeholder="Search" />            
+        </div>
+    </div>                   
+    <ul class="nav navbar-nav pull-right">
+        <li>
+            <button class="btn btn-link navbar-btn navbar-link" ng-click="AddCalcOk()">OK</button>
+            <button class="btn btn-link navbar-btn navbar-link" ng-click="AddCalcCancel()">Cancel</button>
+        </li>
+    </ul>  
+</nav>
+    
+<div style="max-height: 600px; overflow-y: scroll; padding: 15px;">
+    
+    <div class="container-fluid">
+        
+        <div class="row" ng-repeat="group in Grouped">
+
+            <div class="col-md-4" ng-repeat="itemG in group | filter:selectionSearchText">
+
+                <h4>{{itemG.Category}}</h4>
+
+                <h6>
+                    <table class="table table-condensed table-striped">
+                        <tr ng-repeat="item in itemG.Items | filter: selectionSearchText">
+                            <td>
+                                <input type="checkbox" ng-model="item.Selected">
+                                <a ng-click="item.Selected = !item.Selected" title="{{item.Calculation.Description}}">
+                                    {{item.Calculation.CalculationCode}}
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </h6>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+

@@ -1,0 +1,14 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.CapitalMarkets.dll" #>
+
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V1\Controller\EntitySaveControllerGeneratorHelper.tt" #>
+<#
+	this.RenderSaveControllers(	new string[]
+									{ 
+										"Option"
+									,	"Right"	
+																																				
+									},								 
+								"DataModel.CapitalMarkets"
+							);
+#>

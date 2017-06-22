@@ -1,0 +1,29 @@
+﻿	
+<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\_Generators\AngularUI\V1\ApiController\EntityAPIControllerGeneratorHelper.tt" #>
+<#
+	this.RenderAPIControllers(new string[]
+	{
+
+	"PortfolioGroupRules",
+	"AccountExcecutive",
+	"AccountAdministrator",
+	"DeliveryAgent",
+	"Issuer",
+	"Exchange",
+	"AgentBank",
+	"Trader",
+	"Analyst",	
+	"RatingServices",
+	"CompanyDealType",
+	"FinancialAccountClass",
+	"BrokerGroup",
+	"BrokerType",
+	"Security",
+	"SecurityType",
+	"SecurityTypeGroup"
+	},
+	 "Web.Api.Controllers", "DataModel.CapitalMarkets", "CapitalMarkets.Components.BusinessLayer");
+#>
+
+

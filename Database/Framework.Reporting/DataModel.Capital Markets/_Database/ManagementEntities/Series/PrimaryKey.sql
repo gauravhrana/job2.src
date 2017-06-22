@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Series
+ADD CONSTRAINT PK_Series PRIMARY KEY CLUSTERED 
+(
+	SeriesId
+)
+GO

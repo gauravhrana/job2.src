@@ -1,0 +1,48 @@
+﻿
+
+
+@using DataModel.Framework.DataAccess
+@model DataModel.TaskTimeTracker.ApplicationDevelopment.DBNameDataModel
+@{
+	ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+	<legend>DBName</legend>
+
+	<div class="display-label">
+		@DataModel.TaskTimeTracker.ApplicationDevelopment.DBNameDataModel.DataColumns.DBNameId
+	</div>
+	<div class="display-field">
+		@Model.DBNameId
+	</div>
+
+	<div class="display-label">
+		@StandardDataModel.StandardDataColumns.Name
+	</div>
+	<div class="display-field">
+		@Model.Name
+	</div>
+
+	<div class="display-label">
+		@StandardDataModel.StandardDataColumns.Description
+	</div>
+	<div class="display-field">
+		@Model.Description
+	</div>
+
+	<div class="display-label">
+		@StandardDataModel.StandardDataColumns.SortOrder
+	</div>
+	<div class="display-field">
+		@Model.SortOrder
+	</div>
+
+</fieldset>
+
+<p>
+	@Html.ActionLink("Edit", "Edit", new { id = @Model.DBNameId }) |
+	@Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,437 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#+
+
+	private void RenderHeadersForHtmlFileForGenericControl(string nameSpace)
+	{
+		WriteLine("<%@ Control Language='C#' AutoEventWireup='true' CodeBehind='Generic.ascx.cs' ");
+		WriteLine("Inherits='" + nameSpace + ".Controls.Generic' %>");
+		WriteLine("<%@ Register TagPrefix='dc' TagName='List' Src='~/Shared/Controls/HistoryList.ascx' %>");
+		WriteLine("<%@ Register Src='~/Shared/Controls/UpdateInfo.ascx' TagName='UpdateInfo' TagPrefix='ui' %>"); 
+	}
+
+	private void RenderHTMLForHtmlFileForGenericControl(string entityName)
+	{
+		WriteLine(string.Empty);
+		
+		WriteLine("<div class='form-horizontal'>");
+
+			WriteLine(string.Empty);
+			PushIndent("\t");
+			WriteLine("<div class='form-group'>");
+				WriteLine("<asp:Label ID='lbl" + entityName + "Id' Text='" + entityName + " Id:' runat='server' ");
+				WriteLine("CssClass='col-sm-2 control-label' AssociatedControlID='txt" + entityName + "Id'></asp:Label>");
+				WriteLine("div class='col-sm-8'>");
+
+					PushIndent("\t");
+					WriteLine("<asp:TextBox ID='txt" + entityName + "Id' runat='server' CssClass='form-control'></asp:TextBox>");
+					PopIndent();
+
+				WriteLine("</div>");
+				WriteLine("<div class='col-sm-2'>");
+					
+					PushIndent("\t");
+					WriteLine("<asp:PlaceHolder ID='dyn" + entityName + "Id' runat='server' />");
+					PopIndent();
+
+				WriteLine("</div>");
+				PopIndent();
+
+			WriteLine("</div>");
+
+			WriteLine(string.Empty);
+			WriteLine("<div class='form-group'>");
+				
+				PushIndent("\t");
+				WriteLine("<label class='col-sm-2 control-label' for='<%=txtName.ClientID%>'>Name:</label>");
+				WriteLine("<div class='col-sm-8'>");
+					
+					PushIndent("\t");
+					WriteLine("<asp:TextBox ID='txtName' runat='server' CssClass='form-control'></asp:TextBox>");
+					WriteLine("<span class='help-block'>A longer block of help text that breaks ");
+					WriteLine("onto a new line and may extend beyond one line.</span>");
+					PopIndent();
+
+				WriteLine("</div>");
+				WriteLine("<div class='col-sm-2'>");
+					
+					PushIndent("\t");
+					WriteLine("<asp:PlaceHolder ID='dynName' runat='server' />");
+					PopIndent();
+
+				WriteLine("</div>");
+				PopIndent();
+
+			WriteLine("</div>");
+
+			WriteLine(string.Empty);
+			WriteLine("<div class='form-group'>");
+				
+				PushIndent("\t");
+				WriteLine("label class='col-sm-2 control-label' for='txtDescription' >Description:</label>");
+				WriteLine("<div class='col-sm-8'>");
+					
+					PushIndent("\t");
+					WriteLine("<textarea id='txtDescription' runat='server' rows='3' cols='50' CssClass='form-control'></textarea>");
+					PopIndent();
+
+				WriteLine("</div>");					
+				WriteLine("div class='col-sm-2'>");
+					
+					PushIndent("\t");
+					WriteLine("<asp:PlaceHolder ID='dynDescription' runat='server' />");
+					PopIndent();
+
+				WriteLine("</div>");
+				PopIndent();
+
+			WriteLine("</div>");
+
+			WriteLine(string.Empty);
+			WriteLine("<div class='form-group'>");
+				
+				PushIndent("\t");
+				WriteLine("<label class='col-sm-2 control-label' for='<%=txtSortOrder.ClientID%>'>Sort Order:</label>");
+				WriteLine("<div class='col-sm-8'>");
+					
+					PushIndent("\t");
+					WriteLine("<asp:TextBox ID='txtSortOrder' runat='server' CssClass='form-control'></asp:TextBox>");
+					PopIndent();
+
+				WriteLine("</div>");
+				WriteLine("<div class='col-sm-2'>");
+
+					PushIndent("\t");
+					WriteLine("<asp:PlaceHolder ID='dynSortOrder' runat='server' />");
+					PopIndent();
+
+				WriteLine("</div>");
+				PopIndent();
+
+			WriteLine("</div>");
+
+			WriteLine(string.Empty);
+			WriteLine("<ui:UpdateInfo ID='oUpdateInfo' runat='server' />");
+			PopIndent();
+
+		WriteLine("</div>");
+
+		WriteLine("<asp:PlaceHolder ID='dynAuditHistory' runat='server' Visible='false'>");
+			
+			PushIndent("\t");
+			WriteLine("<div class='form-horizontal'>");
+
+				PushIndent("\t");
+				WriteLine("<div class='form-group'>");
+
+					PushIndent("\t");
+					WriteLine("<asp:Label ID='lblHistory' runat='server' Text='' CssClass='col-sm-2 control-label'/>");
+					WriteLine("<div class='col-sm-10'>.</div>");
+					PopIndent();
+
+				WriteLine("</div>");
+				WriteLine("<div class='form-group'>");
+					
+					PushIndent("\t");
+					WriteLine("<label class='col-sm-2 control-label'>Record History:</label>");
+					WriteLine("<div class='col-sm-10 control-label'>");
+						
+						PushIndent("\t");
+						WriteLine("<dc:List ID='oHistoryList' runat='server' />");
+						PopIndent();
+
+					WriteLine("</div>");
+					PopIndent();
+
+				WriteLine("</div>");
+				PopIndent();
+
+			WriteLine("</div>");
+			PopIndent();
+
+		WriteLine("</asp:PlaceHolder>");
+
+		WriteLine(string.Empty);
+		WriteLine("<div id='borderdiv' runat='server'><table></table></div>");
+
+	}
+
+#>
+<#+
+
+	private void RenderUsingTagsForCodeBehindForGenericControl(string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		WriteLine("using System;");
+		WriteLine("using Framework.Components.DataAccess;");
+		WriteLine("using Framework.UI.Web.BaseClasses;");
+		WriteLine("using Shared.WebCommon.UI.Web;");
+		WriteLine("using " + dataModelNameSpace + ";");
+		if(dataModelNameSpace != dataManagerNameSpace)
+		{
+			WriteLine("using " + dataManagerNameSpace + ";");
+		}
+		WriteLine(string.Empty);
+	}
+
+	private void RenderClassForCodeBehindForGenericControl(string entityName, string nameSpace)
+	{
+		
+		WriteLine("namespace " + nameSpace + ".Controls");
+		WriteLine("{");
+			
+			WriteLine(string.Empty);
+			PushIndent("\t");
+			WriteLine("public partial class Generic : ControlGenericStandard");
+			WriteLine("{");
+        
+				WriteLine(string.Empty);
+				PushIndent("\t");
+				WriteLine("#region methods");
+
+				WriteLine(string.Empty);
+				WriteLine("public override int? Save(string action)");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("var data = new " + entityName + "DataModel();");
+
+					WriteLine(string.Empty);
+					WriteLine("data." + entityName + "Id		= SystemKeyId;");
+					WriteLine("data.Name			= Name;");
+					WriteLine("data.Description	= Description;");
+					WriteLine("data.SortOrder		= SortOrder;");
+
+					WriteLine(string.Empty);
+					WriteLine("if (action == \"Insert\")");
+					WriteLine("{");
+						
+						PushIndent("\t");
+						WriteLine("var dt" + entityName + " = " + entityName + "DataManager.DoesExist(data, SessionVariables.RequestProfile);");
+
+						WriteLine(string.Empty);
+						WriteLine("if (dt" + entityName + ".Rows.Count == 0)");
+						WriteLine("{");
+							
+							PushIndent("\t");
+							WriteLine("" + entityName + "DataManager.Create(data, SessionVariables.RequestProfile);");
+							PopIndent();
+
+						WriteLine("}");
+						WriteLine("else");
+						WriteLine("{");
+							
+							PushIndent("\t");
+							WriteLine("throw new Exception(\"Record with given ID already exists.\");");
+							PopIndent();
+
+						WriteLine("}");
+					WriteLine("}");
+					WriteLine("else");
+					WriteLine("{");
+						
+						PushIndent("\t");
+						WriteLine("" + entityName + "DataManager.Update(data, SessionVariables.RequestProfile);");
+						PopIndent();
+
+					WriteLine("}");
+
+					WriteLine(string.Empty);
+					WriteLine("return data." + entityName + "Id;");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("public override void SetId(int setId, bool chkClientId)");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("ViewState[\"SetId\"] = setId;");
+
+					WriteLine(string.Empty);
+					WriteLine("LoadData((int)ViewState[\"SetId\"], chkClientId);");
+					WriteLine("CoreSystemKey.Enabled = chkClientId;");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("public void LoadData(int " + entityName + "Id, bool showId)");
+				WriteLine("{");
+
+					PushIndent("\t");
+					WriteLine("Clear();");
+
+					WriteLine(string.Empty);
+					WriteLine("var data = new " + entityName + "DataModel();");
+					WriteLine("data." + entityName + "Id = " + entityName + "Id;");
+
+					WriteLine(string.Empty);
+					WriteLine("var items = " + entityName + "DataManager.GetEntityDetails(data, SessionVariables.RequestProfile);");
+
+					WriteLine(string.Empty);
+					WriteLine("if (items.Count != 1) return;");
+					WriteLine("var item = items[0];");
+					WriteLine("SetData(item);");
+
+					WriteLine(string.Empty);
+					WriteLine("if (!showId)");
+					WriteLine("{");
+					
+						PushIndent("\t");
+						WriteLine("SystemKeyId = item." + entityName + "Id;");
+
+						WriteLine(string.Empty);
+						WriteLine("oHistoryList.Setup(PrimaryEntity, " + entityName + "Id, PrimaryEntityKey);");
+						PopIndent();
+
+					WriteLine("}");
+					WriteLine("else");
+					WriteLine("{");
+						
+						PushIndent("\t");
+						WriteLine("CoreSystemKey.Text = String.Empty;");
+						PopIndent();
+
+					WriteLine("}");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("protected override void Clear()");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("base.Clear();");
+					WriteLine("var data = new " + entityName + "DataModel();");
+					WriteLine("SetData(data);");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("public void SetData(" + entityName + "DataModel data)");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("SystemKeyId		= data." + entityName + "Id;");
+					WriteLine("base.SetData(data);");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("#endregion");
+
+				WriteLine(string.Empty);
+				WriteLine("#region Events");
+
+				WriteLine("protected override void Page_Load(object sender, EventArgs e)");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("var isTesting = SessionVariables.IsTesting;");
+					WriteLine("CoreSystemKey.Visible = isTesting;");
+					WriteLine("lbl" + entityName + "Id.Visible = isTesting;");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("protected override void OnInit(EventArgs e)");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("base.OnInit(e);");
+
+					WriteLine(string.Empty);
+					WriteLine("PrimaryEntity			= SystemEntity." + entityName + ";");
+					WriteLine("PrimaryEntityKey		= \"" + entityName + "\";");
+					WriteLine("FolderLocationFromRoot  = \"" + entityName + "\";");
+
+					WriteLine(string.Empty);
+					WriteLine("PlaceHolderCore			= dyn" + entityName + "Id;");
+					WriteLine("PlaceHolderAuditHistory = dynAuditHistory;");
+					WriteLine("BorderDiv				= borderdiv;");
+
+					WriteLine(string.Empty);
+					WriteLine("PlaceHolderAuditHistory.Visible = PerferenceUtility.GetUserPreferenceByKeyAsBoolean(ApplicationCommon.HistoryGridVisibilityKey, PrimaryEntityKey);");
+
+					WriteLine(string.Empty);
+					WriteLine("CoreSystemKey			= txt" + entityName + "Id;");
+					WriteLine("CoreControlName			= txtName;");
+					WriteLine("CoreControlDescription	= txtDescription;");
+					WriteLine("CoreControlSortOrder		= txtSortOrder;");
+
+					WriteLine(string.Empty);
+					WriteLine("CoreUpdateInfo			= oUpdateInfo;");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("#endregion");
+				PopIndent();
+
+			WriteLine("}");
+			PopIndent();
+
+		WriteLine("}");
+
+	}
+
+#>
+<#+	
+
+	private void GenerateDesignerFileForGenericControl(string entityName, string nameSpace)
+	{
+		WriteLine("namespace " + nameSpace + ".Controls {   ");
+    
+			WriteLine(string.Empty);
+			PushIndent("\t");
+			
+			WriteLine("public partial class Generic {");
+				
+				PushIndent("\t");
+				WriteLine("protected global::System.Web.UI.WebControls.Label lbl" + entityName + "Id;");
+				WriteLine("protected global::System.Web.UI.WebControls.TextBox txt" + entityName + "Id;");
+				WriteLine("protected global::System.Web.UI.WebControls.PlaceHolder dyn" + entityName + "Id;");
+				WriteLine("protected global::System.Web.UI.WebControls.TextBox txtName;");
+				WriteLine("protected global::System.Web.UI.WebControls.PlaceHolder dynName;");
+				WriteLine("protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDescription;");
+				WriteLine("protected global::System.Web.UI.WebControls.PlaceHolder dynDescription;");
+				WriteLine("protected global::System.Web.UI.WebControls.TextBox txtSortOrder;");
+				WriteLine("protected global::System.Web.UI.WebControls.PlaceHolder dynSortOrder;");
+
+				WriteLine("protected global::Shared.UI.Web.Controls.UpdateInfo oUpdateInfo;	");			
+				WriteLine("protected global::System.Web.UI.WebControls.PlaceHolder dynAuditHistory;");
+				WriteLine("protected global::System.Web.UI.WebControls.Label lblHistory;");
+				WriteLine("protected global::Shared.UI.Web.Controls.HistoryList oHistoryList;");
+				WriteLine("protected global::System.Web.UI.HtmlControls.HtmlGenericControl borderdiv;");
+				PopIndent();
+
+			WriteLine("}");
+			PopIndent();
+
+		WriteLine("}");
+
+	}
+
+	private void GenerateCodeBehindFileForGenericControl(string entityName, string nameSpace, string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		RenderUsingTagsForCodeBehindForGenericControl(dataModelNameSpace, dataManagerNameSpace);
+		RenderClassForCodeBehindForGenericControl(entityName, nameSpace);
+	}
+	
+	private void GenerateHtmlFileForGenericControl(string entityName, string nameSpace)
+	{
+		RenderHeadersForHtmlFileForGenericControl(nameSpace);
+		RenderHTMLForHtmlFileForGenericControl(entityName);
+	}
+
+#>

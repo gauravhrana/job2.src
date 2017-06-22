@@ -1,0 +1,87 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Index";
+}
+<h2>
+    Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @using (Html.BeginForm())
+    {    
+        <p>
+            Application: @Html.DropDownList("application", "All")
+            <br />
+            Name: @Html.TextBox("SearchString")
+            <br />
+            <input type="submit" value="Filter" />
+        </p> 
+    }
+</p>
+<table border="1" cellspacing="5" cellpadding="5">
+    <tr>
+        <th>
+            @Framework.Components.ApplicationUser.ApplicationRole.DataColumns.ApplicationRoleId
+        </th>
+        <th>
+            @Framework.Components.ApplicationUser.ApplicationRole.DataColumns.Application
+        </th>
+        <th>
+            @Framework.Components.ApplicationUser.ApplicationRole.DataColumns.Name
+        </th>
+        <th>
+            @Framework.Components.ApplicationUser.ApplicationRole.DataColumns.Description
+        </th>
+        <th>
+            @Framework.Components.ApplicationUser.ApplicationRole.DataColumns.SortOrder
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (System.Data.DataRow item in Model.Rows)
+    {
+        <tr>
+            <td>
+                @item[Framework.Components.ApplicationUser.ApplicationRole.DataColumns.ApplicationRoleId]
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item[Framework.Components.ApplicationUser.ApplicationRole.DataColumns.Application])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item[Framework.Components.ApplicationUser.ApplicationRole.DataColumns.Name])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item[Framework.Components.ApplicationUser.ApplicationRole.DataColumns.Description])
+            </td>
+            <td>
+                @item[Framework.Components.ApplicationUser.ApplicationRole.DataColumns.SortOrder]
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item[Framework.Components.ApplicationUser.ApplicationRole.DataColumns.ApplicationRoleId] })
+                |
+                @Html.ActionLink("Details", "Details", new { id = item[Framework.Components.ApplicationUser.ApplicationRole.DataColumns.ApplicationRoleId] })
+                |
+                @Html.ActionLink("Delete", "Delete", new { id = item[Framework.Components.ApplicationUser.ApplicationRole.DataColumns.ApplicationRoleId] })
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="6">
+            <div style="width: 30%; float: left;">
+                Page @ViewBag.CurrentPage of @ViewBag.TotalPages</div>
+            <div style="width: 100%; text-align: right;">
+                @for (var i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    if (i == ViewBag.CurrentPage)
+                    {                    
+                    @i
+                    }
+                    else
+                    {                        
+                    @Html.ActionLink(i.ToString(), "Index", new { application = ViewBag.applicationSearchString, searchString = ViewBag.searchString, page = i })
+                    }
+                    @Html.Raw(" ");
+                }
+            </div>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Calendar
+ADD CONSTRAINT PK_Calendar PRIMARY KEY CLUSTERED 
+(
+	CalendarId
+)
+GO

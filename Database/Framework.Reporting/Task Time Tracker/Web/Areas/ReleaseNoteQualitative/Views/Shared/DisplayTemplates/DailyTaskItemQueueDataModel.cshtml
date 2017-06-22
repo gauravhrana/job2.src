@@ -1,0 +1,64 @@
+﻿@model DataModel.TaskTimeTracker.TimeTracking.DailyTaskItemQueueDataModel
+
+@{
+    ViewBag.Title = "DailyTaskItemQueueDataModel";
+}
+<h2>Daily Task Item Queue</h2>
+
+@Html.HiddenFor(modelItem => @Model.DailyTaskItemQueueId)
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.TimeTracking.DailyTaskItemQueueDataModel.DataColumns.DailyTaskItemQueueId
+</div>
+<div class="display-field">
+    @Model.DailyTaskItemQueueId
+</div>
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.TimeTracking.DailyTaskItemQueueDataModel.DataColumns.Name
+</div>
+<div class="display-field">
+    @Model.Name
+</div>
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.TimeTracking.DailyTaskItemQueueDataModel.DataColumns.Description
+</div>
+<div class="display-field">
+    @Model.Description
+</div>
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.TimeTracking.DailyTaskItemQueueDataModel.DataColumns.SortOrder
+</div>
+<div class="display-field">
+    @Model.SortOrder
+</div>
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.TimeTracking.DailyTaskItemQueueDataModel.DataColumns.DailyTaskItemQueueStatus
+</div>
+<div class="display-field">
+    @Model.DailyTaskItemQueueStatus
+</div>
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.TimeTracking.DailyTaskItemQueueDataModel.DataColumns.BusinessDate
+</div>
+<div class="display-field">
+    @Model.BusinessDate
+</div>
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.TimeTracking.DailyTaskItemQueueDataModel.DataColumns.AssignedBy
+</div>
+<div class="display-field">
+    @Model.AssignedBy
+</div>
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.TimeTracking.DailyTaskItemQueueDataModel.DataColumns.AssignedTo
+</div>
+<div class="display-field">
+    @Model.AssignedTo
+</div>

@@ -1,0 +1,13 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\..\_Generators\AngularUI\V1\Controller\EntitySaveControllerGeneratorHelper.tt" #>
+<#
+	this.RenderSaveControllers(	new string[]
+									{
+											"FoodType" ,
+											"Department" , 
+											"Course" ,
+											"Registration" 
+									},								 
+								"DataModel.DayCare"
+							);
+#>

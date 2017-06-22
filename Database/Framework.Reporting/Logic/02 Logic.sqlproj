@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+    <PostConversionRemoveFromScc>
+    </PostConversionRemoveFromScc>
+    <PostConversionAddToScc>
+    </PostConversionAddToScc>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <TargetDatabase>02 Logic</TargetDatabase>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>02 Logic</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+    <RootNamespace>Database</RootNamespace>
+    <DefaultSchema>dbo</DefaultSchema>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <SccAuxPath />
+    <SccLocalPath>..\..</SccLocalPath>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3723077a-3a18-4aeb-8c6c-1e2eb99e571f}</ProjectGuid>
+    <GenerateDatabaseFile>False</GenerateDatabaseFile>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <AnsiNullDefault>True</AnsiNullDefault>
+    <AnsiNulls>True</AnsiNulls>
+    <AnsiPadding>True</AnsiPadding>
+    <AnsiWarnings>True</AnsiWarnings>
+    <ArithAbort>True</ArithAbort>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DatabaseState>ONLINE</DatabaseState>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultCursor>LOCAL</DefaultCursor>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <PageVerify>NONE</PageVerify>
+    <Parameterization>SIMPLE</Parameterization>
+    <QuotedIdentifier>True</QuotedIdentifier>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <Recovery>FULL</Recovery>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <TornPageDetection>False</TornPageDetection>
+    <Trustworthy>False</Trustworthy>
+    <UpdateOptions>READ_WRITE</UpdateOptions>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>Logic</TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>Logic</TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <Folder Include="Functions" />
+    <Folder Include="Rules" />
+    <Folder Include="Stored Procedures" />
+    <Folder Include="Deploy Scripts" />
+    <Folder Include="Views" />
+    <Folder Include="Views\Indexes" />
+    <Folder Include="Views\Statistics" />
+    <Folder Include="Views\Triggers" />
+    <Folder Include="Functions\External Calls" />
+    <Folder Include="Stored Procedures\Report" />
+    <Folder Include="Stored Procedures\ReportCategory" />
+    <Folder Include="Stored Procedures\ReportXReportCategory" />
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Deploy Scripts\deployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Deploy Scripts\ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Deploy Scripts\ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Deploy Scripts\deployDb.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Report\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Report\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Report\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Report\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Report\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Report\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Report\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Report\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Report\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Report\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Report\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportCategory\_DeployDB.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportCategory\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportCategory\_ProcsFunctions.cmd">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportCategory\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportCategory\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportCategory\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportCategory\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportCategory\DoesExist.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportCategory\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportCategory\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportCategory\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportXReportCategory\Update.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportXReportCategory\Search.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportXReportCategory\List.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportXReportCategory\Insert.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportXReportCategory\Details.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportXReportCategory\DeleteHard.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportXReportCategory\Delete.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\ReportXReportCategory\Clone.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Stored Procedures\Report\ChildrenGet.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Debug.publish.xml" />
+    <None Include="Release.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Permissions.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Schema\01 Schema.sqlproj">
+      <Name>01 Schema</Name>
+      <Project>{173f6acc-bcf2-4346-9044-abed9fb62b3e}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

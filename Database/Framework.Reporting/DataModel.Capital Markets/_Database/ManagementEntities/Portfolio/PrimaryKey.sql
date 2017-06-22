@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Portfolio
+ADD CONSTRAINT PK_Portfolio PRIMARY KEY CLUSTERED 
+(
+	PortfolioId
+)
+GO

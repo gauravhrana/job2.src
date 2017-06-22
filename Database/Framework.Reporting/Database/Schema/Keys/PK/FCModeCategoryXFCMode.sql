@@ -1,0 +1,6 @@
+﻿ALTER TABLE dbo.FCModeCategoryXFCMode
+	ADD CONSTRAINT PK_FCModeCategoryXFCMode PRIMARY KEY CLUSTERED 
+	(
+		FCModeCategoryXFCModeId
+	)  
+GO

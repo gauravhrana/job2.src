@@ -1,0 +1,127 @@
+<ol class='breadcrumb'>
+	<li class='active'>Strategy Search</li>
+</ol>
+
+<div class='panel panel-info'>
+
+	<div class='panel-title bg-info'>
+		&nbsp;<span class='clickable' data-toggle='collapse' data-target='#pnlSearchParameters'>
+			<i class='glyphicon glyphicon-chevron-up'></i>
+		</span>&nbsp;&nbsp;Search:
+	</div>
+
+	<div class='collapse in panel-body' id='pnlSearchParameters'>
+
+		<div class='form-horizontal'>
+			<div class='form-group' ng-repeat='fcItem in searchFieldConfigurations' ng-switch on='fcItem.ControlType' for='{{fcItem.Name}}'>
+
+				<ng-form name='searchFieldForm' ng-switch-when='kendoAutoComplete'>
+					<label class='col-sm-2 control-label'>{{fcItem.FieldConfigurationDisplayName}}:</label>
+					<div class='col-sm-10'>
+						<input type='text' kendo-auto-complete class='form-control' k-data-source='sourceItem[fcItem.Name]' ng-model='fcItem.Value' style='width: 200px;' />
+					</div>
+				</ng-form>
+
+				<ng-form name='searchFieldForm' ng-switch-when='kendoCombo'>
+					<label class='col-sm-2 control-label'>{{fcItem.FieldConfigurationDisplayName}}:</label>
+					<div class='col-sm-10'>
+						<select  kendo-combo-box class='form-control' k-data-source='sourceItem[fcItem.Name]' k-data-text-field="'name'" k-data-value-field="'id'" ng-model='fcItem.Value' style='width: 200px;' />
+						<a href='{{fcItem.URL}}' target='_blank'><span class='glyphicon glyphicon-eye-open'></span></a> 
+					</div>
+				</ng-form>
+
+				<ng-form name='searchFieldForm' ng-switch-when='kendoComboGroupBy'>
+					<label class='col-sm-2 control-label'>{{fcItem.FieldConfigurationDisplayName}}:</label>
+					<div class='col-sm-10'>
+						<select  kendo-combo-box class='form-control' k-data-source='sourceItem[fcItem.Name]' k-data-text-field="'FieldConfigurationDisplayName'" k-data-value-field="'Name'" ng-model='fcItem.Value' style='width: 200px;' />                   
+					</div>
+				</ng-form>
+			</div>
+
+			<div class='form-group'>
+				<label class='col-sm-2 control-label'></label>
+				<div class='col-sm-10'>
+					<button type='submit' value='Reset' class='btn btn-default' id='btnReset' ng-click='resetSearchData();'>Reset</button>
+					<button type='submit' value='Search' class='btn btn-default' id='search' ng-click='searchData();'>Search</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class='panel panel-info'>
+
+	<div class='panel-title bg-info'>
+		&nbsp;<div class='pull-right'>
+			Columns:
+			<select ng-model='myFcMode' ng-change='reloadFC(myFcMode)' ng-options='fcMode.Name  for fcMode in fcModes  track by fcMode.FieldConfigurationModeId'>
+			</select>
+		</div>
+	</div>
+
+	<div class='panel-body'>
+
+		<div ng-if='groupingLevel == 0'>
+			<table ng-table='tableParams' class='table table-bordered'>
+				<tr>
+					<th ng-repeat='fcColumn in columns' ng-show='fcColumn.visible'>{{fcColumn.displayName}}</th>
+					<th>Actions</th>
+				</tr>
+				<tr ng-repeat='dataItem in entityItems'>
+					<td ng-repeat='column in columns' ng-show='column.visible' class='text-{{column.HorizontalAlignment.toLowerCase()}}'>{{dataItem[column.field]}}</td>
+					<td><a ng-href='#/{{entityUrl}}/save/{{dataItem[PrimaryKey]}}' class='btn btn-default ng-binding btn-xs' ng-class='size ? 'btn-' + size : '''' title='Edit'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></a> <a ng-href='#/{{entityUrl}}/detail/{{dataItem[PrimaryKey]}}'  class='btn btn-default ng-binding btn-xs' ng-class='size ? 'btn-' + size : '''' title='Detail'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></td>
+				</tr>
+			</table>
+		</div>
+
+		<tabset ng-if='groupingLevel == 1'>            
+			<tab ng-repeat='groupByVal in groupValues' heading='{{groupByVal}}'>
+				<table ng-table='tableParams' class='table table-bordered'>
+					<tr>
+						<th ng-repeat='fcColumn in columns' ng-show='!(fcColumn.field == groupByColumn)'>{{fcColumn.displayName}}</th>
+						<th>Actions</th>
+					</tr>
+					<tr ng-repeat='dataItem in groups[groupByVal]'>
+						<td ng-repeat='column in columns' ng-show='!(column.field == groupByColumn)' class='text-{{column.HorizontalAlignment.toLowerCase()}}'>{{dataItem[column.field]}}</td>
+						<td><a ng-href='#/{{entityUrl}}/save/{{dataItem[PrimaryKey]}}' class='btn btn-default ng-binding btn-xs' ng-class='size ? 'btn-' + size : '''' title='Edit'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></a> <a ng-href='#/{{entityUrl}}/detail/{{dataItem[PrimaryKey]}}'  class='btn btn-default ng-binding btn-xs' ng-class='size ? 'btn-' + size : '''' title='Detail'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></td>
+					</tr>
+				</table>
+			</tab>
+		</tabset>
+
+		<tabset ng-if='groupingLevel == 2'>
+			<tab ng-repeat='groupByVal in groupValues' heading='{{groupByVal}}'>
+				<tabset>
+					<tab ng-repeat='subGroupByVal in subGroupValues[groupByVal]' heading='{{subGroupByVal}}'>
+						<table ng-table='tableParams' class='table table-bordered'>
+							<tr>
+								<th ng-repeat='fcColumn in columns' ng-show='!(fcColumn.field == groupByColumn || fcColumn.field == subGroupByColumn)'>{{fcColumn.displayName}}</th>
+								<th>Actions</th>
+							</tr>
+							<tr ng-repeat='dataItem in subGroups[groupByVal][subGroupByVal]'>
+								<td ng-repeat='column in columns' ng-show='!(column.field == groupByColumn || column.field == subGroupByColumn)' class='text-{{column.HorizontalAlignment.toLowerCase()}}'>{{dataItem[column.field]}}</td>
+								<td><a ng-href='#/{{entityUrl}}/detail/{{dataItem[PrimaryKey]}}'>Detail</a> <a ng-href='#/{{entityUrl}}/save/{{dataItem[PrimaryKey]}}'>Edit</a></td>
+							</tr>
+						</table>
+					</tab>
+				</tabset>
+			</tab>
+		</tabset>
+	</div>
+
+	<nav class='navbar navbar-default'>
+		<div class='pull-left'>
+			<button type='submit' value='AdNew' class='btn btn-default' id='Button1' ng-click='addNew();'>Insert</button>
+			<button type='submit' value='Delete' class='btn btn-default' id='Button2'>Delete</button>
+			<button type='submit' value='Update' class='btn btn-default' id='Button3'>Update</button>
+			<button type='submit' value='CommonUpdate' class='btn btn-default' id='Button4'>Common Update</button>
+			<button type='submit' value='InlineUpdate' class='btn btn-default' id='Button5'>Inline Update</button>
+		</div>
+		<div class='pull-right'>
+			<button type='submit' value='SetTest' class='btn btn-default' id='Button6'>Set Test</button>
+			<button type='submit' value='SetReal' class='btn btn-default' id='Button7'>Set Real</button>
+			<button type='submit' value='Renumber' class='btn btn-default' id='Button10'>Renumber</button>
+		</div>
+	</nav>
+</div>

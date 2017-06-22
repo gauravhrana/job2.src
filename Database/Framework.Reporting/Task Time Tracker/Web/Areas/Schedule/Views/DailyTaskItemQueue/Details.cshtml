@@ -1,0 +1,19 @@
+﻿
+
+
+@model List<DataModel.TaskTimeTracker.TimeTracking.DailyTaskItemQueueDataModel>
+@{
+	ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+	<legend>DailyTaskItemQueue</legend>
+    @Html.DisplayFor(Model => Model)     	
+</fieldset>
+
+<p>
+	@*@Html.ActionLink("Edit", "Edit", new { id = @Model.DailyTaskItemQueueId }) |*@
+	@Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,19 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V1\Controller\EntityDetailControllerGeneratorHelper.tt" #>
+<#
+	this.RenderDetailControllers(new string[]{
+   
+	"InvestmentPrices",
+	"FundPrices",
+	"Annotations",
+	"PriceType",
+	"PriceMarket",
+	"PriceProvider",
+	"PriceSource",
+	"PriceList",
+	"PriceSchedule",
+	"BusinessUnit",
+	"SubBusinessUnit"
+
+	});
+#>

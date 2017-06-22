@@ -1,0 +1,6 @@
+ALTER TABLE dbo.FundPrices
+ADD CONSTRAINT PK_FundPrices PRIMARY KEY CLUSTERED 
+(
+	FundPricesId
+)
+GO

@@ -1,0 +1,5 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\_Generators\AngularUI\V0\EntityAPIControllerGeneratorHelper.tt" #>
+<#
+	this.RenderAPIControllers(new string[]{"Continent", "Country","Currency", "GeographicRegion","Religion", "Airport", "City", "HelpLine", "Mall", "Monument", "Region", "State", "TimeZone", "TrainStation", "Calendar", "Holiday" }, "Web.Api.Controllers", "DataModel.ReferenceData", "DayCare.Components.BusinessLayer");
+#>

@@ -1,0 +1,22 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V1\Controller\EntityDetailControllerGeneratorHelper.tt" #>
+<#
+	this.RenderDetailControllers(new string[]{
+
+	"InvestingFeeder",
+	"CustodianAccount",
+	"Class",
+	"SubClass",
+	"Series",
+	"AllocationGroup", 	
+	"LegalEntity", 
+	"ManagementFirm",
+	"PortfolioType",
+	"Portfolio",
+	"PortfolioGroupRules",
+	"Strategy",
+	"StrategyGroup",
+	"Trader",
+	"CompanyDealType"	
+	});
+#>

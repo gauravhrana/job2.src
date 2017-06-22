@@ -1,0 +1,20 @@
+﻿.ClickedButton  
+ {  
+     padding: 6px;  
+     font-family: Tahoma;  
+     font-size: 12px;  
+     background-color: #808080;  
+     color: #FFFFFF;  
+     text-decoration: none;  
+     text-align: left;  
+     font-weight: normal;  
+     width: 130px;  
+     position: absolute;  
+} 
+
+.FormLabels
+{  
+     font-family: Tahoma;   
+     font-weight: bold;
+     color: Black;    
+} 

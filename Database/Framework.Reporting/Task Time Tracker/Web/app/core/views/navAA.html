@@ -1,0 +1,18 @@
+﻿<ul class="nav navbar-nav">
+
+    <li class="main btn" ng-repeat="item in menu" ng-mouseover="showSubMenu(item, $index)"></li>
+
+    <li data-dropdown data-is-open="nOpen">
+        <a data-dropdown-toggle id="A7" class="dropdown-toggle" data-toggle="dropdown">Working Items<span class="caret"></span></a>
+
+        <ul class="dropdown-menu">
+            <li><a ng-href="/TimeEntry/Home/#/applicationMode/search">Application Mode</a></li>
+            <li><a ng-href="/TimeEntry/Home/#/applicationRole/search">Application Role</a></li>
+            <li><a ng-href="/TimeEntry/Home/#/menuCategory/search">Menu Category</a></li>
+            <li><a ng-href="/TimeEntry/Home/#/fieldConfigurationMode/search">Field Configuration Mode</a></li>
+            <li><a ng-href="/TimeEntry/Home/#/language/search">Language</a></li>
+            <li><a ng-href="/TimeEntry/Home/#/menuCategory/search2">Menu Category ng-table</a></li> 
+        </ul>
+    </li>
+
+</ul>

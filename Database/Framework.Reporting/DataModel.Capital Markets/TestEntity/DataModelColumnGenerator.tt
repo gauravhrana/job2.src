@@ -1,0 +1,13 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ 
+	include file="../../../Generators/Generators.Components/DataModelColumnGeneratorHelper.tt" 
+#>
+<#
+	
+#>
+ 
+
+
+
+
+

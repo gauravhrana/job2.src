@@ -1,0 +1,13 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.DayCare.dll" #>
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V1\View\EntityDetailViewGeneratorHelper.tt" #>
+<#
+		this.RenderDetailViews(	new string[]
+									{
+	"TransactionType" 
+
+	
+									},								 
+								"DataModel.CapitalMarkets"
+							);
+#>

@@ -1,0 +1,6 @@
+ALTER TABLE dbo.AgentBank
+ADD CONSTRAINT PK_AgentBank PRIMARY KEY CLUSTERED 
+(
+	AgentBankId
+)
+GO

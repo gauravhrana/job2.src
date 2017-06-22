@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Exchange
+ADD CONSTRAINT PK_Exchange PRIMARY KEY CLUSTERED 
+(
+	ExchangeId
+)
+GO

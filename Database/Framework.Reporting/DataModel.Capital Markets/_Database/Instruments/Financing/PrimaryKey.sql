@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Financing
+ADD CONSTRAINT PK_Financing PRIMARY KEY CLUSTERED 
+(
+	FinancingId
+)
+GO

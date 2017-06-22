@@ -1,0 +1,113 @@
+﻿<ul class="nav navbar-nav">
+
+    <li class="main btn" ng-repeat="item in menu" ng-mouseover="showSubMenu(item, $index)"></li>
+
+    <li data-dropdown data-is-open="NonStdEntitiyOpen">
+        <a href="#" data-dropdown-toggle id="A6" class="dropdown-toggle" data-toggle="dropdown">Non Standard Entites<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li class="menu-item">
+                <a href="/AreaPrototype/Home/#/EventSubType/search">Event Sub Type</a></li>
+        </ul>
+    </li>
+
+    <li data-dropdown data-is-open="nOpen">
+        <a href="#" data-dropdown-toggle id="R7" class="dropdown-toggle" data-toggle="dropdown">Nested Drop Down<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li class="menu-item dropdown dropdown-submenu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Level 1</a>
+                <ul class="dropdown-menu">
+                    <li class="menu-item">
+                        <a href="#">Link 1</a>
+                    </li>
+                    <li class="menu-item dropdown dropdown-submenu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Level 2</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Link 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+
+    <li data-dropdown data-is-open="nOpen">
+
+        <a data-dropdown-toggle id="A7" class="dropdown-toggle" data-toggle="dropdown">Working Items<span class="caret"></span></a>
+
+        <ul class="dropdown-menu">
+            <li><a ng-href="#/applicationMode/search">Application Mode</a></li>
+            <li><a ng-href="#/applicationRole/search">Application Role</a></li>
+            <li><a ng-href="#/menuCategory/search">Menu Category</a></li>
+            <li><a ng-href="#/fieldConfigurationMode/search">Field Configuration Mode</a></li>
+            <li><a ng-href="#/language/search">Language</a></li>
+            <li><a ng-href="#/menuCategory/search2">Menu Category ng-table</a></li> 
+        </ul>
+    </li>
+
+    <li data-dropdown data-is-open="adminOpen">
+
+        <a data-dropdown-toggle id="A2" class="dropdown-toggle" data-toggle="dropdown">Admin<span class="caret"></span></a>
+
+        <ul class="dropdown-menu">
+
+            <li><a ng-href="#/applicationMode/search">Application Mode</a></li>
+            <li><a ng-href="#/runtimeFeatures">RunTime Feature</a></li>
+
+            <li><a ng-href="#/applications">Application</a></li>
+            <li><a ng-href="#/applicationRoles">Application Role</a></li>
+            <li><a ng-href="#/applicationUserTitles">Application User Title</a></li>
+
+            <li><a ng-href="#/dateRangeTitles">Date Range Title</a></li>
+            <li><a ng-href="#/entityDateRangeStateTypes">Entity Date Range State Type</a></li>
+            <li><a ng-href="#/entityDateRangeState">Entity Date Range State</a></li>
+
+            <li><a ng-href="#/themes">Theme</a></li>
+            <li><a ng-href="#/themeCategories">Theme Category</a></li>
+            <li><a ng-href="#/themeKeys">Theme Key</a></li>
+            <li><a ng-href="#/themeDetails">Theme Details</a></li>
+
+            <li><a ng-href="#/systemForeignRelationShipTypes">System Foreigh Releationship Type</a></li>
+            <li><a ng-href="#/systemForeignRelationShipDatabases">System Foreigh Releationship Database</a></li>
+
+
+            <li><a ng-href="#/connectionStrings">Connection String</a></li>
+            <li><a ng-href="#/application Relations">Application Relation</a></li>
+
+            <li><a ng-href="#/fieldConfigurationModeCategories">Field Configuration Mode Category</a></li>
+            <li><a ng-href="#/fieldConfigurationModes">Field Configuration Mode</a></li>
+
+            <li><a ng-href="#/menuCategories">Menu Category</a></li>
+
+        </ul>
+    </li>
+    <li data-dropdown data-is-open="admin2Open">
+        <a data-dropdown-toggle id="A1" class="dropdown-toggle" data-toggle="dropdown">Admin2<span class="caret"></span></a>
+
+        <ul class="dropdown-menu">
+
+            <li><a href="#/userLoginStatuses">User Login Status</a></li>
+            <li><a href="#/systemEntityTypes">System Entity Type</a></li>
+            <li><a href="#/systemEntityTypeCategories">System Entity Type Category</a></li>
+
+            <li><a href="#/userPreferenceDataTypes">User Preference Data Type</a></li>
+            <li><a href="#/userPreferenceCategories">User Preference Category</a></li>
+
+            <li><a href="#/taskEntityTypes">Task Entity Type</a></li>
+            <li><a href="#/taskScheduleTypes">Task Schedule Type</a></li>
+            <li><a href="#/taskEntities">Task Entity</a></li>
+
+            <li><a href="#/applicationMonitoredEventSources">Application Monitored Event Source</a></li>
+            <li><a href="#/applicationMonitoredEventProcessingStates">Application Monitored Processing State</a></li>
+
+            <li><a href="#/notificationEventTypes">Notification Event Type</a></li>
+            <li><a href="#/notificationPublishers">Notification Publisher</a></li>
+            <li><a href="#/notificationRegistrars">Notification Registrar</a></li>
+            <li><a href="#/notificationSubscribers">Notification Subscriber</a></li>
+
+            <li><a href="#/timeZones">Time Zone</a></li>
+            <li><a href="#/countries">Country</a></li>
+        </ul>
+    </li>
+</ul>

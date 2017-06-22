@@ -1,0 +1,6 @@
+ALTER TABLE dbo.TaxStatus
+ADD CONSTRAINT PK_TaxStatus PRIMARY KEY CLUSTERED 
+(
+	TaxStatusId
+)
+GO

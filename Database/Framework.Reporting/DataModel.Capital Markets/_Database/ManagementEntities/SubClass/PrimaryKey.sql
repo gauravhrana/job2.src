@@ -1,0 +1,6 @@
+ALTER TABLE dbo.SubClass
+ADD CONSTRAINT PK_SubClass PRIMARY KEY CLUSTERED 
+(
+	SubClassId
+)
+GO

@@ -1,0 +1,8 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\..\_Generators\AngularUI\V1\View\EntityListTableViewGeneratorHelper.tt" #>
+<#
+	this.RenderListTableViews(new string[]
+								{
+										"EventSubType"
+								});
+#>

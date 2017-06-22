@@ -1,0 +1,9 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\Generators\ForPages\DetailPageGeneratorHelper.tt" #>
+<#
+this.GenerateDetailPageFiles(	"Risk",	
+								"ApplicationContainer.UI.Web.RiskAndReward.Demo", 
+								"DataModel.TaskTimeTracker.RiskReward",
+								"TaskTimeTracker.Components.Module.RiskReward" 
+							);
+#>

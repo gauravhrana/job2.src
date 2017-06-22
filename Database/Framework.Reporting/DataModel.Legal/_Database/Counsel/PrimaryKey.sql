@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Counsel
+ADD CONSTRAINT PK_Counsel PRIMARY KEY CLUSTERED 
+(
+	CounselId
+)
+GO

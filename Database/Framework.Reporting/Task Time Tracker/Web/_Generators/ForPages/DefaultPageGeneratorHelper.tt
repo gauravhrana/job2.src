@@ -1,0 +1,193 @@
+﻿<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+
+<#+
+
+	private void RenderHeadersForHtmlFileForDefaultPage(string nameSpace)
+	{
+		WriteLine("<%@ Page Title='Default' Language='C#' MasterPageFile='~/MasterPages/Default.master' ");
+		WriteLine("AutoEventWireup='true' CodeBehind='Default.aspx.cs' ");
+		WriteLine("Inherits='" + nameSpace + ".Default' %>");
+
+		WriteLine(string.Empty);
+		WriteLine("<%@ MasterType TypeName='Framework.UI.Web.BaseClasses.PageDefaultMaster' %>");
+
+		WriteLine(string.Empty);
+		WriteLine("<%@ Register src='./Controls/SearchFilter.ascx' TagPrefix='sr' TagName='SearchFilter' %>");
+		WriteLine("<%@ Register src='~/Shared/Controls/GroupList.ascx' TagPrefix='dc' TagName='GroupList' %>");
+
+		WriteLine(string.Empty);
+		WriteLine("<%@ Register TagPrefix='vc' TagName='VCManager' Src='~/Shared/Controls/ControlVisibilityManager.ascx' %>");		
+	}
+	
+	private void RenderHTMLForHtmlFileForDefaultPage(string entityName)
+	{		
+		WriteLine(string.Empty);
+		WriteLine("<asp:Content ID='Content2' runat='server' ContentPlaceHolderID='HeadContent'></asp:Content>");
+
+		WriteLine(string.Empty);
+		WriteLine("<asp:Content ID='ContentSectionName' runat='server' ContentPlaceHolderID='SectionName'>" + entityName + "</asp:Content>");
+
+		WriteLine(string.Empty);
+		WriteLine("<asp:Content ID='ContentControlItem' runat='server' ContentPlaceHolderID='SearchControlItem'>");
+			
+			PushIndent("\t");
+			WriteLine("<sr:SearchFilter ID='oSearchFilter' runat='server' />");
+			PopIndent();
+
+		WriteLine("</asp:Content>");
+
+		WriteLine(string.Empty);
+		WriteLine("<asp:Content ID='ContentListControlItem' runat='server' ContentPlaceHolderID='ListControlItem'>");
+			
+			PushIndent("\t");
+			WriteLine("<dc:GroupList ID='oGroupList' runat='server' />");
+			PopIndent();
+
+		WriteLine("</asp:Content>");
+
+		WriteLine(string.Empty);
+		WriteLine("<asp:Content ID='ContentActionContent' runat='server' ContentPlaceHolderID='ActionContent'></asp:Content>");
+
+		WriteLine(string.Empty);
+		WriteLine("<asp:Content ID='ContentVisibilityManager' runat='server' ContentPlaceHolderID='ControlVisibilityManager'>");
+
+			PushIndent("\t");
+			WriteLine("<vc:VCManager ID='oVC' runat='server' />");
+			PopIndent();
+
+		WriteLine("</asp:Content>");
+	}
+
+#>
+<#+
+
+	private void RenderUsingTagsForCodeBehindForDefaultPage(string nameSpaceDataManager)
+	{
+		WriteLine("using System;");
+		WriteLine("using System.Data;");
+		WriteLine("using Shared.WebCommon.UI.Web;");
+		WriteLine("using Framework.Components.DataAccess;");
+		WriteLine("using Framework.UI.Web.BaseClasses;");
+		WriteLine("using " + nameSpaceDataManager + ";");		
+	}
+
+	private void RenderCodeBehindClassForDefaultPage(string entityName, string nameSpace)
+	{		
+		WriteLine(string.Empty);		
+		WriteLine("namespace " + nameSpace);
+		WriteLine("{");
+			
+			PushIndent("\t");
+			WriteLine("public partial class Default : PageDefault");
+			WriteLine("{    ");    
+				
+				PushIndent("\t");
+				WriteLine("protected override DataTable GetData()");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("var dt = " + entityName + "DataManager.Search(oSearchFilter.SearchParameters, SessionVariables.RequestProfile);");
+					WriteLine("return dt;");
+					PopIndent();
+
+				WriteLine("}");
+        
+				WriteLine(string.Empty);
+				WriteLine("protected override void OnInit(EventArgs e)");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("base.OnInit(e);");
+
+					WriteLine(string.Empty);
+					WriteLine("PrimaryEntity           = SystemEntity." + entityName + ";");
+					WriteLine("PrimaryEntityKey		= \"" + entityName + "\";");
+					WriteLine("PrimaryEntityIdColumn	= \"" + entityName + "Id\";");                
+					
+					WriteLine(string.Empty);
+					WriteLine("MasterPageCore			= Master;      ");          
+					WriteLine("SubMenuCore				= Master.SubMenuObject;");
+					WriteLine("BreadCrumbObject		= Master.BreadCrumbObject;");
+					
+					WriteLine(string.Empty);
+					WriteLine("SearchFilterCore		= oSearchFilter.GetFilter(PrimaryEntity, PrimaryEntityKey);	");					
+
+					WriteLine(string.Empty);
+					WriteLine("GroupListCore			= oGroupList;");
+
+					WriteLine(string.Empty);
+					WriteLine("IsDynamicSearchControl	= true;");
+
+					WriteLine(string.Empty);
+					WriteLine("VisibilityManagerCore = oVC;  "); 
+					PopIndent();
+					                     
+				WriteLine("}    ");   
+				PopIndent();
+				 
+			WriteLine("}");
+			PopIndent();
+
+		WriteLine("}");
+		WriteLine(string.Empty);
+
+	}
+
+#>
+
+<#+	
+
+	public void GenerateDesignerFileForDefaultPage(string nameSpace)
+	{
+		
+		WriteLine("namespace " + nameSpace + " {   ");
+    
+			WriteLine(string.Empty);
+			PushIndent("\t");
+			WriteLine("public partial class Default {");
+				
+				WriteLine(string.Empty);
+				PushIndent("\t");
+				WriteLine("protected global::" + nameSpace + ".Controls.SearchFilter oSearchFilter;");
+				WriteLine("protected global::Shared.UI.Web.Controls.GroupList oGroupList;");
+				WriteLine("protected global::Shared.UI.Web.Controls.ControlVisibilityManager oVC;");
+
+				WriteLine(string.Empty);
+				WriteLine("public new Framework.UI.Web.BaseClasses.PageDefaultMaster Master {");
+					
+					PushIndent("\t");
+					WriteLine("get {");
+						
+						PushIndent("\t");
+						WriteLine("return ((Framework.UI.Web.BaseClasses.PageDefaultMaster)(base.Master));");
+						PopIndent();
+
+					WriteLine("}");
+					PopIndent();
+
+				WriteLine("}");
+				PopIndent();
+
+			WriteLine("}");
+			PopIndent();
+
+		WriteLine("}");
+	}
+
+	public void GenerateHtmlFileForDefaultPage(string entityName, string nameSpace)
+	{
+		RenderHeadersForHtmlFileForDefaultPage(nameSpace);
+		RenderHTMLForHtmlFileForDefaultPage(entityName);
+	}
+
+	public void GenerateCodeBehindFileForDefaultPage(string entityName, string nameSpace, string nameSpaceDataManager)
+    {
+		RenderUsingTagsForCodeBehindForDefaultPage(nameSpaceDataManager);					
+		RenderCodeBehindClassForDefaultPage(entityName, nameSpace);
+	}
+
+#>

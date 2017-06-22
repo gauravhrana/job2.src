@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Styles.Render("~/Content/kendo")
+    @Styles.Render("~/Content/bootstrap")
+
+    @Scripts.Render("~/bundles/kendo")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <link href="@Url.Content("~/Areas/ReleaseNoteQualitative/Content/Site.css")" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="@Url.Content("~/Areas/ReleaseNoteQualitative/Scripts/SearchFilterConfiguration.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Areas/ReleaseNoteQualitative/Scripts/CommonScripts.js")"></script>
+
+</head>
+<body>
+
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                @*<p class="site-title">@Html.ActionLink("Task Tracker & Time - MVC", "Index", "Home")</p>*@
+                <p class="site-title">
+                    @{Html.RenderAction("Header", "Header");}
+                </p>
+            </div>
+
+        </div>
+    </header>
+
+    <div id="body">
+
+        <ul id="kendo-menu">
+            <li>Home
+				<ul>
+                <li><a href="~/AppConfiguration/Home/">App Configuration</a></li>
+                @if (Shared.WebCommon.UI.Web.SessionVariables.RequestProfile.ApplicationId == 100)
+                {
+                <li><a href="/Default.aspx">PMT Home</a></li>
+                }
+                else if(Shared.WebCommon.UI.Web.SessionVariables.RequestProfile.ApplicationId == 100047)
+                {
+                <li><a href="/BM/Scheduling/Default.aspx">Time Entry Home</a></li>
+                }
+                <li>@Html.ActionLink("MVC Home", "Index", "Home", new { area = "ReleaseNoteQualitative" }, null)</li>
+            </ul>
+            </li>
+             @if (Shared.WebCommon.UI.Web.SessionVariables.RequestProfile.ApplicationId == 100)
+            { 
+           <li>Kendo UI
+                <ul>
+                    <li>@Html.ActionLink("AutoComplete", "AutoCompleteSample", "AutoComplete", new { area = "ReleaseNoteQualitative" }, null)</li>
+                </ul>
+            </li>
+             }
+            <li>Release Log Qualitative
+                <ul>
+                    <li>@Html.ActionLink("Logistics Difficulty", "Index", "ReleaseNoteLogisticsDifficulty", new { area = "ReleaseNoteQualitative" }, null)<hr />
+                    </li>
+
+                    <li>@Html.ActionLink("Business Difficulty", "Index", "ReleaseNoteBusinessDifficulty", new { area = "ReleaseNoteQualitative" }, null)</li>
+                    <li>@Html.ActionLink("Technical Difficulty", "Index", "ReleaseNoteTechnicalDifficulty", new { area = "ReleaseNoteQualitative" }, null)</li>
+                    <li>@Html.ActionLink("Business Value", "Index", "ReleaseNoteBusinessValue", new { area = "ReleaseNoteQualitative" }, null)</li>
+                    <li>@Html.ActionLink("Developer Value", "Index", "ReleaseNoteDeveloperValue", new { area = "ReleaseNoteQualitative" }, null)<hr />
+                    </li>
+                    <li>-------------</li>
+                    @*<li>@Html.ActionLink("DB Name", "Index", "DBName", new { area = "ReleaseNoteQualitative" }, null)</li>
+                    <li>@Html.ActionLink("DB Project Name", "Index", "DBProjectName", new { area = "ReleaseNoteQualitative" }, null)</li>
+                    <li>@Html.ActionLink("DB Component Name", "Index", "DBComponentName", new { area = "ReleaseNoteQualitative" }, null)</li>*@
+                    <li>@Html.ActionLink("Development Category", "Index", "DevelopmentCategory", new { area = "ReleaseNoteQualitative" }, null)</li>
+                    <li>@Html.ActionLink("Release Feature", "Index", "ReleaseFeature", new { area = "ReleaseNoteQualitative" }, null)</li>
+                </ul>
+            </li>
+            <li>Application Development
+                <ul>
+                    <li>@Html.ActionLink("DB Name", "Index", "DBName", new { area = "ApplicationDevelopment" }, null)</li>
+                    <li>@Html.ActionLink("DB Project Name", "Index", "DBProjectName", new { area = "ApplicationDevelopment" }, null)</li>
+                    <li>@Html.ActionLink("DB Component Name", "Index", "DBComponentName", new { area = "ApplicationDevelopment" }, null)</li>
+                     
+                </ul>
+            </li>
+            <li>FunctionalityDevelopmentStep
+                <ul>
+                    <li>@Html.ActionLink("Functionality Development Step", "Index", "FunctionalityDevelopmentStep", new { area = "FunctionalityDevelopmentStep" }, null)</li>
+                    <li>@Html.ActionLink("Functionality X Functionality Development Step", "Index", "FunctionalityXFunctionalityDevelopmentStep", new { area = "FunctionalityDevelopmentStep" }, null)</li>
+                </ul>
+            </li>
+
+            @if (Shared.WebCommon.UI.Web.SessionVariables.RequestProfile.ApplicationId == 100047)
+            { 
+            <li>Schedule
+                <ul>
+                    <li>@Html.ActionLink("Custom Time Category", "Index", "CustomTimeCategory", new { area = "Schedule" }, null)</li>
+                    <li>@Html.ActionLink("Daily Task Item Queue", "Index", "DailyTaskItemQueue", new { area = "Schedule" }, null)</li>
+                    <li>@Html.ActionLink("Daily Task Item Queue Status", "Index", "DailyTaskItemQueueStatus", new { area = "Schedule" }, null)</li>
+                    <li>@Html.ActionLink("Schedule Detail Activity Category", "Index", "ScheduleDetailActivityCategory", new { area = "Schedule" }, null)</li>
+
+                </ul>
+            </li>
+            }
+        </ul>
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            <div class="container-fluid">
+
+                <div class="row">
+                    @RenderBody()
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#kendo-menu").kendoMenu();
+        });
+    </script>
+
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+            </div>
+            <div class="float-right">
+                <ul id="social">
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

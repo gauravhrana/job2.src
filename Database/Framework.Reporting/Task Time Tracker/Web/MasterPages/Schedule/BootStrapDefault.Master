@@ -1,0 +1,185 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BootStrapDefault.master.cs" Inherits="TaskTimeTracker.UI.Web.MasterPages.Schedule.BootStrapDefault" %>
+
+<%@ Register TagName="QuickSearchControl" TagPrefix="qs" Src="~/Shared/Controls/QuickSearch/QuickSearch.ascx" %>
+<%@ Register TagPrefix="sm" TagName="SubMenu" Src="~/Shared/Controls/SubMenu/SubMenu.ascx" %>
+<%@ Register TagPrefix="bc" TagName="BreadCrumb" Src="~/Shared/Controls/BreadCrumb/BreadCrumb.ascx" %>
+<%@ Register Src="~/Shared/Controls/SliderMenu.ascx" TagName="SliderMenu" TagPrefix="sm" %>
+
+<!DOCTYPE html>
+<html>
+<head id="Head1" runat="server">
+    <meta charset="”utf-8”">
+    <title></title>
+
+    <link href="~/Styles/Reset.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+
+    <link href="/Styles/Style.aspx" rel="stylesheet" type="text/css" />
+    <link href="/Styles/StyleMenu.aspx" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="/Content/themes/base/jquery-ui.css" type="text/css">
+
+    <!-- Kendo -->
+    <link href="/styles/kendo/kendo.common.min.css" rel="stylesheet" type="text/css" />
+    <link href="/styles/kendo/kendo.default.min.css" rel="stylesheet" type="text/css" />
+
+    <!--Bootstrap -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <!--Bootstrap Theme -->
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery -->
+    <script src="/Scripts/jquery-2.1.0.min.js"></script>
+
+    <!--Bootstrap -->
+    <script src="/Scripts/bootstrap.min.js"></script>
+
+    <!-- Kendo -->
+    <script src="/scripts/kendo/full/kendo.web.min.js"></script>
+
+    <!--List Control -->
+    <script src="/Scripts/ListControl.js"></script>
+
+    <script type="text/javascript">
+        function showhideborder(istesting) {
+            if (!istesting) {
+                var myObj = document.getElementsByClassName('searchtd');
+                // alert(myObj == null);
+                if (myObj != null) {
+                    for (var i = 0; i < myObj.length; i++) {
+                        myObj[i].style['border-color'] = 'White';
+                    }
+                }
+            }
+        }
+    </script>
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <ajaxToolkit:ToolkitScriptManager runat="Server" EnablePageMethods="true" ID="ScriptManager1">
+            <Services>
+                <asp:ServiceReference Path="~/AutoComplete.asmx" />
+            </Services>
+        </ajaxToolkit:ToolkitScriptManager>
+
+        <div class="container-fluid">
+            <div class="header">
+
+                <div class="loginDisplay" style="display: none">
+                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                        <AnonymousTemplate>
+                            [ <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a>
+                            ]
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            Welcome <span class="bold">
+                                <asp:LoginName ID="HeadLoginName" runat="server" />
+                            </span>! [
+                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
+                            LogoutPageUrl="~/" />
+                            ]
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3 borderless">
+                            <asp:HyperLink ID="HyperLink1" ImageUrl="~/home.png" runat="server" NavigateUrl="~/Default.aspx" ForeColor="#4b6c9e" />
+                            <input id="showRight" type="button" value="[R]" />
+                            <input id="showBottom" type="button" value="[B]" />
+                            <input id="showTopPush" type="button" value="[TP]" />
+                            <input id="showBottomPush" type="button" value="[BP]" />
+                        </div>
+                        <div class="col-md-1 borderless">
+                            <asp:ContentPlaceHolder ID="ControlVisibilityManager" runat="server" />
+                        </div>
+                        <div class="col-md-4 borderless">
+                            <h1>Time Entry
+                            </h1>
+                        </div>
+                        <div class="col-md-2 borderless">
+                            <qs:QuickSearchControl ID="QuickSearchControlId" runat="server" />
+                        </div>
+                        <div class="col-md-1 borderless">
+                            <asp:HyperLink runat="server" ForeColor="Black" Font-Size="Small" ID="hprCustomise">
+                     Customize </asp:HyperLink>
+                        </div>
+                        <div class="col-md-1 borderless">
+                            <asp:HyperLink ID="HyperLink2" NavigateUrl="#" runat="server" BorderStyle="None" ImageUrl="~/Content/Images/user_male_go.png" BorderWidth="0" ForeColor="#4b6c9e"></asp:HyperLink>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="menuContainer">
+                        <asp:Menu ID="NavigationMenu" runat="server" CssClass="app-main-menu"
+                            EnableViewState="false"
+                            IncludeStyleBlock="false" Orientation="Horizontal">
+
+                            <DynamicItemTemplate>
+                                <asp:Label runat="server" ID="Label1" Text='<%# Eval("Text") %>' CssClass='<%# GetItemCSSStyle( Eval("Value") ) %>' />
+                            </DynamicItemTemplate>
+
+                            <StaticItemTemplate>
+                                <asp:Label runat="server" ID="Label1" Text='<%# Eval("Text") %>' CssClass='<%# GetItemCSSStyle( Eval("Value") ) %>' />
+                            </StaticItemTemplate>
+
+                        </asp:Menu>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid" style="padding-left: 25px; padding-top: 5px;">
+            <div class="container-fluid" style="padding-bottom: 10px;">
+                <div class="row">
+                    <div class="col-md-10 borderless">
+                        <%--<div class="myBreadcrumb">--%>
+                        <div class="container">
+                            <div class="row">
+                                <div class="span6">
+                                    <ul class="breadcrumb">
+                                        <bc:BreadCrumb ID="oBreadCrumb" runat="server" />
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <%-- </div>--%>
+                        <div id="dvSearchFilter" runat="server">
+                            <asp:ContentPlaceHolder ID="SearchControlItem" runat="server" />
+                        </div>
+                    </div>
+                    <div class="col-md-2 borderless">
+                        <sm:SubMenu ID="oSubMenu" runat="server" />
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <asp:ContentPlaceHolder ID="SectionName" runat="server" />
+            </div>
+            <div class="container-fluid">
+                <asp:ContentPlaceHolder ID="ListControlItem" runat="server" />
+            </div>
+            <div class="container-fluid">
+                <asp:ContentPlaceHolder ID="ActionContent" runat="server" />
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="footer">
+                <asp:Label ID="lblPerson" runat="server" /><asp:Label ID="lblStatus" runat="server"
+                    Style="font-size: medium; color: White;" />
+            </div>
+        </div>
+
+        <sm:SliderMenu ID="oSliderMenu" runat="server" />
+
+    </form>
+</body>
+</html>

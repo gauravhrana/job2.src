@@ -1,0 +1,47 @@
+﻿<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+
+    <div class="container-fluid">
+
+	    <div class="navbar-header">
+
+		    <div class="navbar-brand hidden-md hidden-sm">Legal</div>
+
+		    <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+		    </button>
+
+	    </div>
+		
+		
+
+	    <div class="navbar-collapse" ng-class="isCollapsed ? 'collapse' : 'in'">
+
+            <!--dynamic menu-->
+
+              <ul class="nav navbar-nav">
+  <li class="main btn" ng-repeat="item in menu" ng-mouseover="showSubMenu(item, $index)"></li>
+                 
+                   <li data-dropdown data-is-open="Beta">
+                    <a data-dropdown-toggle id="A6">Beta<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/Beta/test-restangular/search">sample restangular</a></li>
+                    </ul>
+                </li>
+
+                  </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/login">Login</a></li>
+                <li data-dropdown data-is-open="applicationsOpen">
+                    <a data-dropdown-toggle id="A3">Applications <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <div data-ng-include="'../../app/core/views/application-list.html'"></div>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

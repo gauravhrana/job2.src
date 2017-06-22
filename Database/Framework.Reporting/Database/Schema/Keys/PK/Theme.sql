@@ -1,0 +1,6 @@
+﻿ALTER TABLE dbo.Theme
+	ADD CONSTRAINT PK_Theme PRIMARY KEY CLUSTERED 
+	(
+		ThemeId
+	)  
+GO

@@ -1,0 +1,7 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ 
+	include file="../../../../Generators/Generators.Components/DataModelGeneratorHelper.tt" 
+#>
+<#
+	this.GenerateDataModelFiles("DataModel.ReferenceDataSample", new [] {"Country", "Religion", "Continent", "Currency", "GeographicRegion", "Airport", "City", "HelpLine", "Mall", "Monument", "Region", "State", "TimeZone", "TrainStation", "Calendar", "Holiday" } );
+#>

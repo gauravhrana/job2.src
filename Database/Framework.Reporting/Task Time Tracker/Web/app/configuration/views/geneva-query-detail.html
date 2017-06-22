@@ -1,0 +1,106 @@
+﻿<div class="page-header"><h3>Geneva Query</h3></div>
+    
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+        <li><a data-ng-href="#/genevaQueries" title="Back"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a></li>
+        <li><a data-ng-click="save();"><span class="glyphicon glyphicon-floppy-disk"></span> Save</a></li>
+        <li><a data-ng-click="delete();"><span class="glyphicon glyphicon-remove"></span> Delete</a></li>
+    </ul>
+</nav>
+<div class="form-horizontal">
+    <div class="form-group">
+        <label for="GenevaQueryCode" class="col-sm-2 control-label">Code</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="GenevaQueryCode" placeholder="Code" data-ng-model="query.GenevaQueryCode">
+        </div>
+    </div>    
+    <div class="form-group">
+        <label for="DetailCode" class="col-sm-2 control-label">Detail</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="DetailCode" placeholder="DetailCode" data-ng-model="query.DetailCode">
+        </div>
+    </div>        
+</div>
+
+<div class="panel panel-primary" >
+    <div class="panel-heading" ng-click="isSelectCollapsed = !isSelectCollapsed">SELECT</div>
+    <div class="panel-body" collapse="isSelectCollapsed">
+        <div class="well" ng-repeat="column in query.GenevaQueryColumns">
+            <button type="button" class="close" ng-click="removeColumn(column)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <div class="row form-group">
+                <label for="Code" class="col-sm-2 control-label">Column Name</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="ColumnName" placeholder="Column Name" data-ng-model="column.GenevaQueryColumnCode">
+                </div>
+
+                <div class="col-sm-2"><label for="GroupBy" class="control-label">Group By</label></div>
+                <div class="col-sm-2"><input type="checkbox" id="GroupBy" data-ng-model="column.GroupBy"></div>
+            </div>
+
+            <div class="row form-group">
+                <label for="Formula" class="col-sm-2 control-label">Formula</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="Formula" data-ng-model="column.Formula" rows="3"></textarea>
+                </div>
+            </div>
+
+
+        </div>
+        <button class="btn btn-link" ng-click="addColumn()">Add Column</button>
+    </div>
+</div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading" ng-click="isFromCollapsed = !isFromCollapsed">FROM</div>
+    <div class="panel-body" collapse="isFromCollapsed">        
+        <div class="col-sm-12">
+            <textarea class="form-control" id="Formula" data-ng-model="query.FromEntity" rows="1"></textarea>
+        </div>        
+    </div>
+</div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading" ng-click="isGivenCollapsed = !isGivenCollapsed">GIVEN</div>
+    <div class="panel-body" collapse="isGivenCollapsed">
+
+        <div class="well" ng-repeat="given in query.GenevaQueryGivens">
+            <button type="button" class="close" ng-click="removeGiven(given)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <div class="row form-group">
+                <label for="GivenName" class="col-sm-2 control-label">Given Name</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="GivenName" placeholder="Given Name" data-ng-model="given.GenevaQueryGivenCode">
+                </div>
+
+                <label for="GivenValue" class="col-sm-2 control-label">Given Value</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="GivenValue" placeholder="Given Value" data-ng-model="given.GivenValue">
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-link" ng-click="addGiven()">Add Given</button>
+    </div>
+</div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading" ng-click="isDisaggregateCollapsed = !isDisaggregateCollapsed">DISAGGREGATE</div>
+    <div class="panel-body" collapse="isDisaggregateCollapsed">
+        <div class="col-sm-12">
+            <textarea class="form-control" id="Formula" data-ng-model="query.DisaggregateClause" rows="3"></textarea>
+        </div>        
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading" ng-click="isWhereCollapsed = !isWhereCollapsed">WHERE</div>
+    <div class="panel-body" collapse="isWhereCollapsed">
+        <div class="col-sm-12">
+            <textarea class="form-control" id="Formula" data-ng-model="query.WhereClause" rows="3"></textarea>
+        </div>        
+    </div>
+</div>
+
+
+

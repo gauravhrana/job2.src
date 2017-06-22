@@ -1,0 +1,176 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ include file="../../../MultipleOutputFileHelper.tt" #>
+<#@ include file="../../../UtilityHelper.tt" #>
+
+<#+
+
+	void AddBreadCrumbForSaveView(string entityName)
+	{
+		WriteLine("<ol class='breadcrumb'>");
+		
+			PushIndent("\t");
+			WriteLine("<li class='active'>" + InsertSpaceInCamelCase(entityName) + " Details</li>");
+			PopIndent();
+
+		WriteLine("</ol>");
+	}
+
+	void AddButtonsForSaveView(string entityName)
+	{		
+		WriteLine(string.Empty);
+		WriteLine("<nav class='navbar navbar-default'>");
+			
+			PushIndent("\t");
+			WriteLine("<ul class='nav navbar-nav'>");
+				
+				PushIndent("\t");
+				WriteLine("<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>");
+				WriteLine("<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>");
+				WriteLine("<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>");
+				PopIndent();
+
+			WriteLine("</ul>");
+			PopIndent();
+
+		WriteLine("</nav>");
+	}
+
+	void AddInputControlsForSaveView(string entityName, PropertyInfo[] properties)
+	{
+		WriteLine(string.Empty);
+		WriteLine("<div class='form-horizontal'>");
+
+			PushIndent("\t");
+			
+			foreach (var propInfo in properties)
+			{
+				if(propInfo.Name != "ApplicationId" && propInfo.Name != "EntityKey")
+				{					
+					var attributes = propInfo.GetCustomAttributes(false);
+					
+					var columnMappingPK = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.PrimaryKey));
+					var columnMappingFKName = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.ForeignKeyName));
+					var columnMappingFK = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.ForeignKey));
+					var columnMappingOnlyProperty = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.OnlyProperty));
+
+					if(columnMappingPK != null)
+					{
+						WriteLine(string.Empty);
+						WriteLine("<div class='form-group'>");
+				
+							PushIndent("\t");
+							WriteLine("<label for='SummaryCode' class='col-sm-2 control-label'>" + InsertSpaceInCamelCase(propInfo.Name) + ":</label>");
+							WriteLine("<div class='col-sm-10'>");
+					
+								PushIndent("\t");
+								WriteLine("<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='" + propInfo.Name + "' data-ng-model='EntityItem." + propInfo.Name + "'>");
+								PopIndent();
+
+							WriteLine("</div>");
+							PopIndent();
+
+						WriteLine("</div>");
+					}
+					else if(columnMappingFKName != null)
+					{						 
+						var srcColumn = ((Framework.Components.DataAccess.ForeignKeyName)columnMappingFKName).SourceTextColumn; 
+						var joinColumn = ((Framework.Components.DataAccess.ForeignKeyName)columnMappingFKName).JoinColumn; 
+						var fkColumn = ((Framework.Components.DataAccess.ForeignKeyName)columnMappingFKName).ForiegnKeyColumn; 
+
+						WriteLine(string.Empty);
+						WriteLine("<div class='form-group'>");
+				
+							PushIndent("\t");
+							WriteLine("<label for='SummaryCode' class='col-sm-2 control-label'>" + InsertSpaceInCamelCase(propInfo.Name) + ":</label>");
+							WriteLine("<div class='col-sm-10'>");
+					
+								PushIndent("\t");
+								WriteLine("<select class='form-control' ng-model='selected" + propInfo.Name + "Item' ");
+								WriteLine("		ng-options='srcItem." + srcColumn + " for srcItem in " + propInfo.Name + "List track by srcItem." + joinColumn + "'>");
+								WriteLine("</select>");
+								PopIndent();
+
+							WriteLine("</div>");
+							PopIndent();
+
+						WriteLine("</div>");
+					}
+					else if(columnMappingFK != null || columnMappingOnlyProperty != null){}
+					else
+					{
+						WriteLine(string.Empty);
+						WriteLine("<div class='form-group'>");
+				
+							PushIndent("\t");
+							WriteLine("<label for='Name' class='col-sm-2 control-label'>" + InsertSpaceInCamelCase(propInfo.Name) + ":</label>");
+							WriteLine("<div class='col-sm-10'>");
+					
+								PushIndent("\t");
+								WriteLine("<input type='text' class='form-control' id='" + propInfo.Name + "' placeholder='" + propInfo.Name + "' data-ng-model='EntityItem." + propInfo.Name + "'>");
+								PopIndent();
+
+							WriteLine("</div>");
+							PopIndent();
+
+						WriteLine("</div>");
+					}
+				}
+			}
+			PopIndent();
+
+		WriteLine(string.Empty);
+		WriteLine("</div>");
+	}
+
+#>
+
+<#+
+
+	void RenderSaveView(string entityName, string dataModelNameSpace)
+	{
+		var className = entityName + "DataModel";
+		var classType = dataModelNameSpace + "." + className;
+		
+		//WriteLine("Class: " + className);
+		//WriteLine("Class Type: " + classType);
+
+		foreach (Assembly currentassembly in AppDomain.CurrentDomain.GetAssemblies()) 
+		{
+			var modelType = currentassembly.GetType(classType);
+			if(modelType != null)
+			{
+				var properties = modelType.GetProperties();
+
+				AddBreadCrumbForSaveView(entityName);
+				AddButtonsForSaveView(entityName);
+				AddInputControlsForSaveView(entityName, properties);
+
+				break;
+			}
+		}
+	}
+
+	void RenderSaveViews(string[] entities, string dataModelNameSpace)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+			foreach(string entityName in entities)
+			{	
+				manager.StartNewFile("save" + entityName + ".html");
+				this.RenderSaveView(entityName, dataModelNameSpace);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+#>

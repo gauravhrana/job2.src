@@ -1,0 +1,63 @@
+﻿@model ApplicationContainer.Web.Api.Models.HomeModel
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="App Configuration">
+        <meta name="author" content="Indus Valley Technology and Solutions">
+
+        <title>Project Management</title>
+
+        @Styles.Render(string.Format("~/bundles/{0}", "None"))
+		
+		@*<link href="/Styles/StyleMenu.aspx" rel="stylesheet" type="text/css" />*@
+
+	    @Styles.Render("~/bundles/css")
+        @Styles.Render("~/Content/themes/base/css")
+        @Styles.Render("~/Content/kendo")
+
+
+	    @Scripts.Render("~/bundles/modernizr")
+		@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+		@Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/angular")
+        @Scripts.Render("~/bundles/kendo")
+		@Scripts.Render("~/bundles/bower") 
+
+		@Scripts.Render("~/bundles/AppConfiguration")
+
+	    @Scripts.Render("~/bundles/mvc")
+
+		@Styles.Render("~/bundles/kendo")
+
+	    @Styles.Render("~/Content/bower") 
+
+	    <link href="/Styles/NavMenu.css" rel="stylesheet" type="text/css" />
+
+	    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+		
+	    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet" />
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+
+    </head>
+
+    <body data-ng-app="rootAppShell">
+
+	    <div class="container-fluid">
+
+			<div data-ng-include="'../../app/core/views/nav.html'"></div>
+
+		    <div data-ng-include="'../../app/core/components/Messaging.html'"></div>
+
+            <div data-ng-view="" class="col-sm-12"></div>
+
+        </div>
+
+    </body>
+
+</html>

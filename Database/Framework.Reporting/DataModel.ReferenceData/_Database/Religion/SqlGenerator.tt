@@ -1,0 +1,8 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ 
+	include file="../../../../Generators/Generators.SQL/SQLStandardEntity/EntitySqlGeneratorHelper.tt"
+#>
+<#
+	//this.GenerateSqlFiles("DataModel.DayCare", "Continent", "ContinentDataModel", "Location", "706", "Welcome1");
+	this.GenerateSqlFiles("DataModel.ReferenceData", "Religion", "ReligionDataModel", "Calendar", "706", "Welcome1");
+#>

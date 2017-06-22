@@ -1,0 +1,26 @@
+CustodianID,Name,Code,WebSite
+1,'Mellon Bank','MELLON','www.mellonbank.com'
+2,'Amalgamated Bank','AMG','ww.abtrustweb.com'
+3,'Sun Company','SUN','www.lookatmyaccount.com'
+4,'Northern Trust','NOTRUST',
+5,'JPMorgan Chase','CHASE',
+6,'Investors Bank & Trust Company','INVBKTRUST',
+7,'State Street','STATEST',
+8,'RBC Global Services','RBC',
+9,'Ernst & Young (Australia)','E&Y',
+11,'Bank of New York','BoNY',
+12,'Comerica',,'https://cma.fi-web.com/Weblink/logon/frmlogon.aspx?ReturnUrl=%2fWeblink%2fDesktopDefault.aspx'
+13,'New Mexico','NM',
+14,'Wachovia','WACHOVIA','www.wachovia.com'
+15,'PNC','PNC','www.pnc.com'
+16,'Wells Fargo','WFC','www.wellsfargo.com'
+17,'Bank Of America','BofA','www.bofa.com'
+18,'MI/Savannah','MI-S',''
+19,'Fiduciary Trust','FIDT',''
+20,'Citigroup','CITI','www.citigroup.com'
+21,'Union Bank','UNION','www.unionbank.com'
+22,'Union Bank and Trust','UBT','www.ubtmn.com'
+23,'Fifth Third Direct','FTD','https://direct.53.com/direct/logon53Direct.jsp'
+25,'US Bank','USBANK',
+26,'Huntington Bank','HUNT','https://www.huntington.com/'
+27,'Key Bank','Key','https://www.key.com/personal/index.jsp?key=com'

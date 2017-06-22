@@ -1,0 +1,6 @@
+﻿SecurityTypeGroupId,SecurityTypeGroupCode,SecurityTypeGroupDesc
+1,EQ,Equity
+2,FI,Fixed Income
+3,FX,Currency
+4,CM,Commodity
+5,Other,Other

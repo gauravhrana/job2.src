@@ -1,0 +1,6 @@
+ALTER TABLE dbo.CreditDeal
+ADD CONSTRAINT PK_CreditDeal PRIMARY KEY CLUSTERED 
+(
+	CreditDealId
+)
+GO

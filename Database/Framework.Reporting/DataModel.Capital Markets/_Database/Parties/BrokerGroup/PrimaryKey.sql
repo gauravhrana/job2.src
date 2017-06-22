@@ -1,0 +1,6 @@
+ALTER TABLE dbo.BrokerGroup
+ADD CONSTRAINT PK_BrokerGroup PRIMARY KEY CLUSTERED 
+(
+	BrokerGroupId
+)
+GO

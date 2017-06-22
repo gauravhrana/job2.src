@@ -1,0 +1,282 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ include file="../../../MultipleOutputFileHelper.tt" #>
+<#@ include file="../../../UtilityHelper.tt" #>
+
+<#+
+
+	void RenderJsFunctions(PropertyInfo[] properties)
+	{
+
+		foreach (var propInfo in properties)
+		{
+			if(propInfo.Name != "ApplicationId" && propInfo.Name != "EntityKey")
+			{					
+				var attributes = propInfo.GetCustomAttributes(false);				
+				var columnMappingFKName = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.ForeignKeyName));
+
+				if(columnMappingFKName != null)
+				{					
+					WriteLine(string.Empty);
+					WriteLine("dataAutoCompleteService.getComboSource({ methodName: 'Get" + propInfo.Name + "List' },");
+					WriteLine("function (response) {");
+						
+						PushIndent("\t");
+						WriteLine("$scope." + propInfo.Name + "List = response;");
+						WriteLine("$scope.selected" + propInfo.Name + "Item = response[0];");
+						PopIndent();
+
+					WriteLine("}, onFailedLoad);"); 
+				}
+			}
+		}
+
+		WriteLine(string.Empty);
+        WriteLine("$scope.WorkflowStateIsNew = function () {");
+			
+			PushIndent("\t");
+            WriteLine("return ($routeParams.detailId == '{New}');");
+			PopIndent();
+
+        WriteLine("};");
+
+		WriteLine(string.Empty);
+        WriteLine("function onFailedLoad(serverResponse) {");
+			
+			PushIndent("\t");
+            WriteLine("userService.AlertManager.logFailureAlert('', serverResponse.data, []);");
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+		WriteLine("function onSuccessLoad(data) {");
+			
+			PushIndent("\t");
+            WriteLine("$scope.EntityItem = data;");
+
+			foreach (var propInfo in properties)
+			{
+				if(propInfo.Name != "ApplicationId" && propInfo.Name != "EntityKey")
+				{					
+					var attributes = propInfo.GetCustomAttributes(false);				
+					var columnMappingFKName = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.ForeignKeyName));
+
+					if(columnMappingFKName != null)
+					{
+						var fkColumn = ((Framework.Components.DataAccess.ForeignKeyName)columnMappingFKName).ForiegnKeyColumn;
+						var joinColumn = ((Framework.Components.DataAccess.ForeignKeyName)columnMappingFKName).JoinColumn; 
+
+						WriteLine(string.Empty);
+						WriteLine("var items" + propInfo.Name + " = jQuery.grep($scope." + propInfo.Name + "List, function (a) {");
+								
+							PushIndent("\t");
+							WriteLine("return a." + joinColumn + " == data." + fkColumn);
+							PopIndent();
+
+						WriteLine("});");
+
+						WriteLine("$scope.selected" + propInfo.Name + "Item = items" + propInfo.Name + "[0];");
+					}
+				}
+			}
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("// init");
+        WriteLine("if (!$scope.WorkflowStateIsNew()) {");
+			
+			PushIndent("\t");
+            WriteLine("entityService.getById({ detailId: $routeParams.detailId }, onSuccessLoad, onFailedLoad);");
+			PopIndent();
+
+        WriteLine("}");
+
+		RenderSaveFunction(properties);
+
+		RenderDeleteFunction();
+	}
+
+	void RenderSaveFunction(PropertyInfo[] properties)
+	{
+
+		WriteLine(string.Empty);
+        WriteLine("$scope.save = function () {");
+			
+			WriteLine(string.Empty);
+			PushIndent("\t");
+			foreach (var propInfo in properties)
+			{
+				if(propInfo.Name != "ApplicationId" && propInfo.Name != "EntityKey")
+				{					
+					var attributes = propInfo.GetCustomAttributes(false);				
+					var columnMappingFKName = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.ForeignKeyName));
+
+					if(columnMappingFKName != null)
+					{
+						var fkColumn = ((Framework.Components.DataAccess.ForeignKeyName)columnMappingFKName).ForiegnKeyColumn;
+						var joinColumn = ((Framework.Components.DataAccess.ForeignKeyName)columnMappingFKName).JoinColumn; 
+
+						WriteLine("$scope.EntityItem." + fkColumn + " = $scope.selected" + propInfo.Name + "Item." + joinColumn + ";");
+					}
+				}
+			}
+
+			WriteLine(string.Empty);
+            WriteLine("var saveMethod = ($scope.WorkflowStateIsNew()) ? 'create' : 'update';");
+
+			WriteLine(string.Empty);
+            WriteLine("$scope.EntityItem = entityService[saveMethod]($scope.EntityItem,");
+				
+				PushIndent("\t");
+                WriteLine("function () {");
+					
+					WriteLine(string.Empty);
+					PushIndent("\t");
+					WriteLine("if ($scope.WorkflowStateIsNew()) {");
+						
+						PushIndent("\t");
+						WriteLine("userService.AlertManager.addSuccessAlert('New Record for ' + $scope.entityName + ' saved.');");
+						PopIndent();
+
+					WriteLine("}");
+					WriteLine("else{");
+						
+						PushIndent("\t");
+						WriteLine("userService.AlertManager.addSuccessAlert('Record for ' + $scope.entityName + ' saved.');");
+						PopIndent();	
+					
+					WriteLine("}");
+
+					WriteLine(string.Empty);
+                    WriteLine("$location.url('/' + $scope.entityUrl + '/search');");
+					PopIndent();
+
+                WriteLine("},");
+                WriteLine("function (errorResponse) {");
+					
+					PushIndent("\t");
+                    WriteLine("userService.AlertManager.addFailureAlert('Record for ' + $scope.entityName + ' failed to save. ' + [JSON.stringify(errorResponse)]);");
+					PopIndent();
+
+                WriteLine("});");
+				PopIndent();
+
+			PopIndent();
+
+		WriteLine("};");
+	}
+
+	void RenderDeleteFunction()
+	{
+
+		WriteLine(string.Empty);
+        WriteLine("$scope.delete = function () {");
+			
+			PushIndent("\t");
+            WriteLine("entityService.delete({ detailId: $routeParams.detailId },");
+				
+				PushIndent("\t");
+                WriteLine("function () {");
+					
+					PushIndent("\t");
+                    WriteLine("userService.AlertManager.addSuccessAlert('Record for ' + $scope.entityName + ' deleted.');");
+                    WriteLine("$location.url('/' + $scope.entityUrl + '/search');");
+					PopIndent();
+
+                WriteLine("},");
+                WriteLine("function onFailedDelete(errorResponse) {");
+					
+					PushIndent("\t");
+                    WriteLine("userService.AlertManager.addFailureAlert('Record for ' + $scope.entityName + ' failed to delete.' + [JSON.stringify(errorResponse)]);");
+					PopIndent();
+
+                WriteLine("});");
+				PopIndent();
+
+			PopIndent();
+
+        WriteLine("};");
+
+	}
+
+
+	void RenderSaveController(string entityName, string dataModelNameSpace)
+	{
+		var className = entityName + "DataModel";
+		foreach (Assembly currentassembly in AppDomain.CurrentDomain.GetAssemblies()) 
+		{
+			var modelType = currentassembly.GetType(dataModelNameSpace + "." + className);
+			if(modelType != null)
+			{
+				var properties = modelType.GetProperties();
+
+				WriteLine("'use strict';");
+
+				WriteLine(string.Empty);
+				WriteLine("angular.module('rootAppShell')");
+			
+					PushIndent("\t");
+					WriteLine(".controller('save" + entityName + "Ctrl', [");
+				
+						PushIndent("\t");
+						WriteLine("'dataAutoCompleteService', '$location', '$scope', '$injector', '$routeParams', 'userService', ");
+						WriteLine("function (dataAutoCompleteService, $location, $scope, $injector, $routeParams, userService) {");
+		
+							WriteLine(string.Empty);			
+							PushIndent("\t");
+
+							var compatibleEntityName = GetFileCompatibleEntityName(entityName);
+
+							WriteLine("$scope.entityName = '" + entityName + "';");
+							WriteLine("var entityService = $injector.get('" + compatibleEntityName + "Service');");
+
+							WriteLine("$scope.entityUrl = $scope.entityName;");
+							WriteLine("if ($routeParams.moduleName != undefined) {");
+							WriteLine("    $scope.entityUrl = $routeParams.moduleName + '/' + $scope.entityUrl;");
+							WriteLine("}");
+
+							RenderJsFunctions(properties);
+
+							WriteLine(string.Empty);
+							PopIndent();
+
+						WriteLine("}");
+						PopIndent();
+				
+					WriteLine("]);");
+
+					break;
+			}
+		}
+	}
+
+#>
+
+<#+
+
+	void RenderSaveControllers(string[] entities, string dataModelNameSpace)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+			foreach(string entityName in entities)
+			{	
+				manager.StartNewFile("save" + entityName + "Ctrl.js");
+				this.RenderSaveController(entityName, dataModelNameSpace);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+#>

@@ -1,0 +1,10 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file="..\..\..\Generators\Generators.Components\DataManagerGeneratorHelper.tt" #>
+<#
+this.GenerateDataManagerFiles(	"Framework.Components.Core", 
+								"DataModel.Framework.Core",
+								new [] {"Language", "ApplicationEntityParentalHierarchy", "MenuCategory",
+								"SubscriberApplicationRole", "AuditLog", "SystemEntityCategory", "SystemForeignRelationshipDatabase",
+								"SystemForeignRelationshipType", "Theme", "ThemeCategory", "ThemeKey", "Themes", "HelpPageContext"} 
+							);
+#>

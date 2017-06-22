@@ -1,0 +1,91 @@
+<ol class='breadcrumb'>
+	<li class='active'>Transaction Event Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Transaction Event Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TransactionEventId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Transaction Event Date:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TransactionEventDate}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Transaction Settle Date:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TransactionSettleDate}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Transaction Type Code:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TransactionTypeCode}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Custodian Code:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.CustodianCode}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Strategy Code:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.StrategyCode}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Account Code:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.AccountCode}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Investment Code:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.InvestmentCode}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Quantity:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Quantity}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Price:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Price}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Fees:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Fees}}
+		</div>
+	</div>
+
+</div>

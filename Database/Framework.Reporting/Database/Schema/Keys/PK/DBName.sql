@@ -1,0 +1,7 @@
+﻿ALTER TABLE dbo.DBName
+	ADD CONSTRAINT PK_DBName PRIMARY KEY CLUSTERED 
+	(
+		DBNameId
+	)  
+GO
+

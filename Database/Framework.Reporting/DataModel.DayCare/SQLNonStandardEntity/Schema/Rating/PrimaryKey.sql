@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Rating
+ADD CONSTRAINT PK_Rating PRIMARY KEY CLUSTERED 
+(
+	RatingId
+)
+GO

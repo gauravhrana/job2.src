@@ -1,0 +1,6 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\..\_Generators\AngularUI\V0\EntitySaveControllerGeneratorHelper.tt" #>
+<#
+	this.RenderSaveControllers(new string[]{"accidentPlace", "accidentReport", "activityType","activitySubType" ,"bathRoom","discount","paymentMethod","comment", "diaperStatus", "eventType", 
+			"mealType", "needItem","meal","mealDetail","sickReport","tuition","sleep","student","teacher"});
+#>

@@ -1,0 +1,158 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs"
+    Inherits="ApplicationContainer.UI.Web.MasterPages.SA.SiteMaster" EnableViewState="true" EnableTheming="false" %>
+
+<%@ Register TagPrefix="bc" TagName="BreadCrumb" Src="~/Shared/Controls/BreadCrumb/BreadCrumb.ascx" %>
+<%@ Register Src="~/Shared/Controls/SliderMenu.ascx" TagName="SliderMenu" TagPrefix="sm" %>
+<%@ Register Src="~/MasterPages/controls/CommonRender.ascx" TagName="RenderPage" TagPrefix="cr" %>
+<%@ Register Src="~/MasterPages/controls/CommonBannerMenu.ascx" TagName="CommonBanner" TagPrefix="cr" %>
+<%@ Register Src="~/MasterPages/controls/CommonBannerNav.ascx" TagName="CommonBannerNav" TagPrefix="cr" %>
+<%@ Register Src="~/MasterPages/controls/CommonBodyStart.ascx" TagName="CommonBodyStart" TagPrefix="cr" %>
+
+<!DOCTYPE html>
+<html>
+
+<head id="Head1" runat="server">
+    <cr:RenderPage ID="DefaultRender" runat="server" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+</head>
+
+<body>
+
+    <form id="Form1" runat="server">
+
+		<cr:CommonBodyStart runat="server" />
+
+        <sm:SliderMenu ID="oSliderMenu" runat="server" Visible="true" />
+
+        <div class="container-fluid main" style="padding-left: 45px; padding-right: 20px;">
+
+            <div class="header" style="background-color: #4b6c9e;">
+
+                <div ng-app style="background-color: black;" class="row">
+
+                    <div class="navbar-collapse" ng-class="isCollapsed ? 'collapse' : 'in'">
+
+                        <div class="col-sm-4 text-center">
+
+                            <ul class="nav navbar-nav">
+
+                                <li class="main btn" ng-repeat="item in menu" ng-mouseover="showSubMenu(item, $index)"></li>
+
+                                <li data-dropdown data-is-open="utilityOpen">
+                                    <a data-dropdown-toggle id="A4" class="dropdown-toggle" data-toggle="dropdown">Utilities<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="menu-item dropdown"><a href="/SystemAdmin/Home/#/db-cleanup">Database Cleanup</a></li>
+                                        <li class="menu-item dropdown"><a href="/SystemAdmin/Home/#/deploy-scripts">Deploy Database Scripts</a></li>
+                                        <li class="menu-item dropdown"><a href="/Shared/Admin/DatabaseChangeLog/Report.aspx">Database Change Log Report</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <cr:CommonBannerNav ID="CommonBannerNav" runat="server" />
+
+                    </div>
+
+                </div>
+
+                <cr:CommonBanner ID="CommonBanner" runat="server" />
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="breadcrumb bg-info">
+                        <bc:BreadCrumb ID="oBreadCrumb" runat="server" />
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <asp:ContentPlaceHolder ID="SectionName" runat="server" />
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 bg-info footer">
+                    <asp:Label ID="lblPerson" runat="server" />
+                    <asp:Label ID="lblStatus" runat="server">                            
+                        <i class="icon-info-sign icon-white icon-medium"></i>
+                    </asp:Label>
+                </div>
+            </div>
+
+            <!--
+            <div class="col-sm-12 show-grid bg-success">
+                <div class="span1" style="background: pink">01</div>
+                <div class="span1" style="background: pink">02</div>
+                <div class="span1" style="background: pink">03</div>
+                <div class="span1" style="background: pink">04</div>
+                <div class="span1" style="background: pink">05</div>
+                <div class="span1" style="background: pink">06</div>
+                <div class="span1" style="background: pink">07</div>
+                <div class="span1" style="background: pink">08</div>
+                <div class="span1" style="background: pink">09</div>
+                <div class="span1" style="background: pink">10</div>
+                <div class="span1" style="background: pink">11</div>
+                <div class="span1" style="background: pink">12</div>
+            </div>
+            -->
+            <table class="table table-striped table-bordered table-condensed">
+                <tr>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                    <td>06</td>
+                    <td>07</td>
+                    <td>08</td>
+                    <td>09</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="loginDisplay" style="display: none">
+                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                        <AnonymousTemplate>
+                            [ <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a>]
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            Welcome <span class="bold">
+                                <asp:LoginName ID="HeadLoginName" runat="server" />
+                            </span>!    [
+                                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/" />
+                            ]
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+    <script>
+
+        //    var w = window,
+        //d = document,
+        //e = d.documentElement,
+        //g = d.getElementsByTagName('body')[0],
+        //x = w.innerWidth || e.clientWidth || g.clientWidth,
+        //y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+        //    console.log(x + ' × ' + y);
+        //alert(x + ' × ' + y);
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h3 class="modal-title">{{addOrEdit}} Dataset</h3>
+</div>
+<div class="modal-body">
+    <form name="mainForm">
+        <div class="form-horizontal">
+            <div class="form-group" ng-class="{'has-error': mainForm.code.$invalid}">
+                <label class="col-md-2" for="code">Name</label>
+                <div class="col-md-10"><input name="code" class="form-control" type="text" data-ng-model="dataset.DashboardDatasetCode" required="" /></div>
+            </div>
+        </div>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a data-target="#fields" role="tab" data-toggle="tab">Fields</a></li>
+            <li><a data-target="#filters" role="tab" data-toggle="tab">Filters</a></li>
+            <li><a data-target="#sorting" role="tab" data-toggle="tab">Sorting</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="fields">                                
+                <div class="form-horizontal">
+                    <div class="form-group" ng-class="{'has-error': mainForm.Entity.$invalid}">
+                        <label for="Entity" class="col-sm-2 control-label">Entity</label>
+                        <div class="col-sm-10">
+                            <select name="Entity" class="form-control" data-ui-select2="" data-ng-model="explorer.SelectedEntityId" data-ng-change="explorer.entityChanged()" required="">
+                                <option value=""></option>
+                                <optgroup data-ng-repeat="(key, prop) in explorer.EntityTypes" label="{{key}}">
+                                    <option data-ng-repeat="entity in prop.Entities" value="{{entity.EntityCode}}">{{entity.EntityCode}}</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col-sm-6">
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Available Fields</div>
+                            <div class="panel-body">
+                                <div style="overflow-x: auto;height:300px;">
+                                    <ul style="list-style-type: none;">
+                                        <li ng-repeat="node in explorer.tree" ng-include="'tree_item_renderer.html'"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Selected Fields</div>
+                            <div class="panel-body">
+                                <div style="overflow: auto;height:300px;">
+                                    <ul>
+                                        <li ng-repeat="path in explorer.selectedPaths">{{path}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="filters">
+                Filters
+            </div>
+            <div class="tab-pane" id="sorting">
+                Sorting
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <div class="pull-left" data-ng-if="modalInfo.Type=='Edit'">
+        <button class="btn btn-danger" ng-click="delete()" tabindex="-1">Delete</button>
+    </div>
+
+    <button class="btn btn-primary" ng-click="ok()" ng-disabled="mainForm.$invalid || explorer.selectedPaths.length == 0">OK</button>
+    <button class="btn btn-info" ng-click="cancel()">Cancel</button>
+</div>
+
+
+
+
+<script type="text/ng-template" id="tree_item_renderer.html">
+    <nobr>
+        <a ng-click="explorer.collapse(node)" ng-if="(node.field.ReferenceEntityCode != undefined)&&(node.expanded)"><span class="fa fa-minus-square-o"></span></a>
+        <a ng-click="explorer.expand(node)" ng-if="(node.field.ReferenceEntityCode != undefined)&&(!node.expanded)"><span class="fa fa-plus-square-o"></span></a>
+        <input type="checkbox" ng-if="(node.field.ReferenceEntityCode == undefined)" ng-model="node.selected" ng-change="explorer.selectNode(node)" />
+        <span ng-if="(node.field.ReferenceEntityCode != undefined)">&nbsp;{{node.field.ReferenceName}}</span>
+        <span ng-if="(node.field.ReferenceEntityCode == undefined)">&nbsp;{{node.field.FieldCode}}</span>
+    </nobr>
+    <ul ng-show="node.expanded" style="list-style-type: none; ">
+        <li ng-repeat="node in node.nodes" ng-include="'tree_item_renderer.html'"></li>
+    </ul>
+</script>

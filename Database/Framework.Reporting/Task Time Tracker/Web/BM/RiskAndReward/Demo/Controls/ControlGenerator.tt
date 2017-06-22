@@ -1,0 +1,12 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\..\_Generators\ForControls\ControlGeneratorHelper.tt" #>
+
+<#
+	string entityName = "Risk";
+	string nameSpace = "ApplicationContainer.UI.Web.RiskAndReward.Demo";
+	string dataModelNameSpace = "DataModel.TaskTimeTracker.RiskReward";
+	string dataManagerNameSpace = "TaskTimeTracker.Components.Module.RiskReward";
+
+	this.GenerateControlFiles(entityName, nameSpace, dataModelNameSpace, dataManagerNameSpace);
+
+#>

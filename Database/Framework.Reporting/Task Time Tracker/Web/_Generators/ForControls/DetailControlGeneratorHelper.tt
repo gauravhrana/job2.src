@@ -1,0 +1,374 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#+
+
+	private void RenderHeadersForHtmlFileForDetailControl(string nameSpace)
+	{
+		WriteLine("<%@ Control Language='C#' AutoEventWireup='true' CodeBehind='Details.ascx.cs' ");
+		WriteLine("Inherits='" + nameSpace + ".Controls.Details' %>");
+		WriteLine("<%@ Register TagPrefix='dc' TagName='List' Src='~/Shared/Controls/HistoryList.ascx' %>");
+
+		WriteLine(string.Empty);
+		WriteLine("<%@ Register Src='~/Shared/Controls/DetailButtonPanel.ascx' TagName='DetailsButtonPanel' TagPrefix='db' %>");
+		WriteLine("<%@ Register Src='~/Shared/Controls/UpdateInfo.ascx' TagName='UpdateInfo' TagPrefix='ui' %>");
+	}
+
+	private void RenderHTMLForHtmlFileForDetailControl(string entityName)
+	{
+		WriteLine(string.Empty);
+		
+		WriteLine("<div class='panel panel-info table-bordered'>");
+			
+			WriteLine(string.Empty);
+			PushIndent("\t");
+			WriteLine("<div class='form-horizontal'>");
+				
+				WriteLine(string.Empty);
+				PushIndent("\t");
+				WriteLine("<div class='form-group'>");
+					
+					PushIndent("\t");
+					WriteLine("<div class='col-sm-2 control-label'><asp:Label ID='lbl" + entityName + "IdText' runat='server'"); 					
+					WriteLine("CssClass='control-label'>" + entityName + "Id:</asp:Label></div>");
+					WriteLine("<div class='col-sm-10'><asp:Label ID='lbl" + entityName + "Id' runat='server'></asp:Label></div>");
+					PopIndent();
+
+				WriteLine("</div>");
+
+				WriteLine(string.Empty);	
+				WriteLine("<div class='form-group'>");
+					
+					PushIndent("\t");
+					WriteLine("<div class='col-sm-2 control-label'><asp:Label ID='lblNameText' runat='server' ");
+					WriteLine("CssClass='control-label'>Name:</asp:Label></div>");
+					WriteLine("<div class='col-sm-10'><asp:Label ID='lblName' runat='server'></asp:Label></div>");
+					PopIndent();
+
+				WriteLine("</div>");
+
+				WriteLine(string.Empty);
+				WriteLine("<div class='form-group'>");
+
+					PushIndent("\t");
+					WriteLine("<div class='col-sm-2 control-label'><asp:Label ID='lblDescriptionText' runat='server' ");
+					WriteLine("CssClass='control-label'>Description:</asp:Label></div>");
+					WriteLine("<div class='col-sm-10'><asp:Label ID='lblDescription' runat='server'></asp:Label></div>");
+					PopIndent();
+
+				WriteLine("</div>");
+
+				WriteLine(string.Empty);
+				WriteLine("<div class='form-group'>");
+					
+					PushIndent("\t");
+					WriteLine("<div class='col-sm-2 control-label'><asp:Label ID='lblSortOrderText' runat='server' ");
+					WriteLine("CssClass='control-label'>Sort Order:</asp:Label></div>");
+					WriteLine("<div class='col-sm-10'><asp:Label ID='lblSortOrder' runat='server'></asp:Label></div>");
+					PopIndent();
+
+				WriteLine("</div>");
+
+				WriteLine(string.Empty);
+				WriteLine("<div class='form-group'>");
+					
+					PushIndent("\t");
+					WriteLine("<div class='col-sm-12'><ui:UpdateInfo ID='oUpdateInfo' runat='server' /></div>");
+					PopIndent();
+
+				WriteLine("</div>");
+
+				WriteLine(string.Empty);
+				WriteLine("<div class='form-group'>");
+					
+					PushIndent("\t");
+					WriteLine("<div class='col-sm-2 control-label'></div>");
+					WriteLine("<div class='col-sm-10'><db:DetailsButtonPanel ID='oDetailButtonPanel' runat='server' /></div>");
+					PopIndent();
+
+				WriteLine("</div>");
+
+				WriteLine(string.Empty);
+				WriteLine("<div class='form-group'>");
+					
+					PushIndent("\t");
+					WriteLine("<div class='col-sm-2 control-label'></div>");
+					WriteLine("<div class='col-sm-10'><asp:PlaceHolder ID='dyn" + entityName + "Id' runat='server' /></div>");
+					PopIndent();
+
+				WriteLine("</div>");
+				PopIndent();
+
+			WriteLine(string.Empty);
+			WriteLine("</div>");
+
+			WriteLine(string.Empty);
+			WriteLine("<asp:PlaceHolder ID='dynAuditHistory' runat='server' Visible='false'>");
+				
+				PushIndent("\t");
+				WriteLine("<div class='form-horizontal'>");
+
+					PushIndent("\t");					
+					WriteLine("<div class='form-group'>");
+						
+						PushIndent("\t");
+						WriteLine("<div class='col-sm-2 control-label'>");
+							
+							PushIndent("\t");
+							WriteLine("<asp:Label ID='lblHistory' runat='server' Text='Record History'/>");
+							PopIndent();
+
+						WriteLine("</div>");
+						WriteLine("<div class='col-sm-10'>");
+
+							PushIndent("\t");
+							WriteLine("<dc:List ID='oHistoryList' runat='server' />");
+							PopIndent();
+
+						WriteLine("</div>");
+						PopIndent();
+
+					WriteLine("</div>");
+					PopIndent();
+
+				WriteLine("</div>");
+				PopIndent();
+
+			WriteLine("</asp:PlaceHolder>");
+
+			WriteLine(string.Empty);
+			WriteLine("<div id='borderdiv' runat='server'>");
+				
+				PushIndent("\t");
+				WriteLine("<table></table>");
+				PopIndent();
+
+			WriteLine("</div>");
+			PopIndent();
+
+		WriteLine(string.Empty);
+		WriteLine("</div>");
+	}
+
+#>
+<#+
+
+	private void RenderUsingTagsForCodeBehindForDetailControl(string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		WriteLine("using System;");
+		WriteLine("using System.Collections.Generic;");
+		WriteLine("using System.Web.UI.WebControls;");
+		WriteLine("using Framework.Components.DataAccess;");
+		WriteLine("using Framework.UI.Web.BaseClasses;");
+		WriteLine("using Shared.WebCommon.UI.Web;");
+		WriteLine("using ApplicationContainer.UI.Web.CommonCode;");
+		WriteLine("using " + dataModelNameSpace + ";");
+		if(dataModelNameSpace != dataManagerNameSpace)
+		{
+			WriteLine("using " + dataManagerNameSpace + ";");
+		}
+		WriteLine(string.Empty);
+	}
+
+	private void RenderClassForCodeBehindForDetailControl(string entityName, string nameSpace)
+	{
+		
+		WriteLine("namespace " + nameSpace + ".Controls");
+		WriteLine("{");
+			
+			PushIndent("\t");
+			WriteLine("public partial class Details : ControlDetailsStandard");
+			WriteLine("{");
+
+				WriteLine(string.Empty);
+				PushIndent("\t");
+				WriteLine("protected override void ShowData(int " + entityName + "Id) ");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("base.ShowData(" + entityName + "Id);");
+					WriteLine("oDetailButtonPanel.SetId = SetId;");
+					WriteLine("Clear();");
+					
+					WriteLine(string.Empty);
+					WriteLine("var data = new " + entityName + "DataModel();");
+					WriteLine("data." + entityName + "Id = " + entityName + "Id;");
+
+					WriteLine(string.Empty);
+					WriteLine("var items = " + entityName + "DataManager.GetEntityDetails(data, SessionVariables.RequestProfile);");
+					WriteLine("if (items.Count == 1)");
+					WriteLine("{");
+
+						PushIndent("\t");
+						WriteLine("var item = items[0];");
+						WriteLine("SetData(item);");
+						WriteLine("oHistoryList.Setup(PrimaryEntity, " + entityName + "Id, \"" + entityName + "\");");
+						PopIndent();
+
+					WriteLine("}");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("public void SetData(" + entityName + "DataModel data)");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("SystemKeyId = data." + entityName + "Id;");
+					WriteLine("base.SetData(data);");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("protected override List<Label> GetLabels()");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("if (LabelListCore == null)");
+					WriteLine("{");
+						
+						PushIndent("\t");
+						WriteLine("LabelListCore = new List<Label>(new[] { lbl" + entityName + "IdText,"); 
+						WriteLine("lblNameText, lblDescriptionText, lblSortOrderText });");
+						PopIndent();
+
+					WriteLine("}");
+
+					WriteLine(string.Empty);
+					WriteLine("return LabelListCore;");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("protected override void Clear()");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("base.Clear();");
+					WriteLine("var data = new " + entityName + "DataModel();");
+					WriteLine("SetData(data);");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("protected override void OnInit(EventArgs e)");
+				WriteLine("{");
+
+					PushIndent("\t");
+					WriteLine("base.OnInit(e);");
+
+					WriteLine(string.Empty);
+					WriteLine("DictionaryLabel = CacheConstants." + entityName + "LabelDictionary;");
+					WriteLine("PrimaryEntity = SystemEntity." + entityName + ";");
+
+					WriteLine(string.Empty);
+					WriteLine("PlaceHolderCore			= dyn" + entityName + "Id;");
+					WriteLine("PlaceHolderAuditHistory = dynAuditHistory;");
+
+					WriteLine(string.Empty);
+					WriteLine("BorderDiv				= borderdiv;");
+
+					WriteLine(string.Empty);
+					WriteLine("CoreSystemKey			= lbl" + entityName + "Id;");
+					WriteLine("CoreControlName			= lblName;");
+					WriteLine("CoreControlDescription	= lblDescription;");
+					WriteLine("CoreControlSortOrder	= lblSortOrder;");
+
+					WriteLine(string.Empty);
+					WriteLine("CoreUpdateInfo			= oUpdateInfo;");
+					PopIndent();
+
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("protected override void Page_Load(object sender, EventArgs e)");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("if (!IsPostBack)");
+					WriteLine("{");
+
+						PushIndent("\t");
+						WriteLine("var isTesting = SessionVariables.IsTesting;");
+						WriteLine("lbl" + entityName + "IdText.Visible = isTesting;");
+						WriteLine("CoreSystemKey.Visible = isTesting;");
+						PopIndent();
+
+					WriteLine("}");
+
+					WriteLine(string.Empty);
+					WriteLine("PopulateLabelsText();");
+					PopIndent();
+
+				WriteLine("}");
+				PopIndent();
+
+			WriteLine(string.Empty);
+			WriteLine("}");
+			PopIndent();
+
+		WriteLine(string.Empty);
+		WriteLine("}");
+		
+	}
+
+#>
+
+<#+	
+
+	private void GenerateDesignerFileForDetailControl(string entityName, string nameSpace)
+	{
+		WriteLine("namespace " + nameSpace + ".Controls {   ");
+    
+			WriteLine(string.Empty);
+			PushIndent("\t");
+			WriteLine("public partial class Details {");
+				
+				PushIndent("\t");
+				WriteLine("protected global::System.Web.UI.WebControls.Label lbl" + entityName + "IdText;");
+				WriteLine("protected global::System.Web.UI.WebControls.Label lbl" + entityName + "Id;");
+				WriteLine("protected global::System.Web.UI.WebControls.Label lblNameText;");
+				WriteLine("protected global::System.Web.UI.WebControls.Label lblName;");
+				WriteLine("protected global::System.Web.UI.WebControls.Label lblDescriptionText;");
+				WriteLine("protected global::System.Web.UI.WebControls.Label lblDescription;");
+				WriteLine("protected global::System.Web.UI.WebControls.Label lblSortOrderText;");
+				WriteLine("protected global::System.Web.UI.WebControls.Label lblSortOrder;");
+
+				WriteLine("protected global::Shared.UI.Web.Controls.UpdateInfo oUpdateInfo;");
+				WriteLine("protected global::Shared.UI.Web.Controls.DetailButtonPanelControl oDetailButtonPanel;");
+				WriteLine("protected global::System.Web.UI.WebControls.PlaceHolder dyn" + entityName + "Id;");
+				WriteLine("protected global::System.Web.UI.WebControls.PlaceHolder dynAuditHistory;");
+
+				WriteLine("protected global::System.Web.UI.WebControls.Label lblHistory;");
+				WriteLine("protected global::Shared.UI.Web.Controls.HistoryList oHistoryList;");
+				WriteLine("protected global::System.Web.UI.HtmlControls.HtmlGenericControl borderdiv;");
+				PopIndent();
+
+			WriteLine("}");
+			PopIndent();
+
+		WriteLine("}");
+
+	}
+
+	private void GenerateCodeBehindFileForDetailControl(string entityName, string nameSpace, string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		RenderUsingTagsForCodeBehindForDetailControl(dataModelNameSpace, dataManagerNameSpace);
+		RenderClassForCodeBehindForDetailControl(entityName, nameSpace);
+	}
+	
+	private void GenerateHtmlFileForDetailControl(string entityName, string nameSpace)
+	{
+		RenderHeadersForHtmlFileForDetailControl(nameSpace);
+		RenderHTMLForHtmlFileForDetailControl(entityName);
+	}
+
+
+#>

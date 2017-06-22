@@ -1,0 +1,87 @@
+﻿<DynamicValidators>
+  <!--
+	This section contains default values for different types validator controls
+	-->
+  <Defaults>
+    <!--
+		These are default property values that are common to all validator controls
+		-->
+    <Common>
+      <!--
+		These are default property values that are common to all validator controls
+		-->
+      <Property name="ForeColor" value="Red" />
+      <Property name="Display" value="Dynamic" />
+      <Property name="EnableViewState" value="False" />
+    </Common>
+    <!--
+		These are default property values specific to the RegularExpression validator
+		-->
+    <RegularExpression>
+      <Property name="Text" value="Allowed chracters are {LegalValues}" />
+      <Property name="ErrorMessage" value="{FriendlyName} can only consist of {LegalValues}" />
+    </RegularExpression>
+    <!--
+		These are default property values specific to the RequiredField validator
+		-->
+    <!--<RequiredField>
+      <Property name="InitialValue" value="" />
+      <Property name="Text" value="This is a required field" />
+      <Property name="ErrorMessage" value="You must enter something for the {FriendlyName}" />
+    </RequiredField>-->
+  </Defaults>
+  <!--
+	This section defines the validator groups
+	A validator group defines a collection of validators and their properties
+	-->
+  <!--As there will be a number of user input fields, there will be a set of ValidatorCollection nodes, 
+  and these will be held in a single ValidatorSets node of the configuration file.-->
+  <ValidatorSets>
+    <!--ScheduleItemId
+    <ValidatorCollection id="dynScheduleItemId" FriendlyName="ScheduleItemId"
+                         LegalValues="Integers Only"
+                         ControlToValidate="txtScheduleItemId">
+      <Validator type="RequiredField" />
+      <Validator type="RegularExpression">
+        <Property name="ValidationExpression" value="^\d+$" />
+      </Validator>
+    </ValidatorCollection>-->
+    
+    <!--ScheduleId-->
+    <ValidatorCollection id="dynScheduleId" FriendlySchedule="ScheduleId"
+                         LegalValues="Alphabets Only"
+                         ControlToValidate="txtScheduleId">
+      <Validator type="RequiredField" />
+      <Validator type="RegularExpression">
+        <Property name="ValidationExpression" value="^\d+$" />
+      </Validator>
+    </ValidatorCollection>
+
+    <!--ApplicationId-->
+    <ValidatorCollection id="dynApplicationId" FriendlyName="ApplicationId"
+                        LegalValues="Integers Only"
+                        ControlToValidate="txtApplicationId">
+      <Validator type="RequiredField" />
+      <Validator type="RegularExpression">
+        <Property name="ValidationExpression" value="^\d+$" />
+      </Validator>
+    </ValidatorCollection>
+    
+    <!--TaskFormulationId-->
+    <ValidatorCollection id="dynTaskFormulationId" FriendlyName="TaskFormulationId"
+                         LegalValues="Alphabets Only"
+                         ControlToValidate="txtTaskFormulationId">
+      <Validator type="RequiredField" />
+      <Validator type="RegularExpression">
+        <Property name="ValidationExpression" value="^\d+$" />
+      </Validator>
+    </ValidatorCollection>
+
+    <!--TotalTimeSpent-->
+    <ValidatorCollection id="dynTotalTimeSpent" FriendlyName="TotalTimeSpent"
+                        LegalValues="Integers Only"
+                        ControlToValidate="txtTotalTimeSpent">
+      <Validator type="RequiredField" />
+    </ValidatorCollection>
+  </ValidatorSets>
+</DynamicValidators>

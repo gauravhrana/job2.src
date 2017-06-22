@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Monument
+ADD CONSTRAINT PK_Monument PRIMARY KEY CLUSTERED 
+(
+	MonumentId
+)
+GO

@@ -1,0 +1,78 @@
+﻿GICSIndustryId,GICSIndustryGroupId,GICSIndustryCode,GICSIndustryDesc,ActiveYN
+101010,1010,101010,Energy Equipment & Services,1
+101020,1010,101020,"Oil, Gas & Consumable Fuels",1
+151010,1510,151010,Chemicals,1
+151020,1510,151020,Construction Materials,1
+151030,1510,151030,Containers & Packaging,1
+151040,1510,151040,Metals & Mining,1
+151050,1510,151050,Paper & Forest Products,1
+201010,2010,201010,Aerospace & Defense,1
+201020,2010,201020,Building Products,1
+201030,2010,201030,Construction & Engineering,1
+201040,2010,201040,Electrical Equipment,1
+201050,2010,201050,Industrial Conglomerates,1
+201060,2010,201060,Machinery,1
+201070,2010,201070,Trading Companies & Distributors,1
+202010,2020,202010,Commercial Services & Supplies,1
+202020,2020,202020,Professional Services,1
+203010,2030,203010,Air Freight & Logistics,1
+203020,2030,203020,Airlines,1
+203030,2030,203030,Marine,1
+203040,2030,203040,Road & Rail,1
+203050,2030,203050,Transportation Infrastructure,1
+251010,2510,251010,Auto Components,1
+251020,2510,251020,Automobiles,1
+252010,2520,252010,Household Durables,1
+252020,2520,252020,Leisure Equipment & Products,1
+252030,2520,252030,"Textiles, Apparel & Luxury Goods",1
+253010,2530,253010,"Hotels, Restaurants & Leisure",1
+253020,2530,253020,Diversified Consumer Services,1
+254010,2540,254010,Media,1
+255010,2550,255010,Distributors,1
+255020,2550,255020,Internet & Catalog Retail,1
+255030,2550,255030,Multiline Retail,1
+255040,2550,255040,Specialty Retail,1
+301010,3010,301010,Food & Staples Retailing,1
+302010,3020,302010,Beverages,1
+302020,3020,302020,Food Products,1
+302030,3020,302030,Tobacco,1
+303010,3030,303010,Household Products,1
+303020,3030,303020,Personal Products,1
+351010,3510,351010,Health Care Equipment & Supplies,1
+351020,3510,351020,Health Care Providers & Services,1
+351030,3510,351030,Health Care Technology,1
+352010,3520,352010,Biotechnology,1
+352020,3520,352020,Pharmaceuticals,1
+352030,3520,352030,Life Sciences Tools & Services,1
+401010,4010,401010,Commercial Banks,1
+401020,4010,401020,Thrifts & Mortgage Finance,1
+402010,4020,402010,Diversified Financial Services,1
+402020,4020,402020,Consumer Finance,1
+402030,4020,402030,Capital Markets,1
+403010,4030,403010,Insurance,1
+404010,4040,404010,Real Estate -- Discontinued effective 04/28/2006,1
+404020,4040,404020,Real Estate Investment Trusts (REITs),1
+404030,4040,404030,Real Estate Management & Development,1
+451010,4510,451010,Internet Software & Services,1
+451020,4510,451020,IT Services,1
+451030,4510,451030,Software,1
+452010,4520,452010,Communications Equipment,1
+452020,4520,452020,Computers & Peripherals,1
+452030,4520,452030,"Electronic Equipment, Instruments & Components",1
+452040,4520,452040,Office Electronics,1
+452050,4520,452050,Semiconductor Equipment & Products -- Discontinued effective 04/30/2003.,1
+453010,4530,453010,Semiconductors & Semiconductor Equipment,1
+501010,5010,501010,Diversified Telecommunication Services,1
+501020,5010,501020,Wireless Telecommunication Services,1
+551010,5510,551010,Electric Utilities,1
+551020,5510,551020,Gas Utilities,1
+551030,5510,551030,Multi-Utilities,1
+551040,5510,551040,Water Utilities,1
+551050,5510,551050,Independent Power Producers & Energy Traders,1
+771010,7710,771010,Others,1
+991010,9910,991010,Physical Commodity,1
+992010,9920,992010,FX,1
+993010,9930,993010,Fixed Income,1
+993020,9930,993020,Non-US Sovereign,1
+993030,9930,993030,Treasuries,1
+994010,9940,994010,Equity Indices,1

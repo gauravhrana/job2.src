@@ -1,0 +1,43 @@
+﻿@model System.Data.DataRow
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Application</legend>
+
+    <div class="display-label">
+         @Framework.Components.ApplicationUser.Application.DataColumns.ApplicationId
+    </div>
+    <div class="display-field">
+        @Model[Framework.Components.ApplicationUser.Application.DataColumns.ApplicationId]
+    </div>
+    
+    <div class="display-label">
+         @Framework.Components.ApplicationUser.Application.DataColumns.Name
+    </div>
+    <div class="display-field">
+        @Model[Framework.Components.ApplicationUser.Application.DataColumns.Name]
+    </div>
+
+    <div class="display-label">
+         @Framework.Components.ApplicationUser.Application.DataColumns.Description
+    </div>
+    <div class="display-field">
+        @Model[Framework.Components.ApplicationUser.Application.DataColumns.Description]
+    </div>
+
+    <div class="display-label">
+         @Framework.Components.ApplicationUser.Application.DataColumns.SortOrder
+    </div>
+    <div class="display-field">
+        @Model[Framework.Components.ApplicationUser.Application.DataColumns.SortOrder]
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = @Model[Framework.Components.ApplicationUser.Application.DataColumns.ApplicationId] }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

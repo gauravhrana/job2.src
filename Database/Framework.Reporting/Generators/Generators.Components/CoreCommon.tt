@@ -1,0 +1,87 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Data" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ assembly name="System.xml" #>
+<#+
+	
+	string GetTabs(int s, int t)
+	{
+		var count = HowManTabs(s, t);
+		var tabString = string.Empty;
+		
+		for (var i = 0; i < count + 1; i++)
+		{
+			tabString += "\t";
+		}
+
+		return tabString;
+	}
+
+	int HowManTabs(int s, int t)
+	{		
+		if ((t - s) == 0)
+		{
+			return 1;
+		}		
+		else if (((t - s - (t%4))%(4)) == 3)
+		{
+			return  1 + ((t - s)/(4));
+		}
+		else if (((t - s - (t%4))%(4)) != 0)
+		{
+			return  2 + ((t - s)/(4));
+		}		
+		else
+		{
+			return  1 + ((t - s)/(4));
+		} 
+	}	
+
+	int GetLongestColumnNameLen(DataSet ds, string wildChar,bool isApplicationId, bool isIncludeSystemEntityType)
+    {
+		var longestColumnNameLen = 0;
+		foreach(DataColumn dc in ds.Tables[0].Columns)
+		{
+			var columnName = wildChar + dc.ColumnName;
+			if(dc.ColumnName.ToLower() != "applicationid")
+            {
+				if (columnName.Length > longestColumnNameLen)
+				{
+					longestColumnNameLen = columnName.Length;
+				}
+            }
+			else if(isApplicationId)
+			{
+				if (columnName.Length > longestColumnNameLen)
+				{					
+					longestColumnNameLen = columnName.Length;
+				}
+			}				
+		}
+
+		if(isIncludeSystemEntityType)
+        {
+			if ((wildChar + "SystemEntityType").Length > longestColumnNameLen)
+			{
+				longestColumnNameLen = (wildChar + "SystemEntityType").Length;
+			}
+        }
+
+		return longestColumnNameLen;
+    }
+	
+	System.Data.DataSet GetTableDataSet(string connectionStringName, string tableName)
+    {
+		var connectionString = @"Data Source=IVR-SQL-01\SQL01;Initial Catalog=" + connectionStringName + ";Persist Security Info=True;User ID=706;Password=Welcome1;Connect Timeout=0";
+		var conn = new SqlConnection(connectionString); 
+		conn.Open();             
+		var selectQuery = "SELECT * FROM "+ tableName; 
+		var command = new SqlCommand(selectQuery,conn); 
+		var ad = new SqlDataAdapter(command); 
+		var ds = new DataSet();                 
+		ad.FillSchema(ds, SchemaType.Mapped, tableName);
+		return ds;
+    }
+
+#>

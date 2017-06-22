@@ -1,0 +1,15 @@
+CaseStatusID,Name,Code,SortID,Description
+1,Potential,NULL,1,Companies that are being watched/reviewed (Potenti
+2,Initial - Go,NULL,2,Cases we are pursuing
+3,Post LP,NULL,14,Cases that are past the LP date
+4,Active,NULL,7,Cases where LP has been appt'd and in litigation
+6,Dismissed,NULL,9,Cases finally dismissed by court
+7,Settled,NULL,10,NULL
+8,Settled - Disbursed,NULL,11,NULL
+9,Potential Closed,NULL,12,NULL
+10,Initial - Pass,NULL,3,Cases that we are not persuing
+11,Deriv/Trans,NULL,4,"Holder" cases
+12,International,NULL,13,International Cases
+13,Section 14,NULL,5,Section 14 claims
+14,Section 14 - Inactive,NULL,6,Section 14 claims - inactive case
+15,State - Filed,NULL,15,State filed cases

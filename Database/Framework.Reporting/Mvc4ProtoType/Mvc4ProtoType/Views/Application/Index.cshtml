@@ -1,0 +1,109 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Index";
+}
+<h2>
+    Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @using (Html.BeginForm("Index", "Application", FormMethod.Get))
+    {    
+        <p>
+            Name: @Html.TextBox("SearchString")
+            <br />
+            <input type="submit" value="Filter" />
+        </p> 
+    }
+</p>
+<table border="1" cellspacing="5" cellpadding="5">
+    <tr>
+        <th>
+            @Framework.Components.ApplicationUser.Application.DataColumns.ApplicationId
+        </th>
+        <th>
+            @Framework.Components.ApplicationUser.Application.DataColumns.Name
+        </th>
+        <th>
+            @Framework.Components.ApplicationUser.Application.DataColumns.Description
+        </th>
+        <th>
+            @Framework.Components.ApplicationUser.Application.DataColumns.SortOrder
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (System.Data.DataRow item in Model.Rows)
+    {
+        <tr>
+            <td>
+                @item[Framework.Components.ApplicationUser.Application.DataColumns.ApplicationId]
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item[Framework.Components.ApplicationUser.Application.DataColumns.Name])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item[Framework.Components.ApplicationUser.Application.DataColumns.Description])
+            </td>
+            <td>
+                @item[Framework.Components.ApplicationUser.Application.DataColumns.SortOrder]
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item[Framework.Components.ApplicationUser.Application.DataColumns.ApplicationId] })
+                |
+                @Html.ActionLink("Details", "Details", new { id = item[Framework.Components.ApplicationUser.Application.DataColumns.ApplicationId] })
+                |
+                @Html.ActionLink("Delete", "Delete", new { id = item[Framework.Components.ApplicationUser.Application.DataColumns.ApplicationId] })
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="5">
+            <div style="width: 30%; float: left;">
+                Page @ViewBag.CurrentPage of @ViewBag.TotalPages</div>
+            <div style="width: 100%; text-align: right;">
+                @for (var i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    if (i == ViewBag.CurrentPage)
+                    {                    
+                    @i
+                    }
+                    else
+                    {                        
+                    @Html.ActionLink(i.ToString(), "Index", new { searchString = ViewBag.searchString, page = i })
+                    }
+                    @Html.Raw(" ");
+                }
+            </div>
+        </td>
+    </tr>
+</table>
+<div>
+    @*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    of @Model.PageCount
+     
+    @if (Model.HasPreviousPage)
+    {
+        @Html.ActionLink("<<", "Index", new { page = 1, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter  })
+        @Html.Raw(" ");
+        @Html.ActionLink("< Prev", "Index", new { page = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter  })
+    }
+    else
+    {
+        @:<<
+        @Html.Raw(" ");
+        @:< Prev
+    }
+     
+    @if (Model.HasNextPage)
+    {
+        @Html.ActionLink("Next >", "Index", new { page = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter  })
+        @Html.Raw(" ");
+        @Html.ActionLink(">>", "Index", new { page = Model.PageCount, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter  })
+    }
+    else
+    {
+        @:Next >
+        @Html.Raw(" ")
+        @:>>
+    }*@
+</div>

@@ -1,0 +1,6 @@
+ALTER TABLE dbo.HelpLine
+ADD CONSTRAINT PK_HelpLine PRIMARY KEY CLUSTERED 
+(
+	HelpLineId
+)
+GO

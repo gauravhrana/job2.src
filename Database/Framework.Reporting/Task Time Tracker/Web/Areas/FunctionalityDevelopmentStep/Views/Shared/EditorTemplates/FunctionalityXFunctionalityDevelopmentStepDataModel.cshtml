@@ -1,0 +1,45 @@
+﻿@model DataModel.TaskTimeTracker.ApplicationDevelopment.FunctionalityXFunctionalityDevelopmentStepDataModel
+
+@{
+    ViewBag.Title = "FunctionalityXFunctionalityDevelopmentStepDataModel";
+}
+
+<h2>Functionality X Functionality Development Step</h2>
+
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.FunctionalityXFunctionalityDevelopmentStepId)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(modelItem => @Model.FunctionalityXFunctionalityDevelopmentStepId)
+    @Html.ValidationMessageFor(modelItem => @Model.FunctionalityXFunctionalityDevelopmentStepId)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.FunctionalityId)
+</div>
+<div class="editor-field">
+     @Html.DropDownList("FunctionalityId", null, new { id = "drpFunctionality" })		
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.FunctionalityDevelopmentStepId)
+</div>
+<div class="editor-field">
+    @Html.DropDownList("FunctionalityDevelopmentStepId", null, new { id = "drpFunctionalityDevelopmentStep" })		
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.SortOrder)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(modelItem => @Model.SortOrder)
+    @Html.ValidationMessageFor(modelItem => @Model.SortOrder)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.Version)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(modelItem => @Model.Version)
+    @Html.ValidationMessageFor(modelItem => @Model.Version)
+</div>

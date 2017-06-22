@@ -1,0 +1,179 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs"
+    Inherits="ApplicationContainer.UI.Web.MasterPages.PMT.DefaultMasterPage" %>
+
+<%@ Register TagName="QuickSearchControl" TagPrefix="qs" Src="~/Shared/Controls/QuickSearch/QuickSearch.ascx" %>
+<%@ Register TagPrefix="sm" TagName="SubMenu" Src="~/Shared/Controls/SubMenu/SubMenu.ascx" %>
+<%@ Register TagPrefix="bc" TagName="BreadCrumb" Src="~/Shared/Controls/BreadCrumb/BreadCrumb.ascx" %>
+<%@ Register Src="~/Shared/Controls/SliderMenu.ascx" TagName="SliderMenu" TagPrefix="sm" %>
+<%@ Register Src="~/MasterPages/controls/CommonRender.ascx" TagName="RenderPage" TagPrefix="cr" %>
+<%@ Register Src="~/MasterPages/controls/CommonLogin.ascx" TagName="CommonLogin" TagPrefix="cr" %>
+<%@ Register Src="~/MasterPages/controls/CommonBannerMenu.ascx" TagName="CommonBanner" TagPrefix="cr" %>
+<%@ Register Src="~/MasterPages/controls/CommonBannerNav.ascx" TagName="CommonBannerNav" TagPrefix="cr" %>
+<%@ Register Src="~/MasterPages/controls/CommonBodyStart.ascx" TagName="CommonBodyStart" TagPrefix="cr" %>
+
+<html>
+
+<head id="Head1" runat="server">
+
+    <cr:RenderPage ID="DefaultRender" runat="server" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+
+</head>
+<body>
+
+    <form id="form1" runat="server">
+	    
+		<cr:CommonBodyStart runat="server" />
+
+        <sm:SliderMenu ID="oSliderMenu" runat="server" />
+
+        <div class="container-fluid" style="padding-left: 45px; padding-right: 20px;">
+
+            <div class="header" style="background-color: #4b6c9e;">
+
+                <div ng-app style="background-color: black;" class="row">
+
+                    <div class="navbar-collapse" ng-class="isCollapsed ? 'collapse' : 'in'">
+
+                        <div class="col-sm-4 text-center">
+                            <% if (Shared.WebCommon.UI.Web.SessionVariables.CurrentApplicationModuleCode != "AA")
+                               { 
+                            %>
+                           <%-- <div data-ng-include="'/app/BM/TimeEntry/views/nav2.html'"></div>--%>
+                            <% 
+                               }
+                               else
+                               {
+                            %>
+                            <div data-ng-include="'/app/core/views/navAA.html'"></div>
+                            <% 
+                               } 
+                            %>
+                        </div>
+
+                        <cr:CommonBannerNav ID="CommonBannerNav" runat="server" />
+
+                    </div>
+
+                    <cr:CommonBanner ID="CommonBanner" runat="server" />
+
+                </div>
+            </div>
+
+            <div class="row" style="background-color: transparent;">
+
+                <div class="col-sm-12">
+                    <ul class="breadcrumb" style="margin-bottom: 02px; padding: 1px; border-top-color: black; border-top-width: 1px;">
+                        <bc:BreadCrumb ID="oBreadCrumb" runat="server" />
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="row hide" style="height: 20px; background-color: lightgreen;">
+                <div class="col-sm-12" style="height: 20px;">
+                    <table class="table table-bordered table-condensed" style="height: 10px;">
+                        <tbody>
+                            <tr class="text-center" style="height: 20px;">
+                                <td class="span1">01</td>
+                                <td class="span1">02</td>
+                                <td class="span1">03</td>
+                                <td class="span1">04</td>
+                                <td class="span1">05</td>
+                                <td class="span1">06</td>
+                                <td class="span1">07</td>
+                                <td class="span1">08</td>
+                                <td class="span1">09</td>
+                                <td class="span1">10</td>
+                                <td class="span1">11</td>
+                                <td class="span1">12</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-12">
+
+                    <section id="sectionA">
+
+                        <section id="sectionB">
+
+                            <div class="row">
+
+                                <div id="divC" class="col-sm-11">
+                                    <asp:ContentPlaceHolder ID="SectionName" runat="server" />
+                                    <div id="dvSearchFilter" runat="server">
+                                        <asp:ContentPlaceHolder ID="SearchControlItem" runat="server" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-1 hidden-xs hidden-sm" style="background: lightsteelblue;">
+                                    <sm:SubMenu ID="oSubMenu" runat="server" />
+                                </div>
+                            </div>
+
+                        </section>
+
+                        <div class="row col-sm-12">
+                            <br />
+                        </div>
+
+                        <asp:ContentPlaceHolder ID="ListControlItem" runat="server" />
+                        <asp:ContentPlaceHolder ID="ActionContent" runat="server" />
+
+                        <section style="padding-top: 20px; background-color: lightgreen;">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="maintable">
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+
+                    </section>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <footer>
+                        <asp:Label ID="lblPerson" runat="server" />
+                        <asp:Label ID="lblStatus" runat="server" Style="font-size: medium; color: White;" />
+                    </footer>
+                </div>
+            </div>
+
+            <div class="hide">
+                <div class="span1" style="background: pink">01</div>
+                <div class="span1" style="background: pink">02</div>
+                <div class="span1" style="background: pink">03</div>
+                <div class="span1" style="background: pink">04</div>
+                <div class="span1" style="background: pink">05</div>
+                <div class="span1" style="background: pink">06</div>
+                <div class="span1" style="background: pink">07</div>
+                <div class="span1" style="background: pink">08</div>
+                <div class="span1" style="background: pink">09</div>
+                <div class="span1" style="background: pink">10</div>
+                <div class="span1" style="background: pink">11</div>
+                <div class="span1" style="background: pink">12</div>
+            </div>
+
+            <label id="Button1" style="vertical-align: top">
+                <asp:ContentPlaceHolder ID="ControlVisibilityManager" runat="server" />
+            </label>
+        </div>
+    </form>
+
+</body>
+</html>

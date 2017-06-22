@@ -1,0 +1,25 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/Site.master" CodeBehind="Settings.aspx.cs" Inherits="ApplicationContainer.UI.Web.TCM.TestSuite.Settings" %>
+<%@ Register TagPrefix="ec" TagName="eSettingsList" Src="~/Shared/Controls/eSettingsList.ascx" %>
+<%@ MasterType TypeName="Framework.UI.Web.BaseClasses.PageSiteMaster" %>
+<asp:Content ID="Content2" runat="server" ContentPlaceHolderID="HeadContent">
+</asp:Content>
+<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="SectionName">
+   <!-- TestSuite Settings-->
+</asp:Content>
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    <table style="font-weight: bold; color: Black"  class="maintable"  border="0">
+      
+       <tr>
+
+            <td>
+                <ec:eSettingsList ID="eSettingsList" runat="server" />
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <asp:LinkButton ID="btnInsert" Text="Back" OnClick="btnBack_Click" runat="server" />
+                <asp:LinkButton ID="btnHome" Text="Home" OnClick="btnHome_Click" runat="server" />
+            </td>
+        </tr>
+    </table>
+</asp:Content>

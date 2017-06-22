@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<script type="text/javascript" src="@Url.Content("/Areas/ReleaseNoteQualitative/Scripts/SearchFilterConfiguration.js")"></script>
+<script type="text/javascript" src="@Url.Content("/Areas/ReleaseNoteQualitative/Scripts/CommonScripts.js")"></script>
+<div id="example" class="k-content">
+    @*@Html.ActionLink("Create New", "Create")*@
+    @using (Html.BeginForm("Index", "DailyTaskItemQueue", FormMethod.Get))
+    {
+        <p>
+            <div id="searchFilterContainer">
+            </div>
+
+            @*<input id="txtNameFilter" type="text" />*@
+            <br />
+            <input id="btnFilter" type="button" value="Filter" />
+        </p>
+        <p>
+            FC Mode: @Html.DropDownList("FieldConfigurationMode", null, new { id = "drpFCMode" })
+            <br />
+        </p>
+@*<p>
+			Name: @Html.TextBox("SearchString")
+			<br />
+			<input type="submit" value="Filter" />
+		</p>*@
+    }
+    <div id="grid" style="height: 380px"></div>
+    <div>
+        <input id="btnInsert" type="button" value="Insert" onclick="OnInsert();" />
+        <input id="btnDelete" type="button" value="Delete" disabled="disabled" onclick="OnDelete();" />
+        <input id="btnDetails" type="button" value="Details" disabled="disabled" onclick="OnDetails();" />
+        <input id="btnUpdate" type="button" value="Update" disabled="disabled" onclick="OnUpdate();" />
+        @*<input id="btnCommonUpdate" type="button" value="Common Update" />
+        <input id="btnInlineUpdate" type="button" value="Inline Update" />*@
+    </div>
+</div>
+
+<script>
+
+    var entityName = "DailyTaskItemQueue";
+    var areaName = "AreaSchedule";
+    var userDateFormat = @Html.Raw(Json.Encode(ViewBag.UserDateFormat))    
+
+    $(document).ready(function () {
+
+        ConfigureSearchFilter($("#searchFilterContainer"));
+
+        $("#grid").kendoGrid({
+            @Html.Raw(@ViewBag.KendoUIConfigurationString)
+        });
+
+        var grid = $("#grid").data("kendoGrid");
+        grid.bind("dataBound", MangeColumnVisibilityByFCMode);
+        grid.dataSource.fetch();
+
+        $('#drpFCMode').change(function () {
+            MangeColumnVisibilityByFCMode();
+        });
+
+        $('#checkAll').click(function () {
+            $("#grid .check-box").prop("checked", this.checked);
+        });
+
+        $('#btnFilter').click(function () {
+            SubmitSearch();
+        });        
+
+    });
+
+</script>

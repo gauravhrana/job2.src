@@ -1,0 +1,23 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h3 class="modal-title">Add Summary Calculation</h3>
+</div>
+<div class="modal-body">
+    <form name="$parent.addEditForm">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label for="Calculation" class="col-sm-3 control-label">Calculation</label>
+                <div class="col-sm-9">
+                    <select name="Calculation" class="form-control" data-ui-select2="" ng-model="tempSummaryCalculation.CalculationCode" required>
+                        <option value=""></option>
+                        <option data-ng-repeat="calculation in Calculations" value="{{calculation.CalculationCode}}">{{calculation.CalculationCode}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form>    
+</div>
+<div class="modal-footer">    
+    <button type="button" class="btn btn-default" ng-click="addEditSummaryCalculation()" ng-disabled="$parent.addEditForm.$invalid">Save</button>
+    <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+</div>

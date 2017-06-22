@@ -1,0 +1,55 @@
+﻿<form method="post" action="api/reports/RequestSummaryDataFile" ng-hide="fullScreen">
+    <div ng-form name="mainForm">
+        <div class="page-header"><h3>Report Viewer</h3></div>
+        <nav class="navbar navbar-default">
+            <ul class="nav navbar-nav">
+                <li><button type="button" class="btn btn-link navbar-btn navbar-link" ng-disabled="mainForm.$invalid" data-ng-click="Run()"><span class="glyphicon glyphicon-play"></span> Run</button></li>
+                <li><button type="submit" class="btn btn-link navbar-btn navbar-link" ng-disabled="mainForm.$invalid"><span class="glyphicon glyphicon-download-alt"></span> Download</button></li>
+                
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                <li><button type="button" class="btn btn-link navbar-btn navbar-link" ng-disabled="dataSets.length == 0" data-ng-click="ToggleFullScreen(true)"><span class="glyphicon glyphicon-resize-full"></span> Full Screen</button></li>
+            </ul>
+        </nav>
+
+
+        <div class="form-horizontal">
+
+            <div class="form-group">
+                <label for="SummaryCode" class="col-sm-2 control-label">Report</label>
+                <div class="col-sm-10">
+                    <select name="SummaryCode" class="form-control" data-ui-select2="" data-ng-model="summaryDataRequest.SummaryCode" required="">
+                        <option value=""></option>
+                        <option data-ng-repeat="summary in summaries" value="{{summary.SummaryCode}}">{{summary.Name}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error': endDate.$invalid}">
+                <label for="EndDate" class="col-sm-2 control-label">End Date</label>
+                <div class="col-sm-10" ng-switch="supportsDate">
+                    <input ng-switch-when="true" name="EndDate" class="form-control" type="date" ng-model="summaryDataRequest.EndDate" required="" />
+                    <input ng-switch-when="false" name="EndDate" class="form-control" type="text" ng-model="summaryDataRequest.EndDate" data-bs-datepicker data-date-format="MM/dd/yyyy" data-date-type="date" data-autoclose="1" required="" />                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+
+<div data-ng-repeat="dataSet in dataSets">
+    <div ng-style="style()" data-fill-height="" data-bottom-offset="10" data-ng-grid="dataSet"></div>
+</div>
+
+<div data-ng-repeat="dataSet in fullScreenDataSets">
+    <button class="btn btn-xs btn-default" ng-click="ToggleFullScreen(false)" style="position: absolute;z-index: 100001;top: 0;right: 0;"><span class="glyphicon glyphicon-resize-small" title="Exit Full Screen"></span></button>
+    <div style="position: absolute;z-index: 100000;top: 0;left: 0;right: 0;bottom: 0;" data-ng-grid="dataSet"></div>
+</div>
+
+
+
+
+
+
+

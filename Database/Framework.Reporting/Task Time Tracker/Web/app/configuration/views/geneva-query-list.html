@@ -1,0 +1,18 @@
+﻿<div class="page-header"><h3>Geneva Queries</h3></div>
+
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+        <li><a ng-click="AddNew();" title="Back"><span class="glyphicon glyphicon-plus"></span> {{SubmitMessage}}</a></li>
+    </ul>
+    <div class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+            <input type="text" ng-model="searchText" class="form-control" placeholder="Search" style="width:200px;" />
+        </div>
+    </div>
+</nav>
+    
+<table class="table table-condensed table-striped">
+    <tr ng-repeat="query in queries | filter:searchText | orderBy : ['GenevaQueryCode']">
+        <td><a href="#/genevaQueries/{{query.GenevaQueryCode}}">{{query.GenevaQueryCode}}</a></td>        
+    </tr>
+</table>
