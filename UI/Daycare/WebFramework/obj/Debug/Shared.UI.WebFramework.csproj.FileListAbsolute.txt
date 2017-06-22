@@ -1,0 +1,5 @@
+R:\717\Projects\UI\Daycare\WebFramework\bin\Debug\Shared.UI.WebFramework.dll
+R:\717\Projects\UI\Daycare\WebFramework\bin\Debug\Shared.UI.WebFramework.pdb
+R:\717\Projects\UI\Daycare\WebFramework\obj\Debug\ResolveAssemblyReference.cache
+R:\717\Projects\UI\Daycare\WebFramework\obj\Debug\Shared.UI.WebFramework.dll
+R:\717\Projects\UI\Daycare\WebFramework\obj\Debug\Shared.UI.WebFramework.pdb

@@ -1,0 +1,5 @@
+R:\717\Projects\UI\Daycare\WebBranding\bin\Shared.UI.WebBranding.dll
+R:\717\Projects\UI\Daycare\WebBranding\bin\Shared.UI.WebBranding.pdb
+R:\717\Projects\UI\Daycare\WebBranding\obj\Debug\ResolveAssemblyReference.cache
+R:\717\Projects\UI\Daycare\WebBranding\obj\Debug\Shared.UI.WebBranding.dll
+R:\717\Projects\UI\Daycare\WebBranding\obj\Debug\Shared.UI.WebBranding.pdb

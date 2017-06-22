@@ -1,0 +1,64 @@
+﻿@model Framework.Components.ApplicationUser.ApplicationUser.Data
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Application</legend>
+
+     <div class="display-label">
+         @Html.DisplayNameFor(model => model.ApplicationUserId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ApplicationUserId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Application)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Application)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ApplicationUserTitle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ApplicationUserTitle)
+    </div>
+
+     <div class="display-label">
+         @Html.DisplayNameFor(model => model.ApplicationUserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ApplicationUserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MiddleName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MiddleName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ApplicationUserId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

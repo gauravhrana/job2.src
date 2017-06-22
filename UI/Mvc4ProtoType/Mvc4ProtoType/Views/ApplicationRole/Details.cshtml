@@ -1,0 +1,50 @@
+﻿@model Framework.Components.ApplicationUser.ApplicationRole.Data
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Application</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Application)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Application)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ApplicationId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ApplicationId)
+    </div>
+    
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SortOrder)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SortOrder)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = @Model.ApplicationRoleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,81 @@
+﻿<DynamicValidators>
+  <!--
+	This section contains default values for different types validator controls
+	-->
+  <Defaults>
+    <!--
+		These are default property values that are common to all validator controls
+		-->
+    <Common>
+      <!--
+		These are default property values that are common to all validator controls
+		-->
+      <Property name="ForeColor" value="Red" />
+      <Property name="Display" value="Dynamic" />
+      <Property name="EnableViewState" value="False" />
+    </Common>
+    <!--
+		These are default property values specific to the RegularExpression validator
+		-->
+    <RegularExpression>
+      <Property name="Text" value="Allowed chracters are {LegalValues}" />
+      <Property name="ErrorMessage" value="{FriendlyName} can only consist of {LegalValues}" />
+    </RegularExpression>
+    <!--
+		These are default property values specific to the RequiredField validator
+		-->
+    <!--<RequiredField>
+      <Property name="InitialValue" value="" />
+      <Property name="Text" value="This is a required field" />
+      <Property name="ErrorMessage" value="You must enter something for the {FriendlyName}" />
+    </RequiredField>-->
+  </Defaults>
+  <!--
+	This section defines the validator groups
+	A validator group defines a collection of validators and their properties
+	-->
+  <!--As there will be a number of user input fields, there will be a set of ValidatorCollection nodes, 
+  and these will be held in a single ValidatorSets node of the configuration file.-->
+  <ValidatorSets>
+
+    <!--QuestionId
+    <ValidatorCollection id="dynQuestionId" FriendlyName="QuestionId"
+                         LegalValues="Integers Only"
+                         ControlToValidate="txtQuestionId">
+      <Validator type="RequiredField" />
+      <Validator type="RegularExpression">
+        <Property name="ValidationExpression" value="^\d+$" />
+      </Validator>
+    </ValidatorCollection>-->
+
+    <!--Question-->
+    <ValidatorCollection id="dynQuestion" FriendlyName="Question"
+                         LegalValues="Alphabets Only"
+                         ControlToValidate="txtQuestion">
+      <Validator type="RequiredField" />
+      <Validator type="RegularExpression">
+        <Property name="ValidationExpression" value= "^[A-Za-z _?]*$" />
+      </Validator>
+    </ValidatorCollection>
+
+    <!--Category-->
+    <ValidatorCollection id="dynCategory" FriendlyName="Category"
+                         LegalValues="Alphabets Only"
+                         ControlToValidate="txtCategory">
+      <Validator type="RequiredField" />
+      <Validator type="RegularExpression">
+        <Property name="ValidationExpression" value="^\d+$" />
+      </Validator>
+    </ValidatorCollection>
+
+    <!--SortOrder-->
+    <ValidatorCollection id="dynSortOrder" FriendlyName="SortOrder"
+                        LegalValues="Integers Only"
+                        ControlToValidate="txtSortOrder">
+      <!--<Validator type="RequiredField" />-->
+      <Validator type="RegularExpression">
+        <Property name="ValidationExpression" value="^\d+$" />
+      </Validator>
+    </ValidatorCollection>
+  </ValidatorSets>
+</DynamicValidators>

@@ -1,0 +1,137 @@
+﻿<DynamicValidators>
+  <!--
+	This section contains default values for different types validator controls
+	-->
+  <Defaults>
+    <!--
+		These are default property values that are common to all validator controls
+		-->
+    <Common>
+      <!--
+		These are default property values that are common to all validator controls
+		-->
+      <Property name="ForeColor" value="Red" />
+      <Property name="Display" value="Dynamic" />
+      <Property name="EnableViewState" value="False" />
+    </Common>
+    <!--
+		These are default property values specific to the RegularExpression validator
+		-->
+    <RegularExpression>
+      <Property name="Text" value="Allowed chracters are {LegalValues}" />
+      <Property name="ErrorMessage" value="{FriendlyName} can only consist of {LegalValues}" />
+    </RegularExpression>
+    <!--
+		These are default property values specific to the RequiredField validator
+		-->
+    <!--<RequiredField>
+      <Property name="InitialValue" value="" />
+      <Property name="Text" value="This is a required field" />
+      <Property name="ErrorMessage" value="You must enter something for the {FriendlyName}" />
+    </RequiredField>-->
+  </Defaults>
+  <!--
+	This section defines the validator groups
+	A validator group defines a collection of validators and their properties
+	-->
+  <!--As there will be a number of user input fields, there will be a set of ValidatorCollection nodes, 
+  and these will be held in a single ValidatorSets node of the configuration file.-->
+  <ValidatorSets>
+
+    <!--ItemNo-->
+    <ValidatorCollection id="dynItemNo" FriendlyName="ItemNo"
+                         LegalValues="Integers Only"
+                         ControlToValidate="txtItemNo">
+      <Validator type="RequiredField" />
+      <Validator type="RegularExpression">
+        <Property name="ValidationExpression" value="^\d+$" />
+      </Validator>
+    </ValidatorCollection>
+
+    <!--Description-->
+    <ValidatorCollection id="dynDescription" FriendlyName="Description"
+                         LegalValues="Alphabets Only"
+                         ControlToValidate="txtDescription">
+      <Validator type="RequiredField" />
+    </ValidatorCollection>
+
+    <!--SortOrder-->
+    <ValidatorCollection id="dynSortOrder" FriendlyName="SortOrder"
+                        LegalValues="Integers Only"
+                        ControlToValidate="txtSortOrder">
+      <Validator type="RequiredField" />
+      <Validator type="RegularExpression">
+        <Property name="ValidationExpression" value="^\d+$" />
+      </Validator>
+    </ValidatorCollection>
+
+    <!--RequestedBy-->
+    <ValidatorCollection id="dynRequestedBy" FriendlyName="RequestedBy"
+                         LegalValues="Alphabets Only"
+                         ControlToValidate="txtRequestedBy">
+      <Validator type="RequiredField" />
+    </ValidatorCollection>
+
+    <!--PrimaryDeveloper-->
+    <ValidatorCollection id="dynPrimaryDeveloper" FriendlyName="PrimaryDeveloper"
+                         LegalValues="Alphabets Only"
+                         ControlToValidate="txtPrimaryDeveloper">
+      <Validator type="RequiredField" />
+    </ValidatorCollection>
+
+    <!--RequestedDate-->
+    <ValidatorCollection id="dynRequestedDate" FriendlyName="RequestedDate"
+                         LegalValues="Alphabets Only"
+                         ControlToValidate="txtRequestedDate">
+      <Validator type="RequiredField" />
+      <Validator type="RegularExpression">
+        <Property name="ValidationExpression" value="^\d+$" />
+      </Validator>
+    </ValidatorCollection>
+
+    <!--ReleaseIssueTypeId-->
+    <ValidatorCollection id="dynReleaseIssueTypeId" FriendlyName="ReleaseIssueTypeId"
+                        LegalValues="Integers Only"
+                        ControlToValidate="txtReleaseIssueTypeId">
+      <!--<Validator type="RequiredField" />-->
+      <Validator type="RegularExpression">
+        <Property name="ValidationExpression" value="^\d+$" />
+      </Validator>
+    </ValidatorCollection>
+
+    <!--ReleasePublishCategoryId-->
+    <ValidatorCollection id="dynReleasePublishCategoryId" FriendlyName="ReleasePublishCategoryId"
+                        LegalValues="Integers Only"
+                        ControlToValidate="txtReleasePublishCategoryId">
+      <!--<Validator type="RequiredField" />-->
+      <Validator type="RegularExpression">
+        <Property name="ValidationExpression" value="^\d+$" />
+      </Validator>
+    </ValidatorCollection>
+
+    <!--Feature-->
+    <ValidatorCollection id="dynFeature" FriendlyName="Feature"
+                         LegalValues="Alphabets Only"
+                         ControlToValidate="txtFeature">
+      <Validator type="RequiredField" />
+    </ValidatorCollection>
+
+    <!--JIRA-->
+    <ValidatorCollection id="dynJIRA" FriendlyName="JIRA"
+                         LegalValues="Alphabets Only"
+                         ControlToValidate="txtJIRA">
+      <Validator type="RequiredField" />
+    </ValidatorCollection>
+
+    <!--PrimaryEntity-->
+    <ValidatorCollection id="dynPrimaryEntity" FriendlyName="PrimaryEntity"
+                         LegalValues="Alphabets Only"
+                         ControlToValidate="txtPrimaryEntity">
+      <Validator type="RequiredField" />
+    </ValidatorCollection>
+    
+    
+    
+    
+  </ValidatorSets>
+</DynamicValidators>

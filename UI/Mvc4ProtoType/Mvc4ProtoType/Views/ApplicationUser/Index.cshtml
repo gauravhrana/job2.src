@@ -1,0 +1,101 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Index";
+}
+<h2>
+    Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @using (Html.BeginForm())
+    {    
+        <p>
+            Application: @Html.DropDownList("application", "All")
+            <br />
+            Application User Title: @Html.DropDownList("applicationUserTitle", "All")
+            <br />
+            Name: @Html.TextBox("SearchString")
+            <br />
+            <input type="submit" value="Filter" />
+        </p> 
+    }
+</p>
+<table border="1" cellspacing="5" cellpadding="5">
+    <tr>
+        <th>
+            @Framework.Components.ApplicationUser.ApplicationUser.DataColumns.ApplicationUserId
+        </th>
+        <th>
+            @Framework.Components.ApplicationUser.ApplicationUser.DataColumns.Application
+        </th>
+        <th>
+            @Framework.Components.ApplicationUser.ApplicationUser.DataColumns.ApplicationUserTitle
+        </th>
+        <th>
+            @Framework.Components.ApplicationUser.ApplicationUser.DataColumns.ApplicationUserName
+        </th>
+        <th>
+            @Framework.Components.ApplicationUser.ApplicationUser.DataColumns.FirstName
+        </th>
+        <th>
+            @Framework.Components.ApplicationUser.ApplicationUser.DataColumns.MiddleName
+        </th>
+        <th>
+            @Framework.Components.ApplicationUser.ApplicationUser.DataColumns.LastName
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (System.Data.DataRow item in Model.Rows)
+    {
+        <tr>
+            <td>
+                @item[Framework.Components.ApplicationUser.ApplicationUser.DataColumns.ApplicationUserId]
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item[Framework.Components.ApplicationUser.ApplicationUser.DataColumns.Application])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item[Framework.Components.ApplicationUser.ApplicationUser.DataColumns.ApplicationUserTitle])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item[Framework.Components.ApplicationUser.ApplicationUser.DataColumns.ApplicationUserName])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item[Framework.Components.ApplicationUser.ApplicationUser.DataColumns.FirstName])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item[Framework.Components.ApplicationUser.ApplicationUser.DataColumns.MiddleName])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item[Framework.Components.ApplicationUser.ApplicationUser.DataColumns.LastName])
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item[Framework.Components.ApplicationUser.ApplicationUser.DataColumns.ApplicationUserId] })
+                |
+                @Html.ActionLink("Details", "Details", new { id = item[Framework.Components.ApplicationUser.ApplicationUser.DataColumns.ApplicationUserId] })
+                |
+                @Html.ActionLink("Delete", "Delete", new { id = item[Framework.Components.ApplicationUser.ApplicationUser.DataColumns.ApplicationUserId] })
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="8">
+            <div style="width: 30%; float: left;">
+                Page @ViewBag.CurrentPage of @ViewBag.TotalPages</div>
+            <div style="width: 100%; text-align: right;">
+                @for (var i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    if (i == ViewBag.CurrentPage)
+                    {                    
+                    @i
+                    }
+                    else
+                    {                        
+                    @Html.ActionLink(i.ToString(), "Index", new { application = ViewBag.applicationSearchString, applicationUserTitle = ViewBag.applicationUserTitleSearchString, searchString = ViewBag.searchString, page = i })
+                    }
+                    @Html.Raw(" ");
+                }
+            </div>
+        </td>
+    </tr>
+</table>

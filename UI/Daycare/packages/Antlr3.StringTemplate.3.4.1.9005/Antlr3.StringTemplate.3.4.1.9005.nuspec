@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Antlr3.StringTemplate</id>
+    <version>3.4.1.9005</version>
+    <title>StringTemplate v3</title>
+    <authors>Terence Parr, Sam Harwell</authors>
+    <owners>Terence Parr, Sam Harwell</owners>
+    <projectUrl>http://www.stringtemplate.org/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>StringTemplate (or ST) is a template engine library used for generating text from data structures. The first version was developed for the Java platform and has evolved over the years of it's use on the jGuru.com website. StringTemplate's distinguishing characteristic is that it strictly enforces model-view separation unlike other comparable template engines. It is particularly good at multi-targeted code generators, multiple site skins, and internationalization/localization.</description>
+    <releaseNotes>- Antlr3.Runtime.dll is merged to Antlr3.StringTemplate.
+- same as 9004 but with fixed nuget metadata, framework version</releaseNotes>
+    <tags>stringtemplate template templateengine</tags>
+  </metadata>
+</package>
