@@ -1,0 +1,6 @@
+ALTER TABLE dbo.ReportType
+ADD CONSTRAINT PK_ReportType PRIMARY KEY CLUSTERED 
+(
+	ReportTypeId
+)
+GO

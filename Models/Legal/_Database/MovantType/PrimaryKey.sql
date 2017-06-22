@@ -1,0 +1,6 @@
+ALTER TABLE dbo.MovantType
+ADD CONSTRAINT PK_MovantType PRIMARY KEY CLUSTERED 
+(
+	MovantTypeId
+)
+GO

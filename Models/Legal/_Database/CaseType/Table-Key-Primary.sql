@@ -1,0 +1,6 @@
+ALTER TABLE dbo.CaseType
+ADD CONSTRAINT PK_CaseType PRIMARY KEY CLUSTERED 
+(
+	CaseTypeId
+)
+GO

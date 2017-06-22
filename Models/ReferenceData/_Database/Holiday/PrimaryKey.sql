@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Holiday
+ADD CONSTRAINT PK_Holiday PRIMARY KEY CLUSTERED 
+(
+	HolidayId
+)
+GO

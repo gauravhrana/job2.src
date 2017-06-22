@@ -1,0 +1,10 @@
+﻿<#@ template language="C#" hostspecific="True" #><#@ assembly name="$(TargetDir)\DataModel.DayCare.dll" #>
+<#@ assembly name="$(TargetDir)\DataModel.DayCare.dll" #>
+
+<#@ output extension=".sql" #>
+<#@ 
+	include file="../../../../../Generators/Generators.SQL/SQLStandardEntity/EntitySqlGeneratorHelper.tt"     
+#>
+<#  
+	this.GenerateSqlFiles("DataModel.DayCare", "Teacher", "TeacherDataModel", "DayCare", "706", "Welcome1");
+#> 

@@ -1,0 +1,6 @@
+ALTER TABLE dbo.SecurityXExternalMarketDataIdentifier
+ADD CONSTRAINT PK_SecurityXExternalMarketDataIdentifier PRIMARY KEY CLUSTERED 
+(
+	SecurityXExternalMarketDataIdentifierId
+)
+GO

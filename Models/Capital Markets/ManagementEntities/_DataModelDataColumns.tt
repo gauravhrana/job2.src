@@ -1,0 +1,34 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.CapitalMarkets.dll" #>
+<#@ include file="../../../Generators/Generators.Components/DataModelColumnGeneratorHelper.tt" 
+#>
+<#
+	this.GenerateDataModelFiles
+	( 
+		"DataModel.CapitalMarkets",	
+		new [] 
+		{	  	
+				"AssetType"
+			,	"Broker"
+			,	"Custodian"
+			,	"Financing"
+			,	"Fund"
+			,	"Industry"
+			,	"InvestmentType"
+			,	"LegalEntity"
+			,	"ManagementFirm"
+			,	"Portfolio"
+			,	"PortfolioType"
+			,	"RecordType"
+			,	"STIF"
+			,	"SubIndustry"
+			,	"Rating"
+			,	"SecurityClass"
+			,	"Strategy"
+			,	"StrategyGroup"
+			,	"TransactionType"
+
+		} 
+	);
+#>
+ 

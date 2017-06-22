@@ -1,0 +1,6 @@
+ALTER TABLE dbo.BathRoom
+ADD CONSTRAINT PK_BathRoom PRIMARY KEY CLUSTERED 
+(
+	BathRoomId
+)
+GO

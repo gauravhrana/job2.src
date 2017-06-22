@@ -1,0 +1,37 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.ReferenceData.dll" #>
+<#@ include file="../../Generators/Generators.Components/DataModelColumnGeneratorHelper.tt" 
+#>
+<#
+	this.GenerateDataModelFiles
+	( 
+		"DataModel.ReferenceData",	
+		new [] 
+		{	  	 
+									   "Continent"
+									 , "Country"
+									 , "Currency"
+									 , "GeographicRegion"
+									 , "Religion"
+									 , "Airport"
+									 , "City" 
+									 , "HelpLine"
+									 , "Mall"
+									 , "Monument"
+									 , "Region"  
+									 , "State"
+									 , "TimeZone"
+									 , "TrainStation" 
+									 , "Calendar"
+									 , "Holiday"
+									 , "PersonSuffix"									 									 
+									 , "Ethnicity"
+									 , "Address"
+									 , "ProvinceType"
+									 , "Province"
+									 , "Gender"	
+									
+		} 
+	);
+#>
+ 

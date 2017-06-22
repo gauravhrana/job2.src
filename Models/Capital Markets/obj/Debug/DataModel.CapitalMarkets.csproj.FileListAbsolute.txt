@@ -1,0 +1,12 @@
+R:\717\Projects\Models\Capital Markets\bin\Debug\DataModel.CapitalMarkets.dll.config
+R:\717\Projects\Models\Capital Markets\bin\Debug\DataModel.CapitalMarkets.dll
+R:\717\Projects\Models\Capital Markets\bin\Debug\DataModel.CapitalMarkets.pdb
+R:\717\Projects\Models\Capital Markets\bin\Debug\Framework.Components.DataAccess.dll
+R:\717\Projects\Models\Capital Markets\bin\Debug\Newtonsoft.Json.dll
+R:\717\Projects\Models\Capital Markets\bin\Debug\log4net.dll
+R:\717\Projects\Models\Capital Markets\bin\Debug\Framework.Components.DataAccess.pdb
+R:\717\Projects\Models\Capital Markets\bin\Debug\Newtonsoft.Json.xml
+R:\717\Projects\Models\Capital Markets\bin\Debug\log4net.xml
+R:\717\Projects\Models\Capital Markets\obj\Debug\DataModel.CapitalMarkets.csprojResolveAssemblyReference.cache
+R:\717\Projects\Models\Capital Markets\obj\Debug\DataModel.CapitalMarkets.dll
+R:\717\Projects\Models\Capital Markets\obj\Debug\DataModel.CapitalMarkets.pdb

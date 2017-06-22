@@ -1,0 +1,12 @@
+R:\717\Projects\Models\Legal\bin\Debug\DataModel.Legal.dll.config
+R:\717\Projects\Models\Legal\bin\Debug\DataModel.Legal.dll
+R:\717\Projects\Models\Legal\bin\Debug\DataModel.Legal.pdb
+R:\717\Projects\Models\Legal\bin\Debug\Framework.Components.DataAccess.dll
+R:\717\Projects\Models\Legal\bin\Debug\Newtonsoft.Json.dll
+R:\717\Projects\Models\Legal\bin\Debug\log4net.dll
+R:\717\Projects\Models\Legal\bin\Debug\Framework.Components.DataAccess.pdb
+R:\717\Projects\Models\Legal\bin\Debug\Newtonsoft.Json.xml
+R:\717\Projects\Models\Legal\bin\Debug\log4net.xml
+R:\717\Projects\Models\Legal\obj\Debug\DataModel.Legal.csprojResolveAssemblyReference.cache
+R:\717\Projects\Models\Legal\obj\Debug\DataModel.Legal.dll
+R:\717\Projects\Models\Legal\obj\Debug\DataModel.Legal.pdb

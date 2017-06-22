@@ -1,0 +1,8 @@
+﻿<#@ template language="C#" hostspecific="True" #><#@ assembly name="$(TargetDir)\DataModel.ReferenceData.dll" #>
+<#@ output extension=".sql" #>
+<#@ 
+	include file="../../../../Generators/Generators.SQL/SQLNonStandardEntity/EntitySqlGeneratorHelper.tt"     
+#>
+<#
+	this.GenerateSqlFiles("DataModel.ReferenceData", "Religion", "ReligionDataModel", "Calendar", "706", "Welcome1");
+#>

@@ -1,0 +1,10 @@
+﻿<#@ template language="C#" hostspecific="True" #><#@ assembly name="$(TargetDir)\DataModel.CapitalMarkets.dll" #>
+<#@ assembly name="$(TargetDir)\DataModel.CapitalMarkets.dll" #>
+
+<#@ output extension=".sql" #> 
+<#@ 
+	include file="../../../../../Generators/Generators.SQL/SQLNonStandardEntity/EntitySqlGeneratorHelper.tt"     
+#>
+<#  
+	this.GenerateSqlFiles("DataModel.CapitalMarkets", "OrderStatusType", "OrderStatusTypeDataModel", "CapitalMarketsSecurityMaster", "706", "Welcome1");
+#> 

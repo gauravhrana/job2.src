@@ -1,0 +1,6 @@
+ALTER TABLE dbo.RecordType
+ADD CONSTRAINT PK_RecordType PRIMARY KEY CLUSTERED 
+(
+	RecordTypeId
+)
+GO

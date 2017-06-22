@@ -1,0 +1,35 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.CapitalMarkets.dll" #>
+<#@ include file="../../../Generators/Generators.Components/DataModelColumnGeneratorHelper.tt" 
+#>
+<#
+	this.GenerateDataModelFiles
+	( 
+		"DataModel.CapitalMarkets",	
+		new [] 
+		{	  	 
+				
+				"AssetBacked"
+			,	"Bond"
+			,	"Cash"
+			,	"CreditDefaultSwap"
+			,	"CreditDefaultSwapIndex"
+			,	"Equity"
+			,	"ForwardCash"
+			,	"ForwardFXContract"
+			,	"Future"
+			,	"MediumOfExchange"
+			,	"Sector"
+			,	"Security"
+			,	"SecurityType"
+			,	"SecurityTypeGroup"
+			,	"SecurityXExternalMarketDataIdentifier"
+			,	"SecurityXInvestmentIdentifier"
+			,	"SecurityXOther"
+			,	"SecurityXParty"
+			,	"SecurityXSettlementDay"
+			
+		} 
+	);
+#>
+ 

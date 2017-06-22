@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Manager
+ADD CONSTRAINT PK_Manager PRIMARY KEY CLUSTERED 
+(
+	ManagerId
+)
+GO

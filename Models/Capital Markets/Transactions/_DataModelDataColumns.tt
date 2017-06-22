@@ -1,0 +1,30 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.CapitalMarkets.dll" #>
+<#@ include file="../../../Generators/Generators.Components/DataModelColumnGeneratorHelper.tt" 
+#>
+<#
+	this.GenerateDataModelFiles
+	( 
+		"DataModel.CapitalMarkets",	
+		new [] 
+		{	  	 
+				"TxSettlementInfo"	
+			,	"TxTradeAndSettleDates"
+			,	"AssignBuyTransaction"
+			,	"ExBuyTransaction"
+			,	"ExCoverTransaction"
+			,	"ExSellTransaction"
+			,	"ExShortTransaction"
+			,	"TransactionEvent"
+			,	"TxInvestment"
+			,	"TxOther"
+			,	"TxTradeFigures"
+			,	"TxTradeInfo"
+			,	"TransactionEventBuy"
+			,	"TransactionEventSell"
+			,	"TransactionEventSellShort"
+			,	"TransactionEventCoverShort"
+		} 
+	);
+#>
+ 

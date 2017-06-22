@@ -1,0 +1,7 @@
+ALTER TABLE dbo.Ethnicity
+ADD CONSTRAINT PK_Ethnicity PRIMARY KEY CLUSTERED 
+(
+	EthnicityId
+)
+GO
+ 

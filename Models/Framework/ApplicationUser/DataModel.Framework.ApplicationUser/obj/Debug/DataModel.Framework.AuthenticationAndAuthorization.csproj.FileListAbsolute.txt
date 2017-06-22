@@ -1,0 +1,12 @@
+R:\717\Projects\Models\Framework\ApplicationUser\DataModel.Framework.ApplicationUser\bin\Debug\DataModel.Framework.ApplicationUser.dll.config
+R:\717\Projects\Models\Framework\ApplicationUser\DataModel.Framework.ApplicationUser\bin\Debug\DataModel.Framework.ApplicationUser.dll
+R:\717\Projects\Models\Framework\ApplicationUser\DataModel.Framework.ApplicationUser\bin\Debug\DataModel.Framework.ApplicationUser.pdb
+R:\717\Projects\Models\Framework\ApplicationUser\DataModel.Framework.ApplicationUser\bin\Debug\Framework.Components.DataAccess.dll
+R:\717\Projects\Models\Framework\ApplicationUser\DataModel.Framework.ApplicationUser\bin\Debug\Newtonsoft.Json.dll
+R:\717\Projects\Models\Framework\ApplicationUser\DataModel.Framework.ApplicationUser\bin\Debug\log4net.dll
+R:\717\Projects\Models\Framework\ApplicationUser\DataModel.Framework.ApplicationUser\bin\Debug\Framework.Components.DataAccess.pdb
+R:\717\Projects\Models\Framework\ApplicationUser\DataModel.Framework.ApplicationUser\bin\Debug\Newtonsoft.Json.xml
+R:\717\Projects\Models\Framework\ApplicationUser\DataModel.Framework.ApplicationUser\bin\Debug\log4net.xml
+R:\717\Projects\Models\Framework\ApplicationUser\DataModel.Framework.ApplicationUser\obj\Debug\DataModel.Framework.AuthenticationAndAuthorization.csprojResolveAssemblyReference.cache
+R:\717\Projects\Models\Framework\ApplicationUser\DataModel.Framework.ApplicationUser\obj\Debug\DataModel.Framework.ApplicationUser.dll
+R:\717\Projects\Models\Framework\ApplicationUser\DataModel.Framework.ApplicationUser\obj\Debug\DataModel.Framework.ApplicationUser.pdb

@@ -1,0 +1,17 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.ReferenceData.dll" #>
+<#@ include file="../../../Generators/Generators.Components/DataModelColumnGeneratorHelper.tt" 
+#>
+<#
+	this.GenerateDataModelFiles
+	( 
+		"DataModel.ReferenceData",	
+		new [] 
+		{	  	 
+				"TimeZoneXCountry"
+			,	"HolidayXCountry"
+			,	"CountryXReligion"			
+		} 
+	);
+#>
+ 

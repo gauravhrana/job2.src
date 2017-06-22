@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Issuer
+ADD CONSTRAINT PK_Issuer PRIMARY KEY CLUSTERED 
+(
+	IssuerId
+)
+GO

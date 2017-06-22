@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E043E876-C12C-4D07-B4B4-556ECA577C14}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataModel.Legal</RootNamespace>
+    <AssemblyName>DataModel.Legal</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CaseStatusDataModel.cs" />
+    <Compile Include="CaseTypeDataModel.cs" />
+    <Compile Include="ClientTypeDataModel.cs" />
+    <Compile Include="CounselDataModel.cs" />
+    <Compile Include="Demo.cs" />
+    <Compile Include="JurisdictionsDataModel.cs" />
+    <Compile Include="MovantTypeDataModel.cs" />
+    <Compile Include="PressReleaseTypeDataModel.cs" />
+    <Compile Include="ReportingRequirementDataModel.cs" />
+    <Compile Include="ReportTypeDataModel.cs" />
+    <Compile Include="RetrievalMethodDataModel.cs" />
+    <Compile Include="SettlementStatusDataModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="_Database\CaseStatus\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator1.sql</LastGenOutput>
+    </None>
+    <None Include="_Database\CaseStatus\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\CaseStatus\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\CaseType\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="_Database\CaseType\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\CaseType\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\ClientType\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator1.sql</LastGenOutput>
+    </None>
+    <None Include="_Database\ClientType\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\ClientType\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\Counsel\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator1.sql</LastGenOutput>
+    </None>
+    <None Include="_Database\Counsel\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\Counsel\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\Jurisdictions\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator1.sql</LastGenOutput>
+    </None>
+    <None Include="_Database\Jurisdictions\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\Jurisdictions\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\MovantType\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator1.sql</LastGenOutput>
+    </None>
+    <None Include="_Database\MovantType\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\MovantType\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\PressReleaseType\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator1.sql</LastGenOutput>
+    </None>
+    <None Include="_Database\PressReleaseType\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\PressReleaseType\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\ReportingRequirement\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator1.sql</LastGenOutput>
+    </None>
+    <None Include="_Database\ReportingRequirement\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\ReportingRequirement\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\ReportType\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="_Database\ReportType\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\ReportType\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\RetrievalMethod\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="_Database\RetrievalMethod\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\RetrievalMethod\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\SettlementStatus\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="_Database\SettlementStatus\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_Database\SettlementStatus\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="_Database\CaseStatus\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseStatus\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseStatus\ForeignKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseStatus\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseStatus\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseStatus\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseStatus\SqlGenerator.sql" />
+    <Content Include="_Database\CaseStatus\SqlGenerator1.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseStatus\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseStatus\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseType\Procedure-Delete.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseType\Procedure-Insert.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseType\Procedure-Search.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseType\Procedure-Update.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseType\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseType\Table-Create.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseType\Table-Key-Foreign.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseType\Table-Key-Primary.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\CaseType\Table-Key-Unique.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ClientType\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ClientType\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ClientType\ForeignKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ClientType\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ClientType\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ClientType\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ClientType\SqlGenerator.sql" />
+    <Content Include="_Database\ClientType\SqlGenerator1.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ClientType\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ClientType\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Counsel\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Counsel\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Counsel\ForeignKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Counsel\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Counsel\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Counsel\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Counsel\SqlGenerator.sql" />
+    <Content Include="_Database\Counsel\SqlGenerator1.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Counsel\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Counsel\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Jurisdictions\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Jurisdictions\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Jurisdictions\ForeignKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Jurisdictions\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Jurisdictions\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Jurisdictions\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Jurisdictions\SqlGenerator1.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Jurisdictions\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\Jurisdictions\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\MovantType\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\MovantType\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\MovantType\ForeignKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\MovantType\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\MovantType\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\MovantType\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\MovantType\SqlGenerator.sql" />
+    <Content Include="_Database\MovantType\SqlGenerator1.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\MovantType\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\MovantType\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\PressReleaseType\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\PressReleaseType\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\PressReleaseType\ForeignKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\PressReleaseType\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\PressReleaseType\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\PressReleaseType\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\PressReleaseType\SqlGenerator.sql" />
+    <Content Include="_Database\PressReleaseType\SqlGenerator1.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\PressReleaseType\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\PressReleaseType\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportingRequirement\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportingRequirement\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportingRequirement\ForeignKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportingRequirement\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportingRequirement\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportingRequirement\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportingRequirement\SqlGenerator.sql" />
+    <Content Include="_Database\ReportingRequirement\SqlGenerator1.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportingRequirement\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportingRequirement\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportType\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportType\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportType\ForeignKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportType\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportType\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportType\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportType\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportType\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\ReportType\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\RetrievalMethod\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\RetrievalMethod\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\RetrievalMethod\ForeignKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\RetrievalMethod\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\RetrievalMethod\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\RetrievalMethod\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\RetrievalMethod\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\RetrievalMethod\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\RetrievalMethod\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\SettlementStatus\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\SettlementStatus\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\SettlementStatus\ForeignKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\SettlementStatus\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\SettlementStatus\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\SettlementStatus\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\SettlementStatus\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\SettlementStatus\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="_Database\SettlementStatus\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Components\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj">
+      <Project>{3c1bf755-3c2a-4016-aba7-62f6dea056f0}</Project>
+      <Name>Framework.Components.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

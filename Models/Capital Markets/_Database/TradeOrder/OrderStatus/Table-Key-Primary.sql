@@ -1,0 +1,6 @@
+ALTER TABLE dbo.OrderStatus
+ADD CONSTRAINT PK_OrderStatus PRIMARY KEY CLUSTERED 
+(
+	OrderStatusId
+)
+GO

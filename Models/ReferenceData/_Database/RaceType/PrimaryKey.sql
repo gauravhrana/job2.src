@@ -1,0 +1,6 @@
+ALTER TABLE dbo.RaceType
+ADD CONSTRAINT PK_RaceType PRIMARY KEY CLUSTERED 
+(
+	RaceTypeId
+)
+GO

@@ -1,0 +1,22 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.CapitalMarkets.dll" #>
+<#@ include file="../../../Generators/Generators.Components/DataModelColumnGeneratorHelper.tt" 
+#>
+<#
+	this.GenerateDataModelFiles
+	( 
+		"DataModel.CapitalMarkets",	
+		new [] 
+		{	  	 				
+				"OrderStatusType"
+			,	"OrderStatus"
+			,	"OrderItem"
+			,	"MarketCapitalizationCategory"	
+			,	"OrderAction"
+			,	"OrderRequest"
+			,	"OrderStatusGroup"		
+			,	"OrderType"						
+		} 
+	);
+#>
+ 

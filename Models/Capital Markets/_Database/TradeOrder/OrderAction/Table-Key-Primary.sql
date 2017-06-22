@@ -1,0 +1,6 @@
+ALTER TABLE dbo.OrderAction
+ADD CONSTRAINT PK_OrderAction PRIMARY KEY CLUSTERED 
+(
+	OrderActionId
+)
+GO

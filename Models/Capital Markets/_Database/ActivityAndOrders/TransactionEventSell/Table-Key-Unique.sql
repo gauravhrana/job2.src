@@ -1,0 +1,19 @@
+IF EXISTS 
+(
+	SELECT	*	FROM	dbo.sysindexes
+	WHERE	id		= OBJECT_ID(N'[dbo].TransactionEventSell')
+	AND		name	= N'UQ_TransactionEventSell_ApplicationId_TransactionTypeId_CustodianId_StrategyId_AccountSpecificTypeId_InvestmentTypeId'
+)
+BEGIN
+	PRINT	'Dropping UQ_TransactionEventSell_ApplicationId_TransactionTypeId_CustodianId_StrategyId_AccountSpecificTypeId_InvestmentTypeId'
+	ALTER	TABLE dbo.TransactionEventSell
+	DROP	CONSTRAINT	UQ_TransactionEventSell_ApplicationId_TransactionTypeId_CustodianId_StrategyId_AccountSpecificTypeId_InvestmentTypeId
+END
+GO
+
+ALTER TABLE dbo.TransactionEventSell
+ADD CONSTRAINT UQ_TransactionEventSell_ApplicationId_TransactionTypeId_CustodianId_StrategyId_AccountSpecificTypeId_InvestmentTypeId UNIQUE NONCLUSTERED
+(
+	ApplicationId, TransactionTypeId, CustodianId, StrategyId, AccountSpecificTypeId, InvestmentTypeId
+)
+GO

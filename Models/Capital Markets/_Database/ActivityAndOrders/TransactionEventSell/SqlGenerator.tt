@@ -1,0 +1,11 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ assembly name="$(TargetDir)\DataModel.CapitalMarkets.dll" #>
+<#@ 
+	include file="../../../../../Generators/Generators.SQL/SQLNonStandardEntity/EntitySqlGeneratorHelper.tt"     
+#>
+<#
+	this.GenerateSqlFiles("DataModel.CapitalMarkets", "TransactionEventSell"
+	, "TransactionEventSellDataModel", "CapitalMarketsSecurityMaster"
+	, "706", "Welcome1", true);
+#>

@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Gender
+ADD CONSTRAINT PK_Gender PRIMARY KEY CLUSTERED 
+(
+	GenderId
+)
+GO

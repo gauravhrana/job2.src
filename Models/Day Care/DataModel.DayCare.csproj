@@ -1,0 +1,1208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{19A1EB56-7232-4930-9D62-85C49730FEC6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataModel.DayCare</RootNamespace>
+    <AssemblyName>DataModel.DayCare</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\UI\Task Time Tracker\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccidentPlaceDataModel.cs" />
+    <Compile Include="AccidentPlaceDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccidentReportDataModel.cs" />
+    <Compile Include="AccidentReportDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivitySubTypeDataModel.cs" />
+    <Compile Include="ActivitySubTypeDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityTypeDataModel.cs" />
+    <Compile Include="ActivityTypeDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BathRoomDataModel.cs" />
+    <Compile Include="BathRoomDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\CourseInstanceDataModel.cs" />
+    <Compile Include="Classes\CourseInstanceDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\SubjectMatterDataModel.cs" />
+    <Compile Include="Classes\SubjectMatterDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\_DataModelDataColumns.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClassInstanceDataModel.cs" />
+    <Compile Include="ClassInstanceDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommentDataModel.cs" />
+    <Compile Include="CommentDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBtoModel\DataModelGenerator.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DiaperStatusDataModel.cs" />
+    <Compile Include="DiaperStatusDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiscountDataModel.cs" />
+    <Compile Include="DiscountDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment\CourseDataModel.cs" />
+    <Compile Include="Enrollment\CourseDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment\DepartmentDataModel.cs" />
+    <Compile Include="Enrollment\DepartmentDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment\RegistrationDataModel.cs" />
+    <Compile Include="Enrollment\RegistrationDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment\_DataModelDataColumns.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EventSubTypeDataModel.cs" />
+    <Compile Include="EventSubTypeDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EventTypeDataModel.cs" />
+    <Compile Include="EventTypeDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FoodTypeDataModel.cs" />
+    <Compile Include="FoodTypeDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MealDataModel.cs" />
+    <Compile Include="MealDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MealDetailDataModel.cs" />
+    <Compile Include="MealDetailDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MealTypeDataModel.cs" />
+    <Compile Include="MealTypeDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NeedItemDataModel.cs" />
+    <Compile Include="NeedItemDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentMethodDataModel.cs" />
+    <Compile Include="PaymentMethodDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SampleNonStdEntity2DataModel.cs" />
+    <Compile Include="SampleNonStdEntityDataModel.cs" />
+    <Compile Include="SickReportDataModel.cs" />
+    <Compile Include="SickReportDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SleepDataModel.cs" />
+    <Compile Include="SleepDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentDataModel.cs" />
+    <Compile Include="StudentDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherDataModel.cs" />
+    <Compile Include="TeacherDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TuitionDataModel.cs" />
+    <Compile Include="TuitionDataModel.generated.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_DataModelDataColumns.cs">
+      <DependentUpon>_DataModelDataColumns.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Classes\_DataModelDataColumns.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>_DataModelDataColumns.cs</LastGenOutput>
+    </None>
+    <None Include="DBtoModel\DataModelGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataModelGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="Enrollment\_DataModelDataColumns.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>_DataModelDataColumns.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="SQL\Schema\AccidentPlace\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\AccidentPlace\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\AccidentPlace\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\ActivitySubType\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\ActivitySubType\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\ActivitySubType\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\ActivityType\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\ActivityType\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\ActivityType\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\ClassInstance\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\ClassInstance\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\ClassInstance\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\CourseInstance\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\CourseInstance\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\CourseInstance\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\AccidentReport\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\AccidentReport\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\AccidentReport\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\BathRoom\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\BathRoom\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\BathRoom\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Comment\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\Comment\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Comment\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Course\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\Course\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Course\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Department\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\Department\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Department\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\DiaperStatus\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\DiaperStatus\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\DiaperStatus\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Discount\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\Discount\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Discount\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\EventSubType\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\EventSubType\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\EventSubType\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\EventType\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\EventType\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\EventType\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\FoodType\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\FoodType\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\FoodType\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\MealDetail\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\MealDetail\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\MealDetail\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\MealType\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\MealType\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\MealType\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Meal\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\Meal\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Meal\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\NeedItem\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\NeedItem\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\NeedItem\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\PaymentMethod\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\PaymentMethod\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\PaymentMethod\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Registration\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\Registration\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Registration\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\SickReport\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\SickReport\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\SickReport\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Sleep\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\Sleep\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Sleep\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Student\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\Student\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Student\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\SubjectMatter\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\SubjectMatter\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\SubjectMatter\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Teacher\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\Teacher\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Teacher\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Tuition\SqlGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SqlGenerator.sql</LastGenOutput>
+    </None>
+    <None Include="SQL\Schema\Tuition\_DeployDb.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="SQL\Schema\Tuition\_ProcsFunctions.cmd">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </None>
+    <None Include="_DataModelDataColumns.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>_DataModelDataColumns.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Components\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj">
+      <Project>{3c1bf755-3c2a-4016-aba7-62f6dea056f0}</Project>
+      <Name>Framework.Components.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="SQL\Schema\AccidentPlace\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\AccidentPlace\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\AccidentPlace\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\AccidentPlace\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\AccidentPlace\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\AccidentPlace\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\AccidentPlace\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\AccidentPlace\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ActivitySubType\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ActivitySubType\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ActivitySubType\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ActivitySubType\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ActivitySubType\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ActivitySubType\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ActivitySubType\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ActivitySubType\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ActivityType\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ActivityType\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ActivityType\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ActivityType\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ActivityType\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ActivityType\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ActivityType\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ActivityType\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ClassInstance\Procedure-Delete.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ClassInstance\Procedure-Insert.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ClassInstance\Procedure-Search.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ClassInstance\Procedure-Update.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ClassInstance\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ClassInstance\Table-Create.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ClassInstance\Table-Key-Foreign.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ClassInstance\Table-Key-Primary.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\ClassInstance\Table-Key-Unique.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\CourseInstance\Procedure-Delete.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\CourseInstance\Procedure-Insert.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\CourseInstance\Procedure-Search.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\CourseInstance\Procedure-Update.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\CourseInstance\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\CourseInstance\Table-Create.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\CourseInstance\Table-Key-Foreign.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\CourseInstance\Table-Key-Primary.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\CourseInstance\Table-Key-Unique.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\AccidentReport\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\AccidentReport\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\AccidentReport\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\AccidentReport\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\AccidentReport\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\AccidentReport\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\AccidentReport\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\AccidentReport\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\BathRoom\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\BathRoom\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\BathRoom\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\BathRoom\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\BathRoom\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\BathRoom\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\BathRoom\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\BathRoom\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Comment\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Comment\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Comment\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Comment\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Comment\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Comment\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Comment\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Comment\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Course\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Course\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Course\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Course\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Course\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Course\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Course\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Course\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Department\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Department\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Department\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Department\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Department\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Department\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Department\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Department\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\DiaperStatus\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\DiaperStatus\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\DiaperStatus\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\DiaperStatus\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\DiaperStatus\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\DiaperStatus\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\DiaperStatus\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\DiaperStatus\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Discount\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Discount\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Discount\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Discount\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Discount\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Discount\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Discount\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Discount\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\EventSubType\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\EventSubType\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\EventSubType\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\EventSubType\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\EventSubType\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\EventSubType\SqlGenerator.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="SQL\Schema\EventSubType\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\EventSubType\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\EventType\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\EventType\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\EventType\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\EventType\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\EventType\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\EventType\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\EventType\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\EventType\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\FoodType\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\FoodType\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\FoodType\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\FoodType\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\FoodType\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\FoodType\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\FoodType\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\FoodType\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\MealDetail\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\MealDetail\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\MealDetail\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\MealDetail\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\MealDetail\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\MealDetail\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\MealDetail\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\MealDetail\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\MealType\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\MealType\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\MealType\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\MealType\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\MealType\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\MealType\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\MealType\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\MealType\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Meal\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Meal\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Meal\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Meal\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Meal\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Meal\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Meal\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Meal\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\NeedItem\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\NeedItem\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\NeedItem\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\NeedItem\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\NeedItem\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\NeedItem\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\NeedItem\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\NeedItem\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\PaymentMethod\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\PaymentMethod\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\PaymentMethod\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\PaymentMethod\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\PaymentMethod\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\PaymentMethod\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\PaymentMethod\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\PaymentMethod\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Registration\Procedure-Delete.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Registration\Procedure-Insert.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Registration\Procedure-Search.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Registration\Procedure-Update.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Registration\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Registration\Table-Create.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Registration\Table-Key-Foreign.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Registration\Table-Key-Primary.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Registration\Table-Key-Unique.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\SickReport\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\SickReport\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\SickReport\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\SickReport\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\SickReport\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\SickReport\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\SickReport\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\SickReport\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Sleep\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Sleep\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Sleep\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Sleep\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Sleep\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Sleep\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Sleep\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Sleep\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Student\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Student\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Student\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Student\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Student\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Student\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Student\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Student\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\SubjectMatter\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\SubjectMatter\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\SubjectMatter\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\SubjectMatter\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\SubjectMatter\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\SubjectMatter\SqlGenerator.sql">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\SubjectMatter\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\SubjectMatter\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Teacher\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Teacher\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Teacher\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Teacher\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Teacher\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Teacher\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Teacher\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Teacher\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Tuition\CreateTable.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Tuition\DeleteProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Tuition\InsertProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Tuition\PrimaryKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Tuition\SearchProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Tuition\SqlGenerator.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Tuition\UniqueKey.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SQL\Schema\Tuition\UpdateProcedure.sql">
+      <DependentUpon>SqlGenerator.tt</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

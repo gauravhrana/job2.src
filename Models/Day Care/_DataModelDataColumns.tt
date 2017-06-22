@@ -1,0 +1,36 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.DayCare.dll" #>
+<#@ include file="../../Generators/Generators.Components/DataModelColumnGeneratorHelper.tt" 
+#>
+<#
+	this.GenerateDataModelFiles
+	( 
+		"DataModel.DayCare",	
+		new [] 
+		{	  	 
+					"AccidentReport" 
+				,	"AccidentPlace"
+				,	"EventSubType"	
+				,	"ActivitySubType"
+				,	"ActivityType"
+				,	"DiaperStatus"
+			    ,	"EventType"
+				,	"FoodType"
+				,	"MealType" 
+				,	"NeedItem"
+				,	"BathRoom"
+				,	"Discount"
+				,	"PaymentMethod"
+				,	"Comment"
+				,	"Meal"
+				,	"MealDetail"
+				,	"SickReport"
+				,	"Tuition"
+				,	"Sleep"
+				,	"Student"
+				,	"Teacher"
+				,	"ClassInstance"
+		} 
+	);
+#>
+ 

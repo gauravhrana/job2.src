@@ -1,0 +1,8 @@
+﻿<#@ assembly name="$(TargetDir)\DataModel.CapitalMarkets.dll" #>
+<#@ output extension=".sql" #>
+<#@ 
+	include file="../../../../../Generators/Generators.SQL/SQLNonStandardEntity/EntitySqlGeneratorHelper.tt"     
+#>
+<#
+	this.GenerateSqlFiles("DataModel.CapitalMarkets", "Series", "SeriesDataModel", "CapitalMarketsSecurityMaster", "706", "Welcome1");
+#>

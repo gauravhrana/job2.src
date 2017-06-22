@@ -1,0 +1,6 @@
+ALTER TABLE dbo.SubIndustry
+ADD CONSTRAINT PK_SubIndustry PRIMARY KEY CLUSTERED 
+(
+	SubIndustryId
+)
+GO

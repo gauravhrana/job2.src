@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Region
+ADD CONSTRAINT PK_Region PRIMARY KEY CLUSTERED 
+(
+	RegionId
+)
+GO

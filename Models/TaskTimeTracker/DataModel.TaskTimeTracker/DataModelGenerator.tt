@@ -1,0 +1,12 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ 
+	include file="../../../Generators/Generators.Components/DataModelGeneratorHelper.tt" 
+#>
+<#
+this.GenerateDataModelFiles(	"DataModel.TaskTimeTracker",
+								new [] {"Client", "DeliverableArtifact", "DeliverableArtifactStatus",
+								"EntityDateRangeStateType", "Layer", "MilestoneFeatureState", "ProductivityArea",
+								"ProductivityAreaFeature", "ProjectPortfolio", "ProjectPortfolioGroup"} 
+
+							);
+#>

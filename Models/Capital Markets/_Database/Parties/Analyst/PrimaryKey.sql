@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Analyst
+ADD CONSTRAINT PK_Analyst PRIMARY KEY CLUSTERED 
+(
+	AnalystId
+)
+GO

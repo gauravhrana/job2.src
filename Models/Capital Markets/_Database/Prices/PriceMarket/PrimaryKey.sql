@@ -1,0 +1,6 @@
+ALTER TABLE dbo.PriceMarket
+ADD CONSTRAINT PK_PriceMarket PRIMARY KEY CLUSTERED 
+(
+	PriceMarketId
+)
+GO

@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3CE97E00-470C-43DB-8489-FD89559268C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataModel.TaskTimeTracker</RootNamespace>
+    <AssemblyName>DataModel.TaskTimeTracker</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SurroundSCMScci</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Surround SCM</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\UI\Task Time Tracker\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityXDeliverableArtifact.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="ClientDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientXProject.cs" />
+    <Compile Include="DataModelGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeliverableArtifact.cs" />
+    <Compile Include="DeliverableArtifactDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeliverableArtifactStatus.cs" />
+    <Compile Include="DeliverableArtifactStatusDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDateRangeState.cs" />
+    <Compile Include="EntityDateRangeStateType.cs" />
+    <Compile Include="EntityDateRangeStateTypeDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\ApplicationModeXRunTimeFeature.cs" />
+    <Compile Include="Feature\DataModelGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\Feature.cs" />
+    <Compile Include="Feature\FeatureDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\FeatureGroup.cs" />
+    <Compile Include="Feature\FeatureGroupDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\FeatureGroupXFeature.cs" />
+    <Compile Include="Feature\FeatureRule.cs" />
+    <Compile Include="Feature\FeatureRuleCategory.cs" />
+    <Compile Include="Feature\FeatureRuleCategoryDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\FeatureRuleStatus.cs" />
+    <Compile Include="Feature\FeatureRuleStatusDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Feature\FeatureXFeatureRule.cs" />
+    <Compile Include="Feature\FeatureXTask.cs" />
+    <Compile Include="Feature\RunTimeFeature.cs" />
+    <Compile Include="Feature\RunTimeFeatureDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Layer.cs" />
+    <Compile Include="LayerDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Milestone.cs" />
+    <Compile Include="MilestoneFeatureState.cs" />
+    <Compile Include="MilestoneFeatureStateDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MilestoneXFeature.cs" />
+    <Compile Include="MilestoneXFeatureArchive.cs" />
+    <Compile Include="ProductivityArea.cs" />
+    <Compile Include="ProductivityAreaDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductivityAreaFeature.cs" />
+    <Compile Include="ProductivityAreaFeatureDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectPortfolio.cs" />
+    <Compile Include="ProjectPortfolioDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectPortfolioGroup.cs" />
+    <Compile Include="ProjectPortfolioGroupDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectPortfolioGroupXProjectPortfolio.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequirementAnalysis\DataModelGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RequirementAnalysis\Need.cs" />
+    <Compile Include="RequirementAnalysis\NeedDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RequirementAnalysis\NeedXFeature.cs" />
+    <Compile Include="RequirementAnalysis\Project.cs" />
+    <Compile Include="RequirementAnalysis\ProjectDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RequirementAnalysis\ProjectTimeLine.cs" />
+    <Compile Include="RequirementAnalysis\ProjectXNeed.cs" />
+    <Compile Include="Scheduling\EntityAutomationTestDataModel.cs" />
+    <Compile Include="Scheduling\Question.cs" />
+    <Compile Include="Scheduling\QuestionCategory.cs" />
+    <Compile Include="Scheduling\VacationPlan.cs" />
+    <Compile Include="TaskRole.cs" />
+    <Compile Include="TaskXDeliverableArtifact.cs" />
+    <Compile Include="Task\DataModelGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Task\Task.cs" />
+    <Compile Include="Task\TaskFormulation.cs" />
+    <Compile Include="Task\TaskNote.cs" />
+    <Compile Include="Task\TaskNoteDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Task\TaskPackageXOwnerXTask.cs" />
+    <Compile Include="Task\TaskRoleDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Task\TaskStatusType.cs" />
+    <Compile Include="Task\TaskStatusTypeDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Task\TaskType.cs" />
+    <Compile Include="Task\TaskTypeDataModel.generated.cs">
+      <DependentUpon>DataModelGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Task\TaskXActivityInstance.cs" />
+    <Compile Include="Task\TaskXApplicationUser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Components\Framework.DataAccess\Core\Framework.Components.DataAccess.csproj">
+      <Project>{3c1bf755-3c2a-4016-aba7-62f6dea056f0}</Project>
+      <Name>Framework.Components.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataModelGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataModelGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="Feature\DataModelGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataModelGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="RequirementAnalysis\DataModelGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataModelGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="Task\DataModelGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataModelGenerator.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

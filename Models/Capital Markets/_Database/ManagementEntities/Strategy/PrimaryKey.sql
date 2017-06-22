@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Strategy
+ADD CONSTRAINT PK_Strategy PRIMARY KEY CLUSTERED 
+(
+	StrategyId
+)
+GO

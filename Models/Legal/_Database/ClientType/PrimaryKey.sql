@@ -1,0 +1,6 @@
+ALTER TABLE dbo.ClientType
+ADD CONSTRAINT PK_ClientType PRIMARY KEY CLUSTERED 
+(
+	ClientTypeId
+)
+GO

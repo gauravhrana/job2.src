@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Continent
+ADD CONSTRAINT PK_Continent PRIMARY KEY CLUSTERED 
+(
+	ContinentId
+)
+GO

@@ -1,0 +1,6 @@
+ALTER TABLE dbo.OrderType
+ADD CONSTRAINT PK_OrderType PRIMARY KEY CLUSTERED 
+(
+	OrderTypeId
+)
+GO

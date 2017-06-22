@@ -1,0 +1,31 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.CapitalMarkets.dll" #>
+<#@ include file="../../../Generators/Generators.Components/DataModelColumnGeneratorHelper.tt" 
+#>
+<#
+	this.GenerateDataModelFiles
+	( 
+		"DataModel.CapitalMarkets",	
+		new [] 
+		{	  	 
+				"AccountingParameters"
+			,	"AccountingView"
+			,	"AccountSpecificType"
+			,	"AccountSubType"
+			,	"AdjustmentCategory"
+			,	"Amortization"
+			,	"AutomatedFreezepoint"
+			,	"ChartOfAccounts"
+			,	"FinancialAccountType"
+			,	"FreezePoints"
+			,	"InventoryState"
+			,	"LockdownPools"
+			,	"TaxAccountType"
+			,	"TaxStatus"
+			,	"WithholdingTaxType"
+
+
+		} 
+	);
+#>
+ 

@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Course
+ADD CONSTRAINT PK_Course PRIMARY KEY CLUSTERED 
+(
+	CourseId
+)
+GO

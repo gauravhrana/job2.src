@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Airport
+ADD CONSTRAINT PK_Airport PRIMARY KEY CLUSTERED 
+(
+	AirportId
+)
+GO

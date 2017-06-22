@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Option
+ADD CONSTRAINT PK_Option PRIMARY KEY CLUSTERED 
+(
+	OptionId
+)
+GO

@@ -1,0 +1,6 @@
+ALTER TABLE dbo.Sector
+ADD CONSTRAINT PK_Sector PRIMARY KEY CLUSTERED 
+(
+	SectorId
+)
+GO

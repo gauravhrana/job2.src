@@ -1,0 +1,6 @@
+ALTER TABLE dbo.EventSubType
+ADD CONSTRAINT PK_EventSubType PRIMARY KEY CLUSTERED 
+(
+	EventSubTypeId
+)
+GO
