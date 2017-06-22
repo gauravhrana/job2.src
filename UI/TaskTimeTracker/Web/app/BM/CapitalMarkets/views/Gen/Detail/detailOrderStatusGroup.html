@@ -1,0 +1,42 @@
+<ol class='breadcrumb'>
+	<li class='active'>Order Status Group Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for = 'OrderStatusGroupId' class='col-sm-2 control-label'>Order Status Group Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.OrderStatusGroupId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'OrderStatusGroupCode' class='col-sm-2 control-label'>Order Status Group Code:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.OrderStatusGroupCode}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'OrderStatusGroupDescription' class='col-sm-2 control-label'>Order Status Group Description:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.OrderStatusGroupDescription}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'OrderProcessFlag' class='col-sm-2 control-label'>Order Process Flag:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.OrderProcessFlag}}
+		</div>
+	</div>
+
+</div>

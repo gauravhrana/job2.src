@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/process/services
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=27206
+processInfoService.js;569160900;2;1430706981;|22836|302557
+processRequestService.js;4293265904;2;1430706981;|22835|302558
+processRunInfoService.js;2025043912;2;1430706981;|22837|302559

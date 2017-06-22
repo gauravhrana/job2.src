@@ -1,0 +1,33 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.CapitalMarkets.dll" #>
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V1\View\EntitySaveViewGeneratorHelper.tt" #>
+<#
+	this.RenderSaveViews(	new string[]
+								{
+	"SwapInvestment",
+	"Financing",
+	"CreditDefaultSwap",
+	"CreditDefaultSwapIndex",
+	"CreditDeal",
+	"CreditFacility",
+	"CreditContract",
+	"Equity",
+	"Fund",
+	"Bond",
+	"AssetBacked",
+	"Future",
+	"ForwardFXContract",
+	"MediumOfExchange",
+	"ForwardCash",
+	"Cash",
+	"STIF",
+	"SecurityXExternalMarketDataIdentifier",
+	"SecurityXOther",
+	"SecurityXSettlementDay",
+	"SecurityXParty", 
+	"SecurityXInvestmentIdentifier"
+ 
+
+								},								 
+							"DataModel.CapitalMarkets");
+#>

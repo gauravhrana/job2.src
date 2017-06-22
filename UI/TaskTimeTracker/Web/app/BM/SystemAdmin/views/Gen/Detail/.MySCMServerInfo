@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/BM/SystemAdmin/views/Gen/Detail
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=36439
+DetailViewGenerator.cs;42954251;2;1463637976;|41678|347935
+DetailViewGenerator.tt;3208351007;3;1463637974;|41680|347936
+detailfieldConfigurationBase.html;2294920484;2;1463637974;|41679|347937

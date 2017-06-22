@@ -1,0 +1,9 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Areas/ReleaseNoteQualitative/Views/DailyTaskItemQueueStatus
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=21038
+Create.cshtml;375751565;1;1399063848;|17920|188206
+Delete.cshtml;299461047;1;1399063848;|17921|188207
+Details.cshtml;2200715454;1;1399063848;|17922|188208
+Edit.cshtml;77470307;1;1399063848;|17919|188205
+Index.cshtml;1443212053;1;1399063848;|17918|188204

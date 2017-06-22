@@ -1,0 +1,16 @@
+﻿@model List<Framework.Components.ReleaseLog.DomainModel.ReleaseFeatureDataModel>
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ReleaseFeature</legend>
+    @Html.DisplayFor(Model => Model)     
+</fieldset>
+
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = @Model.ReleaseFeatureId }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

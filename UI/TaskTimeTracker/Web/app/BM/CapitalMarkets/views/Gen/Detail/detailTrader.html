@@ -1,0 +1,56 @@
+<ol class='breadcrumb'>
+	<li class='active'>Trader Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for = 'TraderId' class='col-sm-2 control-label'>Trader Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TraderId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'FundId' class='col-sm-2 control-label'>Fund Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.FundId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Fund' class='col-sm-2 control-label'>Fund:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Fund}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Name' class='col-sm-2 control-label'>Name:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Name}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Description' class='col-sm-2 control-label'>Description:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Description}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'SortOrder' class='col-sm-2 control-label'>Sort Order:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.SortOrder}}
+		</div>
+	</div>
+
+</div>

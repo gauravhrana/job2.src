@@ -1,0 +1,6 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Areas/DailyTaskItemQueueStatus/Controllers
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=20869
+HomeController.cs;3691934380;2;1397252876;|17810|186968
+DailyTaskItemQueueStatusController.cs;3460378075;3;1397669708;|17811|187315

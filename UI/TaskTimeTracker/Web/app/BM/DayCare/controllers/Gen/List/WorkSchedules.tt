@@ -1,0 +1,10 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V2\Controller\EntityListTableControllerGeneratorHelper.tt" #>
+<#
+	this.RenderListTableControllers(new string[] {
+			"ScheduleDetail"
+		,	"ScheduleState"
+		,	"ScheduleDetailActivityCategory"	
+	 
+	});
+#>

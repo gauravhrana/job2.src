@@ -1,0 +1,30 @@
+﻿<div class="page-header"><h3>Calculations</h3></div>
+
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+        <li><button class="btn btn-link navbar-btn navbar-link" ng-click="AddNew();" title="Back"><span class="glyphicon glyphicon-plus"></span> {{SubmitMessage}}</button></li>
+    </ul>
+    <div class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+            <input type="text" ng-model="searchText" class="form-control" placeholder="Search" />
+        </div>
+    </div>
+</nav>
+
+
+<div class="row" ng-repeat="group in Grouped">
+    
+    <div class="col-md-3" ng-repeat="itemG in group | filter:searchText">
+
+        <h3>{{itemG.Category}}</h3>
+
+        <table class="table table-condensed table-striped">
+            <tr ng-repeat="item in itemG.Items | filter:searchText ">
+                <td><a href="#/calculations/{{item.Calculation.CalculationCode}}" title="{{item.Calculation.Description}}">{{item.Calculation.CalculationCode}}</a></td>
+            </tr>
+        </table>
+    </div>
+    
+</div>
+
+

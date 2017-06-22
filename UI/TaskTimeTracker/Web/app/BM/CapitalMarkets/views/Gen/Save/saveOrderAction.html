@@ -1,0 +1,43 @@
+<ol class='breadcrumb'>
+	<li class='active'>Order Action Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Order Action Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='OrderActionId' data-ng-model='EntityItem.OrderActionId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Order Action Code:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='OrderActionCode' placeholder='OrderActionCode' data-ng-model='EntityItem.OrderActionCode'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Order Action Description:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='OrderActionDescription' placeholder='OrderActionDescription' data-ng-model='EntityItem.OrderActionDescription'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Position Direction:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='PositionDirection' placeholder='PositionDirection' data-ng-model='EntityItem.PositionDirection'>
+		</div>
+	</div>
+
+</div>

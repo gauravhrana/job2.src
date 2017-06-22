@@ -1,0 +1,9 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/schedule/views
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=27453
+scheduleState-detail.html;3844140580;1;1411401271;|24374|253382
+scheduleState-list.html;1919402617;1;1411401271;|24375|253383
+detailCustomTimeLog.html;1566218002;1;1433839480;|38761|308784
+saveCustomTimeLog.html;3593272938;2;1434339141;|38760|308979
+listTableCustomTimeLog.html;3537807032;2;1436761830;|38759|313659

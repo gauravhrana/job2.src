@@ -1,0 +1,71 @@
+﻿@model DataModel.TaskTimeTracker.TimeTracking.DailyTaskItemQueueDataModel
+
+@{
+    ViewBag.Title = "DailyTaskItemQueueDataModel";
+}
+
+<h2>Daily Task Item Queue Data Model</h2>
+
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.DailyTaskItemQueueId)
+</div>
+<div class="editor-field" >
+    @Html.EditorFor(modelItem => @Model.DailyTaskItemQueueId)
+    @*@Html.ValidationMessageFor(modelItem => @Model.DailyTaskItemQueueId)*@
+</div>
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.Name)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(modelItem => @Model.Name)
+    @*@Html.ValidationMessageFor(modelItem => @Model.Name)*@
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.Description)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(modelItem => @Model.Description)
+    @*@Html.ValidationMessageFor(modelItem => @Model.Description)*@
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.SortOrder)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(modelItem => @Model.SortOrder)
+    @*@Html.ValidationMessageFor(modelItem => @Model.SortOrder)*@
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.DailyTaskItemQueueStatusId)
+</div>
+<div class="editor-field">
+    @Html.DropDownList("DailyTaskItemQueueStatusId", null, new { id = "drpDailyTaskItemQueueStatus" })		
+@*    @Html.EditorFor(modelItem => @Model.DailyTaskItemQueueStatusId)
+    @Html.ValidationMessageFor(modelItem => @Model.DailyTaskItemQueueStatusId)*@
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.BusinessDate)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(modelItem => @Model.BusinessDate)
+    @*@Html.ValidationMessageFor(modelItem => @Model.BusinessDate)*@
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.AssignedBy)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(modelItem => @Model.AssignedBy)
+    @*@Html.ValidationMessageFor(modelItem => @Model.AssignedBy)*@
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(modelItem => @Model.AssignedTo)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(modelItem => @Model.AssignedTo)
+    @*@Html.ValidationMessageFor(modelItem => @Model.AssignedTo)*@
+</div>

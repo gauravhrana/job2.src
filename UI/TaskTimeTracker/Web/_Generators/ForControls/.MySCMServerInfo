@@ -1,0 +1,12 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/_Generators/ForControls
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=35525
+ControlGeneratorHelper.cs;1566315191;1;1437968805;|39316|320131
+ControlGeneratorHelper.tt;2752696172;1;1437968805;|39313|320128
+DetailControlGeneratorHelper.cs;17864673;1;1437968805;|39315|320130
+DetailControlGeneratorHelper.tt;359145323;1;1437968805;|39312|320127
+GenericControlGeneratorHelper.cs;17864673;1;1437968805;|39314|320129
+SearchControlGeneratorHelper.cs;17864673;1;1437968805;|39311|320126
+SearchControlGeneratorHelper.tt;1462576384;1;1437968805;|39317|320132
+GenericControlGeneratorHelper.tt;483543786;2;1469426450;|39310|353037

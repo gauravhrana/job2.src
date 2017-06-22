@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/configuration/services
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=27195
+calculationSelectionService.js;3294738822;2;1430706980;|22799|302528
+calculationService.js;1322900087;2;1430706980;|22798|302529
+detailService.js;1361528220;2;1430706980;|22802|302530
+genevaQueryService.js;3008267313;2;1430706980;|22800|302531
+referenceDataService.js;2203769462;2;1430706981;|22801|302532
+summaryService.js;3220914198;2;1430706981;|22797|302533

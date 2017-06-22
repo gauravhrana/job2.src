@@ -1,0 +1,30 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\_Generators\AngularUI\V1\ApiController\EntityAPIControllerGeneratorHelper.tt" #>
+<#
+	this.RenderAPIControllers(new string[]
+	{
+		  "AccidentPlace"
+		, "AccidentReport"
+		,"ActivitySubType"
+		, "ActivityType"
+		,"BathRoom"
+		,"Discount"
+		,"PaymentMethod"
+		, "Comment"
+		,"DiaperStatus"
+		, "EventType", 
+			"FoodType", "MealType"
+			, "NeedItem"
+			, "Meal"
+			, "MealDetail"
+			,	"SickReport"
+			, "Tuition"
+			,	"Sleep"
+			, "Student"
+			,  "Department"
+			,	"Course"
+			,	"Registration"
+			,"Teacher"}
+			, "Web.Api.Controllers", "DataModel.DayCare"
+			, "DayCare.Components.BusinessLayer");
+#>

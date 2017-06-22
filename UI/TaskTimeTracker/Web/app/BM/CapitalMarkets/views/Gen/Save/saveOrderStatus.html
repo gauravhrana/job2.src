@@ -1,0 +1,78 @@
+<ol class='breadcrumb'>
+	<li class='active'>Order Status Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Order Status Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='OrderStatusId' data-ng-model='EntityItem.OrderStatusId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Order Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='OrderId' placeholder='OrderId' data-ng-model='EntityItem.OrderId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Comments:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Comments' placeholder='Comments' data-ng-model='EntityItem.Comments'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Last Modified By:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='LastModifiedBy' placeholder='LastModifiedBy' data-ng-model='EntityItem.LastModifiedBy'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Last Modified On:</label>
+		<div class='col-sm-10'>
+			<script>
+				function readCookie(name) {
+				var nameEQ = name + '=';
+				var ca = document.cookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+					}
+					 return null;
+				}
+				$(document).ready(function () 
+				{ 
+					var format = readCookie('DateFormat');
+					format = format.replace('MM', 'mm').replace('M', 'm').replace('mmmm', 'MM').replace('mmm', 'M').replace('dddd', 'DD').replace('ddd', 'D').replace('yyyy', 'yy');
+					$('#LastModifiedOn0').datepicker({dateFormat: format});
+				});
+			</script>
+			<input type='text' datepicker-popup='{{NewDateFormat}}' style='float: left;' class='form-control' id='LastModifiedOn0' placeholder='LastModifiedOn' data-ng-model='EntityItem.LastModifiedOn'>
+			<i class='k-icon k-i-calendar' ng-click='ChangeNewFormat()' style='float: left;'></i>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Order Status Type:</label>
+		<div class='col-sm-10'>
+			<select class='form-control'  style='float: left;width: 280px;' ng-model='selectedOrderStatusTypeItem' 
+					ng-options='srcItem.Code for srcItem in OrderStatusTypeList track by srcItem.OrderStatusTypeId'/>
+			<a href='#/{{moduleName}}/OrderStatusType/search' target='_blank'><span class='glyphicon glyphicon-eye-open' style='float: left; margin-left:5px;'></span></a> 
+		</div>
+	</div>
+
+</div>

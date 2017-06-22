@@ -1,0 +1,26 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file="..\..\..\..\..\..\_Generators\AngularUI\V1\View\EntityListTableViewGeneratorHelper.tt" #>
+
+<#
+	this.RenderListTableViews(new string[]{
+	
+	"AccidentPlace",
+	"AccidentReport",
+	"ActivitySubType" 
+	,"BathRoom",
+	"Discount",
+	"PaymentMethod",
+	"Comment", 
+	"ActivityType", 
+	"DiaperStatus", 
+	"EventType", 
+	"MealType", 
+	"NeedItem",
+	"Meal",
+	"MealDetail",	
+	"SickReport",
+	"Tuition",	
+	"Sleep",
+	"Student",
+	"Teacher"});
+#>

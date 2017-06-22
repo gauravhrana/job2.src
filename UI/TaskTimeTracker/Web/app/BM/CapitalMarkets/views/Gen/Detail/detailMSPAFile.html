@@ -1,0 +1,70 @@
+<ol class='breadcrumb'>
+	<li class='active'>MSPA File Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for = 'MSPAFileId' class='col-sm-2 control-label'>MSPA File Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.MSPAFileId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Filename' class='col-sm-2 control-label'>Filename:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Filename}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'DropDate' class='col-sm-2 control-label'>Drop Date:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.DropDate}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'BusinessDate' class='col-sm-2 control-label'>Business Date:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.BusinessDate}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'MSPAExtractTaskRunId' class='col-sm-2 control-label'>MSPA Extract Task Run Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.MSPAExtractTaskRunId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'MSPAHoldingTaskRunId' class='col-sm-2 control-label'>MSPA Holding Task Run Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.MSPAHoldingTaskRunId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'MSPATradeTaskRunId' class='col-sm-2 control-label'>MSPA Trade Task Run Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.MSPATradeTaskRunId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'MSPASecurityTaskRunId' class='col-sm-2 control-label'>MSPA Security Task Run Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.MSPASecurityTaskRunId}}
+		</div>
+	</div>
+
+</div>

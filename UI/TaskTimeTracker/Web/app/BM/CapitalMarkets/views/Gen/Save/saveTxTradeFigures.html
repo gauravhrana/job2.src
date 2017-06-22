@@ -1,0 +1,227 @@
+<ol class='breadcrumb'>
+	<li class='active'>Tx Trade Figures Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Tx Trade Figures Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='TxTradeFiguresId' data-ng-model='EntityItem.TxTradeFiguresId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Transaction Event:</label>
+		<div class='col-sm-10'>
+			<select class='form-control'  style='float: left;width: 280px;' ng-model='selectedTransactionEventItem' 
+					ng-options='srcItem.TransactionEventId for srcItem in TransactionEventList track by srcItem.TransactionEventId'/>
+			<a href='#/{{moduleName}}/TransactionEvent/search' target='_blank'><span class='glyphicon glyphicon-eye-open' style='float: left; margin-left:5px;'></span></a> 
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Quantity:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Quantity' placeholder='Quantity' data-ng-model='EntityItem.Quantity'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Price:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Price' placeholder='Price' data-ng-model='EntityItem.Price'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Total Commission:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='TotalCommission' placeholder='TotalCommission' data-ng-model='EntityItem.TotalCommission'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Broker Code Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='BrokerCodeId' placeholder='BrokerCodeId' data-ng-model='EntityItem.BrokerCodeId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Global Facility Amount:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='GlobalFacilityAmount' placeholder='GlobalFacilityAmount' data-ng-model='EntityItem.GlobalFacilityAmount'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Exempt Unrealized P Lfrom Capital Ratios:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ExemptUnrealizedPLfromCapitalRatios' placeholder='ExemptUnrealizedPLfromCapitalRatios' data-ng-model='EntityItem.ExemptUnrealizedPLfromCapitalRatios'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Internal Trade Exclude In By Pass Strategy:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='InternalTradeExcludeInByPassStrategy' placeholder='InternalTradeExcludeInByPassStrategy' data-ng-model='EntityItem.InternalTradeExcludeInByPassStrategy'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Forward FX Book Currency Pricing:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ForwardFXBookCurrencyPricing' placeholder='ForwardFXBookCurrencyPricing' data-ng-model='EntityItem.ForwardFXBookCurrencyPricing'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Original Face:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='OriginalFace' placeholder='OriginalFace' data-ng-model='EntityItem.OriginalFace'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Index Ratio:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='IndexRatio' placeholder='IndexRatio' data-ng-model='EntityItem.IndexRatio'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Per Share Amount:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='PerShareAmount' placeholder='PerShareAmount' data-ng-model='EntityItem.PerShareAmount'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Opening Rate:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='OpeningRate' placeholder='OpeningRate' data-ng-model='EntityItem.OpeningRate'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Percentage Owned:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='PercentageOwned' placeholder='PercentageOwned' data-ng-model='EntityItem.PercentageOwned'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Delayed Compensation Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='DelayedCompensationId' placeholder='DelayedCompensationId' data-ng-model='EntityItem.DelayedCompensationId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Receive Financing:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ReceiveFinancing' placeholder='ReceiveFinancing' data-ng-model='EntityItem.ReceiveFinancing'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Yield:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Yield' placeholder='Yield' data-ng-model='EntityItem.Yield'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Notional Amount:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='NotionalAmount' placeholder='NotionalAmount' data-ng-model='EntityItem.NotionalAmount'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Trades As Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='TradesAsId' placeholder='TradesAsId' data-ng-model='EntityItem.TradesAsId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Dirty Price:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='DirtyPrice' placeholder='DirtyPrice' data-ng-model='EntityItem.DirtyPrice'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Trades Flat:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='TradesFlat' placeholder='TradesFlat' data-ng-model='EntityItem.TradesFlat'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Restate Unrealized Gain Or Loss At Period End Spot Rate:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='RestateUnrealizedGainOrLossAtPeriodEndSpotRate' placeholder='RestateUnrealizedGainOrLossAtPeriodEndSpotRate' data-ng-model='EntityItem.RestateUnrealizedGainOrLossAtPeriodEndSpotRate'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Overriding Financing Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='OverridingFinancingId' placeholder='OverridingFinancingId' data-ng-model='EntityItem.OverridingFinancingId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Accrue Commission:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='AccrueCommission' placeholder='AccrueCommission' data-ng-model='EntityItem.AccrueCommission'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Effective Yield:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='EffectiveYield' placeholder='EffectiveYield' data-ng-model='EntityItem.EffectiveYield'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Net Trade:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='NetTrade' placeholder='NetTrade' data-ng-model='EntityItem.NetTrade'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Pay Or Receive Full Coupon:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='PayOrReceiveFullCoupon' placeholder='PayOrReceiveFullCoupon' data-ng-model='EntityItem.PayOrReceiveFullCoupon'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Expiration Date:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ExpirationDate' placeholder='ExpirationDate' data-ng-model='EntityItem.ExpirationDate'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Sweep Cash On Settlement Date:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='SweepCashOnSettlementDate' placeholder='SweepCashOnSettlementDate' data-ng-model='EntityItem.SweepCashOnSettlementDate'>
+		</div>
+	</div>
+
+</div>

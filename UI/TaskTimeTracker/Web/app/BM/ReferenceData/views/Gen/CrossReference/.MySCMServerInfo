@@ -1,0 +1,9 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/BM/ReferenceData/views/Gen/CrossReference
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=36341
+TimeZoneXCountry.html;606902636;1;1462161076;|41599|346927
+ViewGenerator.cs;1566315191;1;1462161176;|41600|346928
+CountryXReligion.html;1727239773;1;1462765963;|41649|347387
+HolidayXCountry.html;1130022257;1;1462765963;|41645|347360
+ViewGenerator.tt;3508658036;4;1462765963;|41601|347402

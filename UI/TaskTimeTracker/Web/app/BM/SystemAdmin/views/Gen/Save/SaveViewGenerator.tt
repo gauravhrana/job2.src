@@ -1,0 +1,9 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.UserPreference.dll" #>
+<#@ include file="..\..\..\..\..\..\_Generators\AngularUI\V1\View\EntitySaveViewGeneratorHelper.tt" #>
+<# 
+	this.RenderSaveViews(new string[]{"FieldConfigurationBase"	
+				 	
+	}
+	, "DataModel.Framework.Configuration");
+#>

@@ -1,0 +1,79 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ include file="../MultipleOutputFileHelper.tt" #>
+<#@ include file="DetailControlGeneratorHelper.tt" #>
+<#@ include file="GenericControlGeneratorHelper.tt" #>
+<#@ include file="SearchControlGeneratorHelper.tt" #>
+
+<#+
+
+	void GenerateDetailControlFiles(Manager manager, string entityName, string nameSpace, string dataModelnameSpace, 
+		string dataManagerNameSpace)
+	{
+
+		// create HTML File
+		manager.StartNewFile("Details.ascx");
+		this.GenerateHtmlFileForDetailControl(entityName, nameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("Details.ascx.cs");
+		this.GenerateCodeBehindFileForDetailControl(entityName, nameSpace, dataModelnameSpace, dataManagerNameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("Details.ascx.designer.cs");
+		this.GenerateDesignerFileForDetailControl(entityName, nameSpace);
+	}
+
+	void GenerateGenericControlFiles(Manager manager, string entityName, string nameSpace, 
+		string dataModelnameSpace, string dataManagerNameSpace)
+	{			
+
+		// create HTML File
+		manager.StartNewFile("Generic.ascx");
+		this.GenerateHtmlFileForGenericControl(entityName, nameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("Generic.ascx.cs");
+		this.GenerateCodeBehindFileForGenericControl(entityName, nameSpace, dataModelnameSpace, dataManagerNameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("Generic.ascx.designer.cs");
+		this.GenerateDesignerFileForGenericControl(entityName, nameSpace);
+	}
+
+	void GenerateSearchControlFiles(Manager manager, string entityName, string nameSpace, 
+		string dataModelnameSpace, string dataManagerNameSpace)
+	{			
+
+		// create HTML File
+		manager.StartNewFile("SearchFilter.ascx");
+		this.GenerateHtmlFileForSearchControl(nameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("SearchFilter.ascx.cs");
+		this.GenerateCodeBehindFileForSearchControl(entityName, nameSpace, dataModelnameSpace, dataManagerNameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("SearchFilter.ascx.designer.cs");
+		this.GenerateDesignerFileForSearchControl(nameSpace);
+	}
+
+#>
+<#+
+	
+	public void GenerateControlFiles(string entityName, string nameSpace, string dataModelnameSpace, string dataManagerNameSpace)
+	{		
+		var manager = Manager.Create(Host, GenerationEnvironment);
+
+		GenerateDetailControlFiles(manager, entityName, nameSpace, dataModelnameSpace, dataManagerNameSpace);
+		GenerateGenericControlFiles(manager, entityName, nameSpace, dataModelnameSpace, dataManagerNameSpace);
+		GenerateSearchControlFiles(manager, entityName, nameSpace, dataModelnameSpace, dataManagerNameSpace);
+		
+		manager.Process(true);
+	}
+
+#>

@@ -1,0 +1,8 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/reports/services
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=27211
+dashboardService.js;717858623;2;1430707033;|22852|302570
+displayFormatService.js;3073697054;2;1430707033;|22854|302571
+explorerService.js;3264549560;2;1430707033;|22853|302572
+reportService.js;4127654949;2;1430707033;|22855|302573

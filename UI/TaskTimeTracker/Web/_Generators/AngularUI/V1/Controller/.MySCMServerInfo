@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/_Generators/AngularUI/V1/Controller
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=35522
+EntityDetailControllerGeneratorHelper.cs;42954251;1;1437968805;|39298|320113
+EntityDetailControllerGeneratorHelper.tt;2812349224;1;1437968805;|39299|320114
+EntityListTableControllerGeneratorHelper.cs;42954251;1;1437968805;|39297|320112
+EntityListTableControllerGeneratorHelper.tt;581799828;3;1446697284;|39296|334193
+EntitySaveControllerGeneratorHelper.cs;42954251;1;1451568065;|39300|320115
+EntitySaveControllerGeneratorHelper.tt;4144868763;10;1452485410;|39301|340649

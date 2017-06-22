@@ -1,0 +1,151 @@
+<ol class='breadcrumb'>
+	<li class='active'>Schedule Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Schedule Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control text-right' id='ScheduleId' placeholder='ScheduleId' data-ng-model='EntityItem.ScheduleId'>
+		</div>
+	</div>	
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Work Date:</label>
+		<div class='col-sm-10'>
+			<script>
+				function readCookie(name) {
+				var nameEQ = name + '=';
+				var ca = document.cookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+					}
+					 return null;
+				}
+				$(document).ready(function () 
+				{ 
+					var format = readCookie('DateFormat');
+					format = format.replace('MM', 'mm').replace('M', 'm').replace('mmmm', 'MM').replace('mmm', 'M').replace('dddd', 'DD').replace('ddd', 'D').replace('yyyy', 'yy');
+					$('#WorkDate').datepicker({dateFormat: format});
+				});
+			</script>
+			<input type='text' datepicker-popup='{{DateFormat}}'  class='form-control' id='WorkDate' placeholder='WorkDate' data-ng-model='EntityItem.WorkDate'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Start Time:</label>
+		<div class='col-sm-10' id="example">
+            <div class="demo-section k-content">
+                <input type='text' id="timepicker" class='form-control' placeholder=
+                    'StartTime'  style="width: 25%;" data-ng-model='EntityItem.StartTime' />
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $("#timepicker").kendoTimePicker();
+                });
+            </script>
+        </div>
+
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>End Time:</label>
+		<div class='col-sm-10' id="Div1">
+            <div class="demo-section k-content">
+                <input type='text' id="timepickerEndTime" style="width: 25%;" placeholder=
+                    'EndTime' class='form-control' data-ng-model='EntityItem.EndTime' />
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $("#timepickerEndTime").kendoTimePicker();
+                });
+            </script>
+        </div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Total Hours Worked:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='TotalHoursWorked' placeholder='TotalHoursWorked' data-ng-model='EntityItem.TotalHoursWorked'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Planned Hours:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='PlannedHours' placeholder='PlannedHours' data-ng-model='EntityItem.PlannedHours'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Next Work Date:</label>
+		<div class='col-sm-10'>
+			<script>
+				function readCookie(name) {
+				var nameEQ = name + '=';
+				var ca = document.cookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+					}
+					 return null;
+				}
+				$(document).ready(function () 
+				{ 
+					var format = readCookie('DateFormat');
+					format = format.replace('MM', 'mm').replace('M', 'm').replace('mmmm', 'MM').replace('mmm', 'M').replace('dddd', 'DD').replace('ddd', 'D').replace('yyyy', 'yy');
+					$('#NextWorkDate').datepicker({dateFormat: format});
+				});
+			</script>
+			<input type='text' datepicker-popup='{{DateFormat}}'  class='form-control' id='NextWorkDate' placeholder='NextWorkDate' data-ng-model='EntityItem.NextWorkDate'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Next Work Time:</label>
+		<div class='col-sm-10' id="Div2">
+            <div class="demo-section k-content">
+                <input id="timepickerNWTime"  style="width: 25%;" placeholder=
+                    'Next Work Time' class='form-control' data-ng-model='EntityItem.NextWorkTime' />
+                
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $("#timepickerNWTime").kendoTimePicker();
+                });
+            </script>
+        </div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Person:</label>
+		<div class='col-sm-10'>
+			<select class='form-control' ng-model='selectedPersonItem' 
+					ng-options='srcItem.ApplicationUserName for srcItem in PersonList track by srcItem.ApplicationUserId'>
+			</select>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Schedule State Name:</label>
+		<div class='col-sm-10'>
+			<select class='form-control' ng-model='selectedScheduleStateNameItem' 
+					ng-options='srcItem.Name for srcItem in ScheduleStateNameList track by srcItem.ScheduleStateId'>
+			</select>
+		</div>
+	</div>
+
+</div>

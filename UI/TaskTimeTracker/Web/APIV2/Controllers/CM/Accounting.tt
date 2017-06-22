@@ -1,0 +1,26 @@
+﻿ 
+	<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\_Generators\AngularUI\V1\ApiController\EntityAPIControllerGeneratorHelper.tt" #>
+<#
+	this.RenderAPIControllers(new string[]
+	{ 
+	"AccountingParameters" ,
+	"AccountingView" ,
+	"AccountSpecificType" , 
+	"AccountSubType" ,
+	"Amortization" ,
+	"AutomatedFreezepoint" ,
+	"ChartOfAccounts" ,
+	"FreezePoints" , 
+	"InventoryState" ,
+	"LockdownPools" ,
+	"TaxAccountType" ,
+	"TaxStatus" ,
+	"WithholdingTaxType",
+	"FinancialAccountType",
+	"AdjustmentCategory"
+	
+	},
+	 "Web.Api.Controllers", "DataModel.CapitalMarkets", "CapitalMarkets.Components.BusinessLayer");
+#>
+

@@ -1,0 +1,43 @@
+﻿@model DataModel.TaskTimeTracker.ApplicationDevelopment.FunctionalityXFunctionalityDevelopmentStepDataModel
+
+@{
+    ViewBag.Title = "FunctionalityXFunctionalityDevelopmentStep";
+}
+<h2>Functionality X Functionality Development Step</h2>
+
+@Html.HiddenFor(modelItem => @Model.FunctionalityXFunctionalityDevelopmentStepId)
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.ApplicationDevelopment.FunctionalityXFunctionalityDevelopmentStepDataModel.DataColumns.FunctionalityXFunctionalityDevelopmentStepId
+</div>
+<div class="display-field">
+    @Model.FunctionalityXFunctionalityDevelopmentStepId
+</div>
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.ApplicationDevelopment.FunctionalityXFunctionalityDevelopmentStepDataModel.DataColumns.FunctionalityDevelopmentStep
+</div>
+<div class="display-field">
+    @Model.FunctionalityDevelopmentStep
+</div>
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.ApplicationDevelopment.FunctionalityXFunctionalityDevelopmentStepDataModel.DataColumns.Functionality
+</div>
+<div class="display-field">
+    @Model.Functionality
+</div>
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.ApplicationDevelopment.FunctionalityXFunctionalityDevelopmentStepDataModel.DataColumns.SortOrder
+</div>
+<div class="display-field">
+    @Model.SortOrder
+</div>
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.ApplicationDevelopment.FunctionalityXFunctionalityDevelopmentStepDataModel.DataColumns.Version
+</div>
+<div class="display-field">
+    @Model.Version
+</div>

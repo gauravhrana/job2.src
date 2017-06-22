@@ -1,0 +1,13 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.TaskTimeTracker.dll" #>
+<#@ include file=".\..\..\..\_Generators\AngularUI\V2\ApiController\EntityAPIControllerGeneratorHelper.tt" #>
+<#
+	this.RenderAPIControllers(new string[]
+	{
+
+	"VacationPlan"
+		
+		}
+			, "Web.Api.Controllers", "DataModel.TaskTimeTracker"
+			, "TaskTimeTracker.Components.Module.TimeTracking");
+#>

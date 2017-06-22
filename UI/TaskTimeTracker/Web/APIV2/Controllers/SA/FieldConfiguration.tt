@@ -1,0 +1,10 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file="..\..\..\_Generators\AngularUI\V1\ApiController\EntityAPIControllerGeneratorHelper.tt" #>
+<#
+	this.RenderAPIControllers(new string[]
+	{	
+		"FieldConfigurationBase"		
+	},
+	 "Web.Api.Controllers", "DataModel.Framework.Configuration", "Framework.Components.UserPreference");
+#>
+

@@ -1,0 +1,58 @@
+<ol class='breadcrumb'>
+	<li class='active'>Security X Party Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Security X Party Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='SecurityXPartyId' data-ng-model='EntityItem.SecurityXPartyId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Exchange:</label>
+		<div class='col-sm-10'>
+			<select class='form-control' ng-model='selectedExchangeItem' 
+					ng-options='srcItem.Name for srcItem in ExchangeList track by srcItem.ExchangeId'>
+			</select>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Issuer:</label>
+		<div class='col-sm-10'>
+			<select class='form-control' ng-model='selectedIssuerItem' 
+					ng-options='srcItem.Name for srcItem in IssuerList track by srcItem.IssuerId'>
+			</select>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Delivery Agent:</label>
+		<div class='col-sm-10'>
+			<select class='form-control' ng-model='selectedDeliveryAgentItem' 
+					ng-options='srcItem.Name for srcItem in DeliveryAgentList track by srcItem.DeliveryAgentId'>
+			</select>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Security:</label>
+		<div class='col-sm-10'>
+			<select class='form-control' ng-model='selectedSecurityItem' 
+					ng-options='srcItem.Name for srcItem in SecurityList track by srcItem.SecurityId'>
+			</select>
+		</div>
+	</div>
+
+</div>

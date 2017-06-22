@@ -1,0 +1,257 @@
+﻿<div class="page-header"><h3>Calculation Details</h3></div>
+
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+        <li><a data-ng-href="#/calculations" title="Back"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a></li>
+        <li><a data-ng-click="save();"><span class="glyphicon glyphicon-floppy-disk"></span> {{SubmitMessage}}</a></li>
+        <li ng-disabled="WorkflowStateIsNew()"><a data-ng-click="delete();"><span class="glyphicon glyphicon-remove"></span> {{DeleteMessage}}</a></li>
+    </ul>
+</nav>   
+ 
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <label for="code" class="col-sm-2 control-label">
+            Code
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="code" data-ng-model="calculation.CalculationCode" ng-disabled="!WorkflowStateIsNew()" ng-required placeholder="{New Calculation Code}">
+        </div>
+    </div>
+    
+    <div collapse="ShowLargeFormulaSection">
+
+        <div class="form-group">
+            <label for="Description" class="col-sm-2 control-label">Description</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" id="Description" rows="2" data-ng-model="calculation.Description" ng-required xplaceholder="{New Calculation Code / Formula}"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+            <label for="DataRepository" class="col-sm-2 control-label">Source Entity</label>
+            <div class="col-sm-2">
+                <input id="DataRepository" type="text" class="form-control" placeholder="{Source Data Repository}" value="{{calculation.DataRepository}}">
+            </div>
+            
+            <label for="CalculationTypeCode" class="col-sm-2 control-label">Calculation Type</label>
+            <div class="col-sm-2">
+                <select id="CalculationTypeCode" class="form-control" data-ui-select2="" data-ng-model="calculation.CalculationTypeCode">
+                    <option data-ng-repeat="item in CalculationTypes" value="{{item.Name}}">{{item.Description}}</option>
+                </select>
+            </div>
+
+            <label for="DataType" class="col-sm-2 control-label">Data Type</label>
+            <div class="col-sm-2">
+                <select id="DataType" class="form-control" data-ui-select2="" data-ng-model="calculation.DataTypeCode">
+                    <option data-ng-repeat="item in DataTypes" value="{{item.Name}}">{{item.Description}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Categories" class="col-sm-2 control-label">Categories</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control input-sm" ng-enter="AddNewCategory($event)" id="txtAddNewCategory" data-ng-model="NewCategory" placeholder="(+) Add New Category" />
+            </div>
+            <div class="col-sm-8">
+                <div id="Categories"
+                     multi-select
+                     input-model="ExistingCategories"
+                     output-model="SelectedCategories"
+                     item-label="name"
+                     max-labels="50"
+                     button-label="name"
+                     tick-property="ticked"
+                     orientation="horizontal"
+                     helper-elements="filter all none"
+                     default-label="Select Categories"
+                     on-close="CategorySelectionClosed(data)">
+                </div>
+            </div>            
+        </div>
+
+        <div class="form-group" ng-show="!WorkflowStateIsNew()">
+
+            <label for="code" class="col-sm-2 control-label">
+                <a ng-click="isCollapsed = !isCollapsed" ng-show="!WorkflowStateIsNew()">
+                    <span ng-hide="isCollapsed" class="fa fa-minus-square-o"></span>
+                    <span ng-hide="!isCollapsed" class="fa fa-plus-square-o"></span>
+                </a> Dependency Info
+            </label>
+            <div class="col-sm-10"></div>
+
+            <div collapse="isCollapsed" class="col-sm-12">
+
+                <div class="form-group">
+                    <label for="SummaryDependencies" class="col-sm-2 control-label">Depends on Summary</label>
+                    <ul class="col-sm-10">
+                        <li ng-repeat="dependency in calculation.SummaryDependencies | orderBy:['SortOrder']" class="">
+                            <a href="#/summaryCalculation/{{dependency}}">{{dependency}}</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="form-group" ng-show="!WorkflowStateIsNew()">
+                    <label for="DependsOnCalculations" class="col-sm-2 control-label">Depends on Calculation</label>
+                    <ul class="col-sm-10">
+                        <!--<ol>-->
+                        <li ng-repeat="dependency in calculation.DependsOnCalculations | orderBy:['SortOrder']" class="">
+                            <a href="#/calculations/{{dependency}}">{{dependency}}</a>
+                        </li>
+                        <!--</ol>-->
+                    </ul>
+                </div>
+
+                <div class="form-group" ng-show="!WorkflowStateIsNew()">
+                    <label for="UsedInCalculations" class="col-sm-2 control-label">Used in Calculation</label>
+                    <ul class="col-sm-10">
+                        <!--<ol>-->
+                        <li ng-repeat="dependency in calculation.UsedInCalculations | orderBy:['SortOrder']" class="">
+                            <a href="#/calculations/{{dependency.CalculationCode}}">{{dependency.CalculationCode}}</a>
+                        </li>
+                        <!--</ol>-->
+                    </ul>
+                </div>
+
+                <div class="form-group" ng-show="!WorkflowStateIsNew()">
+                    <label for="AssociatedSummaries" class="col-sm-2 control-label">Used in Summary</label>
+                    <ul class="col-sm-10">
+                        <!--<ol>-->
+                        <li ng-repeat="dependency in calculation.AssociatedSummaries | orderBy:['SortOrder']" class="">
+                            <a href="#/summaryCalculation/{{dependency.SummaryCode}}">{{dependency.SummaryCode}}</a>
+                        </li>
+                        <!--</ol>-->
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+    <div class="form-group" ng-show="calculation.FormulaError.length > 0">
+        <label for="code" class="col-sm-2 control-label">Formula Error</label>
+        <div class="col-sm-10 alert-warning">
+            <pre>
+            {{calculation.FormulaError}}
+            </pre>
+        </div>
+    </div>
+
+    <div class="form-group">
+        
+        <label for="code" class="col-sm-2 control-label">            
+            Formula            
+        </label>
+        
+        <div class="col-sm-10 table-bordered" ng-class="ExplorerColsNon" style="min-height: 1000px;">
+            <h6 style="display: inline !important;"><span style="color:lightblue;">public {{calculation.DataTypeCode | lowercase}} {{calculation.CalculationCode}} (result, dependency) {</span></h6>
+                <a ng-click="ShowLargeFormulaSection = !ShowLargeFormulaSection;" ng-show="!WorkflowStateIsNew()" class="pull-right" style="padding-left: 15px">
+                    <span ng-hide="ShowLargeFormulaSection" class="fa fa-square-o"></span>
+                    <span ng-hide="!ShowLargeFormulaSection" class="fa fa-square"></span>
+                </a>
+                <a ng-click="HideExplorerSection = !HideExplorerSection; ShowExplorer();" ng-show="!WorkflowStateIsNew()" class="pull-right" style="padding-left: 15px">
+                    <span ng-hide="HideExplorerSection" class="fa fa-expand"></span>
+                    <span ng-hide="!HideExplorerSection" class="fa fa-compress"></span>
+                </a>
+                <br />
+                <div ui-ace="{
+                onLoad: aceOnLoad,
+                onChange: aceOnChange}"
+                     ng-model="calculation.Formula" class="table-bordered">
+                </div>
+                <span style="color: lightblue;">}</span>
+        </div>
+
+        <div class="col-sm-3 table-bordered table-responsive" ng-class="ExplorerCols" ng-hide="HideExplorerSection" style="min-height: 1000px;">
+            <h6 style="display: inline !important;"><span style="color:lightblue;">Explorer</span></h6>            
+            <a ng-hide="true;"  ng-click="HideExplorerSection = !HideExplorerSection; ShowExplorer();" ng-show="!WorkflowStateIsNew()" class="pull-right" style="padding-left: 15px">
+                <span ng-hide="!HideExplorerSection" class="fa fa-expand"></span>
+                <span ng-hide="HideExplorerSection" class="fa fa-compress"></span>
+            </a>
+            <br />
+            <h6>
+                <div ng-controller="explorerCtrl" style="padding-left: 0px;">
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label for="Entity" class="col-sm-2 control-label">Entity</label>
+                            <div class="col-sm-10">
+                                <select id="Entity" class="form-control" data-ui-select2="" data-ng-model="SelectedEntityId" data-ng-change="entityChanged()">
+                                    <option value=""></option>
+                                    <optgroup data-ng-repeat="(key, prop) in EntityTypes" label="{{key}}">
+                                        <option data-ng-repeat="entity in prop.Entities" value="{{entity.EntityCode}}">{{entity.EntityCode}}</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Available Fields</div>
+                                <div class="panel-body">
+                                    <div style="overflow-x: auto; max-height: 300px; min-height: 300px;">
+                                        <ul style="list-style-type: none;">
+                                            <li ng-repeat="node in tree" ng-include="'tree_item_renderer.html'"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script type="text/ng-template" id="tree_item_renderer.html">
+                        <nobr>
+                            <a ng-click="collapse(node)" ng-if="(node.field.ReferenceEntityCode != undefined)&&(node.expanded)"><span class="fa fa-minus-square-o"></span></a>
+                            <a ng-click="expand(node)" ng-if="(node.field.ReferenceEntityCode != undefined)&&(!node.expanded)"><span class="fa fa-plus-square-o"></span></a>
+                            <input type="checkbox" ng-if="(node.field.ReferenceEntityCode == undefined)" ng-model="node.selected" ng-change="selectNode(node)" />
+                            <span ng-if="(node.field.ReferenceEntityCode != undefined)">&nbsp;{{node.field.ReferenceName}}</span>
+                            <span ng-if="(node.field.ReferenceEntityCode == undefined)">&nbsp;{{node.field.FieldCode}}</span>
+                        </nobr>
+                        <ul ng-show="node.expanded" style="list-style-type: none; ">
+                            <li ng-repeat="node in node.nodes" ng-include="'tree_item_renderer.html'"></li>
+                        </ul>
+
+                    </script>
+
+                </div>
+
+                <div class="row" ng-controller="sampleDataCtrl" style="border-width: 0px; padding: 0px; padding-top: 1px;" ng-hide="true">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Sample Data</div>
+                            <div class="panel-body">
+                                <div style="overflow-x: auto; max-height: 385px; min-height: 350px;">
+                                    <div ng-repeat="item in SampleData">
+                                        {{item.CalculationCode}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </h6>
+        </div>
+
+    </div>
+
+    <!--
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Dependency Details
+            <a ng-click="calculation.isCollapsed = !calculation.isCollapsed">
+                <span ng-hide="calculation.isCollapsed" class="glyphicon glyphicon-info-sign"></span>
+                <span ng-hide="!calculation.isCollapsed" class="glyphicon glyphicon-info-sign"></span>
+            </a>
+        </label>
+        <div class="col-sm-10">
+        </div>
+    </div>
+    -->
+    
+</div>

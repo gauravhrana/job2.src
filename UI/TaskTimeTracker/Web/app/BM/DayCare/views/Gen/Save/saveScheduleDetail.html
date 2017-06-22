@@ -1,0 +1,282 @@
+<ol class='breadcrumb'>
+	<li class='active'>Schedule Detail Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Schedule Detail Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ScheduleDetailId' placeholder='ScheduleDetailId' data-ng-model='EntityItem.ScheduleDetailId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Schedule Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ScheduleId' placeholder='ScheduleId' data-ng-model='EntityItem.ScheduleId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>In Time:</label>
+		<div class='col-sm-10'>
+				<div class='demo-section k-content'>
+					<input id='timepickerInTime'  style='width: 25%;' placeholder= 'InTime' class='form-control' data-ng-model='EntityItem.InTime'/>
+				</div>
+				<script>
+					$(document).ready(function () {
+					$('#timepickerInTime').kendoTimePicker();
+					});
+				</script>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Out Time:</label>
+		<div class='col-sm-10'>
+				<div class='demo-section k-content'>
+					<input id='timepickerOutTime'  style='width: 25%;' placeholder= 'OutTime' class='form-control' data-ng-model='EntityItem.OutTime'/>
+				</div>
+				<script>
+					$(document).ready(function () {
+					$('#timepickerOutTime').kendoTimePicker();
+					});
+				</script>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Message:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Message' placeholder='Message' data-ng-model='EntityItem.Message'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>From Search Date:</label>
+		<div class='col-sm-10'>
+			<script>
+				function readCookie(name) {
+				var nameEQ = name + '=';
+				var ca = document.cookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+					}
+					 return null;
+				}
+				$(document).ready(function () 
+				{ 
+					var format = readCookie('DateFormat');
+					format = format.replace('MM', 'mm').replace('M', 'm').replace('mmmm', 'MM').replace('mmm', 'M').replace('dddd', 'DD').replace('ddd', 'D').replace('yyyy', 'yy');
+					$('#FromSearchDate2').datepicker({dateFormat: format});
+				});
+			</script>
+			<input type='text' datepicker-popup='{{NewDateFormat}}' style='float: left;' class='form-control' id='FromSearchDate2' placeholder='FromSearchDate' data-ng-model='EntityItem.FromSearchDate'>
+			<i class='k-icon k-i-calendar' ng-click='ChangeNewFormat()' style='float: left;'></i>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>To Search Date:</label>
+		<div class='col-sm-10'>
+			<script>
+				function readCookie(name) {
+				var nameEQ = name + '=';
+				var ca = document.cookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+					}
+					 return null;
+				}
+				$(document).ready(function () 
+				{ 
+					var format = readCookie('DateFormat');
+					format = format.replace('MM', 'mm').replace('M', 'm').replace('mmmm', 'MM').replace('mmm', 'M').replace('dddd', 'DD').replace('ddd', 'D').replace('yyyy', 'yy');
+					$('#ToSearchDate3').datepicker({dateFormat: format});
+				});
+			</script>
+			<input type='text' datepicker-popup='{{NewDateFormat}}' style='float: left;' class='form-control' id='ToSearchDate3' placeholder='ToSearchDate' data-ng-model='EntityItem.ToSearchDate'>
+			<i class='k-icon k-i-calendar' ng-click='ChangeNewFormat()' style='float: left;'></i>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Person:</label>
+		<div class='col-sm-10'>
+			<select class='form-control'  style='float: left;width: 280px;' ng-model='selectedPersonItem' 
+					ng-options='srcItem.ApplicationUserName for srcItem in PersonList track by srcItem.ApplicationUserId'/>
+			<a href='#/{{moduleName}}/Person/search' target='_blank'><span class='glyphicon glyphicon-eye-open' style='float: left; margin-left:5px;'></span></a> 
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Date Diff Hrs:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='DateDiffHrs' placeholder='DateDiffHrs' data-ng-model='EntityItem.DateDiffHrs'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Work Date:</label>
+		<div class='col-sm-10'>
+			<script>
+				function readCookie(name) {
+				var nameEQ = name + '=';
+				var ca = document.cookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+					}
+					 return null;
+				}
+				$(document).ready(function () 
+				{ 
+					var format = readCookie('DateFormat');
+					format = format.replace('MM', 'mm').replace('M', 'm').replace('mmmm', 'MM').replace('mmm', 'M').replace('dddd', 'DD').replace('ddd', 'D').replace('yyyy', 'yy');
+					$('#WorkDate4').datepicker({dateFormat: format});
+				});
+			</script>
+			<input type='text' datepicker-popup='{{NewDateFormat}}' style='float: left;' class='form-control' id='WorkDate4' placeholder='WorkDate' data-ng-model='EntityItem.WorkDate'>
+			<i class='k-icon k-i-calendar' ng-click='ChangeNewFormat()' style='float: left;'></i>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Email Address:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='EmailAddress' placeholder='EmailAddress' data-ng-model='EntityItem.EmailAddress'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Schedule Detail Activity Category:</label>
+		<div class='col-sm-10'>
+			<select class='form-control'  style='float: left;width: 280px;' ng-model='selectedScheduleDetailActivityCategoryItem' 
+					ng-options='srcItem.Name for srcItem in ScheduleDetailActivityCategoryList track by srcItem.ScheduleDetailActivityCategoryId'/>
+			<a href='#/{{moduleName}}/ScheduleDetailActivityCategory/search' target='_blank'><span class='glyphicon glyphicon-eye-open' style='float: left; margin-left:5px;'></span></a> 
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Work Ticket:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='WorkTicket' placeholder='WorkTicket' data-ng-model='EntityItem.WorkTicket'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Created Date Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='CreatedDateId' placeholder='CreatedDateId' data-ng-model='EntityItem.CreatedDateId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Updated Date Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='UpdatedDateId' placeholder='UpdatedDateId' data-ng-model='EntityItem.UpdatedDateId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Created Date:</label>
+		<div class='col-sm-10'>
+			<script>
+				function readCookie(name) {
+				var nameEQ = name + '=';
+				var ca = document.cookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+					}
+					 return null;
+				}
+				$(document).ready(function () 
+				{ 
+					var format = readCookie('DateFormat');
+					format = format.replace('MM', 'mm').replace('M', 'm').replace('mmmm', 'MM').replace('mmm', 'M').replace('dddd', 'DD').replace('ddd', 'D').replace('yyyy', 'yy');
+					$('#CreatedDate5').datepicker({dateFormat: format});
+				});
+			</script>
+			<input type='text' datepicker-popup='{{NewDateFormat}}' style='float: left;' class='form-control' id='CreatedDate5' placeholder='CreatedDate' data-ng-model='EntityItem.CreatedDate'>
+			<i class='k-icon k-i-calendar' ng-click='ChangeNewFormat()' style='float: left;'></i>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'UpdatedDate' class='col-sm-2 control-label'>Updated Date:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.UpdatedDate}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'UpdatedBy' class='col-sm-2 control-label'>Updated By:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.UpdatedBy}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'LastAction' class='col-sm-2 control-label'>Last Action:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.LastAction}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Modified Date:</label>
+		<div class='col-sm-10'>
+			<script>
+				function readCookie(name) {
+				var nameEQ = name + '=';
+				var ca = document.cookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+					}
+					 return null;
+				}
+				$(document).ready(function () 
+				{ 
+					var format = readCookie('DateFormat');
+					format = format.replace('MM', 'mm').replace('M', 'm').replace('mmmm', 'MM').replace('mmm', 'M').replace('dddd', 'DD').replace('ddd', 'D').replace('yyyy', 'yy');
+					$('#ModifiedDate6').datepicker({dateFormat: format});
+				});
+			</script>
+			<input type='text' datepicker-popup='{{NewDateFormat}}' style='float: left;' class='form-control' id='ModifiedDate6' placeholder='ModifiedDate' data-ng-model='EntityItem.ModifiedDate'>
+			<i class='k-icon k-i-calendar' ng-click='ChangeNewFormat()' style='float: left;'></i>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Created By Audit Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='CreatedByAuditId' placeholder='CreatedByAuditId' data-ng-model='EntityItem.CreatedByAuditId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Modified By Audit Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ModifiedByAuditId' placeholder='ModifiedByAuditId' data-ng-model='EntityItem.ModifiedByAuditId'>
+		</div>
+	</div>
+
+</div>

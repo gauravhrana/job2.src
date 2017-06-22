@@ -1,0 +1,26 @@
+﻿@model  List<DataModel.TaskTimeTracker.ApplicationDevelopment.FunctionalityDevelopmentStepDataModel>
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Functionality Development Step</legend>
+
+        @Html.DisplayFor(Model => Model)
+
+        <p>
+            <input type="submit" value="Delete" />
+        </p>
+
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

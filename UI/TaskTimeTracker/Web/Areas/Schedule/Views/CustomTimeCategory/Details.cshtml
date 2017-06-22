@@ -1,0 +1,55 @@
+﻿
+
+
+@using DataModel.Framework.DataAccess
+@model DataModel.TaskTimeTracker.TimeTracking.CustomTimeCategoryDataModel
+@{
+	ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+	<legend>CustomTimeCategory</legend>
+
+	<div class="display-label">
+		@DataModel.TaskTimeTracker.TimeTracking.CustomTimeCategoryDataModel.DataColumns.CustomTimeCategoryId
+	</div>
+	<div class="display-field">
+		@Model.CustomTimeCategoryId
+	</div>
+
+    <div class="display-label">
+		@DataModel.TaskTimeTracker.TimeTracking.CustomTimeCategoryDataModel.DataColumns.ApplicationId
+	</div>
+	<div class="display-field">
+		@Model.ApplicationId
+	</div>
+
+	<div class="display-label">
+		@StandardDataModel.StandardDataColumns.Name
+	</div>
+	<div class="display-field">
+		@Model.Name
+	</div>
+
+	<div class="display-label">
+		@StandardDataModel.StandardDataColumns.Description
+	</div>
+	<div class="display-field">
+		@Model.Description
+	</div>
+
+	<div class="display-label">
+		@StandardDataModel.StandardDataColumns.SortOrder
+	</div>
+	<div class="display-field">
+		@Model.SortOrder
+	</div>
+
+</fieldset>
+
+<p>
+	@Html.ActionLink("Edit", "Edit", new { id = @Model.CustomTimeCategoryId }) |
+	@Html.ActionLink("Back to List", "Index")
+</p>

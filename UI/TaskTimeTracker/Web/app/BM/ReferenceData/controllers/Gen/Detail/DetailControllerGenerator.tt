@@ -1,0 +1,7 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file="..\..\..\..\..\..\_Generators\AngularUI\V1\Controller\EntityDetailControllerGeneratorHelper.tt" #>
+<# 
+	this.RenderDetailControllers(new string[]{"continent", "currency", "country", "geographicRegion", "religion",
+	"airport", "city", "helpLine", "mall", "monument", "region", "state", "timeZone", "trainStation",  "calendar",
+	"holiday", "personSuffix", "ethnicity", "address", "provinceType", "province", "gender"}); 
+#>

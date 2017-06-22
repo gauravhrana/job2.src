@@ -1,0 +1,13 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Areas/ReleaseNoteQualitative/Views/Shared/EditorTemplates
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=20672
+ReleaseNoteBusinessDifficultyDataModel.cshtml;1983567730;1;1397667122;|17860|187259
+ReleaseNoteBusinessValueDataModel.cshtml;85807684;1;1397667122;|17862|187261
+ReleaseNoteDeveloperValueDataModel.cshtml;3968586813;1;1397667122;|17861|187260
+ReleaseNoteLogisticsDifficultyDataModel.cshtml;276710047;2;1397667122;|17309|187288
+ReleaseNoteTechnicalDifficultyDataModel.cshtml;2798278329;1;1397667122;|17859|187258
+DailyTaskItemQueueDataModel.cshtml;4154930526;1;1399063848;|17926|188212
+DailyTaskItemQueueStatusDataModel.cshtml;1368882174;1;1399063848;|17925|188211
+DevelopmentCategoryDataModel.cshtml;3009771666;1;1405362472;|19252|4294967295
+ReleaseFeatureDataModel.cshtml;695130690;1;1405549444;|19260|4294967295

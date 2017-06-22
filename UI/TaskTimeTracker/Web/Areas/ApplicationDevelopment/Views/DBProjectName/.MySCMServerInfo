@@ -1,0 +1,9 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Areas/ApplicationDevelopment/Views/DBProjectName
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=23865
+Create.cshtml;2205194766;1;1406565474;|20642|222584
+Delete.cshtml;2666402579;1;1406565474;|20641|222583
+Details.cshtml;1545468280;1;1406565474;|20639|222581
+Edit.cshtml;2150313988;1;1406565474;|20640|222582
+Index.cshtml;1220393056;1;1406565474;|20643|222585

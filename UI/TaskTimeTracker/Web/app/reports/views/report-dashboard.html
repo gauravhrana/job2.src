@@ -1,0 +1,66 @@
+﻿<div class="page-header"><h3>{{dashboard.DashboardCode}}</h3></div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading" ng-click="isParamsCollapsed = !isParamsCollapsed">
+        <span>Parameters</span>
+    </div>
+    <div class="panel-body" collapse="isParamsCollapsed">
+        <div ng-form id="mainForm">
+            <div data-ng-repeat="row in ParameterRows">
+                <div class="row">
+                    <div data-ng-repeat="parameter in row">
+                        <ng-form name="innerForm">
+                            <div class="form-group" ng-class="{'has-error': innerForm.paramValue.$invalid}">
+                                <label for="paramValue" class="col-sm-2 control-label">{{parameter.Prompt}}</label>
+
+                                <!--for params with a dropdown-->
+                                <div class="col-sm-4" ng-if="parameter.AvailableValuesDatasetCode != undefined">
+                                    <select name="paramValue" class="form-control" data-ui-select2="" data-ng-model="parameter.Value" ng-required="parameter.Required">
+                                        <option value=""></option>
+                                        <option data-ng-repeat="item in parameter.AvailableValuesDataset.DropdownResults" value="{{item[parameter.AvailableValuesDatasetValueField]}}">{{item[parameter.AvailableValuesDatasetLabelField]}}</option>
+                                    </select>
+                                </div>
+                                <!--for params without a dropwdown-->
+                                <div class="col-sm-4" ng-if="parameter.AvailableValuesDatasetCode == undefined">
+                                    <div ng-switch="parameter.DataTypeCode">
+                                        <div ng-switch-when="DateTime">
+                                            <div ng-switch="supportsDate">
+                                                <input ng-switch-when="true" name="paramValue" class="form-control" type="date" ng-model="parameter.Value" ng-required="parameter.Required" />
+                                                <input ng-switch-when="false" name="paramValue" class="form-control" type="text" ng-model="parameter.Value" data-bs-datepicker data-date-format="MM/dd/yyyy" data-date-type="date" data-autoclose="1" ng-required="parameter.Required" />
+                                            </div>
+                                        </div>
+
+                                        <div ng-switch-default="">
+                                            <input name="paramValue" type="text" class="form-control" ng-model="parameter.Value" ng-required="parameter.Required" />
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-form>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 3px">
+                <div class="col-sm-12">
+                    <button ng-click="LoadAllData()" class="btn btn-primary pull-right" ng-disabled="mainForm.$invalid"><span class="glyphicon glyphicon-play"></span> Run</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" ng-if="showDashboard">
+    <div class="col-md-12">
+        <a class="pull-right" href="#/dashboardDesigner/{{dashboard.DashboardCode}}" title="Dashboard Designer"><span class="fa fa-edit"></span></a>
+    </div>
+</div>
+
+<div class="row" ng-if="showDashboard">
+    <div class="col-md-12">
+        <adf-dashboard structure="dashboard.DashboardLayoutCode" adf-model="dashboardModel" />
+    </div>
+</div>
+
+
+

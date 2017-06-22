@@ -1,0 +1,71 @@
+<ol class='breadcrumb'>
+	<li class='active'>MSPA File Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>MSPA File Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='MSPAFileId' data-ng-model='EntityItem.MSPAFileId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Filename:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Filename' placeholder='Filename' data-ng-model='EntityItem.Filename'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Drop Date:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='DropDate' placeholder='DropDate' data-ng-model='EntityItem.DropDate'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Business Date:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='BusinessDate' placeholder='BusinessDate' data-ng-model='EntityItem.BusinessDate'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>MSPA Extract Task Run Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='MSPAExtractTaskRunId' placeholder='MSPAExtractTaskRunId' data-ng-model='EntityItem.MSPAExtractTaskRunId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>MSPA Holding Task Run Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='MSPAHoldingTaskRunId' placeholder='MSPAHoldingTaskRunId' data-ng-model='EntityItem.MSPAHoldingTaskRunId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>MSPA Trade Task Run Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='MSPATradeTaskRunId' placeholder='MSPATradeTaskRunId' data-ng-model='EntityItem.MSPATradeTaskRunId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>MSPA Security Task Run Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='MSPASecurityTaskRunId' placeholder='MSPASecurityTaskRunId' data-ng-model='EntityItem.MSPASecurityTaskRunId'>
+		</div>
+	</div>
+
+</div>

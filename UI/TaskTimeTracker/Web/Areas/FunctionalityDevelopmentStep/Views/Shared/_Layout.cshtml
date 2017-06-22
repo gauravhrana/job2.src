@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="/Prototype/Kendo/content/shared/styles/examples-offline.css" rel="stylesheet">
+    <link href="/styles/kendo/kendo.common.min.css" rel="stylesheet">
+    <link href="/styles/kendo/kendo.rtl.min.css" rel="stylesheet">
+    <link href="/styles/kendo/kendo.default.min.css" rel="stylesheet">
+
+    <link href="@Url.Content("~/Areas/ReleaseNoteQualitative/Content/Site.css")" rel="stylesheet" type="text/css" />
+
+    <script src="/scripts/jquery-2.1.0.min.js"></script>
+    <script src="/scripts/kendo/full/kendo.web.min.js"></script>
+    <script src="/Prototype/Kendo/content/shared/js/console.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">@Html.ActionLink("Your logo here", "Index", "Home")</p>
+            </div>
+
+        </div>
+    </header>
+    <div id="body">
+
+        <ul id="kendo-menu">
+            <li>Home
+                    <ul>
+                        <li><a href="/Default.aspx">TTT Home</a></li>
+                        <li>@Html.ActionLink("MVC Home", "Index", "Home")</li>
+                    </ul>
+            </li>
+            <li>Kendo UI
+                <ul>
+                    <li>@Html.ActionLink("Logistics Difficulty", "Index", "ReleaseNoteLogisticsDifficulty")</li>
+                     <li>@Html.ActionLink("AutoComplete", "AutoCompleteSample", "AutoComplete")</li>
+                </ul>
+            </li>
+            <li>Entities
+                <ul>                    
+                    <li>@Html.ActionLink("Functionality Development Step", "Index", "FunctionalityDevelopmentStep")</li>
+                    <li>@Html.ActionLink("Functionality X Functionality Development Step", "Index", "FunctionalityXFunctionalityDevelopmentStep")</li>
+                                     
+                </ul>
+            </li>
+        </ul>
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#kendo-menu").kendoMenu();
+        });
+    </script>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+            </div>
+            <div class="float-right">
+                <ul id="social">
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

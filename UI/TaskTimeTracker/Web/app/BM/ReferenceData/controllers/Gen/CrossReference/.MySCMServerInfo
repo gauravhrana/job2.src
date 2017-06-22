@@ -1,0 +1,9 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/BM/ReferenceData/controllers/Gen/CrossReference
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=36340
+ControllerGenerator.cs;1566315191;1;1462161076;|41597|346925
+ControllerGenerator.tt;2632794050;4;1462765641;|41598|347399
+countryXReligionCtrl.js;2655740717;2;1473996522;|41647|355585
+holidayXCountryCtrl.js;1043413922;2;1473996522;|41640|355586
+timeZoneXCountryCtrl.js;3357373425;2;1473996522;|41596|355587

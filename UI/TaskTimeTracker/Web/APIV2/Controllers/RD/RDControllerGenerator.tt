@@ -1,0 +1,11 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\_Generators\AngularUI\V1\ApiController\EntityAPIControllerGeneratorHelper.tt" #>
+<# 
+	this.RenderAPIControllers(new string[]{"Continent", "Country", "Currency", "GeographicRegion",
+	"Religion", "Airport", "City", "HelpLine", "Mall", "Monument", "Region", "State", "TimeZone",
+	 "TrainStation", "Calendar", "Holiday" ,"PersonSuffix","Ethnicity"  , "Address", "ProvinceType",
+	 "Province", "Gender"}
+	 , "Web.Api.Controllers"
+	 , "DataModel.ReferenceData"
+	 , "ReferenceData.Components.BusinessLayer");
+#> 

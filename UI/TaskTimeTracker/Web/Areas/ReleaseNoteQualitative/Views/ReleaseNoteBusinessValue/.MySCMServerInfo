@@ -1,0 +1,9 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Areas/ReleaseNoteQualitative/Views/ReleaseNoteBusinessValue
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=19963
+Create.cshtml;2337061368;1;1394430775;|16366|163424
+Delete.cshtml;214748108;2;1397667122;|16365|187279
+Details.cshtml;1029779694;2;1397667122;|16362|187280
+Edit.cshtml;2995809680;2;1397667122;|16363|187281
+Index.cshtml;2246286324;3;1403577958;|16364|204642

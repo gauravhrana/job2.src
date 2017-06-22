@@ -1,0 +1,37 @@
+﻿@using DataModel.Framework.DataAccess
+@model Framework.Components.ReleaseLog.DomainModel.ReleaseNoteBusinessValueDataModel
+
+@{
+    ViewBag.Title = "ReleaseNoteBusinessValueDataModel";
+}
+<h2>Release Note Business Value Item</h2>
+
+@Html.HiddenFor(modelItem => @Model.ReleaseNoteBusinessValueId)
+
+<div class="display-label">
+    @Framework.Components.ReleaseLog.DomainModel.ReleaseNoteBusinessValueDataModel.DataColumns.ReleaseNoteBusinessValueId
+</div>
+<div class="display-field">
+    @Model.ReleaseNoteBusinessValueId
+</div>
+
+<div class="display-label">
+	@StandardDataModel.StandardDataColumns.Name
+</div>
+<div class="display-field">
+    @Model.Name
+</div>
+
+<div class="display-label">
+	@StandardDataModel.StandardDataColumns.Description
+</div>
+<div class="display-field">
+    @Model.Description
+</div>
+
+<div class="display-label">
+	@StandardDataModel.StandardDataColumns.SortOrder
+</div>
+<div class="display-field">
+    @Model.SortOrder
+</div>

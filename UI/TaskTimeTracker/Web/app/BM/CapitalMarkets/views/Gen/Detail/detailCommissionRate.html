@@ -1,0 +1,63 @@
+<ol class='breadcrumb'>
+	<li class='active'>Commission Rate Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for = 'CommissionRateId' class='col-sm-2 control-label'>Commission Rate Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.CommissionRateId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'ClearingRate' class='col-sm-2 control-label'>Clearing Rate:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.ClearingRate}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'ExecutionRate' class='col-sm-2 control-label'>Execution Rate:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.ExecutionRate}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'BrokerId' class='col-sm-2 control-label'>Broker Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.BrokerId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Broker' class='col-sm-2 control-label'>Broker:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Broker}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'ExchangeId' class='col-sm-2 control-label'>Exchange Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.ExchangeId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Exchange' class='col-sm-2 control-label'>Exchange:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Exchange}}
+		</div>
+	</div>
+
+</div>

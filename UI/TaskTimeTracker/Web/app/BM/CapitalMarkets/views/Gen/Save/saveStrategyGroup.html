@@ -1,0 +1,108 @@
+<ol class='breadcrumb'>
+	<li class='active'>Strategy Group Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Strategy Group Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='StrategyGroupId' data-ng-model='EntityItem.StrategyGroupId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Fund:</label>
+		<div class='col-sm-10'>
+			<select class='form-control' ng-model='selectedFundItem' 
+					ng-options='srcItem.Name for srcItem in FundList track by srcItem.FundId'>
+			</select>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Classification Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ClassificationId' placeholder='ClassificationId' data-ng-model='EntityItem.ClassificationId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Portfolio Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='PortfolioId' placeholder='PortfolioId' data-ng-model='EntityItem.PortfolioId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Parent Strategy Group Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ParentStrategyGroupId' placeholder='ParentStrategyGroupId' data-ng-model='EntityItem.ParentStrategyGroupId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Default U Security Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='DefaultUSecurityId' placeholder='DefaultUSecurityId' data-ng-model='EntityItem.DefaultUSecurityId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Active YN:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ActiveYN' placeholder='ActiveYN' data-ng-model='EntityItem.ActiveYN'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Open Date Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='OpenDateId' placeholder='OpenDateId' data-ng-model='EntityItem.OpenDateId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Close Date Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='CloseDateId' placeholder='CloseDateId' data-ng-model='EntityItem.CloseDateId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Closed YN:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ClosedYN' placeholder='ClosedYN' data-ng-model='EntityItem.ClosedYN'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Theme Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ThemeId' placeholder='ThemeId' data-ng-model='EntityItem.ThemeId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Strategy Group Code:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='StrategyGroupCode' placeholder='StrategyGroupCode' data-ng-model='EntityItem.StrategyGroupCode'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Strategy Group Desc:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='StrategyGroupDesc' placeholder='StrategyGroupDesc' data-ng-model='EntityItem.StrategyGroupDesc'>
+		</div>
+	</div>
+
+</div>

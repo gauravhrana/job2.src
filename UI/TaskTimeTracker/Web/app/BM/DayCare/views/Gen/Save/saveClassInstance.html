@@ -1,0 +1,84 @@
+<ol class='breadcrumb'>
+	<li class='active'>Class Instance Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Class Instance Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='ClassInstanceId' data-ng-model='EntityItem.ClassInstanceId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Name:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Name' placeholder='Name' data-ng-model='EntityItem.Name'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Course:</label>
+		<div class='col-sm-10'>
+			<select class='form-control'  style='float: left;width: 280px;' ng-model='selectedCourseItem' 
+					ng-options='srcItem.Name for srcItem in CourseList track by srcItem.CourseId'/>
+			<a href='#/{{moduleName}}/Course/search' target='_blank'><span class='glyphicon glyphicon-eye-open' style='float: left; margin-left:5px;'></span></a> 
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Department:</label>
+		<div class='col-sm-10'>
+			<select class='form-control'  style='float: left;width: 280px;' ng-model='selectedDepartmentItem' 
+					ng-options='srcItem.Name for srcItem in DepartmentList track by srcItem.DepartmentId'/>
+			<a href='#/{{moduleName}}/Department/search' target='_blank'><span class='glyphicon glyphicon-eye-open' style='float: left; margin-left:5px;'></span></a> 
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Teacher:</label>
+		<div class='col-sm-10'>
+			<select class='form-control'  style='float: left;width: 280px;' ng-model='selectedTeacherItem' 
+					ng-options='srcItem.Name for srcItem in TeacherList track by srcItem.TeacherId'/>
+			<a href='#/{{moduleName}}/Teacher/search' target='_blank'><span class='glyphicon glyphicon-eye-open' style='float: left; margin-left:5px;'></span></a> 
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Start Time:</label>
+		<div class='col-sm-10'>
+				<div class='demo-section k-content'>
+					<input id='timepickerStartTime'  style='width: 25%;' placeholder= 'StartTime' class='form-control' data-ng-model='EntityItem.StartTime'/>
+				</div>
+				<script>
+					$(document).ready(function () {
+					$('#timepickerStartTime').kendoTimePicker();
+					});
+				</script>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>End Time:</label>
+		<div class='col-sm-10'>
+				<div class='demo-section k-content'>
+					<input id='timepickerEndTime'  style='width: 25%;' placeholder= 'EndTime' class='form-control' data-ng-model='EntityItem.EndTime'/>
+				</div>
+				<script>
+					$(document).ready(function () {
+					$('#timepickerEndTime').kendoTimePicker();
+					});
+				</script>
+		</div>
+	</div>
+
+</div>

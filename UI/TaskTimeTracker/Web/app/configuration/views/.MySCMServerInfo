@@ -1,0 +1,15 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/configuration/views
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=27196
+add-edit-summary-calculation.html;1221560547;1;1410186234;|22811|251148
+calculation-detail.html;3725921359;1;1410186234;|22810|251147
+calculation-list.html;3634462094;1;1410186234;|22809|251146
+calculation-selection.html;754910835;1;1410186234;|22813|251150
+detail-list.html;88779260;1;1410186234;|22812|251149
+detail.html;1334126828;1;1410186234;|22803|251140
+geneva-query-detail.html;954848289;1;1410186234;|22804|251141
+geneva-query-list.html;2910430841;1;1410186234;|22805|251142
+summary-calculation.html;1755269223;1;1410186234;|22806|251143
+summary-detail.html;597320774;1;1410186234;|22807|251144
+summary-list.html;3435945718;1;1410186234;|22808|251145

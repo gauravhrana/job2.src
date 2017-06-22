@@ -1,0 +1,64 @@
+﻿
+
+
+@using DataModel.Framework.DataAccess
+@model DataModel.TaskTimeTracker.TimeTracking.CustomTimeCategoryDataModel
+@{
+	ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+
+@using (Html.BeginForm())
+{
+	<fieldset>
+		<legend>CustomTimeCategory</legend>
+
+		@Html.HiddenFor(model => model.CustomTimeCategoryId)
+
+		<div class="display-label">
+			@DataModel.TaskTimeTracker.TimeTracking.CustomTimeCategoryDataModel.DataColumns.CustomTimeCategoryId
+		</div>
+		<div class="display-field">
+			@Model.CustomTimeCategoryId
+		</div>
+
+        <div class="display-label">
+			@DataModel.TaskTimeTracker.TimeTracking.CustomTimeCategoryDataModel.DataColumns.ApplicationId
+		</div>
+		<div class="display-field">
+			@Model.ApplicationId
+		</div>
+		<div class="display-label">
+			@StandardDataModel.StandardDataColumns.ApplicationId
+		</div>
+		<div class="display-field">
+			@Model.Name
+		</div>
+
+		<div class="display-label">
+			@StandardDataModel.StandardDataColumns.Description
+		</div>
+		<div class="display-field">
+			@Model.Description
+		</div>
+
+		<div class="display-label">
+			@StandardDataModel.StandardDataColumns.SortOrder
+		</div>
+		<div class="display-field">
+			@Model.SortOrder
+		</div>
+
+		<p>
+			<input type="submit" value="Delete" />
+		</p>
+
+	</fieldset>
+}
+
+<div>
+	@Html.ActionLink("Back to List", "Index")
+</div>

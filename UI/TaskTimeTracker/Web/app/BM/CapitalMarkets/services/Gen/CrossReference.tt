@@ -1,0 +1,12 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.DayCare.dll" #>
+<#@ include file=".\..\..\..\..\..\..\..\..\Generators\Generators.UI\AngularUI\CrossReference\JsService\JSServiceGeneratorHelper.tt" #>
+<#
+	this.RenderServices(	
+		new string[] {	
+					"FundXLegalEntity"
+				,	"PortfolioXCustodianAccount"
+				,	"PriceScheduleXPriceList"
+			}
+	);
+#>

@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/BM/TimeEntry/services
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=35853
+fieldConfigurationModeService.js;3751709102;1;1440127867;|40514|326523
+jiraListService.js;3327718676;1;1440127867;|40515|326524
+workSummaryService.js;3769296573;1;1440127867;|40516|326525

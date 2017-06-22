@@ -1,0 +1,700 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ include file="../../../MultipleOutputFileHelper.tt" #>
+<#@ include file="../../../UtilityHelper.tt" #>
+
+<#+
+
+	void RenderJsFunctions()
+	{
+		WriteLine(string.Empty);
+        WriteLine("$scope.WorkflowStateIsNew = function () {");
+			
+			PushIndent("\t");
+            WriteLine("return ($routeParams.detailId == '{New}');");
+			PopIndent();
+
+        WriteLine("};");
+
+		WriteLine(string.Empty);
+        WriteLine("function onFailedLoad(serverResponse) {");
+			
+			PushIndent("\t");
+            WriteLine("userService.AlertManager.logFailureAlert('', serverResponse.data, []);");
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("// get search filter columns");
+        WriteLine("fieldConfigurationService.getSearchFilterColumns({ value: $scope.entityName, value1: settingCategory }, onSuccessLoadSearchFC, onFailedLoad);");
+
+		WriteLine(string.Empty);
+        WriteLine("// on successfull load of search filter columns");
+        WriteLine("function onSuccessLoadSearchFC(data) {");
+			
+			PushIndent("\t");
+            WriteLine("$scope.searchFieldConfigurations = [];");
+            WriteLine("$scope.searchColumnSources = [];");
+            WriteLine("$scope.sourceItem = {};");
+
+			WriteLine(string.Empty);
+            WriteLine("// loop thru all search filter columns");
+            WriteLine("for (var i = 0; i < data.length; i++) {");
+				
+				PushIndent("\t");
+                WriteLine("var columnName = data[i].Name;");
+
+				WriteLine(string.Empty);
+                WriteLine("if (columnName == 'GroupBy' || columnName == 'SubGroupBy') {");
+					
+					WriteLine(string.Empty);
+					PushIndent("\t");
+                    WriteLine("var searchItem = {");
+						
+						PushIndent("\t");
+                        WriteLine("Name: data[i].Name");
+                        WriteLine(", FieldConfigurationDisplayName: data[i].FieldConfigurationDisplayName");
+                        WriteLine(", Value: data[i].Value");
+						PopIndent();
+
+                    WriteLine("};");
+
+					WriteLine(string.Empty);
+                    WriteLine("// define control type");
+                    WriteLine("searchItem.ControlType = 'kendoComboGroupBy';");
+                    WriteLine("getKendoKendoComboBoxGroupByData(columnName);");
+                    WriteLine("$scope.searchFieldConfigurations.push(searchItem);");
+					PopIndent();
+
+				WriteLine(string.Empty);
+                WriteLine("}");
+                WriteLine("else if (columnName != 'GroupByDirection' && columnName != 'SubGroupByDirection') {");
+
+					WriteLine(string.Empty);
+					PushIndent("\t");
+                    WriteLine("var searchItem = {");
+						
+						PushIndent("\t");
+                        WriteLine("Name: data[i].Name");
+                        WriteLine(", FieldConfigurationDisplayName: data[i].FieldConfigurationDisplayName");
+                        WriteLine(", Value: data[i].Value");
+						PopIndent();
+
+                    WriteLine("};");
+
+					WriteLine(string.Empty);
+                    WriteLine("var methodInfo = autoCompleteDataService.getAutoCompleteMethod(columnName);");
+                    WriteLine("if (methodInfo.Found == true) {");
+
+						WriteLine(string.Empty);
+						PushIndent("\t");
+                        WriteLine("// define control type");
+                        WriteLine("searchItem.ControlType = 'kendoCombo';");
+                        WriteLine("searchItem.URL = 'http://www.google.com'");
+
+						WriteLine(string.Empty);
+                        WriteLine("getKendoComboBoxSourceData(columnName, methodInfo);");
+                        WriteLine("$scope.searchFieldConfigurations.push(searchItem);");
+						PopIndent();
+
+                    WriteLine("}");
+                    WriteLine("else {");
+
+						WriteLine(string.Empty);
+						PushIndent("\t");
+                        WriteLine("// define control type");
+                        WriteLine("searchItem.ControlType = 'kendoAutoComplete';");
+
+						WriteLine(string.Empty);
+                        WriteLine("getKendoAutoCompleteSourceData(columnName);");
+                        WriteLine("$scope.searchFieldConfigurations.push(searchItem);");
+						PopIndent();
+
+                    WriteLine("}");
+					PopIndent();
+
+                WriteLine("}");
+				PopIndent();
+
+            WriteLine("}");
+
+			WriteLine(string.Empty);
+            WriteLine("$scope.searchData();");
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("function getKendoComboBoxSourceData(columnName, methodInfo) {");
+
+			WriteLine(string.Empty);
+			PushIndent("\t");
+            WriteLine("dataAutoCompleteService.getKendoComboSource({ methodName: methodInfo.MethodName, columnName: columnName },");
+				
+				PushIndent("\t");
+                WriteLine("function (response) {");
+
+					WriteLine(string.Empty);
+					PushIndent("\t");
+                    WriteLine("var options = [];");
+                    WriteLine("var objOptionAll = {");
+
+						PushIndent("\t");
+                        WriteLine("name: 'All',");
+                        WriteLine("id: '-1'");
+						PopIndent();
+
+                    WriteLine("};");
+                    WriteLine("options.push(objOptionAll);");
+
+					WriteLine(string.Empty);
+                    WriteLine("for (var i = 0; i < response.length; i++) {");
+						
+						PushIndent("\t");
+                        WriteLine("var objOption = {");
+
+							PushIndent("\t");
+                            WriteLine("name: response[i][methodInfo.DataTextField],");
+                            WriteLine("id: response[i][methodInfo.DataValueField]");
+							PopIndent();
+
+                        WriteLine("};");
+						
+						WriteLine(string.Empty);
+                        WriteLine("options.push(objOption);");
+						PopIndent();
+
+                    WriteLine("}");
+
+					WriteLine(string.Empty);
+                    WriteLine("$scope.sourceItem[columnName] = options;");
+					PopIndent();
+
+
+				WriteLine(string.Empty);
+                WriteLine("}, onFailedLoad);");
+				PopIndent();
+
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("function getKendoAutoCompleteSourceData(columnName) {");
+			
+			PushIndent("\t");
+            WriteLine("dataAutoCompleteService.getAutoCompleteList({ value: $scope.entityName, value1: columnName },");
+
+				PushIndent("\t");
+                WriteLine("function (response) {");
+					
+					PushIndent("\t");
+                    WriteLine("$scope.sourceItem[columnName] = response;");
+					PopIndent();
+
+                WriteLine("}, onFailedLoad);");
+				PopIndent();
+			
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("function getKendoKendoComboBoxGroupByData(columnName) {");
+			
+			PushIndent("\t");
+            WriteLine("dataAutoCompleteService.getGroupByList({ value: $scope.entityName },");
+
+				PushIndent("\t");
+                WriteLine("function (response) {");
+					
+					PushIndent("\t");
+                    WriteLine("$scope.sourceItem[columnName] = response;");
+					PopIndent();
+
+                WriteLine("}, onFailedLoad);");
+				PopIndent();
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("// data search function");
+        WriteLine("$scope.searchData = function () {");
+			
+			PushIndent("\t");
+            WriteLine("var searchObj = {};");
+
+			WriteLine(string.Empty);
+            WriteLine("// create dynamic search object which will have key, value pair");
+            WriteLine("for (var i = 0; i < $scope.searchFieldConfigurations.length; i++) {");
+				
+				PushIndent("\t");
+                WriteLine("var filterName = $scope.searchFieldConfigurations[i].Name;");
+                WriteLine("var filterValue = $scope.searchFieldConfigurations[i].Value;");
+
+				WriteLine(string.Empty);
+                WriteLine("searchObj[filterName] = filterValue;");
+
+				WriteLine(string.Empty);
+                WriteLine("if (filterName == 'GroupBy') {");
+					
+					PushIndent("\t");
+                    WriteLine("$scope.groupByColumn = filterValue;");
+					PopIndent();
+
+                WriteLine("}");
+                WriteLine("else if (filterName == 'SubGroupBy') {");
+					
+					PushIndent("\t");
+                    WriteLine("$scope.subGroupByColumn = filterValue;");
+					PopIndent();
+
+                WriteLine("}");
+				PopIndent();
+
+            WriteLine("}");
+
+			WriteLine(string.Empty);
+            WriteLine("var searchString = JSON.stringify(searchObj);");
+
+			WriteLine(string.Empty);
+            WriteLine("if ($scope.searchFieldConfigurations.length > 0) {");
+				
+				PushIndent("\t");
+                WriteLine("// get entity records");
+                WriteLine("$scope.promise = entityService.getList({ value: searchString, value1: settingCategory }, onSuccessLoad, onFailedLoad);");
+				PopIndent();
+
+            WriteLine("}");
+			PopIndent();
+
+		WriteLine(string.Empty);
+        WriteLine("};");
+
+		WriteLine(string.Empty);
+        WriteLine("function onSuccessLoad(data) {");                
+                
+			WriteLine(string.Empty);
+			PushIndent("\t");
+            WriteLine("$scope.groupingLevel = 0;");
+                
+			WriteLine(string.Empty);
+            WriteLine("// check if grouping exists");
+            WriteLine("if ($scope.groupByColumn != -1) {");
+
+				WriteLine(string.Empty);
+				PushIndent("\t");
+			    WriteLine("// sub grouping exists");
+                WriteLine("if ($scope.subGroupByColumn != -1 && $scope.groupByColumn != $scope.subGroupByColumn) {");
+					
+					WriteLine(string.Empty);
+					PushIndent("\t");
+                    WriteLine("$scope.subGroups = [];");
+                    WriteLine("$scope.groupingLevel = 2;");
+
+					WriteLine(string.Empty);
+                    WriteLine("var i = 0;");
+
+					WriteLine(string.Empty);
+                    WriteLine("// get all disticnt group by values");
+                    WriteLine("var uGroup = [];");
+                    WriteLine("for (i = 0; i < data.length; i++) {");
+						
+						WriteLine(string.Empty);
+						PushIndent("\t");
+                        WriteLine("var grpByValue = data[i][$scope.groupByColumn];");
+                        WriteLine("if (uGroup.indexOf(grpByValue) == -1) {");
+							
+							PushIndent("\t");
+                            WriteLine("uGroup.push(grpByValue);");
+							PopIndent();
+
+                        WriteLine("}");
+						PopIndent();
+
+                    WriteLine("}");
+
+					WriteLine(string.Empty);
+                    WriteLine("// get all disticnt sub group by values");
+                    WriteLine("var uSubGroup = [];");
+                    WriteLine("for (i = 0; i < data.length; i++) {");
+
+						WriteLine(string.Empty);
+						PushIndent("\t");
+                        WriteLine("var subGrpByValue = data[i][$scope.subGroupByColumn];");
+                        WriteLine("if (uSubGroup.indexOf(subGrpByValue) == -1) {");	
+
+							PushIndent("\t");
+                            WriteLine("uSubGroup.push(subGrpByValue);");
+							PopIndent();
+
+                        WriteLine("}");
+						PopIndent();
+
+                    WriteLine("}");
+
+					WriteLine(string.Empty);
+                    WriteLine("$scope.subGroupValues = {};");
+                    WriteLine("for (i = 0; i < uGroup.length; i++) {");
+						
+						WriteLine(string.Empty);
+						PushIndent("\t");
+                        WriteLine("// current group by value");
+                        WriteLine("var grpByValue = uGroup[i];");
+                            
+						WriteLine(string.Empty);
+                        WriteLine("// grouped item that will hold data for that particular group tab");
+                        WriteLine("var groupedItem = {};");
+                        WriteLine("for (var j = 0; j < uSubGroup.length ; j++) {");
+							
+							WriteLine(string.Empty);
+							PushIndent("\t");
+                            WriteLine("var subGrpByValue = uSubGroup[j];");
+
+							WriteLine(string.Empty);
+                            WriteLine("// search for related records in result data");
+                            WriteLine("var items = jQuery.grep(data, function (a) {");
+								
+								PushIndent("\t");
+                                WriteLine("return a[$scope.groupByColumn] == grpByValue && a[$scope.subGroupByColumn] == subGrpByValue;");
+								PopIndent();
+
+                            WriteLine("});");
+
+							WriteLine(string.Empty);
+                            WriteLine("// if data exists then add sub group item to group item's child");
+                            WriteLine("if (items.length > 0) {");
+                                    
+								WriteLine(string.Empty);
+								PushIndent("\t");
+                                WriteLine("// check for existance");
+                                WriteLine("if ($scope.subGroupValues[grpByValue] == undefined) {");
+									
+									PushIndent("\t");
+                                    WriteLine("$scope.subGroupValues[grpByValue] = [];");
+
+									WriteLine(string.Empty);
+                                    WriteLine("groupedItem = {};");
+									PopIndent();
+
+                                WriteLine("}");
+
+								WriteLine(string.Empty);
+                                WriteLine("// assign data to grouped items resultant set");
+                                WriteLine("groupedItem[subGrpByValue] = items;");
+
+                                WriteLine(string.Empty);
+								WriteLine("// push sub group by value item ");
+                                WriteLine("$scope.subGroupValues[grpByValue].push(subGrpByValue);");
+								PopIndent();
+
+                            WriteLine("}");
+							PopIndent();
+
+                        WriteLine("}");
+
+						WriteLine(string.Empty);
+                        WriteLine("// add grouped data item as the value of the property");
+                        WriteLine("$scope.subGroups[grpByValue] = groupedItem;");
+						PopIndent();
+
+                    WriteLine("}");
+
+					WriteLine(string.Empty);
+                    WriteLine("$scope.groupValues = uGroup;");
+					PopIndent();
+
+                WriteLine("}");
+                WriteLine("else // only grouping");
+                WriteLine("{");
+					
+					WriteLine(string.Empty);
+					PushIndent("\t");
+                    WriteLine("$scope.groups = {};");
+                    WriteLine("$scope.groupingLevel = 1;");
+
+					WriteLine(string.Empty);
+                    WriteLine("var uGroup = [];");
+                    WriteLine("for (var i = 0; i < data.length; i++) {");
+						
+						WriteLine(string.Empty);
+						PushIndent("\t");
+                        WriteLine("var grpByValue = data[i][$scope.groupByColumn];");
+                        WriteLine("if (uGroup.indexOf(grpByValue) == -1) {");
+							
+							PushIndent("\t");
+                            WriteLine("uGroup.push(grpByValue);");
+							PopIndent();
+
+                        WriteLine("}");
+
+						WriteLine(string.Empty);
+                        WriteLine("if ($scope.groups[grpByValue] == undefined) {");
+							
+							PushIndent("\t");
+                            WriteLine("$scope.groups[grpByValue] = [];");
+							PopIndent();
+
+                        WriteLine("}");
+                        WriteLine("$scope.groups[grpByValue].push(data[i]);");
+						PopIndent();
+
+                    WriteLine("}");
+
+					WriteLine(string.Empty);
+                    WriteLine("$scope.groupValues = uGroup;");
+					PopIndent();
+
+                WriteLine("}");
+				PopIndent();
+                    
+			WriteLine(string.Empty);
+            WriteLine("}");
+            WriteLine("else { // no grouping at all");
+				
+				PushIndent("\t");
+                WriteLine("$scope.entityItems = data;");
+				PopIndent();
+
+            WriteLine("}");
+			PopIndent();
+
+        WriteLine("}");
+
+	}
+
+	void RenderJsFunctions2()
+	{
+		WriteLine(string.Empty);
+		WriteLine("// add new link function");
+        WriteLine("$scope.addNew = function () {");
+			
+			PushIndent("\t");
+            WriteLine("$scope.SubmitMessage = 'Adding New ...';");
+            WriteLine("$location.url('/' + $scope.entityUrl + '/save/{New}');");
+			PopIndent();
+
+        WriteLine("};");
+
+		WriteLine(string.Empty);
+        WriteLine("$scope.reloadFC = function (myFcMode) {");
+			
+			PushIndent("\t");
+            WriteLine("$scope.myFcMode = myFcMode;");
+            WriteLine("saveUserFieldConfiguration();");
+            WriteLine("getFieldConfigurations();");
+			PopIndent();
+
+        WriteLine("};");
+
+		WriteLine(string.Empty);
+        WriteLine("// get fc modes applicable to entity");
+        WriteLine("fieldConfigurationService.getFCModes({ value: $scope.entityName }, onSuccessLoadFCModes, onFailedLoad);");
+
+		WriteLine(string.Empty);
+        WriteLine("function onSuccessLoadFCModes(data) {");
+			
+			PushIndent("\t");
+            WriteLine("$scope.fcModes = data;");
+
+			WriteLine(string.Empty);
+            WriteLine("// get user preferred fc mode");
+            WriteLine("fieldConfigurationService.getUserFieldConfigurationMode({ value: $scope.entityName }, onSuccessLoadUserFCMode, onFailedLoad);");
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("function onSuccessLoadUserFCMode(data, getResponseHeaders) {");
+			
+			PushIndent("\t");
+            WriteLine("$scope.myFcMode = data;");
+
+			WriteLine(string.Empty);
+            WriteLine("if ($scope.myFcMode.FieldConfigurationModeId == -1) {");
+				
+				PushIndent("\t");
+                WriteLine("$scope.myFcMode = $scope.fcModes[0];");
+                WriteLine("saveUserFieldConfiguration();");
+				PopIndent();
+
+            WriteLine("}");
+            WriteLine("getFieldConfigurations();");
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("function getFieldConfigurations() {");
+
+			WriteLine(string.Empty);
+			PushIndent("\t");
+            WriteLine("// get user preferred columns based on user preferred fc mode");
+            WriteLine("fieldConfigurationService.getFieldConfigurations({ value: $scope.myFcMode.FieldConfigurationModeId, value1: $scope.entityName }, onSuccessLoadColumns, onFailedLoad);");
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("function onSuccessLoadColumns(response) {");
+
+			WriteLine(string.Empty);
+			PushIndent("\t");
+            WriteLine("var fcColumns = [];");
+            WriteLine("var tmpKey = $scope.entityName + 'Id';");
+
+			WriteLine(string.Empty);
+            WriteLine("for (var i = 0; i < response.length; i++) {");
+				
+				PushIndent("\t");
+                WriteLine("if (response[i].Name.toLowerCase() == tmpKey.toLowerCase()) {");
+					
+					PushIndent("\t");
+                    WriteLine("$scope.PrimaryKey = response[i].Name;");
+					PopIndent();
+
+                WriteLine("}                    ");
+                
+				WriteLine(string.Empty);
+                WriteLine("var isVisible = response[i].GridViewPriority == -1 ? false : true;");
+                WriteLine("if (isVisible) {");
+					
+					WriteLine(string.Empty);
+					PushIndent("\t");
+                    WriteLine("var fcItem1 = {");
+						
+						PushIndent("\t");
+                        WriteLine("field: response[i].Name");
+                        WriteLine(", displayName: response[i].FieldConfigurationDisplayName");
+                        WriteLine(", HorizontalAlignment: response[i].HorizontalAlignment");
+                        WriteLine(", visible: isVisible");
+						PopIndent();
+
+                    WriteLine("};");
+                    WriteLine("fcColumns.push(fcItem1);");
+					PopIndent();
+
+                WriteLine("}");
+				PopIndent();
+
+            WriteLine("}");
+
+			WriteLine(string.Empty);
+            WriteLine("$scope.columns = fcColumns;");
+			PopIndent();
+
+		WriteLine(string.Empty);
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("function saveUserFieldConfiguration() {");
+			
+			PushIndent("\t");
+            WriteLine("fieldConfigurationService.updateUserFieldConfigurationMode({ value: $scope.myFcMode.FieldConfigurationModeId, value1: $scope.entityName },");
+				
+				PushIndent("\t");
+                WriteLine("function () { },");
+                WriteLine("function (serverResponse) {");
+					
+					PushIndent("\t");
+                    WriteLine("userService.AlertManager.logFailureAlert('', serverResponse.data, []);");
+					PopIndent();
+
+                WriteLine("});");
+				PopIndent();
+			
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("$scope.resetSearchData = function () {");
+				
+			WriteLine(string.Empty);			
+			PushIndent("\t");
+            WriteLine(" // reset search filter columns");			
+			WriteLine("fieldConfigurationService.resetSearchFilterColumns({ value: $scope.entityName, value1: settingCategory }, onSuccessLoadSearchFC, onFailedLoad);");
+			PopIndent();
+
+        WriteLine("};");
+	}
+
+	void RenderListTableController(string entityName)
+	{
+
+		WriteLine("'use strict';");
+
+		WriteLine(string.Empty);
+		WriteLine("angular.module('rootAppShell')");
+			
+			PushIndent("\t");
+			WriteLine(".controller('listTable" + entityName + "Ctrl', [");
+				
+				PushIndent("\t");
+				WriteLine("'$scope', '$injector', '$routeParams', '$location', 'fieldConfigurationService', 'autoCompleteDataService',");
+				WriteLine("'dataAutoCompleteService', 'userService',");
+				
+				WriteLine(string.Empty);
+				WriteLine("function ($scope, $injector, $routeParams, $location, fieldConfigurationService, autoCompleteDataService, ");
+				WriteLine("dataAutoCompleteService, userService) {");
+		
+					WriteLine(string.Empty);			
+					PushIndent("\t");
+
+					var compatibleEntityName = GetFileCompatibleEntityName(entityName);
+
+					WriteLine("$scope.entityName = '" + entityName + "';");
+					WriteLine("var entityService = $injector.get('" + compatibleEntityName + "Service');");
+
+					WriteLine("$scope.entityUrl = $scope.entityName;");
+					WriteLine("if ($routeParams.moduleName != undefined) {");
+					WriteLine("    $scope.entityUrl = $routeParams.moduleName + '/' + $scope.entityUrl;");
+					WriteLine("}");
+					var entity_Name = GetFirstCharToUpperCase(entityName);
+					WriteLine("$scope.PrimaryKey = '" + entity_Name + "Id';");
+					WriteLine("$scope.applicationPath = $location.path();");
+            
+					WriteLine(string.Empty);
+					WriteLine("var settingCategory = $scope.entityName + 'AngularSearchControl';");
+					WriteLine("$scope.SubmitMessage = 'Add New';");
+
+					RenderJsFunctions();
+
+					RenderJsFunctions2();
+
+					WriteLine(string.Empty);
+					PopIndent();
+
+				WriteLine("}");
+				PopIndent();
+				
+			WriteLine("]);");
+
+	}
+
+#>
+
+<#+
+
+	void RenderListTableControllers(string[] entities)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+			foreach(string entityName in entities)
+			{	
+				manager.StartNewFile("listTable" + entityName + "Ctrl.js");
+				this.RenderListTableController(entityName);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+#>

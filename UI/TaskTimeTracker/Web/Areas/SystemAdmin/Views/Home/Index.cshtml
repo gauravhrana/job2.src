@@ -1,0 +1,144 @@
+﻿@model ApplicationContainer.Web.Api.Models.HomeModel
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="rootAppShell">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Project Management">
+    <meta name="author" content="Indus Valley Technology and Solutions">
+
+	<title>System Admin</title>
+	
+	<link href="~/bower_components/rdash-ui/dist/css/rdash.css" rel="stylesheet" />
+
+	@Styles.Render(string.Format("~/bundles/{0}", "None"))
+
+    @Styles.Render("~/bundles/css")
+
+    @Styles.Render("~/Content/themes/base/css")
+
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/jqueryui")
+
+    @Scripts.Render("~/bundles/angular")
+
+    @Scripts.Render("~/bundles/SystemAdmin")
+
+    @Scripts.Render("~/bundles/mvc")
+
+    @Scripts.Render("~/bundles/bootstrap")
+    
+	@Scripts.Render("~/bundles/rdash")
+
+	<link href="/Styles/NavMenu.css" rel="stylesheet" type="text/css" />
+
+	<style>
+
+		body {
+			padding-top: 50px;
+		}
+
+	</style>
+
+</head>
+
+<body ng-controller="MasterCtrl">
+		
+	<div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar">
+				<li class="sidebar-main">
+					<a ng-click="toggleSidebar()">
+						Dashboard
+						<span class="menu-icon glyphicon glyphicon-transfer"></span>
+					</a>
+				</li>
+				<li class="sidebar-title"><span>NAVIGATION</span></li>
+				<li class="sidebar-list">
+					<a href="#">Enrollment <span class="menu-icon fa fa-tachometer"></span></a>
+				</li>
+				<li class="sidebar-list">
+					<a href="#">Work Schedules <span class="menu-icon fa fa-tachometer"></span></a>
+				</li>
+				<li class="sidebar-list">
+					<a href="#">Classes <span class="menu-icon fa fa-tachometer"></span></a>
+				</li>
+				<li class="sidebar-list">
+					<a href="#/tables">Tables <span class="menu-icon fa fa-table"></span></a>
+				</li>
+                <li class="sidebar-title"><span>ADMINISTRATION</span></li>
+                <li class="sidebar-list">
+                    <a href="#/AA/main">App Admin <span class="menu-icon fa fa-tachometer"></span></a>
+                </li>
+                <li class="sidebar-list">
+                    <a href="#/tables">Workflow Manager <span class="menu-icon fa fa-table"></span></a>
+                </li>
+                <li class="sidebar-list">
+                    <a href="#/tables">Tools <span class="menu-icon fa fa-table"></span></a>
+                </li>
+			</ul>
+			<div class="sidebar-footer">
+				<div class="col-xs-4">
+					<a href="https://github.com/rdash/rdash-angular" target="_blank">
+						Github
+					</a>
+				</div>
+				<div class="col-xs-4">
+					<a href="https://github.com/rdash/rdash-angular/README.md" target="_blank">
+						About
+					</a>
+				</div>
+				<div class="col-xs-4">
+					<a href="#">
+						Support
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- End Sidebar -->
+		
+		<div id="content-wrapper">
+			<div class="page-content">
+
+				<div data-ng-include="'../../app/BM/SystemAdmin/views/Nav.aspx'"></div>
+				<div data-ng-include="'../../app/BM/SystemAdmin/views/nav.html'"></div>
+
+				<div class="container-fluid">
+
+					<div ng-controller="alertMessagingCtrl" class="col-sm-12" style="padding-top: 5px;">
+
+						<div class="col-sm-1"></div>
+
+						<div class="col-sm-10">
+
+							<div ng-repeat="alert in successList" class="alert alert-success">
+								<button type="button" class="close" aria-hidden="true" ng-click="removeSuccessItem($index)">&times;</button>
+								<span ng-bind-html="alert.msg" />
+							</div>
+
+							<div ng-repeat="alert in failureList" class="alert alert-danger">
+								<button type="button" class="close" aria-hidden="true" ng-click="removeFailureItem($index)">&times;</button>
+								<span ng-bind-html="alert.msg" />
+							</div>
+						</div>
+
+						<div class="col-sm-1"></div>
+
+					</div>
+
+					<div data-ng-view="" class="col-sm-12"></div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Page Wrapper -->
+	</body>
+
+</html>

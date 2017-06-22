@@ -1,0 +1,21 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\..\..\_Generators\AngularUI\V1\Service\EntityServiceJsGeneratorHelper.tt" #>
+<#
+	this.RenderServices(	new string[]
+	{ 
+		
+    "FoodType" ,
+	"Department" , 
+	"Course" ,
+	"Registration"   ,
+	"MealType", 
+	"Discount" ,
+	"PaymentMethod",
+	"ActivityType",
+	"ActivitySubType" ,
+	"EventType",
+    "DiaperStatus",	
+    "NeedItem"
+	 				} 
+						);
+#>

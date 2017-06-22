@@ -1,0 +1,16 @@
+<div ng-if="config.dataset.Results.length > 100">Results are too large. Consider using a grid widget instead.</div>
+<table ng-if="config.dataset.Results.length <= 100" ng-class="config.tableClass">
+    <tr>
+        <th ng-repeat="column in config.widgetInfo.Configuration.TableColumns">{{column.DisplayName}}</th>
+    </tr>
+    <tr ng-repeat="result in config.dataset.Results">
+        <td ng-repeat="column in config.widgetInfo.Configuration.TableColumns">            
+            <span ng-switch="config.getFormatType(column)">
+                <span ng-switch-when="date">{{result[column.Field] | date: config.getFormatFilter(column)}}</span>
+                <span ng-switch-when="number" class="pull-right">{{result[column.Field] | number: config.getFormatFilter(column)}}</span>
+                <span ng-switch-when="numeraljs" class="pull-right">{{result[column.Field] | numeraljs: config.getFormatFilter(column)}}</span>
+                <span ng-switch-default>{{result[column.Field]}}</span>
+            </span>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,9 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Areas/Schedule/Views/ScheduleDetailActivityCategory
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=28283
+Create.cshtml;183832930;2;1414437902;|26118|273527
+Delete.cshtml;3471960964;2;1414437902;|26120|273528
+Details.cshtml;57787790;2;1414437902;|26121|273529
+Index.cshtml;3109097045;3;1446633846;|26117|333695
+Edit.cshtml;1479499858;4;1446635228;|26119|333696

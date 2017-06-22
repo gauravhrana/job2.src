@@ -1,0 +1,40 @@
+<form role="form">
+    <div class="form-group">
+        <label for="height">Chart Height</label>        
+        <div class="input-group">
+            <input type="number" class="form-control" name="height" data-ng-model="config.widgetInfo.Configuration.ChartHeight">
+            <span class="input-group-addon">px</span>
+        </div>            
+    </div>
+
+    <div class="form-group">
+        <label>Series</label>&nbsp;&nbsp;<a href="" ng-click="config.addSeries()" title="Add Series"><span class="glyphicon glyphicon-plus"></span></a>
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Dataset</th>
+                <th>Value Field</th>
+                <th></th>
+            </tr>
+            <tr data-ng-repeat="series in config.widgetInfo.Configuration.SeriesList">
+                <td><input type="text" class="form-control" data-ng-model="series.Name"/></td>                
+                <td>
+                    <select class="form-control input-sm" data-ui-select2="" ng-model="series.DashboardDatasetCode" required style="width: 130px;">
+                        <option value=""></option>
+                        <option ng-repeat="dataset in config.dashboard.Datasets" value="{{dataset.DashboardDatasetCode}}">{{dataset.DashboardDatasetCode}}</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" class="form-control" data-ng-model="series.ValueField" />
+                    <select class="form-control input-sm" data-ui-select2="" ng-model="series.ValueField" required style="width: 130px;">
+                        <option value=""></option>
+                        <option ng-repeat="field in config.dashboard.DatasetsByCode[series.DashboardDatasetCode].ExplorerQuery.Fields" value="{{field.Path}}">{{field.Path}}</option>
+                    </select>                
+                </td>
+
+                <td><a href="" data-ng-click="config.deleteSeries(series)" title="Remove Series"><span class="glyphicon glyphicon-remove"></span></a></td>
+            </tr>
+        </table>
+    </div>
+</form>
+

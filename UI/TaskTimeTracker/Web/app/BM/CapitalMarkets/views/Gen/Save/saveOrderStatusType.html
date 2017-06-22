@@ -1,0 +1,45 @@
+<ol class='breadcrumb'>
+	<li class='active'>Order Status Type Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Order Status Type Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='OrderStatusTypeId' data-ng-model='EntityItem.OrderStatusTypeId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Code:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Code' placeholder='Code' data-ng-model='EntityItem.Code'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Description:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Description' placeholder='Description' data-ng-model='EntityItem.Description'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Order Status Group:</label>
+		<div class='col-sm-10'>
+			<select class='form-control'  style='float: left;width: 280px;' ng-model='selectedOrderStatusGroupItem' 
+					ng-options='srcItem.OrderStatusGroupCode for srcItem in OrderStatusGroupList track by srcItem.OrderStatusGroupId'/>
+			<a href='#/{{moduleName}}/OrderStatusGroup/search' target='_blank'><span class='glyphicon glyphicon-eye-open' style='float: left; margin-left:5px;'></span></a> 
+		</div>
+	</div>
+
+</div>

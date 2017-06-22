@@ -1,0 +1,77 @@
+<ol class='breadcrumb'>
+	<li class='active'>Tx Settlement Info Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for = 'TxSettlementInfoId' class='col-sm-2 control-label'>Tx Settlement Info Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TxSettlementInfoId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'TransactionEventId' class='col-sm-2 control-label'>Transaction Event Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TransactionEventId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'TransactionEvent' class='col-sm-2 control-label'>Transaction Event:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TransactionEvent}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'SettlementCurrencyId' class='col-sm-2 control-label'>Settlement Currency Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.SettlementCurrencyId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'SellCurrencyId' class='col-sm-2 control-label'>Sell Currency Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.SellCurrencyId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'TradeDateFXRate' class='col-sm-2 control-label'>Trade Date FX Rate:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TradeDateFXRate}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'NetSettlementAmount' class='col-sm-2 control-label'>Net Settlement Amount:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.NetSettlementAmount}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'NetSettlementCashAmount' class='col-sm-2 control-label'>Net Settlement Cash Amount:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.NetSettlementCashAmount}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'AccruedInterest' class='col-sm-2 control-label'>Accrued Interest:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.AccruedInterest}}
+		</div>
+	</div>
+
+</div>

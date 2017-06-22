@@ -1,0 +1,96 @@
+﻿<ol class="breadcrumb">
+    <li><a href="#">App Configuration</a></li>
+    <li><a href="#">Beta</a></li>
+    <li class="active">Database Cleanup</li>
+</ol>
+
+<div class="row">
+
+    <div class="col-sm-5">
+
+        <div class="panel panel-info">
+
+            <div class="panel-title bg-info">
+                &nbsp;
+				<span class="clickable" data-toggle="collapse" data-target="#pnlSearchParameters">
+                    <i class="glyphicon glyphicon-chevron-up"></i>
+                </span>&nbsp;&nbsp;Search:
+            </div>
+
+            <div class="collapse in panel-body" id="pnlSearchParameters">
+
+                <div class="form-horizontal">
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Database:</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" ng-model="objectDatabase" ng-options="dbName.ConnectionString for dbName in databaseNames track by dbName.ConnectionString">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Object Type:</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" ng-model="objectType">
+                                <option value="ip" selected="selected">Invalid Procedures</option>
+                                <option value="p">Procedures</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Name:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Name" placeholder="Name" data-ng-model="objectName">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-9">
+                            <button type="submit" value="Reset" class="btn btn-default" id="btnReset" ng-click="getDatabaseObjects();">Reset</button>
+                            <button type="submit" value="Search" class="btn btn-default" id="search" ng-click="getDatabaseObjects();">Search</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="panel panel-info">
+
+            <div class="panel-title bg-info">Search Results:</div>
+
+            <div class="panel-body">
+
+                <div class="gridStyle" style="height: 500px;" ui-grid="gridOptions" ui-grid-selection class="grid"></div>
+                <div class="pull-right">
+                    <button type="submit" value="Drop" class="btn btn-default" id="btnDropObjects" ng-click="dropDatabaseObjects();">Drop</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-sm-7">
+        <div class="panel panel-info">
+
+            <div class="panel-title bg-info">Item Detail:
+                <div style='color: green'>{{selectedObjectName}}</div>
+            </div>
+
+            <div class="panel-body">
+                <div class="editor" style="height: 800px;" ui-ace="{ useWrapMode : true, mode: 'sql', theme:'twilight' }"
+                    ng-model="objectPreviewText">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

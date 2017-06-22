@@ -1,0 +1,32 @@
+﻿<div ng-controller="MasterCtrl" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+
+            <div class="navbar-brand hidden-md hidden-sm">Day Care</div>
+             
+            <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+              <div class="navbar-collapse nav-menu" ng-class="isCollapsed ? 'collapse' : 'in'" menu-data="menuAAModule"> </div>
+        </div>
+
+   
+         <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/login">Login</a></li>
+                <li class="dropdown" data-is-open="applicationsOpen">
+                    <a class="dropdown-toggle" data-toggle="dropdown" id="A3">Applications <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <div data-ng-include="'../../app/core/views/application-list.html'"></div>
+                    </ul>
+                </li>
+            </ul>
+
+     
+      
+    </div>
+</div>
+   

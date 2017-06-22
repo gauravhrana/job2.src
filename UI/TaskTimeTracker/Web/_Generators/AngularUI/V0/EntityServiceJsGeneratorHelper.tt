@@ -1,0 +1,70 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ include file="../../MultipleOutputFileHelper.tt" #>
+
+<#+
+
+	void RenderAngularServiceJs(string entityName)
+	{
+		WriteLine("'use strict';");
+
+		WriteLine(string.Empty);
+		WriteLine("angular.module('rootAppShell')");
+			
+			PushIndent("\t");
+			WriteLine(".factory('" + entityName + "Service', [");
+				
+				PushIndent("\t");
+				WriteLine("'$resource',");
+				WriteLine("function ($resource) {");
+					
+					PushIndent("\t");
+					WriteLine("return $resource('./api/" + entityName + "/:detailId'");
+						
+						PushIndent("\t");
+						WriteLine(", null");
+						WriteLine(", {");
+							
+							PushIndent("\t");
+							WriteLine("	'getById': { method: 'GET', url: '../../apiV2/" + entityName + "/GetById/:detailId' }");
+							WriteLine(",   'getList': { method: 'GET', url: '../../apiV2/" + entityName + "/GetList', isArray: true }");
+							WriteLine(",   'create': { method: 'POST', url: '../../apiV2/" + entityName + "/Create' }");
+							WriteLine(",   'update': { method: 'POST', url: '../../apiV2/" + entityName + "/Update' }");
+							WriteLine(",   'delete': { method: 'DELETE', url: '../../apiV2/" + entityName + "/Delete/:detailId' }");
+							PopIndent();
+
+						WriteLine("}");
+						WriteLine(");");
+						PopIndent();
+
+				WriteLine("}");
+				PopIndent();
+
+			WriteLine("]);");
+
+	}
+
+#>
+
+<#+
+
+	void RenderServices(string[] entities)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+			foreach(string entityName in entities)
+			{	
+				manager.StartNewFile(entityName + "Service.js");
+				this.RenderAngularServiceJs(entityName);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+#>

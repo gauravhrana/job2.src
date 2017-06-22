@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Areas/V45/Controllers
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=16151
+HomeController.cs;1242786412;2;1413169714;|16291|261315
+PersonController.cs;1104340724;2;1413169714;|11388|261316
+ReleaseNoteQualitativeController.cs;3723381063;4;1413169714;|16290|261317

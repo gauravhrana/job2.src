@@ -1,0 +1,29 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.DayCare.dll" #>
+
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V1\View\EntitySaveViewGeneratorHelper.tt" #>
+<#
+	this.RenderSaveViews(	new string[]
+								{
+	"AccidentPlace"
+	,"AccidentReport"
+	, "ActivityType"
+	,"ActivitySubType" 
+	,"BathRoom"
+	,"Discount"
+	,"PaymentMethod"
+	,"Comment"
+	,"DiaperStatus"
+	, "EventType"
+	, "MealType"
+	, "NeedItem"
+	,"Meal"
+	,"MealDetail"
+	,	"SickReport"
+	,"Tuition"
+	,	"Sleep"
+	,"Student"
+	,"Teacher"
+								},								 
+							"DataModel.DayCare");
+#>

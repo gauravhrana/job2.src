@@ -1,0 +1,140 @@
+<ol class='breadcrumb'>
+	<li class='active'>Transaction Event Cover Short Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Transaction Event Cover Short Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='TransactionEventCoverShortId' data-ng-model='EntityItem.TransactionEventCoverShortId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Transaction Event Date:</label>
+		<div class='col-sm-10'>
+			<script>
+				function readCookie(name) {
+				var nameEQ = name + '=';
+				var ca = document.cookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+					}
+					 return null;
+				}
+				$(document).ready(function () 
+				{ 
+					var format = readCookie('DateFormat');
+					format = format.replace('MM', 'mm').replace('M', 'm').replace('mmmm', 'MM').replace('mmm', 'M').replace('dddd', 'DD').replace('ddd', 'D').replace('yyyy', 'yy');
+					$('#TransactionEventDate0').datepicker({dateFormat: format});
+				});
+			</script>
+			<input type='text' datepicker-popup='{{NewDateFormat}}' style='float: left;' class='form-control' id='TransactionEventDate0' placeholder='TransactionEventDate' data-ng-model='EntityItem.TransactionEventDate'>
+			<i class='k-icon k-i-calendar' ng-click='ChangeNewFormat()' style='float: left;'></i>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Transaction Settle Date:</label>
+		<div class='col-sm-10'>
+			<script>
+				function readCookie(name) {
+				var nameEQ = name + '=';
+				var ca = document.cookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+					}
+					 return null;
+				}
+				$(document).ready(function () 
+				{ 
+					var format = readCookie('DateFormat');
+					format = format.replace('MM', 'mm').replace('M', 'm').replace('mmmm', 'MM').replace('mmm', 'M').replace('dddd', 'DD').replace('ddd', 'D').replace('yyyy', 'yy');
+					$('#TransactionSettleDate').datepicker({dateFormat: format});
+				});
+			</script>
+			<input type='text' datepicker-popup='{{DateFormat}}' style='float: left;' class='form-control' id='TransactionSettleDate' placeholder='TransactionSettleDate' data-ng-model='EntityItem.TransactionSettleDate'>
+			<i class='k-icon k-i-calendar' ng-click='ChangeFormat()' style='float: left;'></i>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Transaction Type:</label>
+		<div class='col-sm-10'>
+			<select class='form-control'  style='float: left;width: 280px;' ng-model='selectedTransactionTypeItem' 
+					ng-options='srcItem.Name for srcItem in TransactionTypeList track by srcItem.TransactionTypeId'/>
+			<a href='#/{{moduleName}}/TransactionType/search' target='_blank'><span class='glyphicon glyphicon-eye-open' style='float: left; margin-left:5px;'></span></a> 
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Custodian:</label>
+		<div class='col-sm-10'>
+			<select class='form-control'  style='float: left;width: 280px;' ng-model='selectedCustodianItem' 
+					ng-options='srcItem.Name for srcItem in CustodianList track by srcItem.CustodianId'/>
+			<a href='#/{{moduleName}}/Custodian/search' target='_blank'><span class='glyphicon glyphicon-eye-open' style='float: left; margin-left:5px;'></span></a> 
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Strategy:</label>
+		<div class='col-sm-10'>
+			<select class='form-control'  style='float: left;width: 280px;' ng-model='selectedStrategyItem' 
+					ng-options='srcItem.Name for srcItem in StrategyList track by srcItem.StrategyId'/>
+			<a href='#/{{moduleName}}/Strategy/search' target='_blank'><span class='glyphicon glyphicon-eye-open' style='float: left; margin-left:5px;'></span></a> 
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Account Specific Type:</label>
+		<div class='col-sm-10'>
+			<select class='form-control'  style='float: left;width: 280px;' ng-model='selectedAccountSpecificTypeItem' 
+					ng-options='srcItem.Name for srcItem in AccountSpecificTypeList track by srcItem.AccountSpecificTypeId'/>
+			<a href='#/{{moduleName}}/AccountSpecificType/search' target='_blank'><span class='glyphicon glyphicon-eye-open' style='float: left; margin-left:5px;'></span></a> 
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Investment Type:</label>
+		<div class='col-sm-10'>
+			<select class='form-control'  style='float: left;width: 280px;' ng-model='selectedInvestmentTypeItem' 
+					ng-options='srcItem.Name for srcItem in InvestmentTypeList track by srcItem.InvestmentTypeId'/>
+			<a href='#/{{moduleName}}/InvestmentType/search' target='_blank'><span class='glyphicon glyphicon-eye-open' style='float: left; margin-left:5px;'></span></a> 
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Quantity:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Quantity' placeholder='Quantity' data-ng-model='EntityItem.Quantity'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Price:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Price' placeholder='Price' data-ng-model='EntityItem.Price'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Fees:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Fees' placeholder='Fees' data-ng-model='EntityItem.Fees'>
+		</div>
+	</div>
+
+</div>

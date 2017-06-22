@@ -1,0 +1,64 @@
+<ol class='breadcrumb'>
+	<li class='active'>Field Configuration Base Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Field Configuration Base Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='FieldConfigurationBaseId' data-ng-model='EntityItem.FieldConfigurationBaseId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Name:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Name' placeholder='Name' data-ng-model='EntityItem.Name'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Value:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Value' placeholder='Value' data-ng-model='EntityItem.Value'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Control Type:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ControlType' placeholder='ControlType' data-ng-model='EntityItem.ControlType'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Formatting:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Formatting' placeholder='Formatting' data-ng-model='EntityItem.Formatting'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Version:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Version' placeholder='Version' data-ng-model='EntityItem.Version'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Width:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Width' placeholder='Width' data-ng-model='EntityItem.Width'>
+		</div>
+	</div>
+
+</div>

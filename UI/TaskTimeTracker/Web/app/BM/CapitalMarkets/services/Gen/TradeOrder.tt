@@ -1,0 +1,16 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\..\..\_Generators\AngularUI\V1\Service\EntityServiceJsGeneratorHelper.tt" #>
+<#
+	this.RenderServices(	new string[]
+								{
+	"MarketCapitalizationCategory",
+	"OrderAction",
+	"OrderRequest",
+	"OrderType",
+	"OrderStatusGroup",
+	"OrderStatusType",
+	"OrderStatus",
+	"OrderItem"	
+	} 
+	);
+#>

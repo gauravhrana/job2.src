@@ -1,0 +1,49 @@
+<ol class='breadcrumb'>
+	<li class='active'>Commission Code Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for = 'CommissionCodeId' class='col-sm-2 control-label'>Commission Code Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.CommissionCodeId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'CommissionCodeCode' class='col-sm-2 control-label'>Commission Code Code:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.CommissionCodeCode}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'CommissionCodeDescription' class='col-sm-2 control-label'>Commission Code Description:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.CommissionCodeDescription}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'BrokerId' class='col-sm-2 control-label'>Broker Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.BrokerId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Broker' class='col-sm-2 control-label'>Broker:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Broker}}
+		</div>
+	</div>
+
+</div>

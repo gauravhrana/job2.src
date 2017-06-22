@@ -1,0 +1,22 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\_Generators\AngularUI\V1\ApiController\EntityAPIControllerGeneratorHelper.tt" #>
+<#
+	this.RenderAPIControllers(new string[]
+	{
+	
+	"CaseStatus"
+	,"CaseType"
+	,"ClientType",
+	"Counsel",
+	"Jurisdictions",
+	"MovantType",
+	"PressReleaseType",
+	"ReportingRequirement",
+	"ReportType",
+	"RetrievalMethod"
+	, "SettlementStatus"
+	
+	},
+	 "Web.Api.Controllers", "DataModel.Legal", "Legal.Components.BusinessLayer");
+#>
+

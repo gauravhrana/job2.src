@@ -1,0 +1,34 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.ReferenceData.dll" #>
+
+<#@ include file="..\..\..\..\..\..\_Generators\AngularUI\V1\View\EntityDetailViewGeneratorHelper.tt" #>
+<# 
+	this.RenderDetailViews
+	(
+		new string[]
+		{
+				"Continent"
+			,	"Country"
+			,	"Currency"			
+			,	"Religion"
+			,	"Airport"  
+			,	"City" 
+			,	"HelpLine"
+			,	"Mall"
+			,	"Monument"
+			,	"Region"	 
+			,	"State"
+			,	"TimeZone"
+			,	"TrainStation" 
+			,	"Calendar"
+			,	"Holiday"
+			,	"PersonSuffix"
+			,	"Ethnicity" 			
+			,	"Address"
+			,	"ProvinceType"
+			,	"Province"
+			,	"Gender"							
+
+		},"DataModel.ReferenceData"
+	);
+#>

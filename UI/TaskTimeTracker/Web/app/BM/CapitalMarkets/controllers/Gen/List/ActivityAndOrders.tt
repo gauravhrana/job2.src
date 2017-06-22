@@ -1,0 +1,21 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ assembly name="$(TargetDir)\DataModel.DayCare.dll" #>
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V2\Controller\EntityListTableControllerGeneratorHelper.tt" #>
+<#
+	this.RenderListTableControllers(	new string[]
+											{
+	"TransactionEvent",
+	"TxTradeAndSettleDates",
+	"TxTradeInfo",
+	"TxTradeFigures",
+	"TxInvestment",
+	"TxSettlementInfo",
+	"TxOther",
+	"TransactionEventBuy",
+	"TransactionEventSell",
+	"TransactionEventSellShort",
+	"TransactionEventCoverShort"	
+
+	});
+#>

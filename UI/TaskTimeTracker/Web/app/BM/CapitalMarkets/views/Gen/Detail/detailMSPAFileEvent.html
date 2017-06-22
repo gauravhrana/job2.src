@@ -1,0 +1,70 @@
+<ol class='breadcrumb'>
+	<li class='active'>MSPA File Event Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for = 'MSPAFileEventId' class='col-sm-2 control-label'>MSPA File Event Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.MSPAFileEventId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Description' class='col-sm-2 control-label'>Description:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Description}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'CreatedBy' class='col-sm-2 control-label'>Created By:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.CreatedBy}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'CreatedOn' class='col-sm-2 control-label'>Created On:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.CreatedOn}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'MSPAFileId' class='col-sm-2 control-label'>MSPA File Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.MSPAFileId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'MSPAFile' class='col-sm-2 control-label'>MSPA File:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.MSPAFile}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'TradingEventTypeId' class='col-sm-2 control-label'>Trading Event Type Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TradingEventTypeId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'TradingEventType' class='col-sm-2 control-label'>Trading Event Type:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TradingEventType}}
+		</div>
+	</div>
+
+</div>

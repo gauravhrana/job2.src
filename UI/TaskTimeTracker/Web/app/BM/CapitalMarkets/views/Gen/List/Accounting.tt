@@ -1,0 +1,22 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V3\View\EntityListTableViewGeneratorHelper.tt" #>
+<#
+	this.RenderListTableViews(new string[]
+								{
+	"AccountingParameters" ,
+	"AccountingView" ,
+	"AccountSpecificType" , 
+	"AccountSubType" ,
+	"Amortization" ,
+	"AutomatedFreezepoint" ,
+	"ChartOfAccounts" ,
+	"FreezePoints" , 
+	"InventoryState" ,
+	"LockdownPools" ,
+	"TaxAccountType" ,
+	"TaxStatus" ,
+	"WithholdingTaxType"  ,	
+	"FinancialAccountClass",
+	"AdjustmentCategory"
+								}); 
+#>

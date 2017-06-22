@@ -1,0 +1,11 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\TaskTimeTracker.Components.Module.TimeTracking.dll" #>
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V1\Controller\EntitySaveControllerGeneratorHelper.tt" #>
+<#
+	this.RenderSaveControllers(	new string[]
+									{ 
+				"Registration"	 
+	},								 
+								"DataModel.DayCare"
+							);
+#>

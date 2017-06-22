@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/BM/TimeEntry/controllers
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=35068
+navCtrl.js;3222541990;2;1433301292;|38652|308328
+jiraListCtrl.js;798117403;1;1440127867;|40512|326521
+workSummaryCtrl.js;2239338016;1;1440127867;|40513|326522

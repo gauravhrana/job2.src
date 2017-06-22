@@ -1,0 +1,127 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ include file="../MultipleOutputFileHelper.tt" #>
+<#@ include file="DefaultPageGeneratorHelper.tt" #>
+<#@ include file="DeletePageGeneratorHelper.tt" #>
+<#@ include file="DetailPageGeneratorHelper.tt" #>
+<#@ include file="InsertPageGeneratorHelper.tt" #>
+<#@ include file="UpdatePageGeneratoreHelper.tt" #>
+<#@ include file="CommonUpdatePageGeneratorHelper.tt" #>
+
+
+<#+
+
+	void GenerateDefaultPageFiles(Manager manager, string entityName, string nameSpace, string nameSpaceDataManager)
+	{	
+		// create HTML File
+		manager.StartNewFile("Default.aspx");
+		this.GenerateHtmlFileForDefaultPage(entityName, nameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("Default.aspx.cs");
+		this.GenerateCodeBehindFileForDefaultPage(entityName, nameSpace, nameSpaceDataManager);
+
+		// create Code Behind File
+		manager.StartNewFile("Default.aspx.designer.cs");
+		this.GenerateDesignerFileForDefaultPage(nameSpace);
+	}
+
+	void GenerateDeletePageFiles(Manager manager, string entityName, string nameSpace, 
+		string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		// create HTML File
+		manager.StartNewFile("Delete.aspx");
+		this.GenerateHtmlFileForDeletePage(entityName, nameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("Delete.aspx.cs");
+		this.GenerateCodeBehindFileForDeletePage(entityName, nameSpace, dataModelNameSpace, dataManagerNameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("Delete.aspx.designer.cs");
+		this.GenerateDesignerFileForDeletePage(nameSpace);
+	}
+
+	void GenerateDetailPageFiles(Manager manager, string entityName, string nameSpace, string dataModelnameSpace)
+	{
+		// create HTML File
+		manager.StartNewFile("Details.aspx");
+		this.GenerateHtmlFileForDetailPage(entityName, nameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("Details.aspx.cs");
+		this.GenerateCodeBehindFileForDetailPage(entityName, nameSpace, dataModelnameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("Details.aspx.designer.cs");
+		this.GenerateDesignerFileForDetailPage(nameSpace);
+	}
+
+	void GenerateInsertPageFiles(Manager manager, string entityName, string nameSpace)
+	{	
+		// create HTML File
+		manager.StartNewFile("Insert.aspx");
+		this.GenerateHtmlFileForInsertPage(nameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("Insert.aspx.cs");
+		this.GenerateCodeBehindFileForInsertPage(entityName, nameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("Insert.aspx.designer.cs");
+		this.GenerateDesignerFileForInsertPage(nameSpace);
+	}
+
+	void GenerateUpdatePageFiles(Manager manager, string entityName, string nameSpace)
+	{		
+
+		// create HTML File
+		manager.StartNewFile("Update.aspx");
+		this.GenerateHtmlFileForUpdatePage(nameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("Update.aspx.cs");
+		this.GenerateCodeBehindFileForUpdatePage(entityName, nameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("Update.aspx.designer.cs");
+		this.GenerateDesignerFileForUpdatePage(nameSpace);
+	}
+
+	void GenerateCommonUpdatePageFiles(Manager manager, string entityName, string nameSpace, string dataModelnameSpace, string dataManagerNameSpace)
+	{
+		// create HTML File
+		manager.StartNewFile("CommonUpdate.aspx");
+		this.GenerateHtmlFileForCommonUpdatePage(entityName, nameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("CommonUpdate.aspx.cs");
+		this.GenerateCodeBehindFileForCommonUpdatePage(entityName, nameSpace, dataModelnameSpace, dataManagerNameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("CommonUpdate.aspx.designer.cs");
+		this.GenerateDesignerFileForCommonUpdatePage(nameSpace);
+	}
+
+#>
+<#+
+	
+	void GeneratePageFiles(string entityName, string nameSpace, string dataModelNameSpace, string dataManagerNameSpace)
+	{		
+		var manager = Manager.Create(Host, GenerationEnvironment);	
+
+		GenerateDefaultPageFiles(manager, entityName, nameSpace, dataManagerNameSpace);
+		GenerateDeletePageFiles(manager, entityName, nameSpace, dataModelNameSpace, dataManagerNameSpace);
+		GenerateDetailPageFiles(manager, entityName, nameSpace, dataModelNameSpace);
+		GenerateInsertPageFiles(manager, entityName, nameSpace);
+		GenerateUpdatePageFiles(manager, entityName, nameSpace);
+		GenerateCommonUpdatePageFiles(manager, entityName, nameSpace, dataModelNameSpace, dataManagerNameSpace);
+		
+		manager.Process(true);
+	}
+
+#>

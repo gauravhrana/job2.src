@@ -1,0 +1,48 @@
+﻿<div style="float: left;">
+    @using (Html.BeginForm())
+    {    
+        <div>
+            <div style="float: left;">
+                PageSize:&nbsp; @Html.TextBox("pageSize", Shared.WebCommon.UI.Web.SessionVariables.DefaultRowCount)</div>
+            <div>
+                <input type="submit" value="Submit" /></div>
+        </div>
+    }
+</div>
+<div style="float: left; text-align: right; padding-right: 20px; padding-left: 20px;">
+    Page @ViewBag.CurrentPage of @ViewBag.TotalPages</div>
+<div style="width: 100%; text-align: right;">
+    @{
+        var routeValues = new RouteValueDictionary();
+
+        var searchParams = from x in ViewData.Keys where x.Contains("SearchString") select x;
+        if (searchParams != null && searchParams.Count() > 0)
+        {
+            foreach (var key in searchParams)
+            {
+                var xkey = key.Replace("SearchString", string.Empty);
+                routeValues.Add(xkey, ViewData[key.ToString()]);
+            }
+        }
+    }
+    @for (var i = 1; i <= ViewBag.TotalPages; i++)
+    {
+        if (i == ViewBag.CurrentPage)
+        {                    
+        @i
+        }
+        else
+        {
+            if (routeValues.ContainsKey("page"))
+            {
+                routeValues["page"] = i;
+            }
+            else
+            {
+                routeValues.Add("page", i);
+            }
+        @Html.ActionLink(i.ToString(), "Index", routeValues)
+        }
+        @Html.Raw(" ")
+    }
+</div>

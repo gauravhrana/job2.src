@@ -1,0 +1,53 @@
+﻿<ol class='breadcrumb'>
+	<li class='active'>Modal Row Editor - Sample</li>
+</ol>
+
+
+<div class='panel panel-info'>
+
+	<div class='panel-title bg-info'>
+		&nbsp;<span class='clickable' data-toggle='collapse' data-target='#pnlSearchParameters'>
+			      <i class='glyphicon glyphicon-chevron-up'></i>
+		      </span>&nbsp;&nbsp;Search:
+	</div>
+
+
+        <div class="collapse in panel-body" id="pnlSearchParameters">
+
+				<div class="form-horizontal">
+                    <div class="form-group">
+						<label class="col-sm-1 control-label">Name:</label>
+						<div class="col-sm-9">							
+                            <input type="text" ng-model="searchText" class="form-control" placeholder="Search" style="width:200px;" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label"></label>
+						<div class="col-sm-9">                             
+							
+                            <a href="#" class="button" ng-click="GetDatabaseObjectList();">Search</a>
+                             <a href="#" class="button" ng-click="ResetValues();">Reset</a>
+							
+						</div>
+					</div>
+
+				</div>
+            </div>
+
+			</div>
+       
+       
+       <div class="gridStyle" style="width: 100%;height:200px" ui-grid="gridOptions"></div>
+
+         <div class="collapse in panel-body" id="Div1">
+    	<div class="form-group">
+						<label class="col-sm-1 control-label"></label>
+						<div class="col-sm-9">
+							<button type="submit" value="Insert" class="btn btn-default" id="Button2" ng-click="" >Insert</button>
+							<button type="submit" value="Delete" class="btn btn-default" id="Button3" ng-click="" >Delete</button>
+                            <button type="submit" value="Details" class="btn btn-default" id="Button4" ng-click="" >Details</button>
+                            <button type="submit" value="Update" class="btn btn-default" id="Button5" ng-click=";" >Update</button>
+						</div>
+            </div>
+            </div>

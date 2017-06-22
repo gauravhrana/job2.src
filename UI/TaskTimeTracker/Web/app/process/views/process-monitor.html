@@ -1,0 +1,28 @@
+﻿<style>
+.ngViewport {height: auto !important;}
+</style>
+<div class="page-header"><h3>Process Monitor</h3></div>
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">        
+        <li class="dropdown" data-is-open="dateRangeOpen">
+            <a class="dropdown-toggle" data-toggle="dropdown">{{ selectedDateRange }} <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#/processMonitor/Today" ng-click="open=false">Today</a></li>
+                <li><a href="#/processMonitor/SinceYesterday" ng-click="open=false">Since Yesterday</a></li>
+                <li><a href="#/processMonitor/LastWeek" ng-click="open=false">Last Week</a></li>
+                <li><a href="#/processMonitor/LastMonth" ng-click="open=false">Last Month</a></li>
+                <li><a href="#/processMonitor/LastYear" ng-click="open=false">Last Year</a></li>
+                <li><a href="#/processMonitor/All" ng-click="open=false">All</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+            <input type="text" ng-model="searchText" class="form-control" placeholder="Search" style="width:200px;" />
+        </div>
+    </div>
+</nav>
+
+<div ui-grid="gridOptions"></div>
+<br/>
+<br/>

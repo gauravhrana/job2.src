@@ -1,0 +1,18 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Areas/ReleaseNoteQualitative/Content/themes/base
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=19916
+jquery.ui.accordion.css;2323107275;1;1394430773;|16316|163162
+jquery.ui.all.css;4293491660;1;1394430773;|16317|163163
+jquery.ui.autocomplete.css;2275029931;1;1394430773;|16315|163161
+jquery.ui.base.css;1579328818;1;1394430773;|16314|163160
+jquery.ui.button.css;1309200811;1;1394430773;|16313|163159
+jquery.ui.core.css;1636149562;1;1394430773;|16312|163158
+jquery.ui.datepicker.css;4137632970;1;1394430773;|16311|163157
+jquery.ui.dialog.css;2478567128;1;1394430773;|16310|163156
+jquery.ui.progressbar.css;2952271029;1;1394430773;|16309|163155
+jquery.ui.resizable.css;1949763305;1;1394430773;|16308|163154
+jquery.ui.selectable.css;3966939564;1;1394430773;|16307|163153
+jquery.ui.slider.css;1841341204;1;1394430773;|16306|163152
+jquery.ui.tabs.css;2866168925;1;1394430773;|16305|163151
+jquery.ui.theme.css;357237627;1;1394430773;|16304|163150

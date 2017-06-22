@@ -1,0 +1,84 @@
+<ol class='breadcrumb'>
+	<li class='active'>Course Instance Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for = 'CourseInstanceId' class='col-sm-2 control-label'>Course Instance Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.CourseInstanceId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Name' class='col-sm-2 control-label'>Name:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Name}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'CourseId' class='col-sm-2 control-label'>Course Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.CourseId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Course' class='col-sm-2 control-label'>Course:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Course}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'DepartmentId' class='col-sm-2 control-label'>Department Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.DepartmentId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Department' class='col-sm-2 control-label'>Department:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Department}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'TeacherId' class='col-sm-2 control-label'>Teacher Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TeacherId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Teacher' class='col-sm-2 control-label'>Teacher:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Teacher}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'StartTime' class='col-sm-2 control-label'>Start Time:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.StartTime}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'EndTime' class='col-sm-2 control-label'>End Time:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.EndTime}}
+		</div>
+	</div>
+
+</div>

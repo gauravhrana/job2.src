@@ -1,0 +1,9 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/BM/CapitalMarkets/controllers/Gen/CrossReference
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=35669
+ControllerGenerator.cs;1566315191;1;1438581000;|39940|321744
+ControllerGenerator.tt;2843976530;2;1440993231;|39942|328618
+fundXLegalEntityCtrl.js;2617214079;2;1473996522;|39943|355578
+portfolioXCustodianAccountCtrl.js;3090839637;2;1473996522;|39941|355579
+priceScheduleXPriceListCtrl.js;4238448662;2;1473996522;|40600|355580

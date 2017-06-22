@@ -1,0 +1,17 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/reports/views
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=27212
+add-edit-dataset.html;1775210849;1;1410186234;|22868|251205
+add-edit-parameter.html;1936235127;1;1410186234;|22866|251203
+chart.html;2103849310;1;1410186234;|22865|251202
+dashboard-assistant-choose-data.html;204073120;1;1410186234;|22864|251201
+dashboard-assistant-choose-location.html;2765314460;1;1410186234;|22859|251196
+dashboard-assistant-design.html;3567553511;1;1410186234;|22856|251193
+dashboard-assistant-finish.html;994612822;1;1410186234;|22857|251194
+dashboard-assistant.html;1086739329;1;1410186234;|22858|251195
+dashboard-designer.html;2617619448;1;1410186234;|22867|251204
+dashboard-list.html;1095717067;1;1410186234;|22860|251197
+explorer.html;2891954362;1;1410186246;|22861|251198
+report-dashboard.html;631809730;1;1410186246;|22862|251199
+report-viewer.html;3422179563;1;1410186246;|22863|251200

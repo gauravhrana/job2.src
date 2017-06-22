@@ -1,0 +1,21 @@
+﻿
+
+
+@model List<Framework.Components.ReleaseLog.DomainModel.ReleaseNoteBusinessDifficultyDataModel>
+@{
+	ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ReleaseNoteBusinessDifficulty</legend>
+    @Html.DisplayFor(Model => Model)     
+</fieldset>
+
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = @Model.ReleaseNoteBusinessDifficultyId }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

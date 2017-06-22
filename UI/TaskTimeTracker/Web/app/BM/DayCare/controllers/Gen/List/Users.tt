@@ -1,0 +1,17 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V1\Controller\EntityListTableControllerGeneratorHelper.tt" #>
+<#
+	this.RenderListTableControllers(	new string[]
+											{
+			"Meal"
+		,	"MealDetail"
+		,	"AccidentReport"
+		,	"AccidentPlace"
+		,	"Sleep"
+		,	"Comment"
+		,	"SickReport"
+		,	"Tuition"
+		,	"BathRoom"
+	
+	});
+#>

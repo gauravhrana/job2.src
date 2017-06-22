@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/BM/SystemAdmin/views/Gen/Save
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=36441
+SaveViewGenerator.cs;1566315191;1;1463637859;|41686|4294967295
+SaveViewGenerator.tt;4065416573;3;1463637855;|41684|347939
+saveFieldConfigurationBase.html;3081515930;2;1463637859;|41685|347940

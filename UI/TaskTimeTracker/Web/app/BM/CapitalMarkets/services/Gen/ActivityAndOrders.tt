@@ -1,0 +1,20 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\..\..\_Generators\AngularUI\V1\Service\EntityServiceJsGeneratorHelper.tt" #>
+<#
+	this.RenderServices(	new string[]
+								{
+	"TransactionEvent",
+	"TxTradeAndSettleDates",
+	"TxTradeInfo",
+	"TxTradeFigures",
+	"TxInvestment",
+	"TxSettlementInfo",
+	"TxOther",
+	"TransactionEventBuy",	
+	"TransactionEventSell",
+	"TransactionEventSellShort",
+	"TransactionEventCoverShort"
+	
+								} 
+						);
+#>

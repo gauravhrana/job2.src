@@ -1,0 +1,287 @@
+﻿<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+
+            <div class="navbar-brand hidden-md hidden-sm">Capital Markets</div>
+
+
+
+        </div>
+
+        <div class="navbar-collapse" ng-class="isCollapsed ? 'collapse' : 'in'">
+
+            <!--dynamic menu-->
+            <ul class="nav navbar-nav">
+            </ul>
+
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Transactions</a></li>
+                <li class="main btn" ng-repeat="item in menu" ng-mouseover="showSubMenu(item, $index)"></li>
+                <li class="dropdown" data-is-open="Transactions">
+                    <a class="dropdown-toggle" data-toggle="dropdown" id="A2">Transactions<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/Transactions/Buy/search">Buy</a></li>
+                        <li><a href="#/Transactions/Sell/search">Sell</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#/Transactions/SellShort/search">Sell Short</a> </li>
+                        <li><a href="#/Transactions/CoverShort/search">Cover Short</a></li>
+                        <li class="divider"></li>
+
+                        <li><a href="#/Transactions/TxTradeAndSettleDates/search">TxTrade&Settle Dates</a></li>
+                        <li><a href="#/Transactions/TxTradeFigures/search">TxTrade Figures</a></li>
+                        <li><a href="#/Transactions/TxTradeInfo/search">TxTrade Info</a></li>
+                        <li><a href="#/Transactions/TxSettlementInfo/search">TxSettlement Info</a></li>
+                        <li><a href="#/Transactions/TxInvestment/search">TxInvestment</a></li>
+                        <li><a href="#/Transactions/TxOther/search">TxOther</a></li>
+                        <li class="divider"></li>
+
+                        <li><a href="#/Transactions/PairOff/search">PairOff</a></li>
+                        <li><a href="#/Transactions/MultiwayPairoff/search">Multiway Pairoff</a></li>
+                        <li class="divider"></li>
+                        <li class="menu-item dropdown dropdown-submenu"><a href="#/OwnerActions">Owner Actions</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/Transactions/Deposit/search">Deposit</a></li>
+                                <li><a href="#/Transactions/Withdraw/search">Withdraw</a></li>
+                                <li><a href="#/Transactions/Transfer/search">Transfer</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#/Transactions/DeliverLong/search">Deliver Long</a></li>
+                                <li><a href="#/Transactions/DeliverShort/search">Deliver Short</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#/Transactions/ReceiveLong/search">Receive Long</a></li>
+                                <li><a href="#/Transactions/ReceiveShort/search">Receive Short</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#/Transactions/ForwardFXOwnerActions/search">Forward FX Owner Actions</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#/Transactions/CommissionSettlement/search">Commission Settlement</a></li>
+                                <li><a href="#/Transactions/BulkSettlement/search">Bulk Settlement</a></li>
+                                <li><a href="#/Transactions/InvestmentIncomeSettement/search">Investment Income Settement</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="menu-item dropdown dropdown-submenu"><a href="#/Exercise">Exercise</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/Transactions/ExerciseBuy/search">Exercise Buy</a></li>
+                                <li><a href="#/Transactions/ExerciseSell/search">Exercise Sell</a></li>
+                                <li><a href="#/Transactions/ExerciseShort/search">Exercise Short</a></li>
+                                <li><a href="#/Transactions/ExerciseCover/search">Exercise Cover</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="menu-item dropdown dropdown-submenu"><a href="#/Assign">Assign</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/Transactions/AssignBuy/search">Assign Buy</a></li>
+                                <li><a href="#/Transactions/AssignSell/search">Assign Sell</a></li>
+                                <li><a href="#/Transactions/AssignShort/search">Assign Short</a></li>
+                                <li><a href="#/Transactions/AssignCover/search">Assign Cover</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="menu-item dropdown dropdown-submenu"><a href="#/SwapActivity">Swap Activity</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/Transactions/SwapsWorkflow/search">Swaps Work flow</a></li>
+                                <li><a href="#/Transactions/SwapReset/search">Swap Reset</a></li>
+                                <li><a href="#/Transactions/SwapTransfer/search">Swap Transfer</a></li>
+                                <li><a href="#/Transactions/CFDAccrual/search">CFD Accrual</a></li>
+                                <li><a href="#/Transactions/CDXCreditEvent/search">CDX Credit Event</a></li>
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="menu-item dropdown dropdown-submenu"><a href="#/FundInvestmentActivity">Fund Investment Activity</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/Transactions/Subscribe/search">Subscribe</a></li>
+                                <li><a href="#/Transactions/Redeem/search">Redeem</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#/Transactions/Commit/search">Commit</a></li>
+                                <li><a href="#/Transactions/ExpireCommit/search">Expire Commit</a></li>
+                                <li><a href="#/Transactions/Contribute/search">Contribute</a></li>
+                                <li><a href="#/Transactions/ReverseContribute/search">Reverse Contribute</a></li>
+                                <li><a href="#/Transactions/Receive/search">Receive</a></li>
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="menu-item dropdown dropdown-submenu"><a href="#/Adjustments">Adjustments</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/Transactions/AdjustCostCapitalize/search">Adjust Cost Capitalize</a></li>
+                                <li><a href="#/Transactions/AdjustCostRealize/search">Adjust Cost Realize</a></li>
+                                <li><a href="#/Transactions/PAndSAdjustment/search">P and S Adjustment</a></li>
+                                <li><a href="#/Transactions/AccountingRelated/search">Accounting Related</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#/Transactions/AdjustQuantity/search">Adjust Quantity</a></li>
+                                <li><a href="#/Transactions/ReceiveDistributedInvestment/search">Receive Distributed Investment</a></li>
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="menu-item dropdown dropdown-submenu"><a href="#/TransactionDistributionUtilities">Transaction Distribution Utilities</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/Transactions/BuyDistribution/search">Buy Distribution</a></li>
+                                <li><a href="#/Transactions/SellDistribution/search">Sell Distribution </a></li>
+                                <li class="divider"></li>
+                                <li><a href="#/Transactions/SellShortDistribution/search">Sell Short Distribution</a></li>
+                                <li><a href="#/Transactions/CoverShortDistribution/search">Cover Short Distribution</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#/Transactions/FinancingAndHedgingDistributions/search">Financing and Hedging Distributions</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#/Transactions/AssetServicingDistributions/search">Asset Servicing Distributions</a></li>
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#/Transactions/ManualJEOveride/search">Manual JE Overide</a></li>
+
+                    </ul>
+                </li>
+
+                <li class="dropdown" data-is-open="FinancingAndHedging">
+                    <a class="dropdown-toggle" data-toggle="dropdown" id="A1">Financing & Hedging<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/FinancingAndHedging/LendCash/search">Lend Cash</a></li>
+                        <li><a href="#/FinancingAndHedging/BorrowCash/search">Borrow Cash</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#/FinancingAndHedging/SpotFX/search">Spot FX</a></li>
+                        <li><a href="#/FinancingAndHedging/ForwardFX/search">Forward FX</a></li>
+                        <li><a href="#/FinancingAndHedging/ForwardFXClose/search">Forward FX Close</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#/FinancingAndHedging/BorrowSecurity/search">Borrow Security</a></li>
+                        <li><a href="#/FinancingAndHedging/StockLoanReRate/search">Stock Loan Re-Rate</a></li>
+                        <li><a href="#/FinancingAndHedging/StockLoanIncreaseOrReturn/search">Stock Loan Increase/Return</a></li>
+                        <li><a href="#/FinancingAndHedging/EditStockLoanActivity/search">Edit Stock Loan Activity</a></li>
+                        <li><a href="#/FinancingAndHedging/StockLoanContractAccrual/search">Stock Loan Contract Accrual</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown" data-is-open="AssetServicing">
+                    <a class="dropdown-toggle" data-toggle="dropdown" id="A4">Asset Servicing<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/AssetServicing/InterestReceipt/search">Interest Receipt</a></li>
+                        <li><a href="#/AssetServicing/DividendReceipt/search">Dividend Receipt</a></li>
+                        <li><a href="#/AssetServicing/ReclaimReceipt/search">Reclaim Receipt</a> </li>
+                        <li class="divider"></li>
+                        <li><a href="#/AssetServicing/GrossAmountInterest/search">Gross Amount Interest</a></li>
+                        <li><a href="#/AssetServicing/GrossAmountDividend/search">Gross Amount Dividend</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#/AssetServicing/Revenue/search">Revenue</a> </li>
+                        <li><a href="#/AssetServicing/Expense/search">Expense</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#/AssetServicing/MarkToMarket/search">Mark To Market</a></li>
+                        <li><a href="#/AssetServicing/SplitDividend/search">Split/Stock Dividend</a> </li>
+
+                        <li class="menu-item dropdown dropdown-submenu"><a href="#/Reorganization">Reorganization</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/AssetServicing/DependentEventReorganization/search">Dependent Event Reorganization</a></li>
+                                <li><a href="#/AssetServicing/PartialReorganization/search">Partial Reorganization</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#/AssetServicing/CapitalGainsDistribution/search">Capital Gains Distribution</a> </li>
+                        <li><a href="#/AssetServicing/Paydown/search">Paydown</a></li>
+                        <li><a href="#/AssetServicing/ReturnOfCapital/search">Return Of Capital</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#/AssetServicing/Expire/search">Expire</a> </li>
+                        <li><a href="#/AssetServicing/Call/search">Call</a></li>
+                        <li><a href="#/AssetServicing/Sink/search">Sink</a></li>
+                        <li><a href="#/AssetServicing/Mature/search">Mature</a> </li>
+                        <li><a href="#/AssetServicing/DefaultedBond/search">Defaulted Bond</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#/AssetServicing/CreditActivity/search">Credit Activity</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#/AssetServicing/Exempt/search">Exempt</a> </li>
+                        <li class="divider"></li>
+                        <li><a href="#/AssetServicing/GlobalExercise/search">Global Exercise</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#/AssetServicing/CashSweep/search">Cash Sweep</a></li>
+                        <li><a href="#/AssetServicing/CashAccrual/search">Cash Accrual</a> </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown" data-is-open="OwnerActions">
+                    <a class="dropdown-toggle" data-toggle="dropdown" id="A6">Owner Actions<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/OwnerActions/Deposit/search">Deposit</a></li>
+                        <li><a href="#/OwnerActions/Withdraw/search">Withdraw</a></li>
+                        <li><a href="#/OwnerActions/Transfer/search">Transfer</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#/OwnerActions/DeliverLong/search">Deliver Long</a></li>
+                        <li><a href="#/OwnerActions/DeliverShort/search">Deliver Short</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#/OwnerActions/ReceiveLong/search">Receive Long</a></li>
+                        <li><a href="#/OwnerActions/ReceiveShort/search">Receive Short</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#/OwnerActions/ForwardFXOwnerActions/search">Forward FX Owner Actions</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#/OwnerActions/CommissionSettlement/search">Commission Settlement</a></li>
+                        <li><a href="#/OwnerActions/BulkSettlement/search">Bulk Settlement</a></li>
+                        <li><a href="#/OwnerActions/InvestmentIncomeSettement/search">Investment Income Settement</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown" data-is-open="Activity">
+                    <a class="dropdown-toggle" data-toggle="dropdown" id="A5">Activity & Orders<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/Transactions/TransactionEvent/search">Transaction Event</a></li>
+                        <li><a href="#/Transactions/TransactionEventBuy/search">Transaction Event Buy</a></li>
+                        <li><a href="#/Transactions/TransactionEventSell/search">Transaction Event Sell</a></li>
+                        <li><a href="#/Transactions/TransactionEventSellShort/search">Transaction Event Sell Short</a></li>
+                        <li><a href="#/Transactions/TransactionEventCoverShort/search">Transaction Event Cover Short</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown" data-is-open="Commission">
+                    <a class="dropdown-toggle" data-toggle="dropdown" id="A7">Commission<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/Transactions/CommissionCode/search">Commission Code</a></li>
+                        <li><a href="#/Transactions/CommissionRate/search">Commission Rate</a></li>
+                        <li><a href="#/Transactions/CommissionType/search">Commission Type</a></li>
+                        <li><a href="#/Transactions/CommissionSplit/search">Commission Split</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown" data-is-open="TradeOrder">
+                    <a class="dropdown-toggle" data-toggle="dropdown" id="A8">Trade Order<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/Transactions/OrderItem/search">Order Item</a></li>
+                        <li><a href="#/Transactions/OrderAction/search">Order Action</a></li>
+                        <li><a href="#/Transactions/OrderRequest/search">Order Request</a></li>
+                        <li><a href="#/Transactions/OrderType/search">Order Type</a></li>
+                        <li><a href="#/Transactions/OrderStatus/search">Order Status</a></li>
+                        <li><a href="#/Transactions/OrderStatusType/search">Order Status Type</a></li>
+                        <li><a href="#/Transactions/OrderStatusGroup/search">Order Status Group</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown" data-is-open="Classification">
+                    <a class="dropdown-toggle" data-toggle="dropdown" id="A9">Classification<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/Transactions/TransactionType/search">Transaction Type</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <!--<li><a href="#/login">Login</a></li>-->
+                <li class="dropdown" data-is-open="applicationsOpen">
+                    <a class="dropdown-toggle" data-toggle="dropdown" id="A3">Applications <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <div data-ng-include="'../../app/core/views/application-list.html'"></div>
+                    </ul>
+                </li>
+            </ul>
+
+            <!--<div class="col-sm-2 col-md-2 pull-right">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>-->
+
+
+        </div>
+    </div>
+</div>

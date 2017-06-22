@@ -1,0 +1,231 @@
+<ol class='breadcrumb'>
+	<li class='active'>Tx Trade Figures Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for = 'TxTradeFiguresId' class='col-sm-2 control-label'>Tx Trade Figures Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TxTradeFiguresId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'TransactionEventId' class='col-sm-2 control-label'>Transaction Event Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TransactionEventId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'TransactionEvent' class='col-sm-2 control-label'>Transaction Event:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TransactionEvent}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Quantity' class='col-sm-2 control-label'>Quantity:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Quantity}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Price' class='col-sm-2 control-label'>Price:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Price}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'TotalCommission' class='col-sm-2 control-label'>Total Commission:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TotalCommission}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'BrokerCodeId' class='col-sm-2 control-label'>Broker Code Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.BrokerCodeId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'GlobalFacilityAmount' class='col-sm-2 control-label'>Global Facility Amount:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.GlobalFacilityAmount}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'ExemptUnrealizedPLfromCapitalRatios' class='col-sm-2 control-label'>Exempt Unrealized P Lfrom Capital Ratios:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.ExemptUnrealizedPLfromCapitalRatios}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'InternalTradeExcludeInByPassStrategy' class='col-sm-2 control-label'>Internal Trade Exclude In By Pass Strategy:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.InternalTradeExcludeInByPassStrategy}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'ForwardFXBookCurrencyPricing' class='col-sm-2 control-label'>Forward FX Book Currency Pricing:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.ForwardFXBookCurrencyPricing}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'OriginalFace' class='col-sm-2 control-label'>Original Face:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.OriginalFace}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'IndexRatio' class='col-sm-2 control-label'>Index Ratio:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.IndexRatio}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'PerShareAmount' class='col-sm-2 control-label'>Per Share Amount:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.PerShareAmount}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'OpeningRate' class='col-sm-2 control-label'>Opening Rate:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.OpeningRate}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'PercentageOwned' class='col-sm-2 control-label'>Percentage Owned:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.PercentageOwned}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'DelayedCompensationId' class='col-sm-2 control-label'>Delayed Compensation Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.DelayedCompensationId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'ReceiveFinancing' class='col-sm-2 control-label'>Receive Financing:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.ReceiveFinancing}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Yield' class='col-sm-2 control-label'>Yield:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Yield}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'NotionalAmount' class='col-sm-2 control-label'>Notional Amount:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.NotionalAmount}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'TradesAsId' class='col-sm-2 control-label'>Trades As Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TradesAsId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'DirtyPrice' class='col-sm-2 control-label'>Dirty Price:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.DirtyPrice}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'TradesFlat' class='col-sm-2 control-label'>Trades Flat:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.TradesFlat}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'RestateUnrealizedGainOrLossAtPeriodEndSpotRate' class='col-sm-2 control-label'>Restate Unrealized Gain Or Loss At Period End Spot Rate:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.RestateUnrealizedGainOrLossAtPeriodEndSpotRate}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'OverridingFinancingId' class='col-sm-2 control-label'>Overriding Financing Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.OverridingFinancingId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'AccrueCommission' class='col-sm-2 control-label'>Accrue Commission:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.AccrueCommission}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'EffectiveYield' class='col-sm-2 control-label'>Effective Yield:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.EffectiveYield}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'NetTrade' class='col-sm-2 control-label'>Net Trade:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.NetTrade}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'PayOrReceiveFullCoupon' class='col-sm-2 control-label'>Pay Or Receive Full Coupon:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.PayOrReceiveFullCoupon}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'ExpirationDate' class='col-sm-2 control-label'>Expiration Date:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.ExpirationDate}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'SweepCashOnSettlementDate' class='col-sm-2 control-label'>Sweep Cash On Settlement Date:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.SweepCashOnSettlementDate}}
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,26 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.DayCare.dll" #>
+<#@ assembly name="$(TargetDir)\DataModel.CapitalMarkets.dll" #>
+
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V1\View\EntitySaveViewGeneratorHelper.tt" #>
+<#
+	this.RenderSaveViews(	new string[]
+								{
+	"Broker",
+	"AccountExcecutive",
+	"Custodian",
+	"AccountAdministrator",
+	"DeliveryAgent",
+	"Issuer",
+	"Exchange",
+	"AgentBank",
+	"Analyst",
+	"Manager",
+	"RatingServices",
+	"BrokerGroup",
+	"BrokerType"
+			
+	
+								},								 
+							"DataModel.CapitalMarkets");
+#>

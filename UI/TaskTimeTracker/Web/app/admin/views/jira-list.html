@@ -1,0 +1,81 @@
+﻿<ol class="breadcrumb">
+    <li><a href="#">App Configuration</a></li>
+    <li><a href="#">Beta</a></li>
+    <li class="active">Work Summary Report</li>
+</ol>
+<style type="text/css">
+    .css-form input.ng-invalid.ng-touched {
+        background-color: #FA787E;
+    }
+
+    .css-form input.ng-valid.ng-touched {
+        background-color: #78FA89;
+    }
+</style>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        Search:
+    </div>
+
+    <div class="collapse in panel-body" id="pnlSearchParameters">
+        <div class="form-horizontal">
+            <form novalidate name="searchForm">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">User :</label>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">From Date :</label>
+                    <div class="col-sm-4">
+                    </div>
+                    <label class="col-sm-2 control-label">To Date :</label>
+                    <div class="col-sm-4">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2"></div>
+                    <div class="col-md-2">
+                        <input type="submit" class="btn btn-primary"
+                            ng-click="getJIRAIssues()" value="Search" />
+                    </div>
+                    <div class="col-md-8"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-info" ng-show="showJIRAList">
+    <div class="panel-heading">
+        Jira Issues
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <th>Key</th>
+            <th>Status</th>
+            <th>Type</th>
+            <th>Summary</th>
+            <th>Assignee</th>
+            <th>Priority</th>
+            <th>Created</th>
+            <th>DueDate</th>
+        </tr>
+        <tr ng-repeat="item in jiraIssues">
+            <td>{{item.Name}}</td>
+            <td>{{item.Key}}</td>
+            <td>{{item.Type}}</td>
+            <td>{{item.Status}}</td>
+            <td>{{item.Summary}}</td>
+            <td>{{item.Assignee}}</td>
+            <td>{{item.Priority}}</td>
+            <td>{{item.Created}}</td>
+            <td>{{item.DueDate}}</td>
+        </tr>
+    </table>
+</div>
+
+
+
+

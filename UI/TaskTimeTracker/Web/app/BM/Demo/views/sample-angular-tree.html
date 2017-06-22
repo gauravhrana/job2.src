@@ -1,0 +1,34 @@
+﻿
+<body ng-app="rootAppShell" ng-controller="treeCtrl2">
+
+	<div class="container">
+		
+		<br/>
+		<br/>
+		
+		<div style="background-color: rgb(85, 85, 85);">
+			<!-- as a Dom element -->
+			<treecontrol class="tree-dark" 
+			             on-selection="showSelected(node, selected)" 
+			             tree-model="treedata" 
+			             options="treeOptions" 
+			             selected-nodes="selectedNodes">
+				label: {{node.name}} ({{node.age}})
+			</treecontrol>
+		</div>
+		
+		<br/>
+		<br/>
+		
+		<!-- as a Dom element -->
+		<treecontrol class="tree-classic"
+		             tree-model="dataForTheTree"
+		             options="treeOptions2"
+		             on-selection="showSelected(node)"
+		             selected-node="node1">
+			employee: {{node.name}} age {{node.age}}
+		</treecontrol>
+
+	</div>
+
+</body>

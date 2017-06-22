@@ -1,0 +1,178 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#+
+
+	private void RenderHeadersForHtmlFileForInsertPage(string nameSpace)
+	{
+		WriteLine("<%@ Page Title=\"Insert\" Language=\"C#\" MasterPageFile=\"~/MasterPages/Site.Master\" AutoEventWireup=\"true\"");
+		WriteLine("CodeBehind=\"Insert.aspx.cs\" Inherits=\"" + nameSpace + ".Insert\" %>");		
+
+		WriteLine(string.Empty);
+		 
+		WriteLine("<%@ Register TagPrefix=\"gnrc\" TagName=\"GenericControl\" Src=\"./Controls/Generic.ascx\"%>");
+		WriteLine("<%@ MasterType TypeName=\"Framework.UI.Web.BaseClasses.PageSiteMaster\" %>");
+	}
+
+	private void RenderHTMLForHtmlFileForInsertPage()
+	{
+		
+		WriteLine(string.Empty);
+		WriteLine("<asp:Content ID=\"Content1\" runat=\"server\" ContentPlaceHolderID=\"SectionName\"></asp:Content>");
+		
+		WriteLine(string.Empty);
+		WriteLine("<asp:Content ID=\"BodyContent\" runat=\"server\" ContentPlaceHolderID=\"MainContent\">");
+					
+			WriteLine(string.Empty);
+			PushIndent("\t");
+			WriteLine("<table style=\"font-weight:bold;color:Black\" width=\"400\" border=\"0\">");
+
+				PushIndent("\t");
+				WriteLine("<tr>");
+					
+					PushIndent("\t");
+					WriteLine("<td>");
+						
+						PushIndent("\t");
+						WriteLine("<asp:Label ID=\"lblMessage\" runat=\"server\" Text=\"\" ForeColor=\"Red\" style=\" color:Red;\"></asp:Label>");
+						WriteLine("<gnrc:GenericControl ID=\"myGenericControl\" runat=\"server\" />");
+						PopIndent();
+
+					WriteLine("</td>");
+					PopIndent();
+
+				WriteLine("</tr>");
+				WriteLine("<tr>");
+					
+					PushIndent("\t");
+					WriteLine("<td align=\"right\">");
+						
+						PushIndent("\t");
+						WriteLine("<asp:LinkButton ID=\"btnInsert\" runat=\"server\" Text=\"Insert\" onclick=\"btnInsert_Click\" />");
+						WriteLine("<asp:LinkButton ID=\"btnCancel\" CausesValidation=\"false\" runat=\"server\" Text=\"Cancel\" onclick=\"btnCancel_Click\" />");
+						PopIndent();
+
+					WriteLine("</td>");
+					PopIndent();
+
+				WriteLine("</tr>");
+				PopIndent();
+
+			WriteLine("</table>");
+			PopIndent();
+
+		WriteLine(string.Empty);
+		WriteLine("</asp:Content>");
+		
+	}
+
+#>
+<#+
+
+	private void RenderUsingTagsForCodeBehindForInsertPage()
+	{
+		WriteLine("using System;");
+		WriteLine("using System.Web;");
+		WriteLine("using System.Web.UI;");
+		WriteLine("using System.Web.UI.WebControls;");
+		WriteLine("using Shared.WebCommon.UI.Web;");
+		WriteLine("using Framework.Components.DataAccess;");
+		WriteLine("using Framework.UI.Web.BaseClasses;");
+	}
+
+	private void RenderCodeBehindClassForInsertPage(string entityName, string nameSpace)
+	{		
+		WriteLine(string.Empty);
+		WriteLine("namespace " + nameSpace);
+		WriteLine("{");
+			
+			PushIndent("\t");
+			WriteLine("public partial class Insert : PageInsert");
+			WriteLine("{  ");      
+				
+				PushIndent("\t");
+				WriteLine("#region Events");
+
+				WriteLine(string.Empty);
+				WriteLine("protected override void OnInit(EventArgs e)");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("base.OnInit(e);");
+
+					WriteLine(string.Empty);
+					WriteLine("PrimaryEntity			= SystemEntity." + entityName + ";");
+					WriteLine("PrimaryEntityKey		= \"" + entityName + "\";		");	
+					WriteLine("PrimaryGenericControl	= myGenericControl;		");	
+					WriteLine("BreadCrumbObject		= Master.BreadCrumbObject;	");
+					PopIndent();
+							
+				WriteLine("}");
+
+				WriteLine(string.Empty);
+				WriteLine("#endregion");
+				PopIndent();
+
+			WriteLine("}");
+			PopIndent();
+
+		WriteLine("}");
+	}
+
+#>
+<#+	
+
+	public void GenerateDesignerFileForInsertPage(string nameSpace)
+	{
+		
+		WriteLine("namespace " + nameSpace + " {   "); 
+    
+			WriteLine(string.Empty);
+			PushIndent("\t");
+			WriteLine("public partial class Insert {");
+				
+				WriteLine(string.Empty);
+				PushIndent("\t");
+				WriteLine("protected global::System.Web.UI.WebControls.Label lblMessage;");
+				WriteLine("protected global::" + nameSpace + ".Controls.Generic myGenericControl;");
+				WriteLine("protected global::System.Web.UI.WebControls.LinkButton btnInsert;");
+				WriteLine("protected global::System.Web.UI.WebControls.LinkButton btnCancel;");
+
+				WriteLine(string.Empty);
+				WriteLine("public new Framework.UI.Web.BaseClasses.PageSiteMaster Master {");
+
+					PushIndent("\t");
+					WriteLine("get {");
+						
+						PushIndent("\t");
+						WriteLine("return ((Framework.UI.Web.BaseClasses.PageSiteMaster)(base.Master));");
+						PopIndent();
+
+					WriteLine("}");
+					PopIndent();
+
+				WriteLine("}");
+				PopIndent();
+
+			WriteLine("}");
+			PopIndent();
+
+		WriteLine("}");
+	}
+
+	private void GenerateHtmlFileForInsertPage(string nameSpace)
+	{
+		RenderHeadersForHtmlFileForInsertPage(nameSpace);
+		RenderHTMLForHtmlFileForInsertPage();
+	}
+
+	private void GenerateCodeBehindFileForInsertPage(string entityName, string nameSpace)
+    {
+		RenderUsingTagsForCodeBehindForInsertPage();					
+		RenderCodeBehindClassForInsertPage(entityName, nameSpace);
+	}
+
+#>

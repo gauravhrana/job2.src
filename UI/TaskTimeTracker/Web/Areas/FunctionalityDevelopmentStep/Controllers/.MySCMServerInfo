@@ -1,0 +1,8 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Areas/FunctionalityDevelopmentStep/Controllers
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=20829
+HomeController.cs;1741504306;2;1413169713;|17795|266550
+HeaderController.cs;3920607857;1;1416278422;|26979|276436
+FunctionalityDevelopmentStepController.cs;4032655627;10;1493092232;|17796|358295
+FunctionalityXFunctionalityDevelopmentStepController.cs;1129113664;14;1493092232;|17897|358296

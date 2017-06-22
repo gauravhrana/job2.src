@@ -1,0 +1,13 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Areas/ReleaseNoteQualitative/Views/Shared/DisplayTemplates
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=20671
+DailyTaskItemQueueDataModel.cshtml;2832638792;1;1399063848;|17924|188210
+DailyTaskItemQueueStatusDataModel.cshtml;3633107613;1;1399063848;|17923|188209
+DevelopmentCategoryDataModel.cshtml;3379918042;3;1405911732;|19251|215551
+ReleaseFeatureDataModel.cshtml;3132392662;2;1405911732;|19259|215552
+ReleaseNoteBusinessDifficultyDataModel.cshtml;298728241;2;1405911732;|17858|215146
+ReleaseNoteBusinessValueDataModel.cshtml;2455070336;2;1405911732;|17857|215147
+ReleaseNoteDeveloperValueDataModel.cshtml;3957280072;2;1405911732;|17855|215148
+ReleaseNoteLogisticsDifficultyDataModel.cshtml;1427832361;2;1405911732;|17308|215149
+ReleaseNoteTechnicalDifficultyDataModel.cshtml;2899067479;2;1405911732;|17856|215150

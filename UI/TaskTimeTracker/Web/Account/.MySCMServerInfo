@@ -1,0 +1,17 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Account
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=5431
+ChangePassword.aspx;4213666375;2;1394430768;|114|170841
+ChangePassword.aspx.cs;1303731029;1;1394430768;|121|5594
+ChangePassword.aspx.designer.cs;1949257619;1;1394430768;|122|122
+ChangePasswordSuccess.aspx;2986045510;2;1394430768;|113|170842
+ChangePasswordSuccess.aspx.cs;2061150616;1;1394430768;|115|5595
+ChangePasswordSuccess.aspx.designer.cs;948517747;1;1394430768;|123|123
+Login.aspx;3129964463;2;1394430768;|112|170843
+Login.aspx.cs;1469028602;1;1394430768;|120|5596
+Login.aspx.designer.cs;4044608010;1;1394430768;|116|116
+Register.aspx;2790304412;2;1394430768;|111|170844
+Register.aspx.cs;689666903;1;1394430768;|117|5597
+Register.aspx.designer.cs;1875925583;1;1394430768;|118|118
+Web.config;202925846;1;1394430768;|119|119

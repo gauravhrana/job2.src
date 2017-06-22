@@ -1,0 +1,20 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Areas/ReleaseNoteQualitative/Controllers
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=19918
+DailyTaskItemQueueController.cs;3979018155;1;1399063848;|17912|188198
+DailyTaskItemQueueStatusController.cs;16106714;1;1399063848;|17911|188197
+DBComponentNameController.cs;1206050143;3;1406222459;|18195|220227
+DBNameController.cs;1615584481;4;1406222459;|17785|220209
+DBProjectNameController.cs;1789413444;4;1406222459;|18194|220210
+HomeController.cs;2408978924;2;1413169714;|16332|261304
+HeaderController.cs;2911433496;1;1416278422;|26981|276438
+AutoCompleteController.cs;924293805;8;1425616214;|17303|297496
+CustomController.cs;177071178;6;1425616214;|17301|297497
+DevelopmentCategoryController.cs;3620025008;9;1493092232;|19245|358297
+ReleaseFeatureController.cs;941222501;8;1493092232;|19253|358298
+ReleaseNoteBusinessDifficultyController.cs;2619119823;10;1493092232;|16331|357742
+ReleaseNoteBusinessValueController.cs;2977803859;10;1493092232;|16361|357743
+ReleaseNoteDeveloperValueController.cs;3363175932;10;1493092232;|16358|357744
+ReleaseNoteLogisticsDifficultyController.cs;2778321607;16;1493092232;|16359|357745
+ReleaseNoteTechnicalDifficultyController.cs;2321166377;10;1493092232;|16360|357746

@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/APIV2/Rest
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=34327
+LoginController.cs;590441714;1;1430363144;|36038|301714
+ApplicationChangerController.cs;281280413;2;1433220972;|36039|303178
+BathRoomsController.cs;2107124696;6;1442383378;|35981|331122

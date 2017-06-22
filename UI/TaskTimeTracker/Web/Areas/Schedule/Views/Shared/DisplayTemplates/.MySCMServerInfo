@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Areas/Schedule/Views/Shared/DisplayTemplates
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=21949
+DailyTaskItemQueueDataModel.cshtml;791117743;2;1405911732;|17950|215153
+DailyTaskItemQueueStatusDataModel.cshtml;4214710685;2;1405911732;|17949|215154
+ScheduleDetailActivityCategoryDataModel.cshtml;659798564;1;1414694218;|26130|274572

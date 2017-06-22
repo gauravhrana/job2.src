@@ -1,0 +1,61 @@
+﻿<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+
+    <div class="container-fluid">
+
+	    <div class="navbar-header">
+
+		    <div class="navbar-brand hidden-md hidden-sm">Day Care</div>
+
+		    <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+		    </button>
+
+	    </div>
+
+
+
+        <div class="navbar-collapse" ng-class="isCollapsed ? 'collapse' : 'in'">
+
+            <ul class="nav navbar-nav">			    
+		    </ul>
+
+            <ul class="nav navbar-nav">
+
+              <li class="main btn" ng-repeat="item in menu" ng-mouseover="showSubMenu(item, $index)"></li>                 
+                
+                 <li class="dropdown" data-is-open="Schedule">
+                    <a class="dropdown-toggle" data-toggle="dropdown" id="A8">Schedule<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                                <li><a href="#/WorkSchedules/Schedule/Search">Schedule</a></li>
+					            <li><a href="#/WorkSchedules/ScheduleDetail/Search">Schedule Detail</a></li>
+                                <li><a href="#/WorkSchedules/ScheduleState/Search">Schedule State</a></li>
+					            <li><a href="#/WorkSchedules/ScheduleDetailActivityCategory/Search">Schedule Detail Activity Category</a></li>                      
+                    </ul>
+                </li>
+               
+                 <li class="dropdown" data-is-open="Vacation">
+                    <a class="dropdown-toggle" data-toggle="dropdown" id="A1">Vacation<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/WorkSchedules/VacationPlan/Search">Vacation Plan</a></li>                       
+                    </ul>
+                </li>
+               
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/login">Login</a></li>
+                <li class="dropdown" data-is-open="applicationsOpen">
+                    <a class="dropdown-toggle" data-toggle="dropdown" id="A3">Applications <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <div data-ng-include="'../../app/core/views/application-list.html'"></div>
+                    </ul>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+</div>

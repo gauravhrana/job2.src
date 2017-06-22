@@ -1,0 +1,20 @@
+﻿<div ng-controller="alertMessagingCtrl" class="col-sm-12" style="padding-top: 5px;">
+
+	<div class="col-sm-1" ></div>
+
+	<div class="col-sm-10">
+
+		<div ng-repeat="alert in successList" class="alert alert-success">
+			<button type="button" class="close" aria-hidden="true" ng-click="removeSuccessItem($index)">&times;</button>
+			<span ng-bind-html="alert.msg"/>
+		</div>
+
+		<div ng-repeat="alert in failureList" class="alert alert-danger">
+			<button type="button" class="close" aria-hidden="true" ng-click="removeFailureItem($index)">&times;</button>
+			<span ng-bind-html="alert.msg" />
+		</div>
+	</div>
+
+	<div class="col-sm-1"></div>
+
+</div>

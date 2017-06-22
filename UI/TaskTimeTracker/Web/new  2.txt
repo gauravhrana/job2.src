@@ -1,0 +1,69 @@
+this logic looks totally wrong to me
+
+u r direcitly using current index to set the UPCategory and load/set values accordingly
+there can be cases where use would remove some control from middle then this could go wrong horribley
+
+yeah
+remove ke time pe
+numofctrls dec ho raha hai
+but UC entry remove nahi ho rahi
+
+1 min
+
+i have a suggestion
+
+as u r storting "NoOfControls"
+add 1 more "NameOfControls"
+
+it would store all the UPcategorues seperatew by lets say "%%"
+
+this way it would be easier to maintain.
+wht do u think?
+and store "NameOfControls" in UPK
+yes
+
+think on that
+this way we will be able to find way to implement current task too i'm sure
+
+i have to leaver right now
+will talk later
+ok 
+
+this is my code changes
+shall u run to show u error
+
+
+1 more thing in load
+this was assigning 1 to all 
+
+as data wasnmt present it would assign 1 but once its implemented it would take care of itself
+
+
+u should have made changes in the data then
+if it assigns 1 to all then i think we need to correct before we move ahead
+manually
+for all branch controls
+
+can u plz do it?
+i will wait here
+
+just assign 1 to 10 whatever the order
+
+ok back end main
+or if we user ctrl name here then it work fine
+
+back end se
+let me show u query
+
+u have only 2 controls on the page?
+no 3
+then it should dhow here isnt it?
+yeah..shayad ek bhaag gaya...try karte kerta
+
+update for this 2 anyway
+
+kep it 2 and 3 so if wo pehla sayad wapas aa jaye to uska by default 1 rahega :D
+ok
+
+go ahead and try then
+ok

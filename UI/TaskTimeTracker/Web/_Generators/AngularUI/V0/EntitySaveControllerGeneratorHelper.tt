@@ -1,0 +1,174 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ include file="../../MultipleOutputFileHelper.tt" #>
+
+<#+
+
+	void RenderJsFunctions()
+	{
+		WriteLine(string.Empty);
+        WriteLine("$scope.WorkflowStateIsNew = function () {");
+			
+			PushIndent("\t");
+            WriteLine("return ($routeParams.detailId == '{New}');");
+			PopIndent();
+
+        WriteLine("};");
+
+		WriteLine(string.Empty);
+        WriteLine("function onFailedLoad(serverResponse) {");
+			
+			PushIndent("\t");
+            WriteLine("userService.AlertManager.logFailureAlert('', serverResponse.data, []);");
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+		WriteLine("function onSuccessLoad(data) {");
+			
+			PushIndent("\t");
+            WriteLine("$scope.EntityItem = data;");
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("// init");
+        WriteLine("if (!$scope.WorkflowStateIsNew()) {");
+			
+			PushIndent("\t");
+            WriteLine("entityService.getById({ detailId: $routeParams.detailId }, onSuccessLoad, onFailedLoad);");
+			PopIndent();
+
+        WriteLine("}");
+
+		WriteLine(string.Empty);
+        WriteLine("$scope.save = function () {");
+			
+			WriteLine(string.Empty);
+			PushIndent("\t");
+            WriteLine("var saveMethod = ($scope.WorkflowStateIsNew()) ? 'create' : 'update';");
+
+			WriteLine(string.Empty);
+            WriteLine("$scope.EntityItem = entityService[saveMethod]($scope.EntityItem,");
+				
+				PushIndent("\t");
+                WriteLine("function () {");
+					
+					PushIndent("\t");
+                    WriteLine("userService.AlertManager.addSuccessAlert($scope.entityName + ' ' + $scope.EntityItem.Name + ' saved.');");
+                    WriteLine("$location.url('/' + $scope.entityName + '/search');");
+					PopIndent();
+
+                WriteLine("},");
+                WriteLine("function (errorResponse) {");
+					
+					PushIndent("\t");
+                    WriteLine("userService.AlertManager.addFailureAlert($scope.entityName + ' failed to save. ' + [JSON.stringify(errorResponse)]);");
+					PopIndent();
+
+                WriteLine("});");
+				PopIndent();
+
+			PopIndent();
+
+		WriteLine("};");
+
+		WriteLine(string.Empty);
+        WriteLine("$scope.delete = function () {");
+			
+			PushIndent("\t");
+            WriteLine("entityService.delete({ detailId: $routeParams.detailId },");
+				
+				PushIndent("\t");
+                WriteLine("function () {");
+					
+					PushIndent("\t");
+                    WriteLine("userService.AlertManager.addSuccessAlert($scope.entityName + ' ' + $scope.EntityItem.Name + ' deleted.');");
+                    WriteLine("$location.url('/' + $scope.entityName + '/search');");
+					PopIndent();
+
+                WriteLine("},");
+                WriteLine("function onFailedDelete(errorResponse) {");
+					
+					PushIndent("\t");
+                    WriteLine("userService.AlertManager.addFailureAlert($scope.entityName + ' ' + $scope.EntityItem.Name + ' failed to delete.' + [JSON.stringify(errorResponse)]);");
+					PopIndent();
+
+                WriteLine("});");
+				PopIndent();
+
+			PopIndent();
+
+        WriteLine("};");
+
+	}
+
+	void RenderSaveController(string entityName)
+	{
+
+		WriteLine("'use strict';");
+
+		WriteLine(string.Empty);
+		WriteLine("angular.module('rootAppShell')");
+			
+			PushIndent("\t");
+			WriteLine(".controller('save" + entityName + "Ctrl', [");
+				
+				PushIndent("\t");
+				WriteLine("'$location', '$scope', '$injector', '$routeParams', '$modal', 'userService', '$timeout', '$log',");
+				WriteLine("function ($location, $scope, $injector, $routeParams, $modal, userService, $timeout, $log) {");
+		
+					WriteLine(string.Empty);			
+					PushIndent("\t");
+					WriteLine("$scope.entityName = '" + entityName + "';");
+					WriteLine("var entityService = $injector.get('" + entityName + "Service');");
+										
+					WriteLine(string.Empty);
+					WriteLine("$scope.EntityItem = {");
+
+						PushIndent("\t");
+						WriteLine("Id: $routeParams.detailId,");
+						WriteLine("Name: '',");
+						WriteLine("Description: '',");
+						WriteLine("SortOrder: ''");
+						PopIndent();
+
+					WriteLine("};");
+
+					RenderJsFunctions();
+
+					WriteLine(string.Empty);
+					PopIndent();
+
+				WriteLine("}");
+				PopIndent();
+				
+			WriteLine("]);");
+	}
+
+#>
+
+<#+
+
+	void RenderSaveControllers(string[] entities)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+			foreach(string entityName in entities)
+			{	
+				manager.StartNewFile("save" + entityName + "Ctrl.js");
+				this.RenderSaveController(entityName);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+#>

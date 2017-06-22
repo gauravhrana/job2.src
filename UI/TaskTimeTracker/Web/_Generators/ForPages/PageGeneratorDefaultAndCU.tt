@@ -1,0 +1,57 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ include file="../MultipleOutputFileHelper.tt" #>
+<#@ include file="DefaultPageGeneratorHelper.tt" #>
+<#@ include file="CommonUpdatePageGeneratorHelper.tt" #>
+
+
+<#+
+
+	void GenerateDefaultPageFiles(Manager manager, string entityName, string nameSpace, string nameSpaceDataManager)
+	{	
+		// create HTML File
+		manager.StartNewFile("Default.aspx");
+		this.GenerateHtmlFileForDefaultPage(entityName, nameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("Default.aspx.cs");
+		this.GenerateCodeBehindFileForDefaultPage(entityName, nameSpace, nameSpaceDataManager);
+
+		// create Code Behind File
+		manager.StartNewFile("Default.aspx.designer.cs");
+		this.GenerateDesignerFileForDefaultPage(nameSpace);
+	}	
+
+	void GenerateCommonUpdatePageFiles(Manager manager, string entityName, string nameSpace, string dataModelnameSpace, string dataManagerNameSpace)
+	{
+		// create HTML File
+		manager.StartNewFile("CommonUpdate.aspx");
+		this.GenerateHtmlFileForCommonUpdatePage(entityName, nameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("CommonUpdate.aspx.cs");
+		this.GenerateCodeBehindFileForCommonUpdatePage(entityName, nameSpace, dataModelnameSpace, dataManagerNameSpace);
+
+		// create Code Behind File
+		manager.StartNewFile("CommonUpdate.aspx.designer.cs");
+		this.GenerateDesignerFileForCommonUpdatePage(nameSpace);
+	}
+
+#>
+<#+
+	
+	void GeneratePageFiles(string entityName, string nameSpace, string dataModelNameSpace, string dataManagerNameSpace)
+	{		
+		var manager = Manager.Create(Host, GenerationEnvironment);	
+
+		GenerateDefaultPageFiles(manager, entityName, nameSpace, dataManagerNameSpace);		
+		GenerateCommonUpdatePageFiles(manager, entityName, nameSpace, dataModelNameSpace, dataManagerNameSpace);
+		
+		manager.Process(true);
+	}
+
+#>

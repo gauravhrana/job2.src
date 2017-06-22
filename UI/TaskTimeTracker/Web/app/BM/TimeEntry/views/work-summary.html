@@ -1,0 +1,115 @@
+﻿<ol class="breadcrumb">    
+    <li><a href="#">Reports</a></li>
+    <li class="active">Work Summary Report</li>
+</ol>
+<style type="text/css">
+    .css-form input.ng-invalid.ng-touched {
+        background-color: #FA787E;
+    }
+
+    .css-form input.ng-valid.ng-touched {
+        background-color: #78FA89;
+    
+</style>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        Search:
+    </div>
+
+    <div class="collapse in panel-body" id="pnlSearchParameters">
+        <div class="form-horizontal">
+            <form novalidate name="searchForm">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">User :</label>
+                    <div class="col-md-4">
+                        <select ng-model="selectedUser"
+                            ng-options="userItem.FullName  for userItem in applicationUsers  track by userItem.ApplicationUserId">
+                        </select>
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">From Date :</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="fromSearchDate" ng-model="fromSearchDate" jqdatepicker required />
+                        <div style="color: red;" ng-show="searchForm.$submitted || searchForm.fromSearchDate.$touched">
+                            <div ng-show="searchForm.fromSearchDate.$error.required">From Date Required.</div>
+                        </div>
+                    </div>
+                    <label class="col-sm-2 control-label">To Date :</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="toSearchDate" ng-model="toSearchDate" jqdatepicker required />
+                        <div style="color: red;" ng-show="searchForm.$submitted || searchForm.fromSearchDate.$touched">
+                            <div ng-show="searchForm.toSearchDate.$error.required">To Date Required.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2"></div>
+                    <div class="col-md-2">
+                        <input type="submit" class="btn btn-primary"
+                            ng-disabled="searchForm.fromSearchDate.$error.required || searchForm.toSearchDate.$error.required"
+                            ng-click="generateReport()" value="Generate Report" />
+                    </div>
+                    <div class="col-md-8"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-info" ng-show="showWorkCategoryReport">
+    <div class="panel-heading">
+        Work Category
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <th></th>
+            <th class="text-center" colspan="{{workCategoryReportData[0].Info.length}}">Week</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr ng-repeat-start="item in workCategoryReportData" ng-if="$first">
+            <th>{{item.Name}}</th>
+            <th class="text-right" ng:repeat="e in item.Info">{{e.WeekNo}}</th>
+            <th class="text-right">Total</th>
+            <th class="text-right">Percentage</th>
+        </tr>
+        <tr ng-repeat-end ng-if="!$first">
+            <td>{{item.Name}}</td>
+            <td class="text-right" ng:repeat="e in item.Info">{{e.Value}}</td>
+            <td class="text-right col-sm-1">{{item.Total}}</td>
+            <td class="text-right col-sm-1">{{item.Percentage}}</td>
+            <!--<td class="text-right col-sm-1">{{((item.Total/workCategoryReportGrandTotal) * 100).toFixed(2)}}%</td>-->
+        </tr>
+    </table>
+</div>
+
+
+<div class="panel panel-info" ng-show="showWorkCategoryReport">
+    <div class="panel-heading">
+        Promoted Code
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <th></th>
+            <th class="text-center" colspan="{{branchSummaryReportData[0].Info.length}}">Week</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr ng-repeat-start="item in branchSummaryReportData" ng-if="$first">
+            <th>{{item.Name}}</th>
+            <th class="text-right" ng:repeat="e in item.Info">{{e.WeekNo}}</th>
+            <th class="text-right">Total</th>
+            <th class="text-right">Percentage</th>
+        </tr>
+        <tr ng-repeat-end ng-if="!$first">
+            <td>{{item.Name}}</td>
+            <td class="text-right" ng:repeat="e in item.Info">{{e.Value}}</td>
+            <td class="text-right col-sm-1">{{item.Total}}</td>            
+            <td class="text-right col-sm-1">{{item.Percentage}}</td>
+            <!--<td class="text-right col-sm-1">{{((item.Total/branchSummaryReportGrandTotal) * 100).toFixed(2)}}%</td>-->
+        </tr>
+    </table>
+</div>
+

@@ -1,0 +1,36 @@
+﻿@model DataModel.TaskTimeTracker.TimeTracking.DailyTaskItemQueueStatusDataModel
+
+@{
+    ViewBag.Title = "DailyTaskItemQueueStatusDataModel";
+}
+<h2>Functionality Development Step</h2>
+
+@Html.HiddenFor(modelItem => @Model.DailyTaskItemQueueStatusId)
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.TimeTracking.DailyTaskItemQueueStatusDataModel.DataColumns.DailyTaskItemQueueStatusId
+</div>
+<div class="display-field">
+    @Model.DailyTaskItemQueueStatusId
+</div>
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.TimeTracking.DailyTaskItemQueueStatusDataModel.DataColumns.Name
+</div>
+<div class="display-field">
+    @Model.Name
+</div>
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.TimeTracking.DailyTaskItemQueueStatusDataModel.DataColumns.Description
+</div>
+<div class="display-field">
+    @Model.Description
+</div>
+
+<div class="display-label">
+    @DataModel.TaskTimeTracker.TimeTracking.DailyTaskItemQueueStatusDataModel.DataColumns.SortOrder
+</div>
+<div class="display-field">
+    @Model.SortOrder
+</div>

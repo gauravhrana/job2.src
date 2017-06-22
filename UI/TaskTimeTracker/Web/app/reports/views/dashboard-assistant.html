@@ -1,0 +1,19 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h3 class="modal-title">Dashboard Assistant</h3>
+</div>
+<div class="modal-body">
+    
+    <h4>{{selectedStep.header}}</h4>
+    <div ng-if="step1.active" data-ng-include="step1.template"></div>
+    <div ng-if="step2.active" data-ng-include="step2.template"></div>
+    <div ng-if="step3.active" data-ng-include="step3.template"></div>
+    <div ng-if="step4.active" data-ng-include="step4.template"></div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="back()"><span class="glyphicon glyphicon-backward"></span> Back</button>
+    <button class="btn btn-primary" ng-click="next()"><span class="glyphicon glyphicon-forward"></span> Next</button>
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-info" ng-click="cancel()">Cancel</button>
+</div>

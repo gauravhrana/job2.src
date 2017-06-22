@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/applicationMode/controllers
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=27483
+applicationModeListCtrl.js;1572393639;2;1412268720;|24389|254115
+applicationModeDetailCtrl.js;2358601874;5;1412565064;|24390|254165
+applicationModeSaveCtrl.js;137376367;2;1412565064;|24394|254166

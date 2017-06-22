@@ -1,0 +1,8 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/APIV2/Controllers/TE
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=35111
+EventSubTypeController.cs;68914654;1;1434339000;|38784|309047
+NonStdEntityControllerGenerator.cs;1034698998;1;1434339000;|38782|309045
+NonStdEntityControllerGenerator.tt;3156675426;3;1440127867;|38783|326972
+CustomTimeLogController.cs;3627417670;4;1469426463;|38754|351913

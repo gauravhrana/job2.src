@@ -1,0 +1,43 @@
+<ol class='breadcrumb'>
+	<li class='active'>Trading Event Type Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Trading Event Type Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='TradingEventTypeId' data-ng-model='EntityItem.TradingEventTypeId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Name:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Name' placeholder='Name' data-ng-model='EntityItem.Name'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Description:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Description' placeholder='Description' data-ng-model='EntityItem.Description'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Sort Order:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='SortOrder' placeholder='SortOrder' data-ng-model='EntityItem.SortOrder'>
+		</div>
+	</div>
+
+</div>

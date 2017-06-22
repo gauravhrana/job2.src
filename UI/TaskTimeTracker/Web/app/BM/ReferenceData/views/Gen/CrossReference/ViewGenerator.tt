@@ -1,0 +1,12 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.ReferenceData.dll" #>
+<#@ include file=".\..\..\..\..\..\..\..\..\..\Generators\Generators.UI\AngularUI\CrossReference\HtmlViews\HTMLViewGenerator.tt" #>
+<#
+		this.RenderViews(	
+			new string[] {	
+							"HolidayXCountry"
+						,	"TimeZoneXCountry"	
+						,	"CountryXReligion"			
+				}
+		);
+#>

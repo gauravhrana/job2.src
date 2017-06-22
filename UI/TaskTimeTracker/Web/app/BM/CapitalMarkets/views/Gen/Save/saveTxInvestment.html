@@ -1,0 +1,45 @@
+<ol class='breadcrumb'>
+	<li class='active'>Tx Investment Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Tx Investment Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='TxInvestmentId' data-ng-model='EntityItem.TxInvestmentId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Transaction Event:</label>
+		<div class='col-sm-10'>
+			<select class='form-control'  style='float: left;width: 280px;' ng-model='selectedTransactionEventItem' 
+					ng-options='srcItem.TransactionEventId for srcItem in TransactionEventList track by srcItem.TransactionEventId'/>
+			<a href='#/{{moduleName}}/TransactionEvent/search' target='_blank'><span class='glyphicon glyphicon-eye-open' style='float: left; margin-left:5px;'></span></a> 
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Investment Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='InvestmentId' placeholder='InvestmentId' data-ng-model='EntityItem.InvestmentId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Cust Account Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='CustAccountId' placeholder='CustAccountId' data-ng-model='EntityItem.CustAccountId'>
+		</div>
+	</div>
+
+</div>

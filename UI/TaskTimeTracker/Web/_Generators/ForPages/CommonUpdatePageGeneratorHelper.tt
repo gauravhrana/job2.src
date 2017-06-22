@@ -1,0 +1,298 @@
+﻿<#@ import namespace="System.Reflection" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+
+<#+
+
+	private void RenderHeadersForHtmlFileForCommonUpdatePage(string nameSpace)
+	{
+		WriteLine("<%@ Page Title=\"Clone\" Language=\"C#\" MasterPageFile=\"~/MasterPages/Site.Master\" ");	
+		WriteLine("AutoEventWireup=\"true\" CodeBehind=\"CommonUpdate.aspx.cs\" ");	
+		WriteLine("Inherits=\"" + nameSpace + ".CommonUpdate\" EnableEventValidation=\"false\" %>");	
+
+		WriteLine(string.Empty);
+		WriteLine("<%@ Register TagName=\"DynamicUpdate\" TagPrefix=\"dyn\" Src=\"~/Shared/Controls/DynamicUpdate.ascx\" %>");	
+		WriteLine("<%@ MasterType TypeName=\"Framework.UI.Web.BaseClasses.PageSiteMaster\" %>");	
+
+		WriteLine(string.Empty);
+		WriteLine("<asp:Content ID=\"Content1\" runat=\"server\" ContentPlaceHolderID=\"SectionName\"></asp:Content>");	
+	}
+
+	private void RenderHTMLForHtmlFileForCommonUpdatePage(string entityName)
+	{
+		WriteLine(string.Empty);
+		WriteLine("<asp:Content ID=\"UpdateContent\" runat=\"server\" ContentPlaceHolderID=\"MainContent\">");
+		
+			WriteLine(string.Empty);
+			WriteLine("<div class=\"row\">");
+				
+				PushIndent("\t");
+				WriteLine("<div class=\"col-sm-12\">    "); 
+					
+					PushIndent("\t"); 
+					WriteLine("<div style=\"overflow: auto; height: auto;\">");
+						
+						PushIndent("\t");
+						WriteLine(" <dyn:DynamicUpdate ID=\"DynamicUpdatePanel\" runat=\"server\" />");
+						PopIndent();
+
+					WriteLine("</div>");
+					PopIndent();
+
+				WriteLine("</div>");
+				WriteLine("<div class=\"col-sm-12\"> ");  
+					
+					PushIndent("\t");           
+					WriteLine("<asp:LinkButton ID=\"btnUpdate\" runat=\"server\" Text=\"Update\" OnClick=\"btnUpdate_Click\" />");
+					WriteLine(" <asp:LinkButton ID=\"btnBack\" runat=\"server\" Text=\"Return\" OnClick=\"btnBack_Click\" />");
+					PopIndent();
+
+				WriteLine("</div>");
+				PopIndent();
+
+			WriteLine("</div>");
+			PopIndent();
+		
+		WriteLine(string.Empty);
+		WriteLine("</asp:Content>");
+	}
+
+#>
+<#+
+
+	private void RenderUsingTagsForCodeBehindForCommonUpdatePage(string dataModelNameSpace, string dataManagerNameSpace)
+	{
+
+		WriteLine("using System;");
+		WriteLine("using System.Collections.Generic;");
+		WriteLine("using System.Web.UI;");
+		WriteLine("using System.Data;");
+		WriteLine("using Dapper;");
+		WriteLine("using Framework.Components.Audit;");
+		WriteLine("using Framework.Components.DataAccess;");
+		WriteLine("using Framework.UI.Web.BaseClasses;");
+		WriteLine("using Shared.WebCommon.UI.Web;");
+		WriteLine("using " + dataModelNameSpace + ";");
+		if(dataModelNameSpace != dataManagerNameSpace)
+		{
+			WriteLine("using " + dataManagerNameSpace + ";");
+		}
+	}	
+
+	private void RenderCodeBehindClassForCommonUpdatePage(string entityName, string nameSpace, string dataModelNameSpace)
+	{		
+		WriteLine(string.Empty);
+		WriteLine("namespace " + nameSpace);
+		WriteLine("{");
+			
+			WriteLine(string.Empty);
+			PushIndent("\t");
+			WriteLine("public partial class CommonUpdate : PageCommonUpdate");
+			WriteLine("{ ");
+			
+					PushIndent("\t");
+					WriteLine("#region Methods");
+					WriteLine(string.Empty);
+				    WriteLine("protected override DataTable UpdateData()");
+					WriteLine("{ ");
+						PushIndent("\t");
+						WriteLine("var data = new " + entityName + "DataModel();");
+
+						WriteLine(string.Empty);
+						WriteLine("var UpdatedData = new List<"+ entityName +"DataModel>();");
+
+						WriteLine(string.Empty);
+						WriteLine("for (var i = 0; i < SelectedData.Rows.Count; i++)");
+						WriteLine("{ ");
+							PushIndent("\t");
+
+						//WriteLine("data."+ entityName +"Id = Convert.ToInt32(SelectedData.Rows[i]["+ entityName +"DataModel.DataColumns."+ entityName +"Id].ToString());");
+						//WriteLine(string.Empty);
+
+						///WriteLine("data.Name = SelectedData.Rows[i]["+ entityName +"DataModel.DataColumns.Name].ToString();");
+						//WriteLine(string.Empty);
+
+						//WriteLine("data.Description = !string.IsNullOrEmpty(CheckAndGetRepeaterTextBoxValue("+ entityName +"DataModel.DataColumns.Description)) ? CheckAndGetRepeaterTextBoxValue("+ entityName +"DataModel.DataColumns.Description) : SelectedData.Rows[i]["+ entityName +"DataModel.DataColumns.Description].ToString();");
+						//WriteLine(string.Empty);
+
+						//WriteLine("data.SortOrder = !string.IsNullOrEmpty(CheckAndGetRepeaterTextBoxValue("+ entityName +"DataModel.DataColumns.SortOrder)) ? int.Parse(CheckAndGetRepeaterTextBoxValue("+ entityName +"DataModel.DataColumns.SortOrder)) : int.Parse(SelectedData.Rows[i]["+ entityName +"DataModel.DataColumns.SortOrder].ToString());");
+						
+						var className = entityName + "DataModel";
+						var classType = dataModelNameSpace + "." + className;	
+
+						foreach (Assembly currentassembly in AppDomain.CurrentDomain.GetAssemblies()) 
+						{						
+							var modelType = currentassembly.GetType(classType);						
+
+							if(modelType != null)
+							{
+								var properties = modelType.GetProperties();								
+						
+									foreach (var propInfo in properties)
+									{									
+										if(propInfo.DeclaringType.Name == className || propInfo.DeclaringType.Name == "StandardDataModel")
+										{ 
+											if(propInfo.Name == entityName +"Id")
+											{
+												 WriteLine("data."+ entityName +"Id = Convert.ToInt32(SelectedData.Rows[i]["+ entityName +"DataModel.DataColumns."+ entityName +"Id].ToString());");
+											}
+											else if(propInfo.PropertyType.ToString() == "System.String" && propInfo.Name == "Name")
+											{
+												WriteLine("data.Name = SelectedData.Rows[i]["+ entityName +"DataModel.DataColumns."+propInfo.Name+"].ToString();");
+											}
+											else
+											{
+												if(propInfo.PropertyType.ToString() == "System.Nullable`1[System.Int32]")
+												{
+													WriteLine("data."+ propInfo.Name +" = !string.IsNullOrEmpty(CheckAndGetRepeaterTextBoxValue("+ entityName +"DataModel.DataColumns." + propInfo.Name +")) ? int.Parse(CheckAndGetRepeaterTextBoxValue("+ entityName +"DataModel.DataColumns." + propInfo.Name +")) : int.Parse(SelectedData.Rows[i]["+ entityName +"DataModel.DataColumns."+ propInfo.Name +"].ToString());");
+												}
+												else if(propInfo.PropertyType.ToString() == "System.DateTime" || propInfo.PropertyType.ToString() == "System.Nullable`1[System.DateTime]")
+												{
+													WriteLine("data."+ propInfo.Name +" = !string.IsNullOrEmpty(CheckAndGetRepeaterTextBoxValue("+ entityName +"DataModel.DataColumns." + propInfo.Name +")) ? DateTime.Parse(CheckAndGetRepeaterTextBoxValue("+ entityName +"DataModel.DataColumns." + propInfo.Name +")) : DateTime.Parse(SelectedData.Rows[i]["+ entityName +"DataModel.DataColumns."+ propInfo.Name +"].ToString());");
+												}
+												else
+												{
+													WriteLine("data."+ propInfo.Name +" = !string.IsNullOrEmpty(CheckAndGetRepeaterTextBoxValue("+ entityName +"DataModel.DataColumns." + propInfo.Name +")) ? CheckAndGetRepeaterTextBoxValue("+ entityName +"DataModel.DataColumns." + propInfo.Name +") : SelectedData.Rows[i]["+ entityName +"DataModel.DataColumns."+ propInfo.Name +"].ToString();");
+												}
+											}
+										}
+									}
+
+							}
+										
+						}
+
+						WriteLine(string.Empty);
+						WriteLine(entityName + "DataManager.Update(data, SessionVariables.RequestProfile);");
+
+						WriteLine(string.Empty);
+						WriteLine("data = new " + entityName +"DataModel();");
+
+						WriteLine(string.Empty);
+						WriteLine("data."+entityName+"Id = Convert.ToInt32(SelectedData.Rows[i]["+entityName+"DataModel.DataColumns."+entityName+"Id].ToString());");
+                
+						WriteLine(string.Empty);
+						WriteLine("var dt = "+ entityName +"DataManager.GetEntityDetails(data, SessionVariables.RequestProfile);");
+
+						WriteLine(string.Empty);
+						WriteLine("if (dt.Count == 1)");
+							WriteLine("{");
+
+								PushIndent("\t");
+								WriteLine("UpdatedData.Add(dt[0]);");
+								PopIndent();
+							WriteLine("}");
+
+							PopIndent();
+							WriteLine("}");
+							WriteLine("return UpdatedData.ToDataTable();");
+
+            		PopIndent();
+					WriteLine("} ");			
+		
+					WriteLine(string.Empty);
+
+					WriteLine("protected override DataTable GetEntityData(int? entityKey)");
+					WriteLine("{");
+						PushIndent("\t");							
+
+						WriteLine("var data = new "+ entityName +"DataModel();");
+						WriteLine("data."+ entityName +"Id = entityKey;");
+						WriteLine("var results = "+ entityName +"DataManager.GetEntityDetails(data, SessionVariables.RequestProfile);");
+						WriteLine("return results.ToDataTable();");
+						PopIndent();
+
+					 WriteLine("}");
+					WriteLine(string.Empty);
+					WriteLine("#endregion");
+
+				WriteLine(string.Empty);
+				
+				PushIndent("\t");
+				WriteLine("#region Events");
+				WriteLine(string.Empty);
+
+				WriteLine("protected override void OnInit(EventArgs e)");
+				WriteLine("{");
+					
+					PushIndent("\t");
+					WriteLine("base.OnInit(e);");
+
+					WriteLine(string.Empty);
+					WriteLine("DynamicUpdatePanelCore	= DynamicUpdatePanel;");
+					WriteLine("PrimaryEntity		= SystemEntity." + entityName + ";		");	
+					WriteLine("PrimaryEntityKey	= \"" + entityName + "\";");
+					WriteLine("BreadCrumbObject	= Master.BreadCrumbObject;");
+					
+					PopIndent();
+								
+				WriteLine("}");
+				WriteLine(string.Empty);
+
+				WriteLine("#endregion");				
+
+				WriteLine(string.Empty);
+				PopIndent();
+				WriteLine("}");
+
+		PopIndent();
+		WriteLine("}");
+	}
+
+#>
+<#+	
+
+	public void GenerateDesignerFileForCommonUpdatePage(string nameSpace)
+	{
+		
+		WriteLine("namespace " + nameSpace + " {   "); 
+    
+			WriteLine(string.Empty);
+			PushIndent("\t");
+			WriteLine("public partial class CommonUpdate { "); 
+				
+				WriteLine(string.Empty);
+				PushIndent("\t");
+				WriteLine("protected global::Shared.UI.Web.Controls.DynamicUpdate DynamicUpdatePanel; "); 
+				WriteLine("protected global::System.Web.UI.WebControls.LinkButton btnUpdate; "); 
+				WriteLine("protected global::System.Web.UI.WebControls.LinkButton btnBack; "); 
+
+				WriteLine(string.Empty);
+				WriteLine("public new Framework.UI.Web.BaseClasses.PageSiteMaster Master { "); 
+					
+					PushIndent("\t");
+					WriteLine("get { "); 
+						
+						PushIndent("\t");
+						WriteLine("return ((Framework.UI.Web.BaseClasses.PageSiteMaster)(base.Master)); "); 
+						PopIndent();
+
+					WriteLine("} "); 
+					PopIndent();
+
+				WriteLine("} "); 
+				PopIndent();
+
+			WriteLine("} "); 
+			PopIndent();
+
+		WriteLine("} "); 
+
+	}
+
+	public void GenerateHtmlFileForCommonUpdatePage(string entityName, string nameSpace)
+	{
+		RenderHeadersForHtmlFileForCommonUpdatePage(nameSpace);
+		RenderHTMLForHtmlFileForCommonUpdatePage(entityName);
+	}
+
+	public void GenerateCodeBehindFileForCommonUpdatePage(string entityName, string nameSpace, string dataModelNameSpace, string dataManagerNameSpace)
+    {
+		RenderUsingTagsForCodeBehindForCommonUpdatePage(dataModelNameSpace, dataManagerNameSpace);					
+		RenderCodeBehindClassForCommonUpdatePage(entityName, nameSpace, dataModelNameSpace);
+	}
+
+#>

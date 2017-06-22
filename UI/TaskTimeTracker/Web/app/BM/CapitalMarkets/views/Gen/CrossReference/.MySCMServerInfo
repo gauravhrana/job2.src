@@ -1,0 +1,9 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/BM/CapitalMarkets/views/Gen/CrossReference
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=35670
+PortfolioXCustodianAccount.html;2690223737;1;1438581001;|39951|321755
+ViewGenerator.cs;1566315191;1;1438581001;|39949|321753
+PriceScheduleXPriceList.html;992584514;1;1440993231;|40602|328608
+ViewGenerator.tt;1347271525;2;1440993231;|39950|328620
+FundXLegalEntity.html;1567881968;2;1469426463;|39948|353063

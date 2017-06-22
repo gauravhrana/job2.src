@@ -1,0 +1,87 @@
+<ol class='breadcrumb'>
+	<li class='active'>Security X External Market Data Identifier Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Security X External Market Data Identifier Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='SecurityXExternalMarketDataIdentifierId' data-ng-model='EntityItem.SecurityXExternalMarketDataIdentifierId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Bloomberg Global Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='BloombergGlobalId' placeholder='BloombergGlobalId' data-ng-model='EntityItem.BloombergGlobalId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Bloomberg Ticker:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='BloombergTicker' placeholder='BloombergTicker' data-ng-model='EntityItem.BloombergTicker'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Bloomberg Unique Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='BloombergUniqueId' placeholder='BloombergUniqueId' data-ng-model='EntityItem.BloombergUniqueId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Bloomberg Market Sector:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='BloombergMarketSector' placeholder='BloombergMarketSector' data-ng-model='EntityItem.BloombergMarketSector'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>RIC Code:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='RICCode' placeholder='RICCode' data-ng-model='EntityItem.RICCode'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>IDC Code:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='IDCCode' placeholder='IDCCode' data-ng-model='EntityItem.IDCCode'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Red Code:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='RedCode' placeholder='RedCode' data-ng-model='EntityItem.RedCode'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Price With Super Derivatives:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='PriceWithSuperDerivatives' placeholder='PriceWithSuperDerivatives' data-ng-model='EntityItem.PriceWithSuperDerivatives'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Security:</label>
+		<div class='col-sm-10'>
+			<select class='form-control' ng-model='selectedSecurityItem' 
+					ng-options='srcItem.Name for srcItem in SecurityList track by srcItem.SecurityId'>
+			</select>
+		</div>
+	</div>
+
+</div>

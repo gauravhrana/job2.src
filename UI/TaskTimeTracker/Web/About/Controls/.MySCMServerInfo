@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/About/Controls
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=5430
+Details.ascx;4100324116;2;1413169707;|106|261019
+Details.ascx.designer.cs;208837407;2;1413169707;|110|261021
+Generic.ascx;748581951;5;1413169707;|107|261022
+Generic.ascx.designer.cs;3935871496;2;1413169707;|108|261024
+Details.ascx.cs;482544222;11;1447042463;|105|335567
+Generic.ascx.cs;377814721;17;1464758662;|109|348618

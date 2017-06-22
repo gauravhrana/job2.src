@@ -1,0 +1,34 @@
+﻿<div ng-form name="mainForm">
+    <div class="page-header"><h3>Process Request</h3></div>
+
+    <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+            <li><a data-ng-click="Run()"><span class="glyphicon glyphicon-play"></span> {{RunMessage}}</a></li>
+        </ul>
+    </nav>
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label for="Process" class="col-sm-2 control-label">Process</label>
+            <div class="col-sm-10">
+                <select id="Process" class="form-control" data-ui-select2="" data-ng-model="ProcessCode">
+                    <option value=""></option>
+                    <option data-ng-repeat="process in processes" value="{{process.Code}}">{{process.Description}}</option>
+                </select>
+            </div>
+        </div>
+        <div data-ng-repeat="parameter in Process.Parameters">
+            <div ng-switch on="parameter.DataTypeCode">
+                <ng-form name="innerForm" ng-switch-when="DateTime">
+                    <div class="form-group" ng-class="{'has-error': innerForm.paramValue.$invalid}">
+                        <label for="paramValue" class="col-sm-2 control-label">{{parameter.Name}}</label>
+                        <div class="col-sm-10">
+                            <input ng-hide="supportsDate" name="paramValue" class="form-control" type="text" ng-model="parameter.Value" data-bs-datepicker data-date-format="MM/dd/yyyy" data-autoclose="1" required="" />
+                            <input ng-show="supportsDate" name="paramValue" class="form-control" type="date" ng-model="parameter.Value" required="" />
+                        </div>
+                    </div>
+                </ng-form>
+            </div>
+        </div>
+    </div>
+</div>

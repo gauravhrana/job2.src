@@ -1,0 +1,13 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/SM/Prototype/controllers
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=35528
+detailEventSubTypeCtrl.js;4103222628;1;1437968811;|39339|320433
+listTableEventSubTypeCtrl.js;448244521;1;1437968811;|39337|320431
+NonStdEntityDetailControllerGenerator.cs;1566315191;1;1437968811;|39338|320432
+NonStdEntityDetailControllerGenerator.tt;446015069;1;1437968811;|39331|320425
+NonStdEntityListTableControllerGenerator.cs;1566315191;1;1437968811;|39336|320430
+NonStdEntityListTableControllerGenerator.tt;4089735882;1;1437968811;|39332|320426
+NonStdEntitySaveControllerGenerator.cs;1566315191;1;1437968811;|39335|320429
+NonStdEntitySaveControllerGenerator.tt;958536225;1;1437968811;|39333|320427
+saveEventSubTypeCtrl.js;0;1;1437968811;|39334|320428

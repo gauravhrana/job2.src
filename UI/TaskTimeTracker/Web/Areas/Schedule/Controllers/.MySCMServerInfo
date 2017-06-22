@@ -1,0 +1,9 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Areas/Schedule/Controllers
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=21944
+HeaderController.cs;2164049210;1;1416278422;|26983|276440
+CustomTimeCategoryController.cs;1728255582;1;1417403873;|27038|277334
+DailyTaskItemQueueController.cs;384541317;12;1493092232;|17937|358299
+DailyTaskItemQueueStatusController.cs;3799089480;9;1493092232;|17936|358300
+ScheduleDetailActivityCategoryController.cs;2388382849;6;1493092232;|26116|358301

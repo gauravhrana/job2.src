@@ -1,0 +1,103 @@
+﻿<div ng-controller="navCtrl" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+
+            <div class="navbar-brand hidden-md hidden-sm">Reference Data</div>
+
+            <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+
+	    <div class="navbar-collapse" ng-class="isCollapsed ? 'collapse' : 'in'">
+
+		    <!--dynamic menu-->
+		    <ul class="nav navbar-nav">
+		    </ul>
+
+		    <ul class="nav navbar-nav">
+
+			    <li class="main btn" ng-repeat="item in menu" ng-mouseover="showSubMenu(item, $index)"></li>
+
+			    <li class="dropdown" data-is-open="calenderOpen">
+				    <a class="dropdown-toggle" data-toggle="dropdown" id="A1">Calendar<span class="caret"></span></a>
+				    <ul class="dropdown-menu">					    
+					    <li><a href="#/Holiday/search">Holiday</a></li>
+					    <li><a href="#/Religion/search">Religion</a></li>
+					    <li><a href="#/Calendar/search">Calendar</a></li>
+                        <li><a href="#/Country/search">Country</a></li> 
+                        <li><a href="../../app/BM/ReferenceData/PageInfo.aspx">Page Info</a></li>
+                                               
+				    </ul>
+			    </li>
+			    <li class="dropdown" data-is-open="locationOpen">
+				    <a class="dropdown-toggle" data-toggle="dropdown" id="A4">Location<span class="caret"></span></a>
+				    <ul class="dropdown-menu">
+					    <li><a href="#/GeographicRegion/search">Geographic Region</a></li>
+					    <li><a href="#/Continent/search">Continent</a></li>
+					    <li><a href="#/Country/search">Country</a></li>
+					    <li><a href="#/Currency/search">Currency</a></li>
+					    <li><a href="#/Region/search">Region</a></li> 
+					    <li><a href="#/Province/search">Province</a></li>
+                        <li><a href="#/ProvinceType/search">Province Type</a></li>
+					    <li><a href="#/City/search">City</a></li>
+                        <li><a href="#/State/search">State</a></li>
+					    <li><a href="#/Airport/search">Airport</a></li>
+					    <li><a href="#/TrainStation/search">Train Station</a></li>                       
+                        <li><a href="#/Address/search">Address</a></li> 
+                        <li><a href="#/Mall/search">Mall</a></li>
+                        <li><a href="#/TimeZone/search">Time Zone</a></li> 
+                        <li><a href="#/Monument/search">Monument</a></li>                                    
+					   
+				    </ul>
+			    </li>
+
+                <li class="dropdown" data-is-open="humanOpen">
+				    <a class="dropdown-toggle" data-toggle="dropdown" id="A3">Human<span class="caret"></span></a>
+				    <ul class="dropdown-menu">
+					    <li><a href="#/Ethnicity/search">Ethnicity</a></li>
+					    <li><a href="#/Gender/search">Gender</a></li>
+                        <li><a href="#/PersonSuffix/search">Person Suffix</a></li>	                         				    
+				    </ul>
+			    </li>
+
+                <li class="dropdown" data-is-open="CrossReference">
+		            <a class="dropdown-toggle" data-toggle="dropdown" id="A5">Cross Reference<span class="caret"></span></a>
+		            <ul class="dropdown-menu">
+			            <li><a href="#/TimeZoneXCountry">Time Zone X Country</a></li>  
+                        <li><a href="#/HolidayXCountry">Holiday X Country</a></li>
+					    <li><a href="#/CountryXReligion">Country X Religion</a></li>                   
+		            </ul>
+	            </li>
+		    </ul>
+
+		    <ul class="nav navbar-nav navbar-right">
+			    <li><a href="#/login">Login</a></li>
+			    <li class="dropdown" data-is-open="applicationsOpen">
+				    <a class="dropdown-toggle" data-toggle="dropdown" id="A3">Applications <span class="caret"></span></a>
+				    <ul class="dropdown-menu">
+					    <div data-ng-include="'../../app/core/views/application-list.html'"></div>
+				    </ul>
+			    </li>
+		    </ul>
+
+		    <div class="col-sm-2 col-md-2 pull-right">
+			    <form class="navbar-form" role="search">
+				    <div class="input-group">
+					    <input type="text" class="form-control" placeholder="Search" name="q">
+					    <div class="input-group-btn">
+						    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+					    </div>
+				    </div>
+			    </form>
+		    </div>
+
+	    </div>
+
+    </div>
+</div>

@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/app/BM/SystemAdmin/controllers/Gen/List
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=36434
+ListTableControllerGenerator.cs;4081622293;1;1463639006;|41669|4294967295
+ListTableControllerGenerator.tt;3233748589;2;1463639002;|41671|347933
+listTablefieldConfigurationBaseCtrl.js;1677569360;3;1463716309;|41670|347966

@@ -1,0 +1,61 @@
+<ol class='breadcrumb'>
+	<li class='active'>MSPA File Event Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>MSPA File Event Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='MSPAFileEventId' data-ng-model='EntityItem.MSPAFileEventId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Description:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Description' placeholder='Description' data-ng-model='EntityItem.Description'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Created By:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='CreatedBy' placeholder='CreatedBy' data-ng-model='EntityItem.CreatedBy'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Created On:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='CreatedOn' placeholder='CreatedOn' data-ng-model='EntityItem.CreatedOn'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>MSPA File:</label>
+		<div class='col-sm-10'>
+			<select class='form-control' ng-model='selectedMSPAFileItem' 
+					ng-options='srcItem.Filename for srcItem in MSPAFileList track by srcItem.MSPAFileId'>
+			</select>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Trading Event Type:</label>
+		<div class='col-sm-10'>
+			<select class='form-control' ng-model='selectedTradingEventTypeItem' 
+					ng-options='srcItem.Name for srcItem in TradingEventTypeList track by srcItem.TradingEventTypeId'>
+			</select>
+		</div>
+	</div>
+
+</div>

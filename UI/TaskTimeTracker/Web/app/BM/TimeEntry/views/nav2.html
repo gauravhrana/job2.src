@@ -1,0 +1,22 @@
+﻿<ul class="nav navbar-nav">
+	
+	<li class="main btn" ng-repeat="item in menu" ng-mouseover="showSubMenu(item, $index)"></li>
+
+	<li class="dropdown" data-is-open="reportOpen">
+		<a class="dropdown-toggle" data-toggle="dropdown" id="A2" class="dropdown-toggle" data-toggle="dropdown" data-toggle="dropdown">Reports<span class="caret"></span></a>
+		<ul class="dropdown-menu">
+			<li class="menu-item dropdown"><a href="/TimeEntry/Home/#/work-summary">Work Summary Report</a></li>
+			<li class="menu-item dropdown"><a href="/TimeEntry/Home/#/elapsed-time-data">Elapsed Time Data</a></li>
+		</ul>
+	</li>
+
+	<li class="dropdown" data-is-open="nOpen">
+		<a class="dropdown-toggle" data-toggle="dropdown" id="A7" class="dropdown-toggle" data-toggle="dropdown" data-toggle="dropdown">Beta Items<span class="caret"></span></a>
+		<ul class="dropdown-menu">
+            <li class="menu-item dropdown"><a href="/TimeEntry/Home/#/customTimeLog/search">Custom Time Log</a></li>
+			<li class="menu-item dropdown"><a href="/TimeEntry/Home/#/question/search2">Question ng-table</a></li>
+			<!--<li class="menu-item dropdown"><a href="/TimeEntry/Home/#/jira-list">JIRA List</a></li>-->
+		</ul>
+	</li>
+
+</ul>

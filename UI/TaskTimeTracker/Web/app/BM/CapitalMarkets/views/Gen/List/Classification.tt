@@ -1,0 +1,16 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V3\View\EntityListTableViewGeneratorHelper.tt" #>
+<#
+	this.RenderListTableViews(new string[]
+								{
+	"InvestmentType",
+	"AssetType",
+	"Sector",	
+	"SecurityClass",
+	"Security",
+	"SecurityType",
+	"SecurityTypeGroup",
+	"RecordType"  					
+	
+								}); 
+#>

@@ -1,0 +1,94 @@
+﻿
+
+
+@using DataModel.Framework.DataAccess
+@model List<Framework.Components.ReleaseLog.DomainModel.ReleaseNoteQualitativeDataModel>
+@{
+	ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+	@Html.ActionLink("Create New", "Create")
+	@using (Html.BeginForm("Index", "ReleaseNoteQualitative", FormMethod.Get))
+	{
+		<p>
+			Name: @Html.TextBox("SearchString")
+			<br />
+			<input type="submit" value="Filter" />
+		</p>
+	}
+</p>
+
+<table border="1" cellspacing="5" cellpadding="5">
+	<tr>
+		<th>
+			@Framework.Components.ReleaseLog.DomainModel.ReleaseNoteQualitativeDataModel.DataColumns.ReleaseNoteQualitativeId
+		</th>
+		<th>
+			@StandardDataModel.StandardDataColumns.Name
+		</th>
+		<th>
+			@StandardDataModel.StandardDataColumns.Description
+		</th>
+		<th>
+			@StandardDataModel.StandardDataColumns.SortOrder
+		</th>
+		<th>
+			@Framework.Components.ReleaseLog.DomainModel.ReleaseNoteQualitativeDataModel.DataColumns.DateCreated
+		</th>
+		<th>
+			@Framework.Components.ReleaseLog.DomainModel.ReleaseNoteQualitativeDataModel.DataColumns.CreatedByAuditId
+		</th>
+		<th>
+			@Framework.Components.ReleaseLog.DomainModel.ReleaseNoteQualitativeDataModel.DataColumns.DateModified
+		</th>
+		<th>
+			@Framework.Components.ReleaseLog.DomainModel.ReleaseNoteQualitativeDataModel.DataColumns.ModifiedByAuditId
+		</th>
+		<th>
+		</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@item.ReleaseNoteQualitativeId
+			</td>
+			<td>
+				@item.Name
+			</td>
+			<td>
+				@item.Description
+			</td>
+			<td>
+				@item.SortOrder
+			</td>
+			<td>
+				@item.DateCreated
+			</td>
+			<td>
+				@item.CreatedByAuditId
+			</td>
+			<td>
+				@item.DateModified
+			</td>
+			<td>
+				@item.ModifiedByAuditId
+			</td>
+			<td>
+				@Html.ActionLink("Edit", "Edit", new { id = item.ReleaseNoteQualitativeId })
+				|
+				@Html.ActionLink("Details", "Details", new { id = item.ReleaseNoteQualitativeId })
+				|
+				@Html.ActionLink("Delete", "Delete", new { id = item.ReleaseNoteQualitativeId })
+			</td>
+		</tr>
+	}
+	<tr>
+		<td colspan="5">
+			@Html.Partial("_Pager")
+		</td>
+	</tr>
+</table>

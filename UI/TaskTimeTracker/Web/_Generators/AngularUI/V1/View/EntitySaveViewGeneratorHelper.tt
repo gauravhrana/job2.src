@@ -1,0 +1,292 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ include file="../../../MultipleOutputFileHelper.tt" #>
+<#@ include file="../../../UtilityHelper.tt" #>
+
+<#+
+
+	void AddBreadCrumbForSaveView(string entityName)
+	{
+		WriteLine("<ol class='breadcrumb'>");
+		
+			PushIndent("\t");
+			WriteLine("<li class='active'>" + InsertSpaceInCamelCase(entityName) + " Details</li>");
+			PopIndent();
+
+		WriteLine("</ol>");
+	}
+
+	void AddButtonsForSaveView(string entityName)
+	{		
+		WriteLine(string.Empty);
+		WriteLine("<nav class='navbar navbar-default'>");
+			
+			PushIndent("\t");
+			WriteLine("<ul class='nav navbar-nav'>");
+				
+				PushIndent("\t");
+				WriteLine("<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>");
+				WriteLine("<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>");
+				WriteLine("<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>");
+				PopIndent();
+
+			WriteLine("</ul>");
+			PopIndent();
+
+		WriteLine("</nav>");
+	}
+
+	void AddInputControlsForSaveView(string entityName, PropertyInfo[] properties)
+	{
+		WriteLine(string.Empty);
+		WriteLine("<div class='form-horizontal'>");
+
+			PushIndent("\t");
+			int i=0;
+			foreach (var propInfo in properties)
+			{
+				if(propInfo.Name != "ApplicationId" && propInfo.Name != "EntityKey")
+				{					
+					var attributes = propInfo.GetCustomAttributes(false);
+					
+					var columnMappingPK = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.PrimaryKey));
+					var columnMappingFKName = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.ForeignKeyName));
+					var columnMappingFK = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.ForeignKey));
+					var columnMappingOnlyProperty = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.OnlyProperty));
+					var columnMappingSearchProperty = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.SearchProperty));
+					var columnMappingTime = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.DateTimeType));
+					var columnMappingAuditProperty = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.AuditProperty));
+
+					if(columnMappingPK != null)
+					{
+						WriteLine(string.Empty);
+						WriteLine("<div class='form-group'>");
+				
+							PushIndent("\t");
+							WriteLine("<label for='SummaryCode' class='col-sm-2 control-label'>" + InsertSpaceInCamelCase(propInfo.Name) + ":</label>");
+							WriteLine("<div class='col-sm-10'>");
+					
+								PushIndent("\t");
+								WriteLine("<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='" + propInfo.Name + "' data-ng-model='EntityItem." + propInfo.Name + "'>");
+								PopIndent();
+
+							WriteLine("</div>");
+							PopIndent();
+
+						WriteLine("</div>");
+					}
+					else if(columnMappingFKName != null)
+					{						 
+						var srcColumn = ((Framework.Components.DataAccess.ForeignKeyName)columnMappingFKName).SourceTextColumn; 
+						var joinColumn = ((Framework.Components.DataAccess.ForeignKeyName)columnMappingFKName).JoinColumn; 
+						var fkColumn = ((Framework.Components.DataAccess.ForeignKeyName)columnMappingFKName).ForiegnKeyColumn; 
+
+						WriteLine(string.Empty);
+						WriteLine("<div class='form-group'>");
+				
+							PushIndent("\t");
+							WriteLine("<label for='SummaryCode' class='col-sm-2 control-label'>" + InsertSpaceInCamelCase(propInfo.Name) + ":</label>");
+							WriteLine("<div class='col-sm-10'>");
+					
+								PushIndent("\t");
+								WriteLine("<select class='form-control'  style='float: left;width: 280px;' ng-model='selected" + propInfo.Name + "Item' ");
+								WriteLine("		ng-options='srcItem." + srcColumn + " for srcItem in " + propInfo.Name + "List track by srcItem." + joinColumn + "'/>");
+								WriteLine("<a href='#/{{moduleName}}/"+ propInfo.Name+"/search' target='_blank'><span class='glyphicon glyphicon-eye-open' style='float: left; margin-left:5px;'></span></a> ");
+								PopIndent();
+
+							WriteLine("</div>");
+							PopIndent();
+
+						WriteLine("</div>");
+					}
+					else if(columnMappingFK != null || (columnMappingSearchProperty !=null)){}
+					else if(columnMappingAuditProperty != null){
+					WriteLine(string.Empty);
+					WriteLine("<div class='form-group'>");
+				
+						PushIndent("\t");
+						WriteLine("<label for = '" + propInfo.Name + "' class='col-sm-2 control-label'>" + InsertSpaceInCamelCase(propInfo.Name) + ":</label>");
+						WriteLine("<div class='col-sm-10'>");
+					
+							PushIndent("\t");
+							WriteLine("{{EntityItem." + propInfo.Name + "}}");
+							PopIndent();
+
+						WriteLine("</div>");
+						PopIndent();
+
+					WriteLine("</div>");
+					}
+					else
+					{
+						WriteLine(string.Empty);
+						WriteLine("<div class='form-group'>");
+				
+							PushIndent("\t");
+							WriteLine("<label for='Name' class='col-sm-2 control-label'>" + InsertSpaceInCamelCase(propInfo.Name) + ":</label>");
+							WriteLine("<div class='col-sm-10'>");
+					
+								PushIndent("\t");
+								if(propInfo.PropertyType.ToString() == "System.Int32" || propInfo.PropertyType.ToString() == "System.Nullable`1[System.Int32]")
+								{
+									WriteLine("<input type='text' class='form-control' id='" + propInfo.Name + "' placeholder='" + propInfo.Name + "' data-ng-model='EntityItem." + propInfo.Name + "'>");
+								}
+								else
+								{
+									if(propInfo.PropertyType.ToString() == "System.DateTime" || propInfo.PropertyType.ToString() == "System.Nullable`1[System.DateTime]")
+									{
+										var columnTimeType = ((Framework.Components.DataAccess.DateTimeType)(columnMappingTime));
+
+										if(columnTimeType != null)
+											{
+												
+												PushIndent("\t");	
+												WriteLine("<div class='demo-section k-content'>");
+
+													PushIndent("\t");	
+													WriteLine("<input id='timepicker" + propInfo.Name + "'  style='width: 25%;' placeholder= '" + propInfo.Name + "' class='form-control' data-ng-model='EntityItem." + propInfo.Name + "'/>");	
+													PopIndent();
+
+												WriteLine("</div>");
+												PopIndent();
+
+													PushIndent("\t");	
+													WriteLine("<script>");
+
+														PushIndent("\t");
+														WriteLine("$(document).ready(function () {");
+														WriteLine("$('#timepicker" + propInfo.Name + "').kendoTimePicker();");
+														WriteLine("});");
+														PopIndent();
+
+													WriteLine("</script>");
+													PopIndent();											
+									
+											}
+											else
+											{
+
+											WriteLine("<script>");
+												PushIndent("\t");
+												WriteLine("function readCookie(name) {");
+												WriteLine("var nameEQ = name + '=';");
+												WriteLine("var ca = document.cookie.split(';');");
+												WriteLine("for (var i = 0; i < ca.length; i++) {");
+														PushIndent("\t");
+														WriteLine("var c = ca[i];");
+														WriteLine("while (c.charAt(0) == ' ') c = c.substring(1, c.length);");
+														WriteLine("if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);");
+														WriteLine("}");
+														WriteLine(" return null;");
+														PopIndent();
+												WriteLine("}");
+												WriteLine("$(document).ready(function () ");
+												WriteLine("{ ");
+												PushIndent("\t");
+													
+
+												if(i == 1)
+												{
+													WriteLine("var format = readCookie('DateFormat');");	
+													//WriteLine("format = format.replace('MM', 'mm');");									
+													WriteLine("format = format.replace('MM', 'mm').replace('M', 'm').replace('mmmm', 'MM').replace('mmm', 'M').replace('dddd', 'DD').replace('ddd', 'D').replace('yyyy', 'yy');");
+													WriteLine("$('#" + propInfo.Name + "').datepicker({dateFormat: format});");												
+													PopIndent();
+													WriteLine("});");
+													PopIndent();
+													WriteLine("</script>");
+
+													WriteLine("<input type='text' datepicker-popup='{{DateFormat}}' style='float: left;' class='form-control' id='" + propInfo.Name + "' placeholder='" + propInfo.Name + "' data-ng-model='EntityItem." + propInfo.Name + "'>");
+													WriteLine("<i class='k-icon k-i-calendar' ng-click='ChangeFormat()' style='float: left;'></i>");
+												}
+												else
+												{												
+												string ctrlName=propInfo.Name + i.ToString();
+
+													WriteLine("var format = readCookie('DateFormat');");	
+													//WriteLine("format = format.replace('MM', 'mm');");									
+													WriteLine("format = format.replace('MM', 'mm').replace('M', 'm').replace('mmmm', 'MM').replace('mmm', 'M').replace('dddd', 'DD').replace('ddd', 'D').replace('yyyy', 'yy');");
+													WriteLine("$('#" + ctrlName + "').datepicker({dateFormat: format});");												
+												PopIndent();
+												WriteLine("});");
+												PopIndent();
+												WriteLine("</script>");
+
+												WriteLine("<input type='text' datepicker-popup='{{NewDateFormat}}' style='float: left;' class='form-control' id='" + ctrlName + "' placeholder='" + propInfo.Name + "' data-ng-model='EntityItem." + propInfo.Name + "'>");
+												WriteLine("<i class='k-icon k-i-calendar' ng-click='ChangeNewFormat()' style='float: left;'></i>");
+											}
+											}
+											i++;
+									
+								}
+								else
+								{									
+									WriteLine("<input type='text' class='form-control' id='" + propInfo.Name + "' placeholder='" + propInfo.Name + "' data-ng-model='EntityItem." + propInfo.Name + "'>");
+								}
+							}
+							PopIndent();
+
+							WriteLine("</div>");
+							PopIndent();
+
+						WriteLine("</div>");
+					}
+				}
+			}
+			PopIndent();
+
+		WriteLine(string.Empty);
+		WriteLine("</div>");
+	}
+
+#>
+
+<#+
+
+	void RenderSaveView(string entityName, string dataModelNameSpace)
+	{
+		var className = entityName + "DataModel";
+		var classType = dataModelNameSpace + "." + className;
+		
+		//WriteLine("Class: " + className);
+		//WriteLine("Class Type: " + classType);
+
+		foreach (Assembly currentassembly in AppDomain.CurrentDomain.GetAssemblies()) 
+		{
+			var modelType = currentassembly.GetType(classType);
+			if(modelType != null)
+			{
+				var properties = modelType.GetProperties();
+
+				AddBreadCrumbForSaveView(entityName);
+				AddButtonsForSaveView(entityName);
+				AddInputControlsForSaveView(entityName, properties);
+
+				break;
+			}
+		}
+	}
+
+	void RenderSaveViews(string[] entities, string dataModelNameSpace)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+			foreach(string entityName in entities)
+			{	
+				manager.StartNewFile("save" + entityName + ".html");
+				this.RenderSaveView(entityName, dataModelNameSpace);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+#>

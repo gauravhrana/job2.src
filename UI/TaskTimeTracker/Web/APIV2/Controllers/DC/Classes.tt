@@ -1,0 +1,12 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.DayCare.dll" #>
+<#@ include file=".\..\..\..\_Generators\AngularUI\V2\ApiController\EntityAPIControllerGeneratorHelper.tt" #>
+<#
+	this.RenderAPIControllers(new string[]
+		{
+			"CourseInstance",
+			"SubjectMatter"
+		}
+			, "Web.Api.Controllers", "DataModel.DayCare"
+			, "DayCare.Components.BusinessLayer");
+#>

@@ -1,0 +1,298 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(TargetDir)\Framework.Components.DataAccess.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Framework.Components.DataAccess" #>
+<#@ import namespace="Framework.Components.DataAccess.DataModel" #>
+<#@ include file="../../../MultipleOutputFileHelper.tt" #>
+<#@ include file="../../../UtilityHelper.tt" #>
+<#+
+
+	void AddUsingStatements(string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		WriteLine("using System;");
+		WriteLine("using System.Collections.Generic;");
+		WriteLine("using System.Data;");
+		WriteLine("using System.Linq;");
+		WriteLine("using Shared.WebCommon.UI.Web;");		
+		WriteLine("using Newtonsoft.Json;");
+		WriteLine("using " + dataModelNameSpace + ";");
+		WriteLine("using " + dataManagerNameSpace + ";");
+		WriteLine("using Framework.Components.DataAccess;");
+		WriteLine("using Framework.Components.UserPreference;");
+		WriteLine("using Shared.UI.Web;");
+		WriteLine("using System.Web.Http;");
+	}
+
+	void AddGetListMethod(string entityName, PropertyInfo[] properties)
+	{
+		WriteLine(string.Empty);
+		WriteLine("// GET api/summary/GetList");
+		WriteLine("public IEnumerable<" + entityName + "DataModel> GetList(string value, string value1)");
+		WriteLine("{");
+
+			PushIndent("\t");
+			WriteLine("var settingCategory = value1;");
+            WriteLine("var searchString = value;");
+
+			WriteLine(string.Empty);
+            WriteLine("var dictionaryObject = JsonConvert.DeserializeObject<Dictionary<string, string>>(searchString);");
+
+			var isDateTimeInSearchExists = false;
+
+			foreach (var propInfo in properties)
+			{
+				var attributes = propInfo.GetCustomAttributes(false);
+				var columnMapping2 = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.DateRange));
+				if(columnMapping2 != null)
+				{
+					var searchColumn = ((Framework.Components.DataAccess.DateRange)columnMapping2).SearchColumn;
+					if (string.IsNullOrEmpty(searchColumn)) searchColumn = propInfo.Name;
+
+					WriteLine(string.Empty);
+					WriteLine("var " + searchColumn + "Value = string.Empty;");
+
+					//var fromSearchColumn = ((Framework.Components.DataAccess.DateRange)columnMapping2).FromSearchColumn;
+					//var toSearchColumn = ((Framework.Components.DataAccess.DateRange)columnMapping2).ToSearchColumn; 
+
+					//WriteLine(" ,	" + fromSearchColumn + "           = dataQuery." + fromSearchColumn);
+					//WriteLine(" ,	" + toSearchColumn + "           = dataQuery." + toSearchColumn);
+
+					WriteLine("if (dictionaryObject.Keys.Contains(\"" + searchColumn + "\"))");
+					WriteLine("{");
+
+						PushIndent("\t");
+						WriteLine(searchColumn + "Value = dictionaryObject[\"" + searchColumn + "\"];");
+						WriteLine("dictionaryObject[\"" + searchColumn + "\"] = string.Empty;");
+						PopIndent();
+
+					WriteLine("}");
+
+					isDateTimeInSearchExists = true;
+				}
+			}
+
+			if(isDateTimeInSearchExists)
+			{
+				WriteLine(string.Empty);
+				WriteLine("value = JsonConvert.SerializeObject(dictionaryObject);");
+			}
+
+			WriteLine(string.Empty);
+            WriteLine("var dataQuery = JsonConvert.DeserializeObject<" + entityName + "DataModel>(value);");
+
+			if(isDateTimeInSearchExists)
+			{
+				foreach (var propInfo in properties)
+				{
+					var attributes = propInfo.GetCustomAttributes(false);
+					var columnMapping2 = attributes.FirstOrDefault(a => a.GetType() == typeof(Framework.Components.DataAccess.DateRange));
+					if(columnMapping2 != null)
+					{
+						var searchColumn = ((Framework.Components.DataAccess.DateRange)columnMapping2).SearchColumn;
+						if (string.IsNullOrEmpty(searchColumn)) searchColumn = propInfo.Name;
+
+						var fromSearchColumn = ((Framework.Components.DataAccess.DateRange)columnMapping2).FromSearchColumn;
+						var toSearchColumn = ((Framework.Components.DataAccess.DateRange)columnMapping2).ToSearchColumn; 
+						
+						WriteLine("if (dictionaryObject.Keys.Contains(\"" + searchColumn + "\"))");
+						WriteLine("{");
+							
+							PushIndent("\t");
+							WriteLine("var tmpArr = " + searchColumn + "Value.Split(new char[]{ '&' });");
+
+							WriteLine(string.Empty);
+							WriteLine("var fromDateValue = tmpArr[0];");
+							WriteLine("var toDateValue = tmpArr[1];");
+							WriteLine("var preFilledItem = tmpArr[2];");
+
+							WriteLine(string.Empty);
+							WriteLine("if (preFilledItem != \"Custom\" && string.IsNullOrEmpty(fromDateValue) && string.IsNullOrEmpty(toDateValue))");
+							WriteLine("{");
+
+								PushIndent("\t");
+								WriteLine("var ranges = DateRangeHelper.FillUpDate(value, SessionVariables.UserDateFormat);");
+								WriteLine("fromDateValue = ranges[0];");
+								WriteLine("toDateValue = ranges[1];");
+								PopIndent();
+
+							WriteLine("}");
+
+							WriteLine(string.Empty);
+							WriteLine("dataQuery." + fromSearchColumn + " = DateTimeHelper.FromUserDateFormatToDate(fromDateValue);");
+							WriteLine("dataQuery." + toSearchColumn + " = DateTimeHelper.FromUserDateFormatToDate(toDateValue);");
+
+							WriteLine("dictionaryObject[\"" + searchColumn + "\"] = DateTimeHelper.FromUserDateFormatToApplicationDateFormat(fromDateValue) + \"&\"");
+							WriteLine("									+ DateTimeHelper.FromUserDateFormatToApplicationDateFormat(toDateValue) + \"&\"");
+							WriteLine("									+ preFilledItem + \"&\";");
+
+							PopIndent();
+
+						WriteLine("}");
+					}
+				}
+			}
+                        
+			WriteLine(string.Empty);
+            WriteLine("// save search filter parameters in user preference");
+            WriteLine("if (dictionaryObject != null)");
+            WriteLine("{");
+				
+				PushIndent("\t");
+                WriteLine("foreach (var searchFilterColumnName in dictionaryObject.Keys)");
+                WriteLine("{");
+					
+					PushIndent("\t");
+                    WriteLine("var searchFilterValue = dictionaryObject[searchFilterColumnName];");
+                    WriteLine("PreferenceUtility.UpdateUserPreference(settingCategory, searchFilterColumnName, dictionaryObject[searchFilterColumnName]);");
+					PopIndent();
+
+                WriteLine("}");
+				PopIndent();
+
+            WriteLine("}");
+			
+			WriteLine(string.Empty);
+			WriteLine("return " + entityName + "DataManager.GetEntityDetails(dataQuery, SessionVariables.RequestProfile);");
+			PopIndent();
+
+		WriteLine("}");		
+	}
+
+	void AddGetByIdMethod(string entityName)
+	{
+		WriteLine(string.Empty);
+		WriteLine("public " + entityName + "DataModel GetById(string value)");
+		WriteLine("{");
+			
+			PushIndent("\t");
+			WriteLine("var dataQuery = new " + entityName + "DataModel();");
+			WriteLine("dataQuery." + entityName + "Id = int.Parse(value);");
+			
+			WriteLine(string.Empty);
+			WriteLine("var result = " + entityName + "DataManager.GetEntityDetails(dataQuery, SessionVariables.RequestProfile, 1);");
+			WriteLine("return result[0];");
+			PopIndent();
+
+		WriteLine("}");
+	}
+
+	void AddCreateMethod(string entityName)
+	{
+		WriteLine(string.Empty);
+		WriteLine("[HttpPost]");
+		WriteLine("public void Create([FromBody]dynamic data)");
+		WriteLine("{");
+			
+			PushIndent("\t");
+
+			WriteLine("var jsonString = JsonConvert.SerializeObject(data);");
+            WriteLine("var dataCreate = JsonConvert.DeserializeObject<" + entityName + "DataModel>(jsonString);");
+
+			WriteLine(string.Empty);
+            WriteLine("dataCreate.ApplicationId = SessionVariables.RequestProfile.ApplicationId;");
+
+			WriteLine(string.Empty);
+			WriteLine(entityName + "DataManager.Create(dataCreate, SessionVariables.RequestProfile);");
+			PopIndent();
+
+		WriteLine("}");
+	}
+
+	void AddUpdateMethod(string entityName)
+	{
+		WriteLine(string.Empty);
+		WriteLine("[HttpPost]");
+		WriteLine("public void Update([FromBody]dynamic data)");
+		WriteLine("{");
+			
+			PushIndent("\t");
+			WriteLine("var jsonString = JsonConvert.SerializeObject(data);");
+            WriteLine("var dataUpdate = JsonConvert.DeserializeObject<" + entityName + "DataModel>(jsonString);");
+			WriteLine("" + entityName + "DataManager.Update(dataUpdate, SessionVariables.RequestProfile);");
+			PopIndent();
+
+		WriteLine("}");
+	}
+
+	void AddDeleteMethod(string entityName)
+	{
+		WriteLine(string.Empty);
+		WriteLine("[System.Web.Http.AcceptVerbs(\"DELETE\", \"GET\", \"POST\")]");
+		WriteLine("public void Delete(string value)");
+		WriteLine("{");
+			
+			PushIndent("\t");
+			WriteLine("var dataDelete = new " + entityName + "DataModel();");
+			WriteLine("dataDelete." + entityName + "Id = int.Parse(value);");
+			WriteLine("" + entityName + "DataManager.Delete(dataDelete, SessionVariables.RequestProfile);");
+			PopIndent();
+
+		WriteLine("}");
+	}
+#>
+
+<#+
+
+	void RenderAPIController(string entityName, string controllerNameSpace, string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		var className = entityName + "DataModel";
+		var classType = dataModelNameSpace + "." + className;
+		
+		//WriteLine("Class: " + className);
+		//WriteLine("Class Type: " + classType);
+
+		foreach (Assembly currentassembly in AppDomain.CurrentDomain.GetAssemblies()) 
+		{
+			var modelType = currentassembly.GetType(classType);
+			if(modelType != null)
+			{
+				var properties = modelType.GetProperties();
+		
+				AddUsingStatements(dataModelNameSpace, dataManagerNameSpace);
+
+				WriteLine(string.Empty);
+
+				WriteLine("namespace " + controllerNameSpace);
+				WriteLine("{");
+			
+					PushIndent("\t");
+					WriteLine("//[Authorize]");
+					WriteLine("public class " + entityName + "Controller : ApiController");
+					WriteLine("{");
+		
+						PushIndent("\t");
+						AddGetListMethod(entityName, properties);
+						AddGetByIdMethod(entityName);
+						AddCreateMethod(entityName);
+						AddUpdateMethod(entityName);
+						AddDeleteMethod(entityName);
+						PopIndent();
+				
+					WriteLine("}");
+					PopIndent();
+
+				WriteLine("}");
+			}
+		}
+	}
+
+	void RenderAPIControllers(string[] entities, string controllerNameSpace, string dataModelNameSpace, string dataManagerNameSpace)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+			foreach(string entityName in entities)
+			{	
+				manager.StartNewFile(entityName + "Controller.cs");
+				this.RenderAPIController(entityName, controllerNameSpace, dataModelNameSpace, dataManagerNameSpace);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+#>

@@ -1,0 +1,15 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.CapitalMarkets.dll" #>
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V1\View\EntityDetailViewGeneratorHelper.tt" #>
+<#
+		this.RenderDetailViews(	new string[]
+									{
+	"MSPAFile",
+	"MSPAFileEvent",
+	"TradingEventType",
+	"MSPAFileEventType",
+	
+									},								 
+								"DataModel.CapitalMarkets"
+							);
+#>

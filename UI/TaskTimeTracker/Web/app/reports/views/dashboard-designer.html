@@ -1,0 +1,83 @@
+﻿<div class="page-header"><h3>Dashboard Designer</h3></div>
+
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+        <li><a data-ng-href="#/dashboards" title="Back"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a></li>
+        <li><a data-ng-click="showDashboardAssistant();"><span class="fa fa-magic"></span> Assistant</a></li>
+        <li><a data-ng-click="save();"><span class="glyphicon glyphicon-floppy-disk"></span> Save</a></li>
+        
+        <li><a data-ng-click="delete();"><span class="glyphicon glyphicon-remove"></span> Delete</a></li>
+    </ul>
+</nav>   
+
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <label for="code" class="col-sm-2 control-label">Code</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="code" placeholder="Code" data-ng-model="dashboard.DashboardCode"/>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="description" class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" id="description" placeholder="Description" data-ng-model="dashboard.Description" rows="3"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="layout" class="col-sm-2 control-label">Layout</label>
+        <div class="col-sm-10">
+            <select name="layout" class="form-control" data-ui-select2="" data-ng-model="dashboard.DashboardLayoutCode">
+                <option value=""></option>
+                <option ng-repeat="(key, structure) in structures" value="{{key}}">{{key}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="row">
+    <div class="col-md-2">
+        <accordion close-others="false">
+            <accordion-group is-open="accordionStatus.parametersIsOpen">
+                <accordion-heading>Parameters</accordion-heading>
+                <div>
+                    <a href="" ng-click="addParameter()"><span class="glyphicon glyphicon-plus"></span> Add Parameter</a>
+                    <div ng-repeat="parameter in dashboard.Parameters">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="" ng-click="editParameter(parameter)"><small>{{parameter.DashboardParameterCode}}</small></a>
+                    </div>
+                </div>
+            </accordion-group>
+
+            <accordion-group is-open="accordionStatus.datasetsIsOpen">
+                <accordion-heading>Datasets</accordion-heading>
+                <div>
+                    <a href="" ng-click="addDataset()"><span class="glyphicon glyphicon-plus"></span> Add Dataset</a>
+                    <div ng-repeat="dataset in dashboard.Datasets">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="" ng-click="editDataset(dataset)"><small>{{dataset.DashboardDatasetCode}}</small></a>
+                    </div>
+                </div>
+            </accordion-group>
+
+            <accordion-group is-open="accordionStatus.widgetsIsOpen">
+                <accordion-heading>Widgets</accordion-heading>
+                <div><a href="" ng-click="addGridWidget()">Grid</a></div>
+                <div><a href="" ng-click="addTableWidget()">Table</a></div>
+                <div><a href="" ng-click="addBarChartWidget()">Bar Chart</a></div>
+                <div><a href="" ng-click="addLineChartWidget()">Line Chart</a></div>
+            </accordion-group>
+        </accordion>
+    </div>
+        
+
+    <div class="col-md-10">
+        <adf-dashboard adf-model="dashboardModel" />
+    </div>
+</div>

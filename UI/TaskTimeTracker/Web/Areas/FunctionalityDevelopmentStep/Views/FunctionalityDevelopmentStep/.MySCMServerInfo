@@ -1,0 +1,9 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Areas/FunctionalityDevelopmentStep/Views/FunctionalityDevelopmentStep
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=20831
+Create.cshtml;2381593886;1;1397106310;|17801|4294967295
+Details.cshtml;1644566750;2;1397672355;|17802|187326
+Edit.cshtml;2209817853;2;1397672620;|17799|187327
+Delete.cshtml;3722325257;2;1397672439;|17800|187329
+Index.cshtml;474051363;3;1403577958;|17798|204713

@@ -1,0 +1,31 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.ReferenceData.dll" #>
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V1\Controller\EntitySaveControllerGeneratorHelper.tt" #>
+<# 
+	this.RenderSaveControllers(new string[]{"Continent"	
+		, "Country"
+		, "Currency"
+		, "GeographicRegion"
+		, "Religion"
+		, "Airport" 
+		, "City" 
+		, "HelpLine"
+		, "Mall"
+		, "Monument"
+		, "Region" 
+		, "State"
+		, "TimeZone"
+		, "TrainStation"
+		, "Calendar"
+		, "Holiday"
+		, "PersonSuffix"		 
+		, "Ethnicity" 
+		, "Address"
+		, "ProvinceType"	
+		, "Province"
+		, "Gender"		
+					
+	},								 
+								"DataModel.ReferenceData"
+							);
+#>

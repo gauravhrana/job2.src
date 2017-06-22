@@ -1,0 +1,18 @@
+﻿@model List<DataModel.TaskTimeTracker.ApplicationDevelopment.FunctionalityXFunctionalityDevelopmentStepDataModel>
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Functionality X FunctionalityDevelopmentStep</legend>
+
+    @Html.DisplayFor(Model => Model)
+
+</fieldset>
+
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = @Model.FunctionalityXFunctionalityDevelopmentStepId }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

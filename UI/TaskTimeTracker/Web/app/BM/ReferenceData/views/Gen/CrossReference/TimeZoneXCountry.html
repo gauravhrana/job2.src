@@ -1,0 +1,66 @@
+<ol class='breadcrumb'>
+	<li class='active'>{{entityDisplayName}}</li>
+</ol>
+
+<div class='panel panel-info'>
+
+	<div class='form-horizontal'>
+
+		<div class='form-group'>
+			<label class='col-sm-2 control-label'>Direction:</label>
+			<div class='col-sm-4'>
+				<select class='form-control' ng-model='sourceEntity' ng-change='resetSourceEntity()'>
+					<option selected='selected' value='TimeZone'>TimeZone To Country</option>
+					<option value='Country'>Country To TimeZone</option>
+				</select>
+			</div>
+			<div class='col-sm-6'></div>
+		</div>
+
+		<div class='form-group'>
+			<label class='col-sm-2 control-label'>{{sourceEntity}}:</label>
+			<div class='col-sm-4'>
+				<select class='form-control' ng-model='sourceEntityItem'  ng-change='loadTargetEntity()'
+						ng-options='srcItem.Text for srcItem in sourceEntityList track by srcItem.EntityKey'>
+				</select>
+			</div>
+			<div class='col-sm-6'></div>
+		</div>
+
+		<div class='form-group'>
+			<div class='col-sm-4'>
+				<label class='col-sm-12 control-label text-left'>Possible {{targetEntity}}(s):</label>
+				<div class='col-sm-12'>
+					<select class='form-control' multiple ng-model='possibleTargetEntityItems' size='10'
+							ng-options='targetItem.Text for targetItem in possibleTargetEntityList track by targetItem.EntityKey'>
+					</select>
+				</div>
+				<div class='col-sm-12 text-center'>
+					<button type='button' value='-->' class='btn btn-default' ng-click='moveRight();'><b>--></b></button>
+				</div>
+			</div>
+			<div class='col-sm-4'>
+				<label class='col-sm-12 control-label text-left'>Currently Associated {{targetEntity}}(s):</label>
+				<div class='col-sm-12'>
+					<select class='form-control' multiple ng-model='assignedTargetEntityItems' size='10'
+							ng-options='targetItem.Text for targetItem in assignedTargetEntityList track by targetItem.EntityKey'>
+					</select>
+				</div>
+				<div class='col-sm-12  text-center'>
+					<button type='button' value='<--' class='btn btn-default' ng-click='moveLeft();'><b><--</b></button>
+				</div>
+			</div>
+			<div class='col-sm-4'></div>
+		</div>
+
+		<div class='form-group'>
+			<div class='col-sm-8'>
+				<div class=' pull-right'>
+					<button type='submit' value='Save' class='btn btn-default' ng-click='saveEntityRecords();'>Save</button>
+					<button type='reset' value='Reset' class='btn btn-default' ng-click='loadTargetEntity();'>Reset</button>
+				</div>
+			</div>
+			<div class='col-sm-4'></div>
+		</div>
+	</div>
+</div>

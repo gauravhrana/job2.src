@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Areas/ReleaseNoteQualitative/Views/ReleaseNoteLogisticsDifficulty
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=19965
+Create.cshtml;3078025437;2;1394430775;|16376|164712
+Delete.cshtml;2916224575;2;1394430775;|16375|168481
+Details.cshtml;3368642199;2;1394430775;|16374|168482
+Edit.cshtml;3004908642;2;1394430775;|16372|168483
+Index.cshtml;1377075118;9;1403281457;|16373|204585
+Index2.cshtml;2258327866;3;1405911730;|16502|215143

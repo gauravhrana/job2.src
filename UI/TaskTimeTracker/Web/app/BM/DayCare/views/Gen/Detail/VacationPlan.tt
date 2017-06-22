@@ -1,0 +1,11 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.TaskTimeTracker.dll" #>
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V1\View\EntityDetailViewGeneratorHelper.tt" #>
+<#
+		this.RenderDetailViews(	new string[]
+	{
+				"VacationPlan"	 
+	},								 
+								"DataModel.TaskTimeTracker"
+							);
+#>

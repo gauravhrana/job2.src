@@ -1,0 +1,101 @@
+<ol class='breadcrumb'>
+	<li class='active'>Security X Identifier Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='save();'><span class='glyphicon glyphicon-floppy-disk'></span>Save</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Security X Identifier Id:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' name='SummaryCode' ng-disabled='true' placeholder='SecurityXIdentifierId' data-ng-model='EntityItem.SecurityXIdentifierId'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Ticker:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='Ticker' placeholder='Ticker' data-ng-model='EntityItem.Ticker'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>CUSIP:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='CUSIP' placeholder='CUSIP' data-ng-model='EntityItem.CUSIP'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>SEDOL:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='SEDOL' placeholder='SEDOL' data-ng-model='EntityItem.SEDOL'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>ISIN:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='ISIN' placeholder='ISIN' data-ng-model='EntityItem.ISIN'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>WKN:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='WKN' placeholder='WKN' data-ng-model='EntityItem.WKN'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Alt ID1:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='AltID1' placeholder='AltID1' data-ng-model='EntityItem.AltID1'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Alt ID2:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='AltID2' placeholder='AltID2' data-ng-model='EntityItem.AltID2'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Alt ID3:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='AltID3' placeholder='AltID3' data-ng-model='EntityItem.AltID3'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Alt ID4:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='AltID4' placeholder='AltID4' data-ng-model='EntityItem.AltID4'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='Name' class='col-sm-2 control-label'>Alt ID5:</label>
+		<div class='col-sm-10'>
+			<input type='text' class='form-control' id='AltID5' placeholder='AltID5' data-ng-model='EntityItem.AltID5'>
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for='SummaryCode' class='col-sm-2 control-label'>Security:</label>
+		<div class='col-sm-10'>
+			<select class='form-control' ng-model='selectedSecurityItem' 
+					ng-options='srcItem.Name for srcItem in SecurityList track by srcItem.SecurityId'>
+			</select>
+		</div>
+	</div>
+
+</div>

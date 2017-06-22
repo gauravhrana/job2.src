@@ -1,0 +1,15 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\..\..\..\Generators\Generators.UI\AngularUI\CrossReference\APIController\APIControllerGeneratorHelper.tt" #>
+<#
+	this.RenderAPIControllers(
+			new string[]
+			{
+					"HolidayXCountry"								
+			}
+		,	"Web.Api.Controllers"
+		,	"DataModel.ReferenceData"
+		,	"DayCare.Components.BusinessLayer" 		
+	);
+#>
+
+//

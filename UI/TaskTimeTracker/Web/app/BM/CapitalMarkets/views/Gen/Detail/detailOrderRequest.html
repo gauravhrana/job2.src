@@ -1,0 +1,70 @@
+<ol class='breadcrumb'>
+	<li class='active'>Order Request Details</li>
+</ol>
+
+<nav class='navbar navbar-default'>
+	<ul class='nav navbar-nav'>
+		<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>
+		<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>
+	</ul>
+</nav>
+
+<div class='form-horizontal'>
+
+	<div class='form-group'>
+		<label for = 'OrderRequestId' class='col-sm-2 control-label'>Order Request Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.OrderRequestId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'EventDate' class='col-sm-2 control-label'>Event Date:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.EventDate}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Notes' class='col-sm-2 control-label'>Notes:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Notes}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'LastModifiedBy' class='col-sm-2 control-label'>Last Modified By:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.LastModifiedBy}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'LastModifiedOn' class='col-sm-2 control-label'>Last Modified On:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.LastModifiedOn}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'ParentOrderRequestId' class='col-sm-2 control-label'>Parent Order Request Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.ParentOrderRequestId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'PortfolioId' class='col-sm-2 control-label'>Portfolio Id:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.PortfolioId}}
+		</div>
+	</div>
+
+	<div class='form-group'>
+		<label for = 'Portfolio' class='col-sm-2 control-label'>Portfolio:</label>
+		<div class='col-sm-10'>
+			{{EntityItem.Portfolio}}
+		</div>
+	</div>
+
+</div>

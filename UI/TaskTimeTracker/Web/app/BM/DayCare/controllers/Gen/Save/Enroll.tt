@@ -1,0 +1,17 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(TargetDir)\DataModel.DayCare.dll" #>
+<#@ include file=".\..\..\..\..\..\..\_Generators\AngularUI\V1\Controller\EntitySaveControllerGeneratorHelper.tt" #>
+<#
+	this.RenderSaveControllers(	new string[]
+			{ 
+					"Registration" 
+				,	"Student" 
+				,	"Teacher"
+	
+			}
+		,	"DataModel.DayCare"
+	);
+#>
+
+	
+	 

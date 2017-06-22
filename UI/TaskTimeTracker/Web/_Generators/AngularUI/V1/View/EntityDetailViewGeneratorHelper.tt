@@ -1,0 +1,120 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Reflection" #>
+<#@ include file="../../../MultipleOutputFileHelper.tt" #>
+<#@ include file="../../../UtilityHelper.tt" #>
+<#+
+
+	void AddBreadCrumbForDetailView(string entityName)
+	{
+		WriteLine("<ol class='breadcrumb'>");
+		
+			PushIndent("\t");
+			WriteLine("<li class='active'>" + InsertSpaceInCamelCase(entityName) + " Details</li>");
+			PopIndent();
+
+		WriteLine("</ol>");
+	}
+
+	void AddButtonsForDetailView(string entityName)
+	{		
+		WriteLine(string.Empty);
+		WriteLine("<nav class='navbar navbar-default'>");
+			
+			PushIndent("\t");
+			WriteLine("<ul class='nav navbar-nav'>");
+				
+				PushIndent("\t");
+				WriteLine("<li><a data-ng-href='#/{{entityUrl}}/search' title='Back'><span class='glyphicon glyphicon-circle-arrow-left'></span>Back</a></li>");
+				WriteLine("<li><a data-ng-click='delete();'><span class='glyphicon glyphicon-remove'></span>Delete</a></li>");
+				PopIndent();
+
+			WriteLine("</ul>");
+			PopIndent();
+
+		WriteLine("</nav>");
+	}
+
+	void AddInputControlsForDetailView(PropertyInfo[] properties)
+	{
+		WriteLine(string.Empty);
+		
+		WriteLine("<div class='form-horizontal'>");
+			
+			PushIndent("\t");
+			foreach (var propInfo in properties)
+			{
+				if(propInfo.Name != "ApplicationId" && propInfo.Name != "EntityKey")
+				{
+					WriteLine(string.Empty);
+					WriteLine("<div class='form-group'>");
+				
+						PushIndent("\t");
+						WriteLine("<label for = '" + propInfo.Name + "' class='col-sm-2 control-label'>" + InsertSpaceInCamelCase(propInfo.Name) + ":</label>");
+						WriteLine("<div class='col-sm-10'>");
+					
+							PushIndent("\t");
+							WriteLine("{{EntityItem." + propInfo.Name + "}}");
+							PopIndent();
+
+						WriteLine("</div>");
+						PopIndent();
+
+					WriteLine("</div>");
+				}
+			}
+			PopIndent();
+	
+		WriteLine(string.Empty);
+		WriteLine("</div>");
+
+	}
+
+#>
+
+<#+
+
+	void RenderDetailView(string entityName, string dataModelNameSpace)
+	{
+		var className = entityName + "DataModel";
+		var classType = dataModelNameSpace + "." + className;
+		
+		//WriteLine("Class: " + className);
+		//WriteLine("Class Type: " + classType);
+
+		foreach (Assembly currentassembly in AppDomain.CurrentDomain.GetAssemblies()) 
+		{
+			var modelType = currentassembly.GetType(classType);
+			if(modelType != null)
+			{
+				var properties = modelType.GetProperties();
+				
+				AddBreadCrumbForDetailView(entityName);
+				AddButtonsForDetailView(entityName);
+				AddInputControlsForDetailView(properties);
+
+				break;
+			}
+		}
+	}	
+
+	void RenderDetailViews(string[] entities, string dataModelNameSpace)
+	{
+		if(entities != null && entities.Length > 0)
+		{	
+			var manager = Manager.Create(Host, GenerationEnvironment);
+			foreach(string entityName in entities)
+			{	
+				manager.StartNewFile("detail" + entityName + ".html");
+				this.RenderDetailView(entityName, dataModelNameSpace);
+			}
+
+			manager.Process(true);
+		}
+	}
+
+#>
