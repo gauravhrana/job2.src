@@ -1,0 +1,17 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Configuration/AEFLModeCategoryXApplicationModeXAEFLMode/Controls
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=12599
+SearchFilter.ascx.designer.cs;1649208444;1;1365185552;
+SearchFilter.ascx.cs;1159665410;1;1365193581;
+List.ascx.designer.cs;2433135328;1;1365184925;
+List.ascx.cs;435661217;1;1365185310;
+Generic.ascx.designer.cs;3305714496;1;1365181811;
+Details.ascx.designer.cs;2549512662;1;1365180671;
+Details.ascx.cs;3217867194;1;1365181208;
+Validation.xml;4042849965;1;1365186312;
+SearchFilter.ascx;2980962596;1;1365185558;
+List.ascx;943350131;1;1365185113;
+Generic.ascx;4011137232;1;1365181819;
+Details.ascx;3603763001;1;1365180676;
+Generic.ascx.cs;608995006;1;1365194701;

@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/ApplicationManagement/Development/ActivityStream
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=5533
+Default.aspx.cs;3278812224;3;1394430866;|1538|156690
+Default.aspx.designer.cs;2577061761;2;1394430866;|1539|156691
+Settings.aspx.designer.cs;1151953831;1;1394430866;|9343|73267
+Default.aspx;2732514362;5;1401678839;|1537|198512
+Settings.aspx;2347500630;5;1416278428;|9344|276477
+Settings.aspx.cs;3280742608;3;1469426679;|9342|352189

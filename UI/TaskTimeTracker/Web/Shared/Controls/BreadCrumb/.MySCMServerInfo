@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Controls/BreadCrumb
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=12966
+BreadCrumb.ascx.designer.cs;2423338512;4;1394430889;|8500|132203
+BreadCrumb.ascx;3450643179;7;1450668901;|8501|338904
+BreadCrumb.ascx.cs;3576794361;51;1496151322;|8499|358879

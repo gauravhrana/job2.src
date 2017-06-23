@@ -1,0 +1,13 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/QualityAssurance/FunctionalityEntityStatusArchive/Controls
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=10381
+Details.ascx.designer.cs;2640217546;2;1394430897;|4968|28364
+List.ascx.cs;2528467383;5;1394430897;|4967|141091
+List.ascx.designer.cs;1383014171;1;1394430897;|4966|13313
+List.ascx;1541742135;2;1401244948;|4971|193924
+Details.ascx;3790746027;7;1401678846;|4970|200400
+Details.ascx.cs;195451206;12;1401678846;|4969|200401
+SearchFilter.ascx;1261277837;12;1405544893;|4972|213409
+SearchFilter.ascx.cs;1370729046;17;1405544893;|4973|213410
+SearchFilter.ascx.designer.cs;2111630740;5;1405544893;|4965|213411

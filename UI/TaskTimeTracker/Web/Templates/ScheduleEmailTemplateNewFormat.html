@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+     table { 
+ color: #333;
+
+ font-family: Helvetica, Arial, sans-serif;
+ width: 100%;
+border-collapse: 
+ collapse; border-spacing: 0; 
+}
+    
+td, th { 
+ /* No more visible border */
+ height: 30px; 
+ transition: all 0.3s;  /* Simple transition for hover effect */
+}
+
+th {
+ background: #DFDFDF;  /* Darken header a bit */
+ font-weight: bold;
+}
+
+.even td, .even th {
+    background-color: #F1F1F1;
+}
+.odd td, .odd th {
+   background-color: #FEFFFF;
+}
+.width-seperator {height:10px;}
+
+.header-seperator {border-right : 1px dashed #a9a9a9;}
+
+table.dash {
+   border: 1px dashed #cccccc;
+   border-collapse: collapse;
+}
+table.dash td {
+   border: 1px dashed #cccccc;
+}
+
+    </style>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
+</head>
+<body>
+        <table class="tableCellBorder" style="border-collapse: collapse" width="100%">
+        <tr>
+            <td class="tableCellBorder" colspan="2" width="100%">
+                <table class="tableCellBorder">
+                    <tr class="text-left" style="vertical-align: top">
+                        <td class="tableCellBorder col-sm-2" align="right" valign="top" style="white-space: nowrap;"><b>Team Member: </b></td>
+                        <td class="tableCellBorder col-sm-4" align="left" valign="top">##PersonName##</td>
+                        <td class="tableCellBorder col-sm-2" align="right" valign="top"><b>Date: </b></td>
+                        <td class="tableCellBorder col-sm-2" align="left" style="width: 500px">##WorkDate##</td>
+                    </tr>
+
+                    <tr class="text-left" style="vertical-align: top">
+                        <td class="tableCellBorder col-sm-2" align="right" valign="top"><b>Started: </b></td>
+                        <td class="tableCellBorder col-sm-4" align="left">##StartTime##</td>
+                        <td class="tableCellBorder col-sm-2" align="right" valign="top"><b>Open/Closed:</b></td>
+                        <td class="tableCellBorder col-sm-2" align="left" style="width: 500px" valign="top">##TicketHours##</td>
+                    </tr>
+
+                    <tr class="text-left" style="vertical-align: top">
+                        <td class="tableCellBorder col-sm-2" align="right" valign="top" style="white-space: nowrap;"><b>Hours Worked: </b></td>
+                        <td class="tableCellBorder col-sm-4" align="left" style="width: 700px;" valign="top">##TotalHrs##</td>
+                        <td class="tableCellBorder col-sm-2" align="right" valign="top"><b>JIRA: </b></td>
+                        <td class="tableCellBorder col-sm-2" align="left" style="width: 500px">##CurrentDate##</td>
+                    </tr>
+                    
+                    <tr class="text-left" style="vertical-align: top">
+                        <td class="tableCellBorder col-sm-2" align="right" valign="top" style="white-space: nowrap;"><b>Next Working Day: </b></td>
+                        <td class="tableCellBorder col-sm-2" align="left" colspan="3">##NextWorkingDate##</td>
+                    </tr>
+                    <tr class="text-left" style="vertical-align: top">
+                        <td class="tableCellBorder col-sm-2" align="right" valign="top" style="white-space: nowrap;"><b>Next Working Time: </b></td>
+                        <td class="tableCellBorder col-sm-2" align="left" colspan="3">##NextWorkingTime##</td>
+                    </tr>
+
+                    <tr class="text-left" style="vertical-align: top">
+                        <td class="tableCellBorder col-sm-2" align="right" valign="top" style="white-space: nowrap;"><b>Planned Hours:</b></td>
+                        <td class="tableCellBorder col-sm-2" align="left" colspan="3">##PlannedHours##</td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+            </table>
+                
+         <tr style="##WorkedOnVisibility##">
+            <td class="tableCellBorder" width="100%" colspan="4"></td>
+        </tr>
+
+        <tr style="##WorkedOnVisibility##">
+            <td class="tableCellBorder" colspan="4" width="1500px" align="left" valign="top" style="##DisplayHeaderStyle##"><b>DAILY ACTIVITY: </b></td>
+        </tr>
+        <tr style="##WorkedOnVisibility##">
+            <td class="tableCellBorder" colspan="4" width="1500px" align="left" style="##WorkedOnbegins##">
+                <table class="table" style="border-collapse: collapse" cellpadding="3" width="100%">
+                    <tr class="text-left" style="vertical-align: top">
+                        <th class="col-sm-2 header-seperator" align="left" style="##TicketColor##">Ticket</th>
+                        <th class='col-sm-1 header-seperator' title='Priority' align='center' style='##TicketColor##;padding-left: 10px; padding-right: 10px'>P</th>
+                        <th class="col-sm-1 header-seperator" align="left">Category</th>
+                        <th class="col-sm-1 header-seperator" align="right" style="width:10%">Time</th>
+                        <th class="col-sm-1 header-seperator" align="right">Duration (min)</th>
+                        <th class="col-sm-1 header-seperator" align="left" style="##HideColumnStyle##">Priority</th>
+                        <th class="col-sm-2 header-seperator" align="left">Activity</th>
+                        <th class="col-sm-4 header-seperator" align="left" title="Status" style="##HideHeaderStyle##">S</th>
+                        <th class="col-sm-1" align="right">∑ (hr)</th>
+                    </tr>
+                    ##Table1##
+                </table>
+            </td>
+        </tr>
+            <tr>
+			<td class='width-seperator' colspan='4'></td>
+			</tr>
+
+    </table>
+
+    <table class="tableCellBorder" cellpadding="5" style="border-collapse: collapse" width="100%">
+                  <tr style="##SectionTotalsSectionVisibility##">
+            <td class="tableCellBorder" width="100%" colspan="4"></td>
+        </tr>
+        <tr style="##SectionTotalsSectionVisibility##">
+            <td class="tableCellBorder" colspan="4" width="1500px" align="left" valign="top" style="##DisplayHeaderStyle##"><b>TICKET STATUS SUMMARY: </b></td>
+        </tr>
+          <tr style="##SectionTotalsSectionVisibility##">
+            <td class="tableCellBorder" colspan="6" width="1500px" align="left" style="##SectionSummary##">
+                <table class="table" style="border-collapse: collapse" cellpadding="3" width="100%">
+                    <tr class="text-left" style="vertical-align: top">
+                        <th class="col-sm-1 header-seperator" align="left"></th>  
+                        <th class="col-sm-1 header-seperator" align="right">Count ∑</th>                    
+                        <th class="col-sm-1 header-seperator" align="right">Due Month µ</th>
+                        <th class="col-sm-1 header-seperator" align="right">Person µ d</th>
+                        <th class="col-sm-1 header-seperator" align="right">Team µ d</th>
+                        <th class="col-sm-1 header-seperator" align="right">Person ∑ hr</th>
+                        <th class="col-sm-1 header-seperator" align="right">Team ∑ hr</th>
+                        <th class="col-sm-1" align="right">QA ∑ hr</th>
+                        </tr>
+                 
+                    ##TableSectionTotals##
+                </table>
+            </td>
+        </tr>
+      
+        <table class="tableCellBorder" cellpadding="5" style="border-collapse: collapse" width="100%">
+
+        ##TableInProgress##           
+        ##TableQA##  
+        ##TableReOpened##  
+        ##TableOpen##    
+
+        ##TableResolved## 
+                             
+        </table>
+        <table class="tableCellBorder" style="border-collapse: collapse" width="100%">
+        <tr style="##HidePriorityColumnStyle##">
+            <td class="tableCellBorder" colspan="4"></td>
+        </tr>
+        <tr style="##HidePriorityColumnStyle##">
+            <td class="tableCellBorder" width="1500px" align="left" valign="top" colspan="4" style="##DisplayHeaderStyle##"><b>Ticket: </b></td>
+        </tr>
+        <tr style="##HidePriorityColumnStyle##">
+            <td class="tableCellBorder" width="1500px" align="left" colspan="5">
+                <table class="table" style="border-collapse: collapse" cellpadding="5" width="250%">
+                    <tr class="text-left" style="vertical-align: top">
+                        <th class="col-sm-1 header-seperator" align="right">Ticket</th>
+                        <th class="col-sm-1 header-seperator" align="right">Status</th>
+                        <th class="col-sm-1 header-seperator" align="left" style="##HideHeaderStyle##">Priority</th>
+                        <th class="col-sm-1 header-seperator" align="left" style="##DueDateColumnStyle##">Due</th>
+                        <th class="col-sm-2 header-seperator" align="right">Description</th>                        
+                        <th class="col-sm-1 header-seperator" align="left">Due Month</th>
+                        <th class="col-sm-1 header-seperator" align="left">Person (d)</th>
+                        <th class="col-sm-1 header-seperator" align="left">Team (d)</th>
+                        <th class="col-sm-1 header-seperator" align="left">Team (hr)</th>
+                        <th class="col-sm-1 header-seperator" align="left">Person (hr)</th>
+                        <th class="col-sm-1" align="left">QA (hr)</th>
+                    </tr>
+                    ##Table2##            
+                </table>
+            </td>
+        </tr>    
+      </table>      
+   
+    
+        <tr style="##ReviewReadySectionVisibility##">
+            <td class="tableCellBorder" width="1500px" align="left" colspan="4">
+                <table class="table" style="border-collapse: collapse" cellpadding="5" width="100%">
+                    ##TableReviewReady## 
+                              
+                </table>
+            </td>
+        </tr>
+         <tr>
+			<td class='width-seperator' colspan='4'></td>
+			</tr>
+
+        <table class="tableCellBorder" cellpadding="5" style="border-collapse: collapse" width="100%">
+
+        ##TableClosed##            
+        ##TableClosedLastMonth##       
+                             
+        </table>
+
+        <table class="tableCellBorder" style="border-collapse: collapse" width="100%">
+        <tr>
+		<td class='width-seperator' colspan='4'></td>
+		</tr>       
+       
+        <tr style="##Table3mthsClosedVisibility##">
+            <td class="tableCellBorder" width="1500px" align="left" valign="top" style="##DisplayHeaderStyle##"><b>12 MONTHS CATEGORIZED HOURS:</b></td>
+        </tr>
+        <tr style="##Table3mthsClosedVisibility##">
+            <td class="tableCellBorder" width="1500px" align="left">
+                                <table class="table" style="border-collapse: collapse" cellpadding="5" width="100%">
+
+                ##Table3mthsClosed## 
+                                    </table>
+            </td>
+        </tr>
+         <tr>
+			<td class='width-seperator' colspan='4'></td>
+			</tr>
+
+        <tr style="display: inline-block;">
+            <td class="tableCellBorder" align="left" valign="top">
+                <table class="tableCellBorder" cellspacing="0" cellpadding="0" margin="0"
+                    style="width: 100%">
+                    <tr style="##VacationDaysVisibility##">
+                        <td class="tableCellBorder" align="left" valign='top' width="750px"
+                            style="##DisplayHeaderStyle##">
+                            <b>VACATION DAYS IN LAST 12 MONTHS: </b>
+                        </td>
+                    </tr>
+                    <tr style="##VacationDaysVisibility##">
+                        <td class="tableCellBorder" align="left" width="750px">
+                            <table style="border-collapse: collapse" cellpadding="5" width="100%">
+                                <tr class="text-left" style="vertical-align: top">
+                                    <th class="col-sm-2 header-seperator" align="left">Start</th>
+                                    <th class="col-sm-2 header-seperator" align="left">End</th>
+                                    <th class="col-sm-2 header-seperator" align="left">Reason</th>
+                                    <th class="col-sm-2" align="right">Total Days</th>
+                                </tr>
+                                ##TableVacationDays##            
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td class="tableCellBorder" align="left" valign="top">
+                <table class="tableCellBorder" style="border-spacing: 0; display: inline-block;">
+                    <tr style="##ExtraWorkDaysVisibility##">
+                        <td class="tableCellBorder" align="left" valign="top" width="750px" style="##DisplayHeaderStyle##"><b>EXTRA WORK DAYS IN LAST 12 MONTHS: </b></td>
+                    </tr>
+                    <tr style="##ExtraWorkDaysVisibility##">
+                        <td class="tableCellBorder" align="left" width="750px">
+                            <table style="border-collapse: collapse" cellpadding="5" width="100%">
+                                <tr class="text-left" style="vertical-align: top">
+                                    <th class="col-sm-2 header-seperator" align="left">Date</th>
+                                    <th class="col-sm-5 header-seperator" align="left">Day of The Week</th>
+                                    <th class="col-sm-5">Total Hours</th>
+                                </tr>
+                                ##TableExtraWorkDays##            
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+          <!-- <tr>
+            <td class="tableCellBorder" colspan="4"></td>
+        </tr>
+        <tr>
+            <td class="tableCellBorder" colspan="4"></td>
+        </tr>-->
+        <tr>
+            <td class="tableCellBorder" align="left" valign="top" colspan="7" style="##QuestionTableVisibility##" width="100%"><b>QUESTION:</b></td>
+        </tr>
+        <tr>
+            <td class="tableCellBorder" align="left" colspan="4" style="##QuestionTableVisibility##">
+                <table class="table" style="border-collapse: collapse" cellpadding="5" border="1">
+                    <tr class="text-left">
+                        <th class="col-sm-10 header-seperator" align="left">Question</th>
+                        <th class="col-sm-2" align="right">Answer</th>
+                    </tr>
+                    ##Table3##
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="tableCellBorder" colspan="4"></td>
+        </tr>
+        <tr>
+            <td class="tableCellBorder" colspan="4"></td>
+        </tr>        
+        <tr>
+            <td class="tableCellBorder" colspan="4" style="##LegendInfoSectionVisibility##">
+                <table width="100%" cellspacing="0" cellpadding="5" class="tableCellBorder">
+                    <tr>
+                        <td class="tableCellBorder" align="left" valign="top"><b>LEGEND INFO</b></td>
+                    </tr>
+                    <tr>
+                        <td class="tableCellBorder" align="left" valign="top" colspan="4" style="##DisplayHeaderStyle##"><strong>Priority Color: </strong></td>
+                    </tr>
+                    <tr style="##PriorityColors##">
+                        <td class="tableCellBorder" style="##LegendInfoSectionVisibility##">
+                            <table class="table" style="border-collapse: collapse" cellpadding="5" width="100%">
+                                <tr class="text-left" style="vertical-align: top">
+                                    <th class="col-sm-1 header-seperator" align="left" style="background-color: #FFB5C5; color: black">Blocker</th>
+                                    <th class="col-sm-1 header-seperator" align="left" style="background-color: #FFE1FF; color: black">Critical</th>
+                                    <th class="col-sm-1 header-seperator" align="left" style="background-color: #B0C4DE; color: black">Major</th>
+                                    <th class="col-sm-1 header-seperator" align="left" style="background-color: #F5DEB3; color: black">Minor</th>
+                                    <th class="col-sm-1" align="left" style="background-color: #CDC9C9; color: black">Standard</th>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td class="tableCellBorder"  width="100%"></td>
+                    </tr>
+                    <tr style="##SystemTableVisibility##">
+                        <td class="tableCellBorder" align="left" valign="top" colspan="4" style="##DisplayHeaderStyle##"><b>SYSTEM TICKETS: </b></td>
+                    </tr>
+                    <tr style="##SystemTableVisibility##">
+                        <td class="tableCellBorder" align="left"  style="width: 1500px">
+                            <table class="table" style="border-collapse: collapse" cellpadding="5" width="100%">
+                                <tr class="text-left" style="vertical-align: top">
+                                    <th class="col-sm-2 header-seperator" align="left" style="white-space: nowrap">Ticket</th>
+                                    <th class="col-sm-6" align="left">Description</th>
+                                </tr>
+                                ##SystemTable1##
+                            </table>
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        
+    </table>
+    
+</body>
+</html>

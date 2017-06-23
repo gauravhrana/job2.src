@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Admin/KendoEditor/Controls
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=20448
+KendoControl.ascx;4285795966;1;1394430860;|17178|165894
+KendoControl.ascx.cs;2798930892;1;1394430860;|17180|165896
+KendoControl.ascx.designer.cs;4177661155;1;1394430860;|17179|165895

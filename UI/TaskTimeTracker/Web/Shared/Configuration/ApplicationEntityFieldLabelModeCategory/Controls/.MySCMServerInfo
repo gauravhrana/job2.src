@@ -1,0 +1,17 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Configuration/ApplicationEntityFieldLabelModeCategory/Controls
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=7683
+SearchFilter.ascx.designer.cs;2322080683;2;1359440404;
+SearchFilter.ascx.cs;3563862217;2;1359440388;
+List.ascx.designer.cs;4653160;2;1359458541;
+List.ascx.cs;4020579310;2;1359458591;
+Validation.xml;1066268328;1;1359471416;
+SearchFilter.ascx;1370924927;2;1359440404;
+List.ascx;3577109197;2;1359458571;
+Details.ascx.designer.cs;1237962406;3;1359698407;
+Generic.ascx;3804390512;3;1359698407;
+Generic.ascx.designer.cs;2061342984;3;1359698414;
+Details.ascx;1867401429;4;1361764812;
+Details.ascx.cs;1444262128;4;1361764812;
+Generic.ascx.cs;33036403;6;1363578216;

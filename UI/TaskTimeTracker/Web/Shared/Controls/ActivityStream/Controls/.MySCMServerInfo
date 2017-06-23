@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Controls/ActivityStream/Controls
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=5584
+AuditActionDisplay.ascx.designer.cs;1085166155;4;1394430889;|2289|13140
+Generic.ascx;116677219;9;1394430889;|2288|73132
+Generic.ascx.cs;3495528556;7;1394430889;|2285|53097
+Generic.ascx.designer.cs;2676651328;5;1394430889;|2287|13142
+AuditActionDisplay.ascx.cs;2677470973;5;1402972145;|2290|204118
+AuditActionDisplay.ascx;1246425930;6;1406825972;|2286|223194

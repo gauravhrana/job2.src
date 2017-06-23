@@ -1,0 +1,97 @@
+﻿.searchLblName
+{
+    width: auto;
+}
+
+ .searchtd
+{
+    /* border-color: Blue;
+    border-width: 1px;
+    border-style: groove; */
+}
+
+ .searchLabel
+{
+    /* border-color: Blue;
+    border-width: 1px;
+    border-style: groove; */
+    text-align:right;
+    /*width:240px;*/
+    /*font-size: 18px;*/
+}
+
+.searchTable
+{
+    width:100%;   
+}
+
+.searchLargeTextBoxWidth {
+    width:450px;
+}
+
+.searchLargeComboWidth {
+    width:450px;
+}
+
+.searchButtonPanel {
+    padding-right: 155px;
+    text-align: right;
+}
+
+.searchTextBoxContainerVisible
+{
+    display: block;
+}
+
+.searchTextBoxContainerInVisible
+{
+    display: none;
+}
+
+.searchfilter
+{
+    font-weight: bold;
+    color: Black;
+    border: 1px;
+    border-top: 0px;
+    border-style: groove;
+    border-width: 2px;
+    border-color: Blue;
+    min-width: 100%;
+}
+
+    .searchfilter td
+    {
+        padding: 10px;
+    }
+
+.searchFilterHeader
+{
+    width: 100%;
+    /*height: 20px;*/
+}
+
+.searchFilterHeaderContainer
+{
+    padding: 0 !important;
+    padding: 0px;
+}
+
+.searchFilterGridLines
+{
+}
+
+    .searchFilterGridLines td
+    {
+        border: 1px solid;
+    }
+
+.searchFilterNoGridLines
+{
+}
+
+
+.align-center
+{
+    text-align: center !important;
+}

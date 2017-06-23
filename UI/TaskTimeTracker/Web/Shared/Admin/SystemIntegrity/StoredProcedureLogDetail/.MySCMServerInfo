@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Admin/SystemIntegrity/StoredProcedureLogDetail
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=5517
+Default.aspx;881909731;8;1408639047;|1337|233510
+Default.aspx.designer.cs;2916115760;4;1410146582;|1335|249923
+Details.aspx.designer.cs;1970358702;3;1410146582;|1334|241447
+Details.aspx;486089387;7;1419542792;|1338|290582
+Details.aspx.cs;1135295174;9;1462161225;|1339|346738
+Default.aspx.cs;4114746585;17;1469426665;|1336|353325

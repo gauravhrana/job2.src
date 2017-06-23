@@ -1,0 +1,14 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\_Generators\ForPages\PageGeneratorDefaultAndCU.tt" #>
+
+<#@ assembly name="$(TargetDir)\DataModel.ReferenceData.dll" #>
+
+<#
+	string entityName = "Country";
+	string nameSpace = "Shared.UI.Web.Admin.Country";
+	string dataModelNameSpace = "DataModel.ReferenceData";
+	string dataManagerNameSpace = "ReferenceData.Components.BusinessLayer";
+
+	this.GeneratePageFiles(entityName, nameSpace, dataModelNameSpace, dataManagerNameSpace);
+
+#>

@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/ApplicationManagement/Development/TestPaging
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=5541
+Paging.aspx;1277064175;2;1394430867;|1584|170677
+Paging.aspx.cs;1260219796;4;1394430867;|1582|138596
+Paging.aspx.designer.cs;3647152014;1;1394430867;|1583|7494
+Test.aspx;2703282078;4;1394430867;|9112|171418
+Test.aspx.cs;3062865047;5;1394430867;|9111|140836
+Test.aspx.designer.cs;482233223;3;1394430867;|9110|76710

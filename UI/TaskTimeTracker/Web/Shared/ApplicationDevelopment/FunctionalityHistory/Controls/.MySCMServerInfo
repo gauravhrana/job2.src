@@ -1,0 +1,13 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/ApplicationDevelopment/FunctionalityHistory/Controls
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=22779
+Details.ascx;1719835327;2;1406094027;|19590|219183
+Details.ascx.designer.cs;3055620259;2;1406094027;|19586|219185
+List.ascx;2911842844;2;1406094027;|19591|219186
+List.ascx.designer.cs;3606383005;2;1406094027;|19588|219188
+SearchFilter.ascx;2710314;3;1406172425;|19592|219741
+List.ascx.cs;4256835349;3;1408379788;|19587|225987
+Details.ascx.cs;896989784;4;1410146587;|19594|247838
+SearchFilter.ascx.designer.cs;4023264399;4;1413170139;|19593|263670
+SearchFilter.ascx.cs;2422245675;6;1414376796;|19589|273179

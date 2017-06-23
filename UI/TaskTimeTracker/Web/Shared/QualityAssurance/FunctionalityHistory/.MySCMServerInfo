@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/QualityAssurance/FunctionalityHistory
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=19967
+Default.aspx;1089658920;2;1394430897;|16343|171709
+Default.aspx.designer.cs;485919933;1;1394430897;|16346|163359
+Details.aspx.cs;2377514754;1;1394430897;|16348|163361
+Details.aspx.designer.cs;830983486;1;1394430897;|16347|163360
+Details.aspx;2755653045;4;1401678846;|16344|199452
+Default.aspx.cs;2264345260;2;1405544893;|16345|213208

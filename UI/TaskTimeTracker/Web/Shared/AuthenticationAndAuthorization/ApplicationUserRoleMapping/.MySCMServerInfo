@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/AuthenticationAndAuthorization/ApplicationUserRoleMapping
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=5558
+ApplicationRoleView.aspx;2687964374;3;1394430873;|1828|178598
+ApplicationRoleView.aspx.designer.cs;3576439785;1;1394430873;|1823|7635
+ApplicationUserView.aspx;636250638;3;1394430873;|1826|178599
+ApplicationUserView.aspx.designer.cs;3207606608;1;1394430873;|1825|7638
+ApplicationRoleView.aspx.cs;3374691316;7;1408591363;|1824|229519
+ApplicationUserView.aspx.cs;2870426696;8;1408591363;|1827|229520

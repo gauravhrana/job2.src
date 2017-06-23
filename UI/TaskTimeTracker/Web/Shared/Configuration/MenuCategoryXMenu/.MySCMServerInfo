@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Configuration/MenuCategoryXMenu
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=12692
+MenuCategoryToMenuView.aspx;4045528995;1;1365738598;|8261|28744
+MenuCategoryToMenuView.aspx.cs;100205241;2;1366703632;|8260|32978
+MenuCategoryToMenuView.aspx.designer.cs;2974225544;1;1365738598;|8262|28745
+CrossReference.aspx.cs;3248192686;18;1408591365;|9013|227839
+CrossReference.aspx;1603456786;5;1408639052;|9014|232654
+CrossReference.aspx.designer.cs;3199226862;5;1410146599;|9015|238781

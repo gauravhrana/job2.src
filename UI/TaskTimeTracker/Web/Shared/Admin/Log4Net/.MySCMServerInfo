@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Admin/Log4Net
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=11620
+Default.aspx.cs;867918994;16;1418183658;|5328|283186
+Default.aspx.designer.cs;2766242287;4;1418183658;|5329|283182
+Default.aspx;854777543;8;1418351524;|5330|283668
+ElapsedTimeData.aspx.designer.cs;3627329627;4;1422332808;|27045|295352
+ElapsedTimeData.aspx;3098074132;5;1449658192;|27046|338350
+ElapsedTimeData.aspx.cs;3500138568;17;1469426664;|27044|352173

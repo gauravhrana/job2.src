@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Admin/SystemEntityXSystemEntityCategory
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=13246
+CrossReference.aspx;4143494493;3;1410146581;|9338|242575
+CrossReference.aspx.designer.cs;1556416602;3;1410146581;|9337|242576
+CrossReference.aspx.cs;1140332478;13;1447042509;|9336|335609

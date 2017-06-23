@@ -1,0 +1,8 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Controls/ActivityStream
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=5583
+Settings.aspx.cs;36192454;5;1373979083;|2282|73059
+Settings.aspx.designer.cs;866757678;2;1373979083;|2281|73049
+Settings.aspx;2004583252;6;1374030856;|2284|73131
+ActivityStreamCommon.cs;960607707;14;1469426679;|2283|351713

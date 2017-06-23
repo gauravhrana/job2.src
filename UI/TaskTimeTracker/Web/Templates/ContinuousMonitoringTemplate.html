@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <style type="text/css">
+        .grid
+        {
+            width: 500px;
+            height: 200px;
+        }
+
+        .tableCellBorder
+        {
+            border-style: ##CellTableBorder##;
+            border-width: ##CellTableWidth##;
+        }
+
+        table, th, td
+        {
+            border: 1px solid black;
+            padding: 2px !important;
+        }
+
+        th
+        {
+            background-color: #337ab7;
+            color: white;
+        }
+        
+        .table-alt>tbody>tr:nth-child(even) { 
+        background: white;
+        }
+        .table-alt>tbody>tr:nth-child(odd) { 
+        background: lightblue;
+        }
+    </style>
+</head>
+<body>
+
+    <table class="tablecellBorder">
+        <tr>
+            <td class="tableCellBorder" align='left' valign='top' colspan="4"><b>Continuous Monitoring: </b></td>
+        </tr>
+        <tr>
+            <td class="tableCellBorder" align='left' colspan="4">
+                <table class="table-alt table" style='border-collapse: collapse' cellpadding='5' width="100%">
+                    <tr class="text-left" style="vertical-align: top">
+                        <th class="col-sm-1">Ticket</th>
+                        <th class="col-sm-1">Priority</th>
+                        <th class="col-sm-5">Description</th>
+                        <th class="col-sm-1">Assignee</th>
+                         <th class="col-sm-2">Created Date</th>
+                        <th class="col-sm-2">Updated Date</th>
+                        <th class="col-sm-2" style="##DueDateColumnStyle##">Due</th>
+                        <th class="col-sm-1">Person (d)</th>
+                        <th class="col-sm-1">Team (d)</th>
+                        <th class="col-sm-1">Person (hr)</th>
+                        <th class="col-sm-1">Team (hr)</th>
+
+                    </tr>
+                    ##TableContinuousMonitoring##
+                </table>
+            </td>
+        </tr>
+
+    </table>
+
+
+</body>
+</html>

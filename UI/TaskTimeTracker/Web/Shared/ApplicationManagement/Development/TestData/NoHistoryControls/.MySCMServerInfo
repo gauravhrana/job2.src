@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/ApplicationManagement/Development/TestData/NoHistoryControls
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=5540
+List.ascx;2213258802;1;1394430866;|1579|1579
+List.ascx.cs;4139403381;9;1394430866;|1576|156165
+List.ascx.designer.cs;3075715943;1;1394430866;|1581|1581
+SearchFilter.ascx;428403467;2;1394430866;|1580|84144
+SearchFilter.ascx.cs;106072240;5;1394430866;|1577|138595
+SearchFilter.ascx.designer.cs;2163849301;1;1394430866;|1578|1578

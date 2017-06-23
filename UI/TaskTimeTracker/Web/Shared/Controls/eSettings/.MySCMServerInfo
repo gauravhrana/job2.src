@@ -1,0 +1,18 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Controls/eSettings
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=22801
+eSettingsGrid.ascx;3882611992;1;1405911756;|20043|214678
+eSettingsGrid.ascx.designer.cs;2756450812;1;1405911756;|20030|214665
+eSettingsList.ascx;9170921;1;1405911756;|20037|214672
+eSettingsList.ascx.designer.cs;1327677323;1;1405911756;|20033|214668
+eSettingsListDynamic.ascx;2640511550;1;1405911756;|20038|214673
+eSettingsListDynamic.ascx.designer.cs;2824433136;1;1405911759;|20035|214670
+eSettingsRepeater.ascx;2235719049;1;1405911759;|20039|214674
+eSettingsRepeater.ascx.designer.cs;2910433560;1;1405911759;|20042|214677
+eSettingsTemplate.cs;1424535080;1;1405911759;|20041|214676
+eSettings.cs;4204302701;3;1410146603;|20032|249775
+eSettingsRepeater.ascx.cs;1121347941;4;1410146603;|20036|247868
+eSettingsGrid.ascx.cs;470522925;5;1411146586;|20040|253194
+eSettingsList.ascx.cs;596859922;5;1411146586;|20031|253195
+eSettingsListDynamic.ascx.cs;1378404218;5;1411146586;|20034|253196

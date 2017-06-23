@@ -1,0 +1,14 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Configuration/SystemForeignRelationshipDatabase/Controls
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=14916
+Details.ascx.designer.cs;3868729426;2;1394430881;|10847|155243
+Generic.ascx.designer.cs;627624732;1;1394430882;|10842|136410
+Validation.xml;1066268328;1;1394430882;|10844|136412
+Generic.ascx;441060806;4;1401244935;|10846|195564
+Details.ascx;476867304;4;1401678843;|10849|201813
+SearchFilter.ascx;699534352;8;1406005120;|10845|217397
+Generic.ascx.cs;2500119959;3;1408591366;|10843|229695
+Details.ascx.cs;2959431144;5;1413170147;|10850|267358
+SearchFilter.ascx.cs;4267354684;6;1413170147;|10841|267359
+SearchFilter.ascx.designer.cs;2437044699;4;1413170147;|10848|267360

@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Controls/CustomPager
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=13778
+NumberedPager.ascx;3988361735;1;1394430889;|9802|83174
+NumberedPager.ascx.designer.cs;3481298512;1;1394430889;|9801|83173
+NumberedPager.ascx.cs;316707909;5;1402972145;|9800|204243

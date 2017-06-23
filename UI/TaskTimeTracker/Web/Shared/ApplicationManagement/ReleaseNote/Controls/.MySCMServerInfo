@@ -1,0 +1,13 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/ApplicationManagement/ReleaseNote/Controls
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=22035
+ReleaseNotesStatChart.ascx;4120909471;1;1401244932;|17973|189919
+ReleaseNotesStatChart.ascx.cs;3661330790;1;1401244932;|17975|189921
+ReleaseNotesStatChart.ascx.designer.cs;1630235422;1;1401244932;|17976|189922
+ReleaseNoteStatistics.ascx;663036491;1;1401244932;|17980|189926
+ReleaseNoteStatistics.ascx.cs;2541862877;1;1401244932;|17977|189923
+ReleaseNoteStatistics.ascx.designer.cs;713161995;1;1401244932;|17978|189924
+ReleaseNotesSearchControl.ascx;3283744722;3;1406262656;|17979|220389
+ReleaseNotesSearchControl.ascx.designer.cs;891938029;4;1413170140;|17974|263685
+ReleaseNotesSearchControl.ascx.cs;1096393913;13;1413221712;|17981|271854

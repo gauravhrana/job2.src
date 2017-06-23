@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Admin/DatabaseChangeLog/Controls
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=17448
+Details.ascx.designer.cs;898066351;1;1394430859;|11588|149507
+Details.ascx;3705141599;5;1401678837;|11591|200323
+SearchFilter.ascx;4087808039;6;1421896841;|11589|295295
+SearchFilter.ascx.designer.cs;2777383442;2;1421896841;|11587|295297
+SearchFilter.ascx.cs;1890024417;4;1435116185;|11592|311462
+Details.ascx.cs;3118996703;7;1464934164;|11590|349535

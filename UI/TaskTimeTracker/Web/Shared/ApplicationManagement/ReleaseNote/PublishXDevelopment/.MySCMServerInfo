@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/ApplicationManagement/ReleaseNote/PublishXDevelopment
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=26940
+CrossReference.aspx;3630878958;1;1410146591;|22780|249424
+CrossReference.aspx.designer.cs;3332553167;1;1410146591;|22778|249422
+CrossReference.aspx.cs;3664658659;2;1447042509;|22779|335319

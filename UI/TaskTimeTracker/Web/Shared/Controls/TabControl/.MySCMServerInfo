@@ -1,0 +1,8 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Controls/TabControl
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=17533
+TabHeaderItem.ascx;1523629312;1;1394430889;|11740|156139
+TabHeaderItem.ascx.designer.cs;3049207368;1;1394430889;|11739|156138
+TabHelper.cs;1881428282;1;1394430889;|11737|156136
+TabHeaderItem.ascx.cs;3609768564;2;1402972150;|11738|204215

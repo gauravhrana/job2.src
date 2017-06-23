@@ -1,0 +1,17 @@
+﻿.ajax__calendar table div
+{
+    border-spacing: 0px !important;
+}
+
+.ajax__calendar td, .ajax__calendar th
+{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.ajax__calendar div
+{
+    border-spacing: 0px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}

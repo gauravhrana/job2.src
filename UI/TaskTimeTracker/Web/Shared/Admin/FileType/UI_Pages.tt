@@ -1,0 +1,14 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ include file=".\..\..\..\_Generators\ForPages\PageGeneratorDefaultAndCU.tt" #>
+
+<#@ assembly name="$(TargetDir)\Framework.Components.Import.dll" #>
+
+<#
+	string entityName = "FileType";
+	string nameSpace = "Shared.UI.Web.FileType";
+	string dataModelNameSpace = "DataModel.Framework.Import";
+	string dataManagerNameSpace = "Framework.Components.Import";
+
+	this.GeneratePageFiles(entityName, nameSpace, dataModelNameSpace, dataManagerNameSpace);
+
+#>

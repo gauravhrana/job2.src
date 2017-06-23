@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Configuration/ApplicationEntityFieldLabelModeXApplicationEntityFieldLabelModeCategory
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=10231
+ApplicationEntityFieldLabelModeView.aspx;2857429165;1;1360320533;
+ApplicationEntityFieldLabelModeCategoryView.aspx.cs;269043560;1;1360304020;
+ApplicationEntityFieldLabelModeCategoryView.aspx.designer.cs;203265198;1;1360302705;
+ApplicationEntityFieldLabelModeView.aspx.cs;336604001;1;1360331247;
+ApplicationEntityFieldLabelModeView.aspx.designer.cs;1505061386;1;1360299893;
+ApplicationEntityFieldLabelModeCategoryView.aspx;4005775029;1;1360302999;

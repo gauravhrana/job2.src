@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/Admin/SystemIntegrity/RenumberMigration/Controls
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=17485
+Details.ascx.designer.cs;4051514536;2;1394430861;|11640|150869
+SearchFilter.ascx;4222150902;1;1394430861;|11649|150837
+SearchFilter.ascx.cs;341120035;1;1394430861;|11648|150836
+SearchFilter.ascx.designer.cs;3088973694;1;1394430861;|11650|150838
+Details.ascx;1663514678;6;1401678838;|11641|200326
+Details.ascx.cs;4209657777;8;1464934164;|11639|349537

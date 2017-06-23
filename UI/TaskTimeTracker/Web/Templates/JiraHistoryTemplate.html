@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    
+<style type ="text/css">
+    .grid {
+  width: 500px;
+  height: 200px;
+}
+     .tableCellBorder
+        {
+            border-style: ##CellTableBorder##;
+            border-width: ##CellTableWidth##;
+        }
+
+        table, th, td
+        {
+            border: 1px solid black;
+            padding: 2px !important;
+        }
+
+        th
+        {
+            background-color: #337ab7;
+            color: white;
+        }
+
+</style>
+</head>
+<body>
+
+ <table style="width:100%">
+
+<table class="tablecellBorder" style="width:100%">
+     <tr>
+         <td class="tableCellBorder" align='left' valign='top' colspan="4"><b>Ticket Summary: ##JiraTitle##</b></td>
+     </tr>
+    <tr>
+        <td class="tableCellBorder" align='left' colspan="3">
+            <table class="table" style='border-collapse: collapse' cellpadding='5' width="100%">
+                   
+                <tr style="vertical-align: top">
+
+                    <th class="col-sm-2">Ticket</th>
+                    <th class="col-sm-1 text-right" style="##DueDateColumnStyle##">Due</th>
+                     <th class="col-sm-1 text-right">Min Date</th>
+                        <th class="col-sm-2 text-right">Max Date</th>
+                        <th class="col-sm-1 text-right">Team (d)</th>
+                        <th class="col-sm-1 text-right">Team (hr)</th>
+                   </tr>
+                   ##TableJiraSummary##
+                 
+            </table>
+           
+        </td>
+                    </tr>
+                    
+</table>
+
+
+<table class="tablecellBorder" style="width:100%">
+     <tr>
+         <td class="tableCellBorder" align='left' valign='top' colspan="4"><b>Ticket History: </b></td>
+     </tr>
+    <tr>
+        <td class="tableCellBorder">
+            <table class="table" width="100%">
+                <tr >
+                    ##TableJiraHistoryHeader##
+                </tr>
+                ##TableJiraHistory##
+            </table>
+        </td>
+                    </tr>
+                    
+</table>
+
+</table>  
+</body>
+</html>

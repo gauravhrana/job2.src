@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        .tableError
+        {
+            background-color: #000099;
+            width: 85%;
+            font-family: ##Font-Family##;
+        }
+
+        .tableHeaderRow
+        {
+            background-color: #eeeeee;
+        }
+
+        .tableHeaderCell
+        {
+            width: 100px;
+            font-size: 11px;
+            color: ##CellTitleFontColor##;
+            font-weight: bold;
+            text-align: right;
+            background-color: ##CellTitleBackGroundColor##;
+        }
+
+        .tableCell
+        {
+            background-color: #FFFFFF;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+    <table width="85%" border="0" align="center" cellpadding="5" cellspacing="1" class="tableError">
+        <tr class="tableHeaderRow">
+            <td class="tableHeaderCell" style="text-align: left; font-size: 12px;" colspan="2">Page Error</td>
+        </tr>
+        <tr>
+            <td class="tableHeaderCell" >Error</td>
+            <td class="tableCell">##Exception##</td>
+        </tr>
+         <tr>
+            <td class="tableHeaderCell">UserName</td>
+            <td class="tableCell">##UserIdentity##</td>
+        </tr>
+        <tr>
+            <td class="tableHeaderCell">Details</td>
+            <td class="tableCell">##InternalException##</td>
+        </tr>
+        <tr>
+            <td class="tableHeaderCell">Application Server</td>
+            <td class="tableCell">##ApplicationServer##</td>
+        </tr>
+        <tr>
+            <td class="tableHeaderCell">URL</td>
+            <td class="tableCell">##AbsoluteUrl##</td>
+        </tr>
+        <tr>
+            <td class="tableHeaderCell" valign="top">Stack Trace</td>
+            <td class="tableCell">##InternalStackTrace##</td>
+        </tr>
+        <tr>
+            <td class="tableHeaderCell">Request Host</td>
+            <td class="tableCell">##UserHostAddress##</td>
+        </tr>
+        <tr>
+            <td class="tableHeaderCell">Host Name</td>
+            <td class="tableCell">##UserHostName##</td>
+        </tr>
+        <tr>
+            <td class="tableHeaderCell">User Agent</td>
+            <td class="tableCell">##UserAgent##</td>
+        </tr>
+        
+        <tr>
+            <td class="tableHeaderCell">Method</td>
+            <td class="tableCell">##TargetSite##</td>
+        </tr>
+        <tr>
+            <td class="tableHeaderCell">Source</td>
+            <td class="tableCell">##ExceptionSource##</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+
+

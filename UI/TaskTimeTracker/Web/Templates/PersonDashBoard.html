@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <style type="text/css">
+        .tableCellBorder
+        {
+            border-style: ##CellTableBorder##;
+            border-width: ##CellTableWidth##;
+        }
+
+        table, th, td
+        {
+            border: 1px solid black;
+            padding: 2px !important;
+        }
+
+        th
+        {
+            background-color: #337ab7;
+            color: white;
+        }
+
+        .table-alt > tbody > tr:nth-child(even)
+        {
+            background: white;
+        }
+
+        .table-alt > tbody > tr:nth-child(odd)
+        {
+            background: lightblue;
+        }
+       
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <table class="tableCellBorder" width="100%">
+        <tr>
+            <td>
+                <table class="tableCellBorder">
+                    <tr>
+                        <td align="right" class="tableCellBorder"><b>Team Member: </b></td>
+                        <td class="tableCellBorder">##PersonName##</td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="tableCellBorder"><b>Date: </b></td>
+                        <td class="tableCellBorder">##WorkDate##</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="border-width: 0px"></td>
+        </tr>
+        ##TableFinalTables##                
+    </table>
+</body>

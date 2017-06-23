@@ -1,0 +1,13 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/ApplicationManagement/Development/BucketExample
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=5534
+BucketFor3.aspx.designer.cs;1030486570;1;1358749079;|1548|1548
+SampleByPerson.aspx.cs;96461741;1;1358749079;|1542|7486
+SampleByPerson.aspx.designer.cs;2940377109;1;1358749079;|1543|7487
+SampleByRole.aspx.designer.cs;3028282731;1;1358749079;|1545|1545
+SampleByRole.aspx.cs;3237183665;3;1384715738;|1544|138587
+BucketFor3.aspx.cs;4148496858;8;1388982266;|1547|156692
+SampleByPerson.aspx;568443645;3;1393822242;|1541|178579
+SampleByRole.aspx;273232329;3;1393822242;|1546|178580
+BucketFor3.aspx;658823272;5;1394079472;|1540|180136

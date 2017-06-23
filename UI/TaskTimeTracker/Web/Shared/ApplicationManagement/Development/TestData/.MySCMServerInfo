@@ -1,0 +1,13 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Shared/ApplicationManagement/Development/TestData
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=5537
+BrokenHistoryRecords.aspx;1173447747;4;1394430866;|1561|170674
+BrokenHistoryRecords.aspx.cs;1639623455;4;1394430866;|1564|138589
+BrokenHistoryRecords.aspx.designer.cs;2706943483;2;1394430866;|1565|154651
+EntityTestData.aspx;1036280578;4;1394430866;|1563|170675
+EntityTestData.aspx.cs;3802828262;5;1394430866;|1558|140643
+EntityTestData.aspx.designer.cs;645598917;1;1394430866;|1560|1560
+RecordsWithMissingHistory.aspx;4161831237;4;1394430866;|1559|170676
+RecordsWithMissingHistory.aspx.cs;1920810243;2;1394430866;|1562|123523
+RecordsWithMissingHistory.aspx.designer.cs;3350929517;2;1394430866;|1566|8996
