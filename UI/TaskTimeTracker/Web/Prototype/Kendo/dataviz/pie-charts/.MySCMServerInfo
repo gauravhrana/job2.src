@@ -1,0 +1,9 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Prototype/Kendo/dataviz/pie-charts
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=19145
+index.html;3677421010;3;1406516546;|13959|221161
+local-data.html;520745265;3;1406516546;|13958|221162
+mvvm.html;2836449885;3;1406516546;|13957|221163
+pie-labels.html;1315959867;3;1406516546;|13960|221164
+remote-data.html;1875829654;3;1406516546;|13961|221165

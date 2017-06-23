@@ -1,0 +1,10 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Prototype/Kendo/web/datasource
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=19179
+index.html;1221786663;3;1406516548;|14098|221298
+local-operations.html;661916773;3;1406516548;|14099|221299
+remote-data.html;1774742237;3;1406516548;|14100|221300
+remote-operations.html;599723552;3;1406516548;|14097|221301
+shared-datasource.html;2880591620;3;1406516548;|14101|221302
+xml-data.html;2961333319;3;1406516548;|14096|221303

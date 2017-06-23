@@ -1,0 +1,9 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Prototype/Kendo/content/web/globalization/cultures
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=19104
+kendo.culture.bg-BG.js;1832793852;1;1394430816;|13766|158855
+kendo.culture.de-DE.js;828200328;1;1394430816;|13765|158854
+kendo.culture.en-GB.js;1539297769;1;1394430816;|13764|158853
+kendo.culture.en-US.js;1627076286;1;1394430816;|13768|158857
+kendo.culture.fr-FR.js;2476813818;1;1394430816;|13767|158856

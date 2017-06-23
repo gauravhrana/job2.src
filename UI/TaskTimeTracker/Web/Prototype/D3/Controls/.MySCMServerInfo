@@ -1,0 +1,13 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Prototype/D3/Controls
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=20673
+d3SampleControl.ascx.cs;3336317447;2;1413169756;|17588|267015
+d3PieSampleControl.ascx.designer.cs;2903552125;3;1413169745;|17614|267013
+d3AnimatedSample.ascx.designer.cs;66867170;2;1413169745;|17635|267010
+d3AnimatedSample.ascx.cs;3737187034;2;1413169745;|17636|267009
+d3PieSampleControl.ascx.cs;328861281;2;1413169745;|17615|267012
+d3SampleControl.ascx.designer.cs;3312220750;3;1413169756;|17587|267016
+d3AnimatedSample.ascx;409179728;5;1452175126;|17637|267008
+d3SampleControl.ascx;3201937067;9;1459745524;|17589|342012
+d3PieSampleControl.ascx;2667084708;8;1473996522;|17616|355598

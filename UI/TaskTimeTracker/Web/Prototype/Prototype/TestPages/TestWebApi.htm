@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test Web API Page</title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <!-- jQuery -->
+    <script src="/Scripts/jquery-2.1.0.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div>
+        <h2>
+            All Clients</h2>
+        <ul id="clients" />
+        <table id="clientContainer">
+            <tr>
+                <th>
+                    ClientId
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    SortOrder
+                </th>
+                <th>
+                </th>
+                <th>
+                </th>
+                <th>
+                </th>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <a href="client/Insert">Insert</a>
+        <h2>
+            Search by ID</h2>
+        <input type="text" id="clientId" size="5" />
+        <input type="button" value="Search" onclick="find();" />
+        <p id="clientSearch" />
+    </div>
+    <script>
+        var apiUrl = 'http://localhost:50881/api/clients';
+
+        $(document).ready(function () {
+            // Send an AJAX request
+            $.getJSON(apiUrl)
+            .done(function (data) {
+                // On success, 'data' contains a list of client.
+                $.each(data, function (key, item) {
+                    // Add a list item for the product.
+
+                    var rowHtml = document.createElement("tr");  // Create with DOM
+                    rowHtml.innerHTML = formatItemRow(item);
+                    $('#clientContainer').append(rowHtml();
+
+                });
+            })
+            .fail(function (jqXHR, textStatus, err) {
+                $('#clients').text('Error: ' + err);
+            });
+        });
+
+        function formatItem(item) {
+            return item.ClientId + ' : ' + item.Name + ' :  ' + item.Description + ' : ' + item.SortOrder;
+        }
+
+        function formatItemRow(item) {
+            var rowHtml = '<td>' + item.ClientId + '</td><td>' + item.Name + '</td><td>';
+            rowHtml += item.Description + '</td><td>' + item.SortOrder + '</td>';
+            rowHtml += "<td><a href='client/details/" + item.ClientId + "'>Details</a>";
+            rowHtml += "<td><a href='client/Update/" + item.ClientId + "'>Edit</a>";
+            return rowHtml;
+        }
+
+        function find() {
+            var id = $('#clientId').val();
+            $.getJSON(apiUrl + '/' + id)
+            .done(function (data) {
+
+
+                $('#clientContainer tr:not(:first)').remove();
+
+                //$('#clientSearch').text(formatItem(data));
+                var rowHtml = document.createElement("tr");  // Create with DOM
+                rowHtml.innerHTML = formatItemRow(data);
+                $('#clientContainer').append(rowHtml();
+
+            })
+            .fail(function (jqXHR, textStatus, err) {
+                $('#clientSearch').text('Error: ' + err);
+            });
+        }
+    </script>
+</body>
+</html>

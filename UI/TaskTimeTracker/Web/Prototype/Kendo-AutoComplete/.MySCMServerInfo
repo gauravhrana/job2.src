@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Prototype/Kendo-AutoComplete
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=20440
+KendoAutoComplete.aspx;3201096657;8;1413169756;|17202|262655
+KendoAutoComplete.aspx.designer.cs;496348588;4;1413169756;|17203|262657
+KendoAutoComplete.aspx.cs;1219256322;4;1434426165;|17204|310093

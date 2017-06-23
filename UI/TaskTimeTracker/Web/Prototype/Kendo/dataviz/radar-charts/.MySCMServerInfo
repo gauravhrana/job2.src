@@ -1,0 +1,12 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Prototype/Kendo/dataviz/radar-charts
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=19148
+grouped-data.html;2471939595;3;1406516546;|13975|221176
+index.html;4286921579;3;1406516546;|13974|221177
+local-data.html;3787020065;3;1406516546;|13973|221178
+mvvm.html;819190240;3;1406516546;|13976|221179
+radar-area.html;4237914716;3;1406516546;|13977|221180
+radar-column.html;425380713;3;1406516546;|13972|221181
+remote-data.html;1610238396;3;1406516546;|13978|221182
+smooth-radar-line.html;27775177;3;1406516546;|13979|221183

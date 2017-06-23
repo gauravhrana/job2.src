@@ -1,0 +1,9 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Scripts/angularstrap
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=27351
+angularstrap-date-parser.js;735061895;1;1410795667;|24208|252628
+angularstrap-datepicker.js;280234924;1;1410795667;|24205|252625
+angularstrap-datepicker.tpl.html;2738278388;1;1410795667;|24204|252624
+angularstrap-dimensions.js;862664486;1;1410795667;|24206|252626
+angularstrap-tooltip.js;2186105180;1;1410795667;|24207|252627

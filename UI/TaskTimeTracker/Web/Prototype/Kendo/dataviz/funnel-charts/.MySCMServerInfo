@@ -1,0 +1,9 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Prototype/Kendo/dataviz/funnel-charts
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=19141
+funnel-labels.html;506758442;3;1406516545;|13933|221137
+index.html;3627026611;3;1406516545;|13936|221138
+local-data.html;2449779906;3;1406516545;|13935|221139
+mvvm.html;1757920594;3;1406516545;|13934|221140
+remote-data.html;70757652;3;1406516546;|13937|221141

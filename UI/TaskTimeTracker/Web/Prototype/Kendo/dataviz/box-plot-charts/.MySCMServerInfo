@@ -1,0 +1,8 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Prototype/Kendo/dataviz/box-plot-charts
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=19135
+index.html;3222706112;3;1406516545;|13911|221115
+local-data.html;4074419752;3;1406516545;|13914|221116
+mvvm.html;1886847581;3;1406516545;|13913|221117
+remote-data.html;896119210;3;1406516545;|13912|221118

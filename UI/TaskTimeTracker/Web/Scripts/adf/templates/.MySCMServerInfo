@@ -1,0 +1,11 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Scripts/adf/templates
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=27349
+dashboard-edit-notitle.html;1191433745;1;1410795667;|24272|252766
+dashboard-edit.html;4189332809;1;1410795667;|24271|252765
+dashboard-notitle.html;1236326678;1;1410795667;|24270|252764
+dashboard.html;2970094305;1;1410795667;|24269|252763
+widget-add.html;2543474280;1;1410795667;|24268|252762
+widget-edit.html;55750934;1;1410795667;|24266|252760
+widget.html;3233477744;1;1410795667;|24267|252761

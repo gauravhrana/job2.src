@@ -1,0 +1,8 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Prototype/Kendo/dataviz/bullet-charts
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=19137
+index.html;754685779;3;1406516545;|13923|221124
+local-data.html;2179707400;3;1406516545;|13922|221125
+mvvm.html;2346549008;3;1406516545;|13921|221126
+remote-data.html;970793449;3;1406516545;|13920|221127

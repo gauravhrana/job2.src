@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Scripts/ContextMenu
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=21018
+ContextMenu.js;3900613629;1;1398892237;|17906|188078
+jquery.contextMenu.js;1237372630;1;1398892237;|17907|188079
+jquery.ui.position.js;1701987455;1;1398892237;|17905|188077

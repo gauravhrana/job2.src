@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Report/ReportXReportCategory
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=22029
+CrossReference.aspx;2182966809;3;1413169758;|18045|262831
+CrossReference.aspx.designer.cs;1468201549;3;1413169758;|18044|262833
+CrossReference.aspx.cs;1835300316;7;1447042489;|18043|335307

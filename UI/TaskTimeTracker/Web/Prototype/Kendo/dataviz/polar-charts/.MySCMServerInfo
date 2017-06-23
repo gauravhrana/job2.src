@@ -1,0 +1,11 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Prototype/Kendo/dataviz/polar-charts
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=19146
+index.html;2933937289;3;1406516546;|13966|221166
+local-data.html;3744588468;3;1406516546;|13968|221167
+mvvm.html;3306993501;3;1406516546;|13965|221168
+polar-area.html;1091664240;3;1406516546;|13964|221169
+polar-scatter.html;3388015439;3;1406516546;|13963|221170
+remote-data.html;2615613605;3;1406516546;|13962|221171
+smooth-polar-line.html;21187204;3;1406516546;|13967|221172

@@ -1,0 +1,7 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Prototype/BreadCrumbTest
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=20695
+TestMenuCategory.aspx;3486267272;3;1413169745;|17622|262622
+TestMenuCategory.aspx.designer.cs;2233629498;3;1413169745;|17621|262624
+TestMenuCategory.aspx.cs;3206333707;12;1469426650;|17620|353406

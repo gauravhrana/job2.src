@@ -1,0 +1,19 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Prototype/Prototype/TestData
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=29173
+BrokenHistoryRecords.aspx;3866191244;1;1417403891;|28869|279455
+BrokenHistoryRecords.aspx.designer.cs;2706943483;1;1417403891;|28870|279456
+ElapsedTimeData.aspx;1549997092;1;1417403892;|28862|279448
+ElapsedTimeData.aspx.designer.cs;1714602000;1;1417403892;|28856|279442
+EntityNextValueData.aspx;1717870060;2;1417459693;|28861|279983
+EntityNextValueData.aspx.designer.cs;841665308;2;1417459693;|28863|279984
+RecordsWithMissingHistory.aspx.designer.cs;4047347309;2;1422976538;|28867|295956
+RecordsWithMissingHistory.aspx;968731408;2;1422976869;|28857|295957
+EntityTestData.aspx.designer.cs;3086329041;7;1428549029;|28865|298235
+EntityTestData.aspx;2049579564;18;1429237654;|28860|300907
+BrokenHistoryRecords.aspx.cs;1604030723;2;1434425624;|28859|310128
+ElapsedTimeData.aspx.cs;3713646469;6;1469426650;|28868|353410
+EntityNextValueData.aspx.cs;4183653611;3;1469426650;|28858|353411
+EntityTestData.aspx.cs;2383063175;15;1493092281;|28864|358310
+RecordsWithMissingHistory.aspx.cs;1689263527;6;1493092281;|28866|358311

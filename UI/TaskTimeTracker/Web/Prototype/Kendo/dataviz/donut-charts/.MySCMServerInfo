@@ -1,0 +1,9 @@
+SCMBranch=USR-717
+SCMRepository=User Interface/Task Time Tracker/Web/Prototype/Kendo/dataviz/donut-charts
+SCMMainlineUUID={6a359bb0-6131-417f-b48a-3113b3a22182}
+SCMBranchRepositoryID=19139
+donut-labels.html;2089632627;3;1406516545;|13929|221129
+index.html;1054019485;3;1406516545;|13928|221130
+local-data.html;1265394037;3;1406516545;|13925|221131
+mvvm.html;3814543744;3;1406516545;|13927|221132
+remote-data.html;899903967;3;1406516545;|13926|221133
